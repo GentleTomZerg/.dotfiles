@@ -119,7 +119,8 @@ export EDITOR='lvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
+# My alias
+alias c="clear"
 # My Configurations
 
 # Set Proxy
