@@ -1,0 +1,1 @@
+wget --output-document zm.yaml https://sub.xeton.dev/sub\?target\=clash\&new_name\=true\&url\=https://s.52zm.cloud/api/v1/client/subscribe\?token\=83156bd22c47d23040013ca6e8d63d9f\&insert\=false\&config\=config%2FACL4SSR_Mini_Fallback.ini
