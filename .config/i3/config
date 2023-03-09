@@ -193,7 +193,7 @@ bindsym $mod+r mode "resize"
 
 # Window Config
   # Delete the head
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 1
 for_window [class="^copyq$"] floating enable
 # Gaps config
 gaps inner 10

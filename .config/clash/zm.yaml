@@ -5,20 +5,19 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
+  - {name: 🇯🇵 Lv4 日本 东京, server: sh.cm.izhimajiasu.com, port: 41378, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
+  - {name: 🇸🇬 Lv4 新加坡4, server: sh.cm.izhimajiasu.com, port: 49213, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
+  - {name: 🇸🇬 Lv4 新加坡7, server: sh.cm.izhimajiasu.com, port: 41728, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡6, server: sh.cm.izhimajiasu.com, port: 41778, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡5, server: sh.cm.izhimajiasu.com, port: 44778, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇭🇰 Lv4 香港gcore2, server: sh.cm.izhimajiasu.com, port: 37923, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇸🇬 Lv4 新加坡7, server: sh.cm.izhimajiasu.com, port: 41728, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇸🇬 Lv4 新加坡 解锁 1.5x, server: sh.cm.izhimajiasu.com, port: 31713, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
+  - {name: 🇯🇵 Lv4 日本4 解锁迪士尼, server: sh.cm.izhimajiasu.com, port: 41213, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
+  - {name: 🇸🇬 Lv4 新加坡 解锁NF 1.5x, server: sh.cm.izhimajiasu.com, port: 31713, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x, server: sh.cm.izhimajiasu.com, port: 31128, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇺🇲 Lv4 美国2 大概能用ChatGPT 2x, server: sh.cm.izhimajiasu.com, port: 49219, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: Lv4 以色列 中央区 罗什艾因, server: sh.cm.izhimajiasu.com, port: 52717, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇩🇪 Lv4 西班牙 马德里, server: sh.cm.izhimajiasu.com, port: 57717, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇸🇬 Lv4 新加坡4, server: sh.cm.izhimajiasu.com, port: 49213, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇭🇰 Lv4 香港neko HN, server: sh.cm.izhimajiasu.com, port: 45771, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇺🇲 Lv4 美国 圣何塞 1, server: sh.cm.izhimajiasu.com, port: 21213, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇯🇵 Lv4 日本4, server: sh.cm.izhimajiasu.com, port: 41213, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇯🇵 Lv4 日本 东京, server: sh.cm.izhimajiasu.com, port: 41378, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇨🇦 Lv3 加拿大 多伦多, server: sh.cm.izhimajiasu.com, port: 35111, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇫🇷 Lv4 法国巴黎 0.5x, server: sh.cm.izhimajiasu.com, port: 37911, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡3, server: sh.cm.izhimajiasu.com, port: 23003, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
@@ -33,8 +32,7 @@ proxies:
   - {name: 🇭🇰 Lv4 香港HE2-hgc-sh, server: sh.cm.izhimajiasu.com, port: 41712, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇭🇰 Lv4 香港s, server: sh.cm.izhimajiasu.com, port: 23013, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇯🇵 Lv4 日本lins, server: sh.cm.izhimajiasu.com, port: 45001, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇯🇵 Lv4 日本azs, server: sh.cm.izhimajiasu.com, port: 45111, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇦🇺 Lv4 澳大利亚 悉尼, server: sh.cm.izhimajiasu.com, port: 45313, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
+  - {name: 🇦🇺 Lv3 澳大利亚 悉尼, server: sh.cm.izhimajiasu.com, port: 45313, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡, server: sh.cm.izhimajiasu.com, port: 45003, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇺🇲 Lv4 美国 linode, server: gz.cm.izhimajiasu.com, port: 39334, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇨🇳 Lv4 台湾2xsg-sh, server: sh.cm.izhimajiasu.com, port: 45002, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
@@ -47,7 +45,6 @@ proxies:
   - {name: 🇭🇰 Lv4 香港1nextnet, server: sh.cm.izhimajiasu.com, port: 25772, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇩🇪 Lv3 德国 linode, server: sh.cm.izhimajiasu.com, port: 45221, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇺🇲 Lv4 美国 圣何塞 解锁, server: sh.cm.izhimajiasu.com, port: 45742, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇺🇲 Lv3 美国gtt5解锁奈飞, server: gtt5.887211.xyz, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, servername: gtt5.887211.xyz, network: ws, ws-opts: {path: /, headers: {Host: gtt5.887211.xyz}}}
   - {name: 🇺🇲 Lv4 美国 洛杉矶inp, server: sh.cm.izhimajiasu.com, port: 45673, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇺🇲 Lv4 美国inp2, server: sh.cm.izhimajiasu.com, port: 45125, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇺🇲 Lv3 芝加哥2, server: sh.cm.izhimajiasu.com, port: 47135, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
@@ -58,7 +55,6 @@ proxies:
   - {name: 🇹🇷 Lv4 土耳其2, server: sh.cm.izhimajiasu.com, port: 18401, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇳🇱 Lv4 荷兰 阿姆斯特丹, server: sh.cm.izhimajiasu.com, port: 28171, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇷🇺 Lv3 俄罗斯, server: gz.cm.izhimajiasu.com, port: 47785, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇸🇬 Lv4 新加坡do6 2x, server: gz.cm.izhimajiasu.com, port: 37184, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇬🇧 Lv3 英国, server: sh.cm.izhimajiasu.com, port: 45004, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇬🇧 Lv3 英国3上, server: sh.cm.izhimajiasu.com, port: 45770, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇬🇧 Lv3 英国4广, server: gz.cm.izhimajiasu.com, port: 57002, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
@@ -67,27 +63,25 @@ proxies:
   - {name: 🇯🇵 Lv4 日本 vir 5x, server: sh.cm.izhimajiasu.com, port: 45011, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇭🇰 Lv4 香港ipv6 5x, server: sh.cm.izhimajiasu.com, port: 62811, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇯🇵 Lv4 日本ipv6 5x, server: sh.cm.izhimajiasu.com, port: 61811, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇺🇲 Lv3 美国Rn解锁NF, server: rn.887211.xyz, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, servername: rn.887211.xyz, network: ws, ws-opts: {path: /, headers: {Host: rn.887211.xyz}}}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
+      - 🇯🇵 Lv4 日本 东京
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
       - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港gcore2
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 解锁 1.5x
+      - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT 2x
       - Lv4 以色列 中央区 罗什艾因
       - 🇩🇪 Lv4 西班牙 马德里
-      - 🇸🇬 Lv4 新加坡4
       - 🇭🇰 Lv4 香港neko HN
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇯🇵 Lv4 日本4
-      - 🇯🇵 Lv4 日本 东京
       - 🇨🇦 Lv3 加拿大 多伦多
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇸🇬 Lv4 新加坡3
@@ -102,8 +96,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
-      - 🇯🇵 Lv4 日本azs
-      - 🇦🇺 Lv4 澳大利亚 悉尼
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇸🇬 Lv4 新加坡
       - 🇺🇲 Lv4 美国 linode
       - 🇨🇳 Lv4 台湾2xsg-sh
@@ -116,7 +109,6 @@ proxy-groups:
       - 🇭🇰 Lv4 香港1nextnet
       - 🇩🇪 Lv3 德国 linode
       - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv4 美国 洛杉矶inp
       - 🇺🇲 Lv4 美国inp2
       - 🇺🇲 Lv3 芝加哥2
@@ -127,7 +119,6 @@ proxy-groups:
       - 🇹🇷 Lv4 土耳其2
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
       - 🇷🇺 Lv3 俄罗斯
-      - 🇸🇬 Lv4 新加坡do6 2x
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
@@ -136,26 +127,24 @@ proxy-groups:
       - 🇯🇵 Lv4 日本 vir 5x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
-      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
+      - 🇯🇵 Lv4 日本 东京
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
       - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港gcore2
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 解锁 1.5x
+      - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT 2x
       - Lv4 以色列 中央区 罗什艾因
       - 🇩🇪 Lv4 西班牙 马德里
-      - 🇸🇬 Lv4 新加坡4
       - 🇭🇰 Lv4 香港neko HN
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇯🇵 Lv4 日本4
-      - 🇯🇵 Lv4 日本 东京
       - 🇨🇦 Lv3 加拿大 多伦多
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇸🇬 Lv4 新加坡3
@@ -170,8 +159,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
-      - 🇯🇵 Lv4 日本azs
-      - 🇦🇺 Lv4 澳大利亚 悉尼
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇸🇬 Lv4 新加坡
       - 🇺🇲 Lv4 美国 linode
       - 🇨🇳 Lv4 台湾2xsg-sh
@@ -184,7 +172,6 @@ proxy-groups:
       - 🇭🇰 Lv4 香港1nextnet
       - 🇩🇪 Lv3 德国 linode
       - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv4 美国 洛杉矶inp
       - 🇺🇲 Lv4 美国inp2
       - 🇺🇲 Lv3 芝加哥2
@@ -195,7 +182,6 @@ proxy-groups:
       - 🇹🇷 Lv4 土耳其2
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
       - 🇷🇺 Lv3 俄罗斯
-      - 🇸🇬 Lv4 新加坡do6 2x
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
@@ -204,27 +190,25 @@ proxy-groups:
       - 🇯🇵 Lv4 日本 vir 5x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
-      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: 🌍 国外媒体
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
+      - 🇯🇵 Lv4 日本 东京
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
       - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港gcore2
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 解锁 1.5x
+      - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT 2x
       - Lv4 以色列 中央区 罗什艾因
       - 🇩🇪 Lv4 西班牙 马德里
-      - 🇸🇬 Lv4 新加坡4
       - 🇭🇰 Lv4 香港neko HN
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇯🇵 Lv4 日本4
-      - 🇯🇵 Lv4 日本 东京
       - 🇨🇦 Lv3 加拿大 多伦多
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇸🇬 Lv4 新加坡3
@@ -239,8 +223,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
-      - 🇯🇵 Lv4 日本azs
-      - 🇦🇺 Lv4 澳大利亚 悉尼
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇸🇬 Lv4 新加坡
       - 🇺🇲 Lv4 美国 linode
       - 🇨🇳 Lv4 台湾2xsg-sh
@@ -253,7 +236,6 @@ proxy-groups:
       - 🇭🇰 Lv4 香港1nextnet
       - 🇩🇪 Lv3 德国 linode
       - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv4 美国 洛杉矶inp
       - 🇺🇲 Lv4 美国inp2
       - 🇺🇲 Lv3 芝加哥2
@@ -264,7 +246,6 @@ proxy-groups:
       - 🇹🇷 Lv4 土耳其2
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
       - 🇷🇺 Lv3 俄罗斯
-      - 🇸🇬 Lv4 新加坡do6 2x
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
@@ -273,13 +254,11 @@ proxy-groups:
       - 🇯🇵 Lv4 日本 vir 5x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
-      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 🇭🇰 Lv4 香港gcore2
       - 🇭🇰 Lv4 香港neko HN
       - 🇨🇳 Lv4 台湾hi52 NF上
       - 🇨🇳 Lv4 台湾4
@@ -295,20 +274,19 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
+      - 🇯🇵 Lv4 日本 东京
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
       - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港gcore2
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 解锁 1.5x
+      - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT 2x
       - Lv4 以色列 中央区 罗什艾因
       - 🇩🇪 Lv4 西班牙 马德里
-      - 🇸🇬 Lv4 新加坡4
       - 🇭🇰 Lv4 香港neko HN
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇯🇵 Lv4 日本4
-      - 🇯🇵 Lv4 日本 东京
       - 🇨🇦 Lv3 加拿大 多伦多
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇸🇬 Lv4 新加坡3
@@ -323,8 +301,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
-      - 🇯🇵 Lv4 日本azs
-      - 🇦🇺 Lv4 澳大利亚 悉尼
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇸🇬 Lv4 新加坡
       - 🇺🇲 Lv4 美国 linode
       - 🇨🇳 Lv4 台湾2xsg-sh
@@ -337,7 +314,6 @@ proxy-groups:
       - 🇭🇰 Lv4 香港1nextnet
       - 🇩🇪 Lv3 德国 linode
       - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv4 美国 洛杉矶inp
       - 🇺🇲 Lv4 美国inp2
       - 🇺🇲 Lv3 芝加哥2
@@ -348,7 +324,6 @@ proxy-groups:
       - 🇹🇷 Lv4 土耳其2
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
       - 🇷🇺 Lv3 俄罗斯
-      - 🇸🇬 Lv4 新加坡do6 2x
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
@@ -357,25 +332,23 @@ proxy-groups:
       - 🇯🇵 Lv4 日本 vir 5x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
-      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
+      - 🇯🇵 Lv4 日本 东京
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
       - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港gcore2
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 解锁 1.5x
+      - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT 2x
       - Lv4 以色列 中央区 罗什艾因
       - 🇩🇪 Lv4 西班牙 马德里
-      - 🇸🇬 Lv4 新加坡4
       - 🇭🇰 Lv4 香港neko HN
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇯🇵 Lv4 日本4
-      - 🇯🇵 Lv4 日本 东京
       - 🇨🇦 Lv3 加拿大 多伦多
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇸🇬 Lv4 新加坡3
@@ -390,8 +363,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
-      - 🇯🇵 Lv4 日本azs
-      - 🇦🇺 Lv4 澳大利亚 悉尼
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇸🇬 Lv4 新加坡
       - 🇺🇲 Lv4 美国 linode
       - 🇨🇳 Lv4 台湾2xsg-sh
@@ -404,7 +376,6 @@ proxy-groups:
       - 🇭🇰 Lv4 香港1nextnet
       - 🇩🇪 Lv3 德国 linode
       - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv4 美国 洛杉矶inp
       - 🇺🇲 Lv4 美国inp2
       - 🇺🇲 Lv3 芝加哥2
@@ -415,7 +386,6 @@ proxy-groups:
       - 🇹🇷 Lv4 土耳其2
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
       - 🇷🇺 Lv3 俄罗斯
-      - 🇸🇬 Lv4 新加坡do6 2x
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
@@ -424,7 +394,6 @@ proxy-groups:
       - 🇯🇵 Lv4 日本 vir 5x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
-      - 🇺🇲 Lv3 美国Rn解锁NF
       - 🎯 全球直连
   - name: 🍎 苹果服务
     type: select
@@ -432,20 +401,19 @@ proxy-groups:
       - 🎯 全球直连
       - 🔰 节点选择
       - ♻️ 自动选择
+      - 🇯🇵 Lv4 日本 东京
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
       - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港gcore2
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 解锁 1.5x
+      - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT 2x
       - Lv4 以色列 中央区 罗什艾因
       - 🇩🇪 Lv4 西班牙 马德里
-      - 🇸🇬 Lv4 新加坡4
       - 🇭🇰 Lv4 香港neko HN
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇯🇵 Lv4 日本4
-      - 🇯🇵 Lv4 日本 东京
       - 🇨🇦 Lv3 加拿大 多伦多
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇸🇬 Lv4 新加坡3
@@ -460,8 +428,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
-      - 🇯🇵 Lv4 日本azs
-      - 🇦🇺 Lv4 澳大利亚 悉尼
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇸🇬 Lv4 新加坡
       - 🇺🇲 Lv4 美国 linode
       - 🇨🇳 Lv4 台湾2xsg-sh
@@ -474,7 +441,6 @@ proxy-groups:
       - 🇭🇰 Lv4 香港1nextnet
       - 🇩🇪 Lv3 德国 linode
       - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv4 美国 洛杉矶inp
       - 🇺🇲 Lv4 美国inp2
       - 🇺🇲 Lv3 芝加哥2
@@ -485,7 +451,6 @@ proxy-groups:
       - 🇹🇷 Lv4 土耳其2
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
       - 🇷🇺 Lv3 俄罗斯
-      - 🇸🇬 Lv4 新加坡do6 2x
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
@@ -494,7 +459,6 @@ proxy-groups:
       - 🇯🇵 Lv4 日本 vir 5x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
-      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -510,20 +474,19 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
+      - 🇯🇵 Lv4 日本 东京
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
       - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港gcore2
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 解锁 1.5x
+      - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT 2x
       - Lv4 以色列 中央区 罗什艾因
       - 🇩🇪 Lv4 西班牙 马德里
-      - 🇸🇬 Lv4 新加坡4
       - 🇭🇰 Lv4 香港neko HN
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇯🇵 Lv4 日本4
-      - 🇯🇵 Lv4 日本 东京
       - 🇨🇦 Lv3 加拿大 多伦多
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇸🇬 Lv4 新加坡3
@@ -538,8 +501,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
-      - 🇯🇵 Lv4 日本azs
-      - 🇦🇺 Lv4 澳大利亚 悉尼
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇸🇬 Lv4 新加坡
       - 🇺🇲 Lv4 美国 linode
       - 🇨🇳 Lv4 台湾2xsg-sh
@@ -552,7 +514,6 @@ proxy-groups:
       - 🇭🇰 Lv4 香港1nextnet
       - 🇩🇪 Lv3 德国 linode
       - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv4 美国 洛杉矶inp
       - 🇺🇲 Lv4 美国inp2
       - 🇺🇲 Lv3 芝加哥2
@@ -563,7 +524,6 @@ proxy-groups:
       - 🇹🇷 Lv4 土耳其2
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
       - 🇷🇺 Lv3 俄罗斯
-      - 🇸🇬 Lv4 新加坡do6 2x
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
@@ -572,7 +532,6 @@ proxy-groups:
       - 🇯🇵 Lv4 日本 vir 5x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
-      - 🇺🇲 Lv3 美国Rn解锁NF
 rules:
  - DOMAIN-SUFFIX,local,🎯 全球直连
  - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
