@@ -4,6 +4,7 @@
 # Except:
 !.zshrc
 !.gitignore
+!.Xresources
 !/.config
 # Filter the files in .config
 /.config/*

@@ -5,11 +5,13 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
+  - {name: 🇺🇲 Lv4 芝加哥 cf 临时, server: 33123.52zm.co, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, servername: 7721.52zm.co, network: ws, ws-opts: {path: /, headers: {Host: 33123.52zm.co}}}
+  - {name: 🇸🇬 Lv4 新加坡5 临时3x, server: js.xyzxyz8.xyz, port: 54946, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
+  - {name: 🇸🇬 Lv4 新加坡5, server: sh.cm.izhimajiasu.com, port: 44778, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇯🇵 Lv4 日本 东京, server: sh.cm.izhimajiasu.com, port: 41378, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡4, server: sh.cm.izhimajiasu.com, port: 49213, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡7, server: sh.cm.izhimajiasu.com, port: 41728, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡6, server: sh.cm.izhimajiasu.com, port: 41778, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
-  - {name: 🇸🇬 Lv4 新加坡5, server: sh.cm.izhimajiasu.com, port: 44778, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇯🇵 Lv4 日本4 解锁迪士尼, server: sh.cm.izhimajiasu.com, port: 41213, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡 解锁NF 1.5x, server: sh.cm.izhimajiasu.com, port: 31713, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x, server: sh.cm.izhimajiasu.com, port: 31128, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
@@ -69,11 +71,13 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
+      - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇸🇬 Lv4 新加坡5 临时3x
+      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
       - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本4 解锁迪士尼
       - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
@@ -132,11 +136,13 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
+      - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇸🇬 Lv4 新加坡5 临时3x
+      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
       - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本4 解锁迪士尼
       - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
@@ -196,11 +202,13 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
+      - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇸🇬 Lv4 新加坡5 临时3x
+      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
       - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本4 解锁迪士尼
       - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
@@ -274,11 +282,13 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
+      - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇸🇬 Lv4 新加坡5 临时3x
+      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
       - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本4 解锁迪士尼
       - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
@@ -336,11 +346,13 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
+      - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇸🇬 Lv4 新加坡5 临时3x
+      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
       - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本4 解锁迪士尼
       - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
@@ -401,11 +413,13 @@ proxy-groups:
       - 🎯 全球直连
       - 🔰 节点选择
       - ♻️ 自动选择
+      - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇸🇬 Lv4 新加坡5 临时3x
+      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
       - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本4 解锁迪士尼
       - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
@@ -474,11 +488,13 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
+      - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇸🇬 Lv4 新加坡5 临时3x
+      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
       - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡7
       - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本4 解锁迪士尼
       - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
       - 🇸🇬 Lv4 新加坡 大概能用ChatGPT 2x
