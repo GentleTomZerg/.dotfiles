@@ -6,6 +6,8 @@ log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
   - {name: 🇺🇲 Lv4 芝加哥 cf 临时, server: 33123.52zm.co, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, servername: 7721.52zm.co, network: ws, ws-opts: {path: /, headers: {Host: 33123.52zm.co}}}
+  - {name: 🇯🇵 Lv4 日本4 解锁迪士尼 临时2x, server: sd.xyzxyz8.xyz, port: 41213, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
+  - {name: 🇯🇵 Lv4 日本 东京 临时2x, server: sd.xyzxyz8.xyz, port: 41378, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡5 临时3x, server: js.xyzxyz8.xyz, port: 54946, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇸🇬 Lv4 新加坡5, server: sh.cm.izhimajiasu.com, port: 44778, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
   - {name: 🇯🇵 Lv4 日本 东京, server: sh.cm.izhimajiasu.com, port: 41378, type: ss, cipher: chacha20-ietf-poly1305, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670}
@@ -72,6 +74,8 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎯 全球直连
       - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇯🇵 Lv4 日本4 解锁迪士尼 临时2x
+      - 🇯🇵 Lv4 日本 东京 临时2x
       - 🇸🇬 Lv4 新加坡5 临时3x
       - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
@@ -137,6 +141,8 @@ proxy-groups:
     interval: 300
     proxies:
       - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇯🇵 Lv4 日本4 解锁迪士尼 临时2x
+      - 🇯🇵 Lv4 日本 东京 临时2x
       - 🇸🇬 Lv4 新加坡5 临时3x
       - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
@@ -203,6 +209,8 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎯 全球直连
       - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇯🇵 Lv4 日本4 解锁迪士尼 临时2x
+      - 🇯🇵 Lv4 日本 东京 临时2x
       - 🇸🇬 Lv4 新加坡5 临时3x
       - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
@@ -283,6 +291,8 @@ proxy-groups:
       - 🎯 全球直连
       - 🔰 节点选择
       - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇯🇵 Lv4 日本4 解锁迪士尼 临时2x
+      - 🇯🇵 Lv4 日本 东京 临时2x
       - 🇸🇬 Lv4 新加坡5 临时3x
       - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
@@ -347,6 +357,8 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇯🇵 Lv4 日本4 解锁迪士尼 临时2x
+      - 🇯🇵 Lv4 日本 东京 临时2x
       - 🇸🇬 Lv4 新加坡5 临时3x
       - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
@@ -414,6 +426,8 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇯🇵 Lv4 日本4 解锁迪士尼 临时2x
+      - 🇯🇵 Lv4 日本 东京 临时2x
       - 🇸🇬 Lv4 新加坡5 临时3x
       - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京
@@ -489,6 +503,8 @@ proxy-groups:
       - 🎯 全球直连
       - ♻️ 自动选择
       - 🇺🇲 Lv4 芝加哥 cf 临时
+      - 🇯🇵 Lv4 日本4 解锁迪士尼 临时2x
+      - 🇯🇵 Lv4 日本 东京 临时2x
       - 🇸🇬 Lv4 新加坡5 临时3x
       - 🇸🇬 Lv4 新加坡5
       - 🇯🇵 Lv4 日本 东京

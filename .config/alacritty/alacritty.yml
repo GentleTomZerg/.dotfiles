@@ -3,20 +3,20 @@
 
 font:
   normal:
-    family: Hack
+    family: Sauce Code Pro Nerd Font 
     style: Regular
 
   bold:
-    family: Hack
-    style: Bold
+    family: SauceCodePro Nerd Font 
+    style: Bold Nerd Font
 
   italic:
-    family: Hack
+    family: SauceCodePro Nerd Font
     style: Italic
 
   bold_italic:
-    family: Hack
-    style: Bold Italic
+    family: SauceCodePro Nerd Font
+    style: Bold Italic Nerd Font
 
   size: 20
 
