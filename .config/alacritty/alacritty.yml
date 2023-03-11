@@ -18,7 +18,7 @@ font:
     family: Hack
     style: Bold Italic
 
-  size: 18
+  size: 20
 
 #window:
   # Window dimensions (changes require restart)
