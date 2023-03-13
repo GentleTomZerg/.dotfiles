@@ -3,12 +3,12 @@
 
 font:
   normal:
-    family: Sauce Code Pro Nerd Font 
+    family: SauceCodePro Nerd font 
     style: Regular
 
   bold:
     family: SauceCodePro Nerd Font 
-    style: Bold Nerd Font
+    style: Bold
 
   italic:
     family: SauceCodePro Nerd Font
@@ -16,7 +16,7 @@ font:
 
   bold_italic:
     family: SauceCodePro Nerd Font
-    style: Bold Italic Nerd Font
+    style: Bold Italic
 
   size: 20
 
