@@ -12,6 +12,7 @@
 !/.config/lvim
 /.config/lvim/*
 !/.config/lvim/config.lua
+!/.config/lvim/lua
 
 !/.config/i3
 !/.config/picom

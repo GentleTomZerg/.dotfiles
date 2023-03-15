@@ -1,47 +1,16 @@
--- basic configurations
-vim.opt.backup = false -- creates a backup file
-vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
-vim.opt.colorcolumn = "99999" -- fixes indentline for now
-vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
-vim.opt.fileencoding = "utf-8" -- the encoding written to a file
-vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
-vim.opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
-vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
-vim.opt.hidden = true -- required to keep multiple buffers and open multiple buffers
-vim.opt.hlsearch = true -- highlight all matches on previous search pattern
-vim.opt.ignorecase = true -- ignore case in search patterns
-vim.opt.mouse = "a" -- allow the mouse to be used in neovim
-vim.opt.pumheight = 10 -- pop up menu height
-vim.opt.showmode = true -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2 -- always show tabs
-vim.opt.smartcase = true -- smart case
-vim.opt.smartindent = true -- make indenting smarter again
-vim.opt.splitbelow = true -- force all horizontal splits to go below current window
-vim.opt.splitright = true -- force all vertical splits to go to the right of current window
-vim.opt.swapfile = false -- creates a swapfile
-vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
-vim.opt.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
-vim.opt.title = true -- set the title of window to the value of the titlestring
-vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
-vim.opt.undodir = vim.fn.stdpath "cache" .. "/undo"
-vim.opt.undofile = true -- enable persistent undo
-vim.opt.updatetime = 300 -- faster completion
-vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
-vim.opt.expandtab = true -- convert tabs to spaces
-vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 2 -- insert 2 spaces for a tab
-vim.opt.cursorline = true -- highlight the current line
-vim.opt.number = true -- set numbered lines
-vim.opt.relativenumber = true -- set relative numbered lines
-vim.opt.numberwidth = 2 -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time
-vim.opt.wrap = true -- display lines as one long line
-vim.opt.spell = false
-vim.opt.spelllang = "en"
-vim.opt.scrolloff = 15 -- is one of my fav
-vim.opt.sidescrolloff = 8
+-- Base config (Vim Settings)
+require('base')
+
+-- Key Mappings
+require('keys')
+
+-- Extra Plugins
+require('extra-plugin')
+
+-- Debug
+  -- C/C++
+  require('debug.c-c++')
+
 --[[
 lvim is the global options object
 
@@ -59,30 +28,8 @@ lvim.colorscheme = "tokyonight-moon"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
--- keymappings [view all the defaults by pressing <leader>Lk]
-lvim.leader = "space"
--- add your own keymapping
-  -- basic mappings 
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["H"] = "^"
-lvim.keys.normal_mode["L"] = "$"
-lvim.keys.normal_mode[";"] = ":"
-  -- control tabs
-lvim.keys.normal_mode["th"] = ":tabprevious<cr>"
-lvim.keys.normal_mode["tl"] = ":tabnext<cr>"
-lvim.keys.normal_mode["tn"] = ":tabnew"
-lvim.keys.normal_mode["tc"] = ":tabclose<cr>"
-  -- control split screen
-lvim.keys.normal_mode["<A-h>"] = "<C-w><Left>"
-lvim.keys.normal_mode["<A-l>"] = '<C-w><Right>'
-lvim.keys.normal_mode["<A-j>"] = '<C-w><Down>'
-lvim.keys.normal_mode["<A-k>"] = '<C-w><Up>'
-  -- insert mode
-lvim.keys.insert_mode["<A-l>"] = "<Right>"
-lvim.keys.insert_mode["<A-h>"] = "<Left>"
-lvim.keys.insert_mode["<A-j>"] = "<Down>"
-lvim.keys.insert_mode["<A-k>"] = "<Up>"
-lvim.keys.insert_mode["<A-Esc>"] = "``<Left>"
+
+
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -151,54 +98,6 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
-
--- Debug settings
--- C language
-local dap = require('dap')
-dap.adapters.cppdbg = {
-  id = 'cppdbg',
-  type = 'executable',
-  command = '/home/tom/.local/share/nvim/mason/bin/OpenDebugAD7',
-}
-
-local get_args = function ()
-  local cmd_args = vim.fn.input('CommandLine Args:')
-  local params = {}
-
-  local sep = "%s"
-  for param in string.gmatch(cmd_args, "[^%s]+") do
-    table.insert(params, param)
-  end
-
-  return params;
-end
-
-dap.configurations.c = {
-  {
-    name = "Launch file",
-    type = "cppdbg",
-    request = "launch",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopAtEntry = true,
-    args = get_args,
-  },
-  {
-    name = 'Attach to gdbserver :1234',
-    type = 'cppdbg',
-    request = 'launch',
-    MIMode = 'gdb',
-    miDebuggerServerAddress = 'localhost:1234',
-    miDebuggerPath = '/usr/bin/gdb',
-    cwd = '${workspaceFolder}',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-  },
-}
-
 
 
 -- generic LSP settings
@@ -276,17 +175,6 @@ dap.configurations.c = {
 --   },
 -- }
 
--- Additional Plugins
-lvim.plugins = {
-  {
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    ft = "markdown",
-    config = function()
-      vim.g.mkdp_auto_start = 1
-    end,
-  },
-}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
