@@ -5,6 +5,7 @@
 !.zshrc
 !.gitignore
 !.Xresources
+!.ideavimrc
 !/.config
 # Filter the files in .config
 /.config/*
