@@ -10,4 +10,4 @@ tells you how to config grub to dual boot Fedora and Windows.
 # Fonts
 - [getnf](https://github.com/ronniedroid/getnf)
 use command `getnf` in terminal to download nerd-fonts easily.
-- The other good way is to download the font packages and uzip them. Copy the output to ~/.local/share/fonts/
+- The other good way is to download the font packages and uzip them. Copy the output to ~/.local/share/fonts/. The configuration file of alarcritty shows how to use the font. 
