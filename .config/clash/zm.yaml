@@ -5,118 +5,117 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-  - {name: 🇸🇬 Lv4 新加坡7, server: 120.241.255.237, port: 41728, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡 12, server: 120.241.255.237, port: 31128, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡5, server: 120.241.255.237, port: 44778, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡10, server: 120.241.255.237, port: 45076, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡8, server: 120.241.255.237, port: 37171, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡3, server: 120.241.255.237, port: 23003, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡1, server: 120.241.255.237, port: 45177, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡9, server: 120.241.255.237, port: 45077, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡, server: 120.241.255.237, port: 45003, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡6, server: 120.241.255.237, port: 41778, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡4, server: 120.241.255.237, port: 49213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇯🇵 Lv4 日本 东京, server: 120.241.255.237, port: 41378, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡 解锁NF 1.5x, server: 120.241.255.237, port: 31714, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇯🇵 Lv4 日本4 解锁迪士尼, server: 120.241.255.237, port: 41213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国2 大概能用ChatGPT, server: 120.241.255.237, port: 49219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国3 大概能用ChatGPT, server: 120.241.255.237, port: 37923, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: Lv4 以色列 中央区 罗什艾因, server: 120.241.255.237, port: 52717, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇭🇰 Lv4 香港neko HN, server: 120.241.255.237, port: 45771, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇩🇪 Lv4 西班牙 马德里, server: 120.241.255.237, port: 57717, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇨🇳 Lv4 台湾4, server: 120.241.255.237, port: 23703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇨🇳 Lv4 台湾3x, server: 120.241.255.237, port: 45325, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇨🇳 Lv4 台湾2xsg-sh, server: 120.241.255.237, port: 45002, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇨🇳 Lv4 台湾hi52, server: 120.241.255.237, port: 45447, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇭🇰 Lv4 香港s, server: 120.241.255.237, port: 23013, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇯🇵 Lv4 日本lins, server: 120.241.255.237, port: 45001, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇯🇵 Lv4 日本3, server: 120.241.255.237, port: 47213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国 圣何塞 1, server: 120.241.255.237, port: 21213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国 linode, server: 120.241.255.237, port: 39334, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国gtt3NF, server: 120.241.255.237, port: 43794, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国 洛杉矶 inp, server: 120.241.255.237, port: 45673, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国 圣何塞 解锁, server: 120.241.255.237, port: 45742, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇭🇰 Lv4 香港1nextnet, server: 120.241.255.237, port: 25772, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国inp2, server: 120.241.255.237, port: 45125, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇫🇷 Lv4 法国巴黎 0.5x, server: 120.241.255.237, port: 37911, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇹🇭 Lv4 泰国, server: 120.241.255.237, port: 45794, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇳🇱 Lv4 荷兰 阿姆斯特丹, server: 120.241.255.237, port: 28171, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇰🇷 Lv4 韩国 甲骨文, server: 120.241.255.237, port: 37767, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇭🇰 Lv4 香港HE2-hgc-sh, server: 120.241.255.237, port: 41712, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇹🇷 Lv4 土耳其, server: 120.241.255.237, port: 45030, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇹🇷 Lv4 土耳其2, server: 120.241.255.237, port: 18401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇨🇦 Lv3 加拿大 多伦多, server: 120.241.255.237, port: 35111, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv3 美国 临时, server: us1.zm654.top, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, servername: us1.zm654.top, network: ws, ws-opts: {path: /lucy, headers: {Host: us1.zm654.top}}}
-  - {name: 🇦🇺 Lv3 澳大利亚 悉尼, server: 120.241.255.237, port: 45313, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇮🇳 Lv3 印度 恒河涡轮加速, server: 120.241.255.237, port: 45333, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇩🇪 Lv3 德国 lin, server: 120.241.255.237, port: 45221, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv3 美国 洛杉矶inp3, server: 120.241.255.237, port: 45787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv3 美国 芝加哥X, server: 120.241.255.237, port: 42714, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv3 美国 芝加哥2, server: 120.241.255.237, port: 47135, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇮🇳 Lv3 印度 班加罗, server: 120.241.255.237, port: 41787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv3 美国 gtt4, server: 120.241.255.237, port: 45730, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇷🇺 Lv3 俄罗斯, server: 120.241.255.237, port: 47785, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇬🇧 Lv3 英国, server: 120.241.255.237, port: 45004, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇬🇧 Lv3 英国3上, server: 120.241.255.237, port: 45770, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇬🇧 Lv3 英国4广, server: 120.241.255.237, port: 57002, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv3 美国 圣何塞3NF广, server: 120.241.255.237, port: 39999, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv3 美国 圣何塞4NF广, server: 120.241.255.237, port: 39004, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇯🇵 Lv4 日本 vir 5x, server: 120.241.255.237, port: 45011, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇭🇰 Lv4 香港s 3x, server: 120.241.255.237, port: 47782, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇭🇰 Lv4 香港ipv6 5x, server: 120.241.255.237, port: 62811, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇯🇵 Lv4 日本ipv6 5x, server: 120.241.255.237, port: 61811, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡8, server: gdcm-inteng.iqencrypt.com, port: 37171, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡4, server: gdcm-inteng.iqencrypt.com, port: 49213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡1, server: gdcm-inteng.iqencrypt.com, port: 45177, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡5, server: gdcm-inteng.iqencrypt.com, port: 44778, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港1nextnet, server: gdcm-inteng.iqencrypt.com, port: 25772, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡2, server: gdcm-inteng.iqencrypt.com, port: 41718, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡6, server: gdcm-inteng.iqencrypt.com, port: 39334, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡 12, server: gdcm-inteng.iqencrypt.com, port: 31128, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇰🇷 Lv4 韩国 甲骨文, server: gdcm-inteng.iqencrypt.com, port: 37767, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇨🇳 Lv4 台湾hi52, server: gdcm-inteng.iqencrypt.com, port: 45447, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡7, server: gdcm-inteng.iqencrypt.com, port: 41728, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡10, server: gdcm-inteng.iqencrypt.com, port: 45076, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇨🇳 Lv4 台湾2xsg-sh, server: gdcm-inteng.iqencrypt.com, port: 45002, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 临时新加坡12, server: js2.76po.com, port: 31128, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡3, server: gdcm-inteng.iqencrypt.com, port: 23003, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡9, server: gdcm-inteng.iqencrypt.com, port: 45077, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡, server: gdcm-inteng.iqencrypt.com, port: 45003, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡 解锁NF GPT 2x, server: gdcm-inteng.iqencrypt.com, port: 31714, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇯🇵 Lv4 日本4 解锁迪士尼, server: gdcm-inteng.iqencrypt.com, port: 41213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv4 美国 大概能用ChatGPT, server: gdcm-inteng.iqencrypt.com, port: 29219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv4 美国2 大概能用ChatGPT, server: gdcm-inteng.iqencrypt.com, port: 49219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv4 美国3 大概能用ChatGPT, server: gdcm-inteng.iqencrypt.com, port: 37923, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: Lv4 瑞典, server: gdcm-inteng.iqencrypt.com, port: 52717, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港neko HN, server: gdcm-inteng.iqencrypt.com, port: 45771, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇩🇪 Lv4 西班牙 马德里, server: gdcm-inteng.iqencrypt.com, port: 57717, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇨🇳 Lv4 台湾4, server: gdcm-inteng.iqencrypt.com, port: 23703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇨🇳 Lv4 台湾3x, server: gdcm-inteng.iqencrypt.com, port: 45325, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港s, server: gdcm-inteng.iqencrypt.com, port: 23013, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇯🇵 Lv4 日本lins, server: gdcm-inteng.iqencrypt.com, port: 45001, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇯🇵 Lv4 日本3, server: gdcm-inteng.iqencrypt.com, port: 47213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv4 美国 圣何塞 1, server: gdcm-inteng.iqencrypt.com, port: 21213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv4 美国gtt3NF, server: gdcm-inteng.iqencrypt.com, port: 43794, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv4 美国 洛杉矶 inp, server: gdcm-inteng.iqencrypt.com, port: 45673, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv4 美国 圣何塞4, server: gdcm-inteng.iqencrypt.com, port: 45742, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv4 美国inp2, server: gdcm-inteng.iqencrypt.com, port: 45125, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇫🇷 Lv4 法国巴黎 0.5x, server: gdcm-inteng.iqencrypt.com, port: 37911, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇹🇭 Lv4 泰国, server: gdcm-inteng.iqencrypt.com, port: 45794, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇳🇱 Lv4 荷兰 阿姆斯特丹, server: gdcm-inteng.iqencrypt.com, port: 28171, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港HE2-hgc-sh, server: gdcm-inteng.iqencrypt.com, port: 41712, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇹🇷 Lv4 土耳其, server: gdcm-inteng.iqencrypt.com, port: 45030, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇹🇷 Lv4 土耳其2, server: gdcm-inteng.iqencrypt.com, port: 18401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇨🇦 Lv3 加拿大 多伦多, server: gdcm-inteng.iqencrypt.com, port: 35111, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇩🇪 Lv3 德国 lin, server: gdcm-inteng.iqencrypt.com, port: 45221, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv3 美国 洛杉矶inp3, server: gdcm-inteng.iqencrypt.com, port: 45787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv3 美国gtt5解锁奈飞, server: gtt5.887211.xyz, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, servername: gtt5.887211.xyz, network: ws, ws-opts: {path: /, headers: {Host: gtt5.887211.xyz}}}
+  - {name: 🇺🇲 Lv3 美国 芝加哥X, server: gdcm-inteng.iqencrypt.com, port: 42714, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv3 美国 芝加哥2, server: gdcm-inteng.iqencrypt.com, port: 47135, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇮🇳 Lv3 印度 班加罗, server: gdcm-inteng.iqencrypt.com, port: 41787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv3 美国 gtt4, server: gdcm-inteng.iqencrypt.com, port: 45730, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇷🇺 Lv3 俄罗斯, server: gdcm-inteng.iqencrypt.com, port: 47785, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇬🇧 Lv3 英国, server: gdcm-inteng.iqencrypt.com, port: 45004, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇬🇧 Lv3 英国3上, server: gdcm-inteng.iqencrypt.com, port: 45770, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇬🇧 Lv3 英国4广, server: gdcm-inteng.iqencrypt.com, port: 57002, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv3 美国 圣何塞3NF广, server: gdcm-inteng.iqencrypt.com, port: 39999, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv3 美国 圣何塞4NF广, server: gdcm-inteng.iqencrypt.com, port: 39004, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇯🇵 Lv4 日本 vir 5x, server: gdcm-inteng.iqencrypt.com, port: 45011, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港s 3x, server: gdcm-inteng.iqencrypt.com, port: 47782, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港ipv6 5x, server: gdcm-inteng.iqencrypt.com, port: 62811, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇯🇵 Lv4 日本ipv6 5x, server: gdcm-inteng.iqencrypt.com, port: 61811, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇺🇲 Lv3 美国Rn解锁NF, server: rn.887211.xyz, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, servername: rn.887211.xyz, network: ws, ws-opts: {path: /, headers: {Host: rn.887211.xyz}}}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇸🇬 Lv4 新加坡5
-      - 🇸🇬 Lv4 新加坡10
       - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡1
+      - 🇸🇬 Lv4 新加坡5
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡 12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇨🇳 Lv4 台湾hi52
+      - 🇸🇬 Lv4 新加坡7
+      - 🇸🇬 Lv4 新加坡10
+      - 🇨🇳 Lv4 台湾2xsg-sh
+      - 🇸🇬 临时新加坡12
+      - 🇸🇬 Lv4 新加坡3
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡4
-      - 🇯🇵 Lv4 日本 东京
-      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
+      - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇺🇲 Lv4 美国 大概能用ChatGPT
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
-      - Lv4 以色列 中央区 罗什艾因
+      - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
       - 🇩🇪 Lv4 西班牙 马德里
       - 🇨🇳 Lv4 台湾4
       - 🇨🇳 Lv4 台湾3x
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇨🇳 Lv4 台湾hi52
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
       - 🇯🇵 Lv4 日本3
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇺🇲 Lv4 美国 linode
       - 🇺🇲 Lv4 美国gtt3NF
       - 🇺🇲 Lv4 美国 洛杉矶 inp
-      - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇭🇰 Lv4 香港1nextnet
+      - 🇺🇲 Lv4 美国 圣何塞4
       - 🇺🇲 Lv4 美国inp2
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇹🇭 Lv4 泰国
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
-      - 🇰🇷 Lv4 韩国 甲骨文
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
       - 🇨🇦 Lv3 加拿大 多伦多
-      - 🇺🇲 Lv3 美国 临时
-      - 🇦🇺 Lv3 澳大利亚 悉尼
-      - 🇮🇳 Lv3 印度 恒河涡轮加速
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
+      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv3 美国 芝加哥X
       - 🇺🇲 Lv3 美国 芝加哥2
       - 🇮🇳 Lv3 印度 班加罗
@@ -131,57 +130,57 @@ proxy-groups:
       - 🇭🇰 Lv4 香港s 3x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
+      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇸🇬 Lv4 新加坡5
-      - 🇸🇬 Lv4 新加坡10
       - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡1
+      - 🇸🇬 Lv4 新加坡5
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡 12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇨🇳 Lv4 台湾hi52
+      - 🇸🇬 Lv4 新加坡7
+      - 🇸🇬 Lv4 新加坡10
+      - 🇨🇳 Lv4 台湾2xsg-sh
+      - 🇸🇬 临时新加坡12
+      - 🇸🇬 Lv4 新加坡3
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡4
-      - 🇯🇵 Lv4 日本 东京
-      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
+      - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇺🇲 Lv4 美国 大概能用ChatGPT
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
-      - Lv4 以色列 中央区 罗什艾因
+      - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
       - 🇩🇪 Lv4 西班牙 马德里
       - 🇨🇳 Lv4 台湾4
       - 🇨🇳 Lv4 台湾3x
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇨🇳 Lv4 台湾hi52
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
       - 🇯🇵 Lv4 日本3
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇺🇲 Lv4 美国 linode
       - 🇺🇲 Lv4 美国gtt3NF
       - 🇺🇲 Lv4 美国 洛杉矶 inp
-      - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇭🇰 Lv4 香港1nextnet
+      - 🇺🇲 Lv4 美国 圣何塞4
       - 🇺🇲 Lv4 美国inp2
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇹🇭 Lv4 泰国
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
-      - 🇰🇷 Lv4 韩国 甲骨文
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
       - 🇨🇦 Lv3 加拿大 多伦多
-      - 🇺🇲 Lv3 美国 临时
-      - 🇦🇺 Lv3 澳大利亚 悉尼
-      - 🇮🇳 Lv3 印度 恒河涡轮加速
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
+      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv3 美国 芝加哥X
       - 🇺🇲 Lv3 美国 芝加哥2
       - 🇮🇳 Lv3 印度 班加罗
@@ -196,58 +195,58 @@ proxy-groups:
       - 🇭🇰 Lv4 香港s 3x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
+      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: 🌍 国外媒体
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇸🇬 Lv4 新加坡5
-      - 🇸🇬 Lv4 新加坡10
       - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡1
+      - 🇸🇬 Lv4 新加坡5
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡 12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇨🇳 Lv4 台湾hi52
+      - 🇸🇬 Lv4 新加坡7
+      - 🇸🇬 Lv4 新加坡10
+      - 🇨🇳 Lv4 台湾2xsg-sh
+      - 🇸🇬 临时新加坡12
+      - 🇸🇬 Lv4 新加坡3
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡4
-      - 🇯🇵 Lv4 日本 东京
-      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
+      - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇺🇲 Lv4 美国 大概能用ChatGPT
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
-      - Lv4 以色列 中央区 罗什艾因
+      - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
       - 🇩🇪 Lv4 西班牙 马德里
       - 🇨🇳 Lv4 台湾4
       - 🇨🇳 Lv4 台湾3x
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇨🇳 Lv4 台湾hi52
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
       - 🇯🇵 Lv4 日本3
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇺🇲 Lv4 美国 linode
       - 🇺🇲 Lv4 美国gtt3NF
       - 🇺🇲 Lv4 美国 洛杉矶 inp
-      - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇭🇰 Lv4 香港1nextnet
+      - 🇺🇲 Lv4 美国 圣何塞4
       - 🇺🇲 Lv4 美国inp2
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇹🇭 Lv4 泰国
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
-      - 🇰🇷 Lv4 韩国 甲骨文
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
       - 🇨🇦 Lv3 加拿大 多伦多
-      - 🇺🇲 Lv3 美国 临时
-      - 🇦🇺 Lv3 澳大利亚 悉尼
-      - 🇮🇳 Lv3 印度 恒河涡轮加速
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
+      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv3 美国 芝加哥X
       - 🇺🇲 Lv3 美国 芝加哥2
       - 🇮🇳 Lv3 印度 班加罗
@@ -262,18 +261,19 @@ proxy-groups:
       - 🇭🇰 Lv4 香港s 3x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
+      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇨🇳 Lv4 台湾hi52
+      - 🇨🇳 Lv4 台湾2xsg-sh
       - 🇭🇰 Lv4 香港neko HN
       - 🇨🇳 Lv4 台湾4
       - 🇨🇳 Lv4 台湾3x
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇨🇳 Lv4 台湾hi52
       - 🇭🇰 Lv4 香港s
-      - 🇭🇰 Lv4 香港1nextnet
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇭🇰 Lv4 香港s 3x
       - 🇭🇰 Lv4 香港ipv6 5x
@@ -282,52 +282,51 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇸🇬 Lv4 新加坡5
-      - 🇸🇬 Lv4 新加坡10
       - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡1
+      - 🇸🇬 Lv4 新加坡5
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡 12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇨🇳 Lv4 台湾hi52
+      - 🇸🇬 Lv4 新加坡7
+      - 🇸🇬 Lv4 新加坡10
+      - 🇨🇳 Lv4 台湾2xsg-sh
+      - 🇸🇬 临时新加坡12
+      - 🇸🇬 Lv4 新加坡3
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡4
-      - 🇯🇵 Lv4 日本 东京
-      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
+      - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇺🇲 Lv4 美国 大概能用ChatGPT
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
-      - Lv4 以色列 中央区 罗什艾因
+      - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
       - 🇩🇪 Lv4 西班牙 马德里
       - 🇨🇳 Lv4 台湾4
       - 🇨🇳 Lv4 台湾3x
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇨🇳 Lv4 台湾hi52
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
       - 🇯🇵 Lv4 日本3
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇺🇲 Lv4 美国 linode
       - 🇺🇲 Lv4 美国gtt3NF
       - 🇺🇲 Lv4 美国 洛杉矶 inp
-      - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇭🇰 Lv4 香港1nextnet
+      - 🇺🇲 Lv4 美国 圣何塞4
       - 🇺🇲 Lv4 美国inp2
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇹🇭 Lv4 泰国
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
-      - 🇰🇷 Lv4 韩国 甲骨文
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
       - 🇨🇦 Lv3 加拿大 多伦多
-      - 🇺🇲 Lv3 美国 临时
-      - 🇦🇺 Lv3 澳大利亚 悉尼
-      - 🇮🇳 Lv3 印度 恒河涡轮加速
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
+      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv3 美国 芝加哥X
       - 🇺🇲 Lv3 美国 芝加哥2
       - 🇮🇳 Lv3 印度 班加罗
@@ -342,56 +341,56 @@ proxy-groups:
       - 🇭🇰 Lv4 香港s 3x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
+      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇸🇬 Lv4 新加坡5
-      - 🇸🇬 Lv4 新加坡10
       - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡1
+      - 🇸🇬 Lv4 新加坡5
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡 12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇨🇳 Lv4 台湾hi52
+      - 🇸🇬 Lv4 新加坡7
+      - 🇸🇬 Lv4 新加坡10
+      - 🇨🇳 Lv4 台湾2xsg-sh
+      - 🇸🇬 临时新加坡12
+      - 🇸🇬 Lv4 新加坡3
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡4
-      - 🇯🇵 Lv4 日本 东京
-      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
+      - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇺🇲 Lv4 美国 大概能用ChatGPT
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
-      - Lv4 以色列 中央区 罗什艾因
+      - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
       - 🇩🇪 Lv4 西班牙 马德里
       - 🇨🇳 Lv4 台湾4
       - 🇨🇳 Lv4 台湾3x
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇨🇳 Lv4 台湾hi52
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
       - 🇯🇵 Lv4 日本3
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇺🇲 Lv4 美国 linode
       - 🇺🇲 Lv4 美国gtt3NF
       - 🇺🇲 Lv4 美国 洛杉矶 inp
-      - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇭🇰 Lv4 香港1nextnet
+      - 🇺🇲 Lv4 美国 圣何塞4
       - 🇺🇲 Lv4 美国inp2
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇹🇭 Lv4 泰国
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
-      - 🇰🇷 Lv4 韩国 甲骨文
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
       - 🇨🇦 Lv3 加拿大 多伦多
-      - 🇺🇲 Lv3 美国 临时
-      - 🇦🇺 Lv3 澳大利亚 悉尼
-      - 🇮🇳 Lv3 印度 恒河涡轮加速
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
+      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv3 美国 芝加哥X
       - 🇺🇲 Lv3 美国 芝加哥2
       - 🇮🇳 Lv3 印度 班加罗
@@ -406,6 +405,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港s 3x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
+      - 🇺🇲 Lv3 美国Rn解锁NF
       - 🎯 全球直连
   - name: 🍎 苹果服务
     type: select
@@ -413,52 +413,51 @@ proxy-groups:
       - 🎯 全球直连
       - 🔰 节点选择
       - ♻️ 自动选择
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇸🇬 Lv4 新加坡5
-      - 🇸🇬 Lv4 新加坡10
       - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡1
+      - 🇸🇬 Lv4 新加坡5
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡 12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇨🇳 Lv4 台湾hi52
+      - 🇸🇬 Lv4 新加坡7
+      - 🇸🇬 Lv4 新加坡10
+      - 🇨🇳 Lv4 台湾2xsg-sh
+      - 🇸🇬 临时新加坡12
+      - 🇸🇬 Lv4 新加坡3
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡4
-      - 🇯🇵 Lv4 日本 东京
-      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
+      - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇺🇲 Lv4 美国 大概能用ChatGPT
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
-      - Lv4 以色列 中央区 罗什艾因
+      - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
       - 🇩🇪 Lv4 西班牙 马德里
       - 🇨🇳 Lv4 台湾4
       - 🇨🇳 Lv4 台湾3x
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇨🇳 Lv4 台湾hi52
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
       - 🇯🇵 Lv4 日本3
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇺🇲 Lv4 美国 linode
       - 🇺🇲 Lv4 美国gtt3NF
       - 🇺🇲 Lv4 美国 洛杉矶 inp
-      - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇭🇰 Lv4 香港1nextnet
+      - 🇺🇲 Lv4 美国 圣何塞4
       - 🇺🇲 Lv4 美国inp2
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇹🇭 Lv4 泰国
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
-      - 🇰🇷 Lv4 韩国 甲骨文
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
       - 🇨🇦 Lv3 加拿大 多伦多
-      - 🇺🇲 Lv3 美国 临时
-      - 🇦🇺 Lv3 澳大利亚 悉尼
-      - 🇮🇳 Lv3 印度 恒河涡轮加速
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
+      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv3 美国 芝加哥X
       - 🇺🇲 Lv3 美国 芝加哥2
       - 🇮🇳 Lv3 印度 班加罗
@@ -473,6 +472,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港s 3x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
+      - 🇺🇲 Lv3 美国Rn解锁NF
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -488,52 +488,51 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇸🇬 Lv4 新加坡5
-      - 🇸🇬 Lv4 新加坡10
       - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
       - 🇸🇬 Lv4 新加坡1
+      - 🇸🇬 Lv4 新加坡5
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡 12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇨🇳 Lv4 台湾hi52
+      - 🇸🇬 Lv4 新加坡7
+      - 🇸🇬 Lv4 新加坡10
+      - 🇨🇳 Lv4 台湾2xsg-sh
+      - 🇸🇬 临时新加坡12
+      - 🇸🇬 Lv4 新加坡3
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡4
-      - 🇯🇵 Lv4 日本 东京
-      - 🇸🇬 Lv4 新加坡 解锁NF 1.5x
+      - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
+      - 🇺🇲 Lv4 美国 大概能用ChatGPT
       - 🇺🇲 Lv4 美国2 大概能用ChatGPT
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
-      - Lv4 以色列 中央区 罗什艾因
+      - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
       - 🇩🇪 Lv4 西班牙 马德里
       - 🇨🇳 Lv4 台湾4
       - 🇨🇳 Lv4 台湾3x
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇨🇳 Lv4 台湾hi52
       - 🇭🇰 Lv4 香港s
       - 🇯🇵 Lv4 日本lins
       - 🇯🇵 Lv4 日本3
       - 🇺🇲 Lv4 美国 圣何塞 1
-      - 🇺🇲 Lv4 美国 linode
       - 🇺🇲 Lv4 美国gtt3NF
       - 🇺🇲 Lv4 美国 洛杉矶 inp
-      - 🇺🇲 Lv4 美国 圣何塞 解锁
-      - 🇭🇰 Lv4 香港1nextnet
+      - 🇺🇲 Lv4 美国 圣何塞4
       - 🇺🇲 Lv4 美国inp2
       - 🇫🇷 Lv4 法国巴黎 0.5x
       - 🇹🇭 Lv4 泰国
       - 🇳🇱 Lv4 荷兰 阿姆斯特丹
-      - 🇰🇷 Lv4 韩国 甲骨文
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
       - 🇨🇦 Lv3 加拿大 多伦多
-      - 🇺🇲 Lv3 美国 临时
-      - 🇦🇺 Lv3 澳大利亚 悉尼
-      - 🇮🇳 Lv3 印度 恒河涡轮加速
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
+      - 🇺🇲 Lv3 美国gtt5解锁奈飞
       - 🇺🇲 Lv3 美国 芝加哥X
       - 🇺🇲 Lv3 美国 芝加哥2
       - 🇮🇳 Lv3 印度 班加罗
@@ -548,6 +547,7 @@ proxy-groups:
       - 🇭🇰 Lv4 香港s 3x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
+      - 🇺🇲 Lv3 美国Rn解锁NF
 rules:
  - DOMAIN-SUFFIX,local,🎯 全球直连
  - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
