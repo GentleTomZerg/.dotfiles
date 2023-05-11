@@ -16,6 +16,7 @@
 !/.config/lvim/lua
 
 !/.config/i3
+!/.config/rofi
 !/.config/picom
 !/.config/ranger
 !/.config/alacritty
