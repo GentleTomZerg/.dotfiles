@@ -2,7 +2,7 @@ configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "SauceCodePro Nerd Font Medium 20";
+  font: "SauceCodePro Nerd Font Medium 25";
   modi: "window,run,drun";
 }
 
@@ -46,7 +46,7 @@ element-text {
 }
 
 element-icon {
-  size: 14;
+  size: 30;
   padding: 0 10 0 0;
   background-color: transparent;
 }
