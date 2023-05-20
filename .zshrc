@@ -134,3 +134,13 @@ function unsetproxy() {
     unset {http,https,ftp,all}_proxy
     unset {HTTP,HTTPS,FTP,ALL}_PROXY
 }
+
+# Update proxy Configurations
+function updateproxy() {
+  ~/.config/clash/update.sh
+}
+
+# Start proxy
+function startproxy() {
+  nohup clash -f .config/clash/zm.yaml > /dev/null & 
+}  
