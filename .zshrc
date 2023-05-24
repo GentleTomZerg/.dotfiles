@@ -144,3 +144,8 @@ function updateproxy() {
 function startproxy() {
   nohup clash -f .config/clash/zm.yaml > /dev/null & 
 }  
+
+# Stop proxy
+function stopproxy() {
+  kill $(pidof clash)
+}
