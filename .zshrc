@@ -142,10 +142,23 @@ function updateproxy() {
 
 # Start proxy
 function startproxy() {
-  nohup clash -f .config/clash/zm.yaml > /dev/null & 
+  if [[ $(pidof clash) ]]; then
+    echo "clash has already started."
+    return 1
+  fi
+  nohup clash -f ~/.config/clash/zm.yaml > /dev/null & 
 }  
 
 # Stop proxy
 function stopproxy() {
+  if [[ -z $(pidof clash) ]]; then
+    echo "clash is not running"
+    return 1
+  fi
+
   kill $(pidof clash)
 }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

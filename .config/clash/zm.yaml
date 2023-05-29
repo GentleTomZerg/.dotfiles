@@ -5,27 +5,33 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-  - {name: 🇸🇬 Lv4 新加坡8, server: gdcm-inteng.iqencrypt.com, port: 37171, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡4, server: gdcm-inteng.iqencrypt.com, port: 49213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡1, server: gdcm-inteng.iqencrypt.com, port: 45177, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡5, server: gdcm-inteng.iqencrypt.com, port: 44778, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇭🇰 Lv4 香港1nextnet, server: gdcm-inteng.iqencrypt.com, port: 25772, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡2, server: gdcm-inteng.iqencrypt.com, port: 41718, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡6, server: gdcm-inteng.iqencrypt.com, port: 39334, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡 12, server: gdcm-inteng.iqencrypt.com, port: 31128, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇰🇷 Lv4 韩国 甲骨文, server: gdcm-inteng.iqencrypt.com, port: 37767, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇨🇳 Lv4 台湾hi52, server: gdcm-inteng.iqencrypt.com, port: 45447, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡7, server: gdcm-inteng.iqencrypt.com, port: 41728, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 Lv4 新加坡10, server: gdcm-inteng.iqencrypt.com, port: 45076, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇨🇳 Lv4 台湾2xsg-sh, server: gdcm-inteng.iqencrypt.com, port: 45002, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇸🇬 临时新加坡12, server: js2.76po.com, port: 31128, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港Gcore, server: gdcm-inteng.iqencrypt.com, port: 41073, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡14, server: gdcm-inteng.iqencrypt.com, port: 51173, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇸🇬 Lv4 新加坡3, server: gdcm-inteng.iqencrypt.com, port: 23003, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡4, server: gdcm-inteng.iqencrypt.com, port: 49213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡5, server: gdcm-inteng.iqencrypt.com, port: 44778, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡13, server: gdcm-inteng.iqencrypt.com, port: 18401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 临时乌克兰 基辅, server: js2.76po.com, port: 27401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: Lv4 乌克兰 基辅, server: gdcm-inteng.iqencrypt.com, port: 27401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡11, server: gdcm-inteng.iqencrypt.com, port: 49219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡6, server: gdcm-inteng.iqencrypt.com, port: 39334, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡1, server: gdcm-inteng.iqencrypt.com, port: 45177, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇯🇵 Lv4 日本Gcore, server: gdcm-inteng.iqencrypt.com, port: 41043, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡10, server: gdcm-inteng.iqencrypt.com, port: 45076, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港1nextnet, server: gdcm-inteng.iqencrypt.com, port: 25772, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港2nextnet, server: gdcm-inteng.iqencrypt.com, port: 25722, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡8, server: gdcm-inteng.iqencrypt.com, port: 37171, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡2, server: gdcm-inteng.iqencrypt.com, port: 41718, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡12, server: gdcm-inteng.iqencrypt.com, port: 31128, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇰🇷 Lv4 韩国 甲骨文, server: gdcm-inteng.iqencrypt.com, port: 37767, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡15, server: gdcm-inteng.iqencrypt.com, port: 45447, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇸🇬 Lv4 新加坡7, server: gdcm-inteng.iqencrypt.com, port: 41728, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇨🇳 Lv4 台湾2xsg-sh, server: gdcm-inteng.iqencrypt.com, port: 45002, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇸🇬 Lv4 新加坡9, server: gdcm-inteng.iqencrypt.com, port: 45077, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇸🇬 Lv4 新加坡, server: gdcm-inteng.iqencrypt.com, port: 45003, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇸🇬 Lv4 新加坡 解锁NF GPT 2x, server: gdcm-inteng.iqencrypt.com, port: 31714, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇯🇵 Lv4 日本4 解锁迪士尼, server: gdcm-inteng.iqencrypt.com, port: 41213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国 大概能用ChatGPT, server: gdcm-inteng.iqencrypt.com, port: 29219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇺🇲 Lv4 美国2 大概能用ChatGPT, server: gdcm-inteng.iqencrypt.com, port: 49219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇮🇹 Lv4 意大利 可可西里, server: gdcm-inteng.iqencrypt.com, port: 29219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇺🇲 Lv4 美国3 大概能用ChatGPT, server: gdcm-inteng.iqencrypt.com, port: 37923, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: Lv4 瑞典, server: gdcm-inteng.iqencrypt.com, port: 52717, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇭🇰 Lv4 香港neko HN, server: gdcm-inteng.iqencrypt.com, port: 45771, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
@@ -45,8 +51,11 @@ proxies:
   - {name: 🇳🇱 Lv4 荷兰 阿姆斯特丹, server: gdcm-inteng.iqencrypt.com, port: 28171, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇭🇰 Lv4 香港HE2-hgc-sh, server: gdcm-inteng.iqencrypt.com, port: 41712, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇹🇷 Lv4 土耳其, server: gdcm-inteng.iqencrypt.com, port: 45030, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇹🇷 Lv4 土耳其2, server: gdcm-inteng.iqencrypt.com, port: 18401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇹🇷 Lv4 土耳其2, server: gdcm-inteng.iqencrypt.com, port: 32319, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇨🇳 Lv4n 台湾 解锁NF 3x, server: gdcm-inteng.iqencrypt.com, port: 39911, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇯🇵 Lv4 日本n 3x, server: gdcm-inteng.iqencrypt.com, port: 32219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇨🇦 Lv3 加拿大 多伦多, server: gdcm-inteng.iqencrypt.com, port: 35111, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇦🇺 Lv3 澳大利亚 悉尼, server: gdcm-inteng.iqencrypt.com, port: 37677, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇩🇪 Lv3 德国 lin, server: gdcm-inteng.iqencrypt.com, port: 45221, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇺🇲 Lv3 美国 洛杉矶inp3, server: gdcm-inteng.iqencrypt.com, port: 45787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇺🇲 Lv3 美国gtt5解锁奈飞, server: gtt5.887211.xyz, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, servername: gtt5.887211.xyz, network: ws, ws-opts: {path: /, headers: {Host: gtt5.887211.xyz}}}
@@ -55,13 +64,14 @@ proxies:
   - {name: 🇮🇳 Lv3 印度 班加罗, server: gdcm-inteng.iqencrypt.com, port: 41787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇺🇲 Lv3 美国 gtt4, server: gdcm-inteng.iqencrypt.com, port: 45730, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇷🇺 Lv3 俄罗斯, server: gdcm-inteng.iqencrypt.com, port: 47785, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇷🇺 Lv3 俄罗斯2, server: gdcm-inteng.iqencrypt.com, port: 41781, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇬🇧 Lv3 英国, server: gdcm-inteng.iqencrypt.com, port: 45004, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇬🇧 Lv3 英国3上, server: gdcm-inteng.iqencrypt.com, port: 45770, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇬🇧 Lv3 英国4广, server: gdcm-inteng.iqencrypt.com, port: 57002, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇺🇲 Lv3 美国 圣何塞3NF广, server: gdcm-inteng.iqencrypt.com, port: 39999, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇺🇲 Lv3 美国 圣何塞4NF广, server: gdcm-inteng.iqencrypt.com, port: 39004, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇯🇵 Lv4 日本 vir 5x, server: gdcm-inteng.iqencrypt.com, port: 45011, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
-  - {name: 🇭🇰 Lv4 香港s 3x, server: gdcm-inteng.iqencrypt.com, port: 47782, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
+  - {name: 🇭🇰 Lv4 香港s 2x, server: gdcm-inteng.iqencrypt.com, port: 47782, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇭🇰 Lv4 香港ipv6 5x, server: gdcm-inteng.iqencrypt.com, port: 62811, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇯🇵 Lv4 日本ipv6 5x, server: gdcm-inteng.iqencrypt.com, port: 61811, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true}
   - {name: 🇺🇲 Lv3 美国Rn解锁NF, server: rn.887211.xyz, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, servername: rn.887211.xyz, network: ws, ws-opts: {path: /, headers: {Host: rn.887211.xyz}}}
@@ -71,27 +81,33 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡4
-      - 🇸🇬 Lv4 新加坡1
-      - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港1nextnet
-      - 🇸🇬 Lv4 新加坡2
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇰🇷 Lv4 韩国 甲骨文
-      - 🇨🇳 Lv4 台湾hi52
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡10
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇸🇬 临时新加坡12
+      - 🇭🇰 Lv4 香港Gcore
+      - 🇸🇬 Lv4 新加坡14
       - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡5
+      - 🇸🇬 Lv4 新加坡13
+      - 临时乌克兰 基辅
+      - Lv4 乌克兰 基辅
+      - 🇸🇬 Lv4 新加坡11
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡1
+      - 🇯🇵 Lv4 日本Gcore
+      - 🇸🇬 Lv4 新加坡10
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇭🇰 Lv4 香港2nextnet
+      - 🇸🇬 Lv4 新加坡8
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇸🇬 Lv4 新加坡15
+      - 🇸🇬 Lv4 新加坡7
+      - 🇨🇳 Lv4 台湾2xsg-sh
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
       - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
-      - 🇺🇲 Lv4 美国 大概能用ChatGPT
-      - 🇺🇲 Lv4 美国2 大概能用ChatGPT
+      - 🇮🇹 Lv4 意大利 可可西里
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
       - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
@@ -112,7 +128,10 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
+      - 🇨🇳 Lv4n 台湾 解锁NF 3x
+      - 🇯🇵 Lv4 日本n 3x
       - 🇨🇦 Lv3 加拿大 多伦多
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
       - 🇺🇲 Lv3 美国gtt5解锁奈飞
@@ -121,13 +140,14 @@ proxy-groups:
       - 🇮🇳 Lv3 印度 班加罗
       - 🇺🇲 Lv3 美国 gtt4
       - 🇷🇺 Lv3 俄罗斯
+      - 🇷🇺 Lv3 俄罗斯2
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
       - 🇺🇲 Lv3 美国 圣何塞3NF广
       - 🇺🇲 Lv3 美国 圣何塞4NF广
       - 🇯🇵 Lv4 日本 vir 5x
-      - 🇭🇰 Lv4 香港s 3x
+      - 🇭🇰 Lv4 香港s 2x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
       - 🇺🇲 Lv3 美国Rn解锁NF
@@ -136,27 +156,33 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡4
-      - 🇸🇬 Lv4 新加坡1
-      - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港1nextnet
-      - 🇸🇬 Lv4 新加坡2
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇰🇷 Lv4 韩国 甲骨文
-      - 🇨🇳 Lv4 台湾hi52
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡10
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇸🇬 临时新加坡12
+      - 🇭🇰 Lv4 香港Gcore
+      - 🇸🇬 Lv4 新加坡14
       - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡5
+      - 🇸🇬 Lv4 新加坡13
+      - 临时乌克兰 基辅
+      - Lv4 乌克兰 基辅
+      - 🇸🇬 Lv4 新加坡11
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡1
+      - 🇯🇵 Lv4 日本Gcore
+      - 🇸🇬 Lv4 新加坡10
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇭🇰 Lv4 香港2nextnet
+      - 🇸🇬 Lv4 新加坡8
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇸🇬 Lv4 新加坡15
+      - 🇸🇬 Lv4 新加坡7
+      - 🇨🇳 Lv4 台湾2xsg-sh
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
       - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
-      - 🇺🇲 Lv4 美国 大概能用ChatGPT
-      - 🇺🇲 Lv4 美国2 大概能用ChatGPT
+      - 🇮🇹 Lv4 意大利 可可西里
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
       - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
@@ -177,7 +203,10 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
+      - 🇨🇳 Lv4n 台湾 解锁NF 3x
+      - 🇯🇵 Lv4 日本n 3x
       - 🇨🇦 Lv3 加拿大 多伦多
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
       - 🇺🇲 Lv3 美国gtt5解锁奈飞
@@ -186,13 +215,14 @@ proxy-groups:
       - 🇮🇳 Lv3 印度 班加罗
       - 🇺🇲 Lv3 美国 gtt4
       - 🇷🇺 Lv3 俄罗斯
+      - 🇷🇺 Lv3 俄罗斯2
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
       - 🇺🇲 Lv3 美国 圣何塞3NF广
       - 🇺🇲 Lv3 美国 圣何塞4NF广
       - 🇯🇵 Lv4 日本 vir 5x
-      - 🇭🇰 Lv4 香港s 3x
+      - 🇭🇰 Lv4 香港s 2x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
       - 🇺🇲 Lv3 美国Rn解锁NF
@@ -202,27 +232,33 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡4
-      - 🇸🇬 Lv4 新加坡1
-      - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港1nextnet
-      - 🇸🇬 Lv4 新加坡2
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇰🇷 Lv4 韩国 甲骨文
-      - 🇨🇳 Lv4 台湾hi52
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡10
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇸🇬 临时新加坡12
+      - 🇭🇰 Lv4 香港Gcore
+      - 🇸🇬 Lv4 新加坡14
       - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡5
+      - 🇸🇬 Lv4 新加坡13
+      - 临时乌克兰 基辅
+      - Lv4 乌克兰 基辅
+      - 🇸🇬 Lv4 新加坡11
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡1
+      - 🇯🇵 Lv4 日本Gcore
+      - 🇸🇬 Lv4 新加坡10
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇭🇰 Lv4 香港2nextnet
+      - 🇸🇬 Lv4 新加坡8
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇸🇬 Lv4 新加坡15
+      - 🇸🇬 Lv4 新加坡7
+      - 🇨🇳 Lv4 台湾2xsg-sh
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
       - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
-      - 🇺🇲 Lv4 美国 大概能用ChatGPT
-      - 🇺🇲 Lv4 美国2 大概能用ChatGPT
+      - 🇮🇹 Lv4 意大利 可可西里
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
       - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
@@ -243,7 +279,10 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
+      - 🇨🇳 Lv4n 台湾 解锁NF 3x
+      - 🇯🇵 Lv4 日本n 3x
       - 🇨🇦 Lv3 加拿大 多伦多
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
       - 🇺🇲 Lv3 美国gtt5解锁奈飞
@@ -252,13 +291,14 @@ proxy-groups:
       - 🇮🇳 Lv3 印度 班加罗
       - 🇺🇲 Lv3 美国 gtt4
       - 🇷🇺 Lv3 俄罗斯
+      - 🇷🇺 Lv3 俄罗斯2
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
       - 🇺🇲 Lv3 美国 圣何塞3NF广
       - 🇺🇲 Lv3 美国 圣何塞4NF广
       - 🇯🇵 Lv4 日本 vir 5x
-      - 🇭🇰 Lv4 香港s 3x
+      - 🇭🇰 Lv4 香港s 2x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
       - 🇺🇲 Lv3 美国Rn解锁NF
@@ -267,42 +307,50 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
+      - 🇭🇰 Lv4 香港Gcore
       - 🇭🇰 Lv4 香港1nextnet
-      - 🇨🇳 Lv4 台湾hi52
+      - 🇭🇰 Lv4 香港2nextnet
       - 🇨🇳 Lv4 台湾2xsg-sh
       - 🇭🇰 Lv4 香港neko HN
       - 🇨🇳 Lv4 台湾4
       - 🇨🇳 Lv4 台湾3x
       - 🇭🇰 Lv4 香港s
       - 🇭🇰 Lv4 香港HE2-hgc-sh
-      - 🇭🇰 Lv4 香港s 3x
+      - 🇨🇳 Lv4n 台湾 解锁NF 3x
+      - 🇭🇰 Lv4 香港s 2x
       - 🇭🇰 Lv4 香港ipv6 5x
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡4
-      - 🇸🇬 Lv4 新加坡1
-      - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港1nextnet
-      - 🇸🇬 Lv4 新加坡2
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇰🇷 Lv4 韩国 甲骨文
-      - 🇨🇳 Lv4 台湾hi52
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡10
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇸🇬 临时新加坡12
+      - 🇭🇰 Lv4 香港Gcore
+      - 🇸🇬 Lv4 新加坡14
       - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡5
+      - 🇸🇬 Lv4 新加坡13
+      - 临时乌克兰 基辅
+      - Lv4 乌克兰 基辅
+      - 🇸🇬 Lv4 新加坡11
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡1
+      - 🇯🇵 Lv4 日本Gcore
+      - 🇸🇬 Lv4 新加坡10
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇭🇰 Lv4 香港2nextnet
+      - 🇸🇬 Lv4 新加坡8
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇸🇬 Lv4 新加坡15
+      - 🇸🇬 Lv4 新加坡7
+      - 🇨🇳 Lv4 台湾2xsg-sh
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
       - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
-      - 🇺🇲 Lv4 美国 大概能用ChatGPT
-      - 🇺🇲 Lv4 美国2 大概能用ChatGPT
+      - 🇮🇹 Lv4 意大利 可可西里
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
       - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
@@ -323,7 +371,10 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
+      - 🇨🇳 Lv4n 台湾 解锁NF 3x
+      - 🇯🇵 Lv4 日本n 3x
       - 🇨🇦 Lv3 加拿大 多伦多
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
       - 🇺🇲 Lv3 美国gtt5解锁奈飞
@@ -332,13 +383,14 @@ proxy-groups:
       - 🇮🇳 Lv3 印度 班加罗
       - 🇺🇲 Lv3 美国 gtt4
       - 🇷🇺 Lv3 俄罗斯
+      - 🇷🇺 Lv3 俄罗斯2
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
       - 🇺🇲 Lv3 美国 圣何塞3NF广
       - 🇺🇲 Lv3 美国 圣何塞4NF广
       - 🇯🇵 Lv4 日本 vir 5x
-      - 🇭🇰 Lv4 香港s 3x
+      - 🇭🇰 Lv4 香港s 2x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
       - 🇺🇲 Lv3 美国Rn解锁NF
@@ -346,27 +398,33 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡4
-      - 🇸🇬 Lv4 新加坡1
-      - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港1nextnet
-      - 🇸🇬 Lv4 新加坡2
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇰🇷 Lv4 韩国 甲骨文
-      - 🇨🇳 Lv4 台湾hi52
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡10
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇸🇬 临时新加坡12
+      - 🇭🇰 Lv4 香港Gcore
+      - 🇸🇬 Lv4 新加坡14
       - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡5
+      - 🇸🇬 Lv4 新加坡13
+      - 临时乌克兰 基辅
+      - Lv4 乌克兰 基辅
+      - 🇸🇬 Lv4 新加坡11
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡1
+      - 🇯🇵 Lv4 日本Gcore
+      - 🇸🇬 Lv4 新加坡10
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇭🇰 Lv4 香港2nextnet
+      - 🇸🇬 Lv4 新加坡8
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇸🇬 Lv4 新加坡15
+      - 🇸🇬 Lv4 新加坡7
+      - 🇨🇳 Lv4 台湾2xsg-sh
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
       - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
-      - 🇺🇲 Lv4 美国 大概能用ChatGPT
-      - 🇺🇲 Lv4 美国2 大概能用ChatGPT
+      - 🇮🇹 Lv4 意大利 可可西里
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
       - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
@@ -387,7 +445,10 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
+      - 🇨🇳 Lv4n 台湾 解锁NF 3x
+      - 🇯🇵 Lv4 日本n 3x
       - 🇨🇦 Lv3 加拿大 多伦多
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
       - 🇺🇲 Lv3 美国gtt5解锁奈飞
@@ -396,13 +457,14 @@ proxy-groups:
       - 🇮🇳 Lv3 印度 班加罗
       - 🇺🇲 Lv3 美国 gtt4
       - 🇷🇺 Lv3 俄罗斯
+      - 🇷🇺 Lv3 俄罗斯2
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
       - 🇺🇲 Lv3 美国 圣何塞3NF广
       - 🇺🇲 Lv3 美国 圣何塞4NF广
       - 🇯🇵 Lv4 日本 vir 5x
-      - 🇭🇰 Lv4 香港s 3x
+      - 🇭🇰 Lv4 香港s 2x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
       - 🇺🇲 Lv3 美国Rn解锁NF
@@ -413,27 +475,33 @@ proxy-groups:
       - 🎯 全球直连
       - 🔰 节点选择
       - ♻️ 自动选择
-      - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡4
-      - 🇸🇬 Lv4 新加坡1
-      - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港1nextnet
-      - 🇸🇬 Lv4 新加坡2
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇰🇷 Lv4 韩国 甲骨文
-      - 🇨🇳 Lv4 台湾hi52
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡10
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇸🇬 临时新加坡12
+      - 🇭🇰 Lv4 香港Gcore
+      - 🇸🇬 Lv4 新加坡14
       - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡5
+      - 🇸🇬 Lv4 新加坡13
+      - 临时乌克兰 基辅
+      - Lv4 乌克兰 基辅
+      - 🇸🇬 Lv4 新加坡11
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡1
+      - 🇯🇵 Lv4 日本Gcore
+      - 🇸🇬 Lv4 新加坡10
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇭🇰 Lv4 香港2nextnet
+      - 🇸🇬 Lv4 新加坡8
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇸🇬 Lv4 新加坡15
+      - 🇸🇬 Lv4 新加坡7
+      - 🇨🇳 Lv4 台湾2xsg-sh
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
       - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
-      - 🇺🇲 Lv4 美国 大概能用ChatGPT
-      - 🇺🇲 Lv4 美国2 大概能用ChatGPT
+      - 🇮🇹 Lv4 意大利 可可西里
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
       - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
@@ -454,7 +522,10 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
+      - 🇨🇳 Lv4n 台湾 解锁NF 3x
+      - 🇯🇵 Lv4 日本n 3x
       - 🇨🇦 Lv3 加拿大 多伦多
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
       - 🇺🇲 Lv3 美国gtt5解锁奈飞
@@ -463,13 +534,14 @@ proxy-groups:
       - 🇮🇳 Lv3 印度 班加罗
       - 🇺🇲 Lv3 美国 gtt4
       - 🇷🇺 Lv3 俄罗斯
+      - 🇷🇺 Lv3 俄罗斯2
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
       - 🇺🇲 Lv3 美国 圣何塞3NF广
       - 🇺🇲 Lv3 美国 圣何塞4NF广
       - 🇯🇵 Lv4 日本 vir 5x
-      - 🇭🇰 Lv4 香港s 3x
+      - 🇭🇰 Lv4 香港s 2x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
       - 🇺🇲 Lv3 美国Rn解锁NF
@@ -488,27 +560,33 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 🇸🇬 Lv4 新加坡8
-      - 🇸🇬 Lv4 新加坡4
-      - 🇸🇬 Lv4 新加坡1
-      - 🇸🇬 Lv4 新加坡5
-      - 🇭🇰 Lv4 香港1nextnet
-      - 🇸🇬 Lv4 新加坡2
-      - 🇸🇬 Lv4 新加坡6
-      - 🇸🇬 Lv4 新加坡 12
-      - 🇰🇷 Lv4 韩国 甲骨文
-      - 🇨🇳 Lv4 台湾hi52
-      - 🇸🇬 Lv4 新加坡7
-      - 🇸🇬 Lv4 新加坡10
-      - 🇨🇳 Lv4 台湾2xsg-sh
-      - 🇸🇬 临时新加坡12
+      - 🇭🇰 Lv4 香港Gcore
+      - 🇸🇬 Lv4 新加坡14
       - 🇸🇬 Lv4 新加坡3
+      - 🇸🇬 Lv4 新加坡4
+      - 🇸🇬 Lv4 新加坡5
+      - 🇸🇬 Lv4 新加坡13
+      - 临时乌克兰 基辅
+      - Lv4 乌克兰 基辅
+      - 🇸🇬 Lv4 新加坡11
+      - 🇸🇬 Lv4 新加坡6
+      - 🇸🇬 Lv4 新加坡1
+      - 🇯🇵 Lv4 日本Gcore
+      - 🇸🇬 Lv4 新加坡10
+      - 🇭🇰 Lv4 香港1nextnet
+      - 🇭🇰 Lv4 香港2nextnet
+      - 🇸🇬 Lv4 新加坡8
+      - 🇸🇬 Lv4 新加坡2
+      - 🇸🇬 Lv4 新加坡12
+      - 🇰🇷 Lv4 韩国 甲骨文
+      - 🇸🇬 Lv4 新加坡15
+      - 🇸🇬 Lv4 新加坡7
+      - 🇨🇳 Lv4 台湾2xsg-sh
       - 🇸🇬 Lv4 新加坡9
       - 🇸🇬 Lv4 新加坡
       - 🇸🇬 Lv4 新加坡 解锁NF GPT 2x
       - 🇯🇵 Lv4 日本4 解锁迪士尼
-      - 🇺🇲 Lv4 美国 大概能用ChatGPT
-      - 🇺🇲 Lv4 美国2 大概能用ChatGPT
+      - 🇮🇹 Lv4 意大利 可可西里
       - 🇺🇲 Lv4 美国3 大概能用ChatGPT
       - Lv4 瑞典
       - 🇭🇰 Lv4 香港neko HN
@@ -529,7 +607,10 @@ proxy-groups:
       - 🇭🇰 Lv4 香港HE2-hgc-sh
       - 🇹🇷 Lv4 土耳其
       - 🇹🇷 Lv4 土耳其2
+      - 🇨🇳 Lv4n 台湾 解锁NF 3x
+      - 🇯🇵 Lv4 日本n 3x
       - 🇨🇦 Lv3 加拿大 多伦多
+      - 🇦🇺 Lv3 澳大利亚 悉尼
       - 🇩🇪 Lv3 德国 lin
       - 🇺🇲 Lv3 美国 洛杉矶inp3
       - 🇺🇲 Lv3 美国gtt5解锁奈飞
@@ -538,13 +619,14 @@ proxy-groups:
       - 🇮🇳 Lv3 印度 班加罗
       - 🇺🇲 Lv3 美国 gtt4
       - 🇷🇺 Lv3 俄罗斯
+      - 🇷🇺 Lv3 俄罗斯2
       - 🇬🇧 Lv3 英国
       - 🇬🇧 Lv3 英国3上
       - 🇬🇧 Lv3 英国4广
       - 🇺🇲 Lv3 美国 圣何塞3NF广
       - 🇺🇲 Lv3 美国 圣何塞4NF广
       - 🇯🇵 Lv4 日本 vir 5x
-      - 🇭🇰 Lv4 香港s 3x
+      - 🇭🇰 Lv4 香港s 2x
       - 🇭🇰 Lv4 香港ipv6 5x
       - 🇯🇵 Lv4 日本ipv6 5x
       - 🇺🇲 Lv3 美国Rn解锁NF
@@ -822,7 +904,6 @@ rules:
  - DOMAIN-SUFFIX,nichibenren.or.jp,🛑 全球拦截
  - DOMAIN-SUFFIX,nicorette.co.kr,🛑 全球拦截
  - DOMAIN-SUFFIX,adnet.sohu.com,🛑 全球拦截
- - DOMAIN-SUFFIX,data.vod.itc.cn,🛑 全球拦截
  - DOMAIN-SUFFIX,epro.sogou.com,🛑 全球拦截
  - DOMAIN-SUFFIX,go.sohu.com,🛑 全球拦截
  - DOMAIN-SUFFIX,golden1.sogou.com,🛑 全球拦截
@@ -2698,7 +2779,6 @@ rules:
  - DOMAIN-SUFFIX,cca.mob.com,🛑 全球拦截
  - DOMAIN-SUFFIX,ccb.uncle-ad.com,🛑 全球拦截
  - DOMAIN-SUFFIX,ccbaihehq.com,🛑 全球拦截
- - DOMAIN-SUFFIX,ccclub.cmbchina.com,🛑 全球拦截
  - DOMAIN-SUFFIX,cccrir.com,🛑 全球拦截
  - DOMAIN-SUFFIX,ccr.yxdown.com,🛑 全球拦截
  - DOMAIN-SUFFIX,cctyly.com,🛑 全球拦截
