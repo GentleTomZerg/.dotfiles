@@ -23,7 +23,7 @@ fi
 CONTAINER_NAME_OR_ID="subconverter"
 
 # Check if container is already running
-if docker ps --filter "name=$CONTAINER_NAME_OR_ID" | grep -q $CONTAINER_NAME_OR_ID ; then
+if sudo docker ps --filter "name=$CONTAINER_NAME_OR_ID" | grep -q $CONTAINER_NAME_OR_ID ; then
     echo "Container is running"
 else
     echo "Container is not running, use the command below"
@@ -32,5 +32,18 @@ else
 fi
 
 # Execute curl command
-curl http://localhost:25500
-curl "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}"
+curl http://localhost:25500/version
+curl "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}" > ~/.config/clash/zm.yaml
+
+if [[ $(wc -l < ~/.config/clash/zm.yaml) -lt 4 ]]; then
+  echo "Error: ~/.config/clash/zm.yaml are less than 4 lines"
+  echo "Try to update proxy again"
+  exit 1
+fi
+# Preprocess the clash config
+
+# Comment out the mode: Rule line
+sed -i 's/mode: Rule/#mode: Rule/' ~/.config/clash/zm.yaml
+
+# Add the external-ui: clash-dashboard line
+sed -i '/external-controller/ i external-ui: clash-dashboard' ~/.config/clash/zm.yaml
