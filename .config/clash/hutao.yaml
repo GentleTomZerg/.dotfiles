@@ -6,303 +6,167 @@ log-level: info
 external-ui: clash-dashboard
 external-controller: :9090
 proxies:
-  - {name: Lv4 乌克兰 基辅, server: gdcm-inteng.iqencrypt.com, port: 27401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡17do, server: gdcm-inteng.iqencrypt.com, port: 38703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 香港Gcore, server: gdcm-inteng.iqencrypt.com, port: 41073, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡13, server: gdcm-inteng.iqencrypt.com, port: 18401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡10, server: gdcm-inteng.iqencrypt.com, port: 45076, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡12, server: gdcm-inteng.iqencrypt.com, port: 31128, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 香港Gcore2, server: gdcm-inteng.iqencrypt.com, port: 41074, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡15, server: gdcm-inteng.iqencrypt.com, port: 45447, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡16do, server: gdcm-inteng.iqencrypt.com, port: 28703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡5, server: gdcm-inteng.iqencrypt.com, port: 44778, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡3, server: gdcm-inteng.iqencrypt.com, port: 23003, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡4, server: gdcm-inteng.iqencrypt.com, port: 49213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: 临时乌克兰 基辅, server: js2.76po.com, port: 27401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡11, server: gdcm-inteng.iqencrypt.com, port: 49219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡6, server: gdcm-inteng.iqencrypt.com, port: 39334, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡1, server: gdcm-inteng.iqencrypt.com, port: 45177, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 日本Gcore, server: gdcm-inteng.iqencrypt.com, port: 41043, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 香港1nextnet, server: gdcm-inteng.iqencrypt.com, port: 25772, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 香港2nextnet, server: gdcm-inteng.iqencrypt.com, port: 25722, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡8, server: gdcm-inteng.iqencrypt.com, port: 37171, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡2, server: gdcm-inteng.iqencrypt.com, port: 41718, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 韩国 甲骨文, server: gdcm-inteng.iqencrypt.com, port: 37767, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4n 台湾 解锁NF 2x, server: gdcm-inteng.iqencrypt.com, port: 39911, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 台湾3x, server: gdcm-inteng.iqencrypt.com, port: 45325, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 台湾4, server: gdcm-inteng.iqencrypt.com, port: 23703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 台湾2xsg-sh, server: gdcm-inteng.iqencrypt.com, port: 45002, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡9, server: gdcm-inteng.iqencrypt.com, port: 45077, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡, server: gdcm-inteng.iqencrypt.com, port: 45003, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡 解锁NF 大概GPT 2x, server: gdcm-inteng.iqencrypt.com, port: 31714, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 日本4 解锁迪士尼, server: gdcm-inteng.iqencrypt.com, port: 41213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 意大利 可可西里, server: gdcm-inteng.iqencrypt.com, port: 29219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 美国3 大概能用ChatGPT, server: gdcm-inteng.iqencrypt.com, port: 37923, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 香港neko HN, server: gdcm-inteng.iqencrypt.com, port: 45771, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 香港s, server: gdcm-inteng.iqencrypt.com, port: 23013, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 日本lins, server: gdcm-inteng.iqencrypt.com, port: 45001, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 日本3, server: gdcm-inteng.iqencrypt.com, port: 47213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 美国 圣何塞 1, server: gdcm-inteng.iqencrypt.com, port: 21213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 美国gtt3NF, server: gdcm-inteng.iqencrypt.com, port: 43794, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 美国 洛杉矶 inp, server: gdcm-inteng.iqencrypt.com, port: 45673, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 美国 圣何塞4, server: gdcm-inteng.iqencrypt.com, port: 45742, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 美国inp2, server: gdcm-inteng.iqencrypt.com, port: 45125, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 法国巴黎 0.5x, server: gdcm-inteng.iqencrypt.com, port: 37911, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 泰国, server: gdcm-inteng.iqencrypt.com, port: 45794, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 荷兰 阿姆斯特丹, server: gdcm-inteng.iqencrypt.com, port: 28171, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 香港HE2-hgc-sh, server: gdcm-inteng.iqencrypt.com, port: 41712, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 土耳其, server: gdcm-inteng.iqencrypt.com, port: 45030, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 土耳其2, server: gdcm-inteng.iqencrypt.com, port: 32319, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 日本n 3x, server: gdcm-inteng.iqencrypt.com, port: 32219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 加拿大 多伦多, server: gdcm-inteng.iqencrypt.com, port: 35111, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 澳大利亚 悉尼, server: gdcm-inteng.iqencrypt.com, port: 37677, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 德国 lin, server: gdcm-inteng.iqencrypt.com, port: 45221, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 美国 洛杉矶inp3, server: gdcm-inteng.iqencrypt.com, port: 45787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 美国gtt5解锁奈飞, server: gtt5.887211.xyz, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: gtt5.887211.xyz, network: ws, ws-opts: {path: /, headers: {Host: gtt5.887211.xyz}}, udp: true}
-  - {name: Lv3 美国 芝加哥X, server: gdcm-inteng.iqencrypt.com, port: 42714, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 美国 芝加哥2, server: gdcm-inteng.iqencrypt.com, port: 47135, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 美国 gcore, server: gdcm-inteng.iqencrypt.com, port: 43315, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 印度 班加罗, server: gdcm-inteng.iqencrypt.com, port: 41787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 美国 gtt4, server: gdcm-inteng.iqencrypt.com, port: 45730, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 俄罗斯, server: gdcm-inteng.iqencrypt.com, port: 47785, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 俄罗斯2, server: gdcm-inteng.iqencrypt.com, port: 41781, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 英国, server: gdcm-inteng.iqencrypt.com, port: 45004, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 英国3上, server: gdcm-inteng.iqencrypt.com, port: 45770, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 英国4广, server: gdcm-inteng.iqencrypt.com, port: 57002, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 美国 圣何塞3NF广, server: gdcm-inteng.iqencrypt.com, port: 39999, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 美国 圣何塞4NF广, server: gdcm-inteng.iqencrypt.com, port: 39004, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 日本 vir 5x, server: gdcm-inteng.iqencrypt.com, port: 45011, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 香港s 2x, server: gdcm-inteng.iqencrypt.com, port: 47782, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 香港ipv6 5x, server: gdcm-inteng.iqencrypt.com, port: 62811, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 日本ipv6 5x, server: gdcm-inteng.iqencrypt.com, port: 61811, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 美国Rn解锁NF, server: rn.887211.xyz, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: rn.887211.xyz, network: ws, ws-opts: {path: /, headers: {Host: rn.887211.xyz}}, udp: true}
+  - {name: 台湾 - IEPL - SS/SSR - 01, server: cm1-tw.hutaonode2.top, port: 12501, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 台湾 - IEPL - SS/SSR - 02, server: cm1-tw.hutaonode2.top, port: 12502, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 台湾 - IEPL - SS/SSR - 03, server: cm1-tw.hutaonode2.top, port: 12503, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 台湾 - IEPL - SS/SSR - 04, server: cm1-tw.hutaonode2.top, port: 12504, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 台湾 - IEPL - SS/SSR - 05, server: cm1-tw.hutaonode2.top, port: 12505, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 台湾 - IEPL - SS/SSR - 06, server: cm1-tw.hutaonode2.top, port: 12506, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 新加坡 - IEPL - SS/SSR - 01, server: cm1-sg.hutaonode2.top, port: 12301, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 新加坡 - IEPL - SS/SSR - 02, server: cm1-sg.hutaonode2.top, port: 12302, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 新加坡 - IEPL - SS/SSR - 03, server: cm1-sg.hutaonode2.top, port: 12303, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 新加坡 - IEPL - SS/SSR - 04, server: cm1-sg.hutaonode2.top, port: 12304, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 新加坡 - IEPL - SS/SSR - 05, server: cm1-sg.hutaonode2.top, port: 12305, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 新加坡 - IEPL - SS/SSR - 06, server: cm1-sg.hutaonode2.top, port: 12306, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 日本 - IEPL - SS/SSR - 01, server: cm1-jp.hutaonode2.top, port: 12001, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 日本 - IEPL - SS/SSR - 02, server: cm1-jp.hutaonode2.top, port: 12002, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 日本 - IEPL - SS/SSR - 03, server: cm1-jp.hutaonode2.top, port: 12003, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 日本 - IEPL - SS/SSR - 04, server: cm1-jp.hutaonode2.top, port: 12004, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 日本 - IEPL - SS/SSR - 05, server: cm1-jp.hutaonode2.top, port: 12005, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 日本 - IEPL - SS/SSR - 06, server: cm1-jp.hutaonode2.top, port: 12006, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 日本 - IEPL - SS/SSR - 07, server: cm1-jp.hutaonode2.top, port: 12007, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 日本 - IEPL - SS/SSR - 08, server: cm1-jp.hutaonode2.top, port: 12008, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 美国 - IEPL - SS/SSR - 01, server: cm1-us.hutaonode2.top, port: 12201, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 美国 - IEPL - SS/SSR - 02, server: cm1-us.hutaonode2.top, port: 12202, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 美国 - IEPL - SS/SSR - 03, server: cm1-us.hutaonode2.top, port: 12203, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 美国 - IEPL - SS/SSR - 04, server: cm1-us.hutaonode2.top, port: 12204, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 美国 - IEPL - SS/SSR - 05, server: cm1-us.hutaonode2.top, port: 12205, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 美国 - IEPL - SS/SSR - 06, server: cm1-us.hutaonode2.top, port: 12206, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 01, server: cm1-hk.hutaonode2.top, port: 12401, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 02, server: cm1-hk.hutaonode2.top, port: 12402, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 03, server: cm1-hk.hutaonode2.top, port: 12403, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 04, server: cm1-hk.hutaonode2.top, port: 12404, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 05, server: cm1-hk.hutaonode2.top, port: 12405, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 06, server: cm1-hk.hutaonode2.top, port: 12406, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 07, server: cm1-hk.hutaonode2.top, port: 12407, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 08, server: cm1-hk.hutaonode2.top, port: 12408, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 09, server: cm1-hk.hutaonode2.top, port: 12409, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
+  - {name: 香港 - IEPL - SS/SSR - 10, server: cm1-hk.hutaonode2.top, port: 12410, type: ssr, cipher: chacha20-ietf, password: HuTaoCloud, protocol: auth_aes128_sha1, obfs: http_simple, protocol-param: 45473:5n8EQ0RAb0yoMNaY, obfs-param: 7a9a445473.microsoft.com, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - Lv4 乌克兰 基辅
-      - Lv4 新加坡17do
-      - Lv4 香港Gcore
-      - Lv4 新加坡13
-      - Lv4 新加坡10
-      - Lv4 新加坡12
-      - Lv4 香港Gcore2
-      - Lv4 新加坡15
-      - Lv4 新加坡16do
-      - Lv4 新加坡5
-      - Lv4 新加坡3
-      - Lv4 新加坡4
-      - 临时乌克兰 基辅
-      - Lv4 新加坡11
-      - Lv4 新加坡6
-      - Lv4 新加坡1
-      - Lv4 日本Gcore
-      - Lv4 香港1nextnet
-      - Lv4 香港2nextnet
-      - Lv4 新加坡8
-      - Lv4 新加坡2
-      - Lv4 韩国 甲骨文
-      - Lv4n 台湾 解锁NF 2x
-      - Lv4 台湾3x
-      - Lv4 台湾4
-      - Lv4 台湾2xsg-sh
-      - Lv4 新加坡9
-      - Lv4 新加坡
-      - Lv4 新加坡 解锁NF 大概GPT 2x
-      - Lv4 日本4 解锁迪士尼
-      - Lv4 意大利 可可西里
-      - Lv4 美国3 大概能用ChatGPT
-      - Lv4 香港neko HN
-      - Lv4 香港s
-      - Lv4 日本lins
-      - Lv4 日本3
-      - Lv4 美国 圣何塞 1
-      - Lv4 美国gtt3NF
-      - Lv4 美国 洛杉矶 inp
-      - Lv4 美国 圣何塞4
-      - Lv4 美国inp2
-      - Lv4 法国巴黎 0.5x
-      - Lv4 泰国
-      - Lv4 荷兰 阿姆斯特丹
-      - Lv4 香港HE2-hgc-sh
-      - Lv4 土耳其
-      - Lv4 土耳其2
-      - Lv4 日本n 3x
-      - Lv3 加拿大 多伦多
-      - Lv3 澳大利亚 悉尼
-      - Lv3 德国 lin
-      - Lv3 美国 洛杉矶inp3
-      - Lv3 美国gtt5解锁奈飞
-      - Lv3 美国 芝加哥X
-      - Lv3 美国 芝加哥2
-      - Lv3 美国 gcore
-      - Lv3 印度 班加罗
-      - Lv3 美国 gtt4
-      - Lv3 俄罗斯
-      - Lv3 俄罗斯2
-      - Lv3 英国
-      - Lv3 英国3上
-      - Lv3 英国4广
-      - Lv3 美国 圣何塞3NF广
-      - Lv3 美国 圣何塞4NF广
-      - Lv4 日本 vir 5x
-      - Lv4 香港s 2x
-      - Lv4 香港ipv6 5x
-      - Lv4 日本ipv6 5x
-      - Lv3 美国Rn解锁NF
+      - 台湾 - IEPL - SS/SSR - 01
+      - 台湾 - IEPL - SS/SSR - 02
+      - 台湾 - IEPL - SS/SSR - 03
+      - 台湾 - IEPL - SS/SSR - 04
+      - 台湾 - IEPL - SS/SSR - 05
+      - 台湾 - IEPL - SS/SSR - 06
+      - 新加坡 - IEPL - SS/SSR - 01
+      - 新加坡 - IEPL - SS/SSR - 02
+      - 新加坡 - IEPL - SS/SSR - 03
+      - 新加坡 - IEPL - SS/SSR - 04
+      - 新加坡 - IEPL - SS/SSR - 05
+      - 新加坡 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 01
+      - 日本 - IEPL - SS/SSR - 02
+      - 日本 - IEPL - SS/SSR - 03
+      - 日本 - IEPL - SS/SSR - 04
+      - 日本 - IEPL - SS/SSR - 05
+      - 日本 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 07
+      - 日本 - IEPL - SS/SSR - 08
+      - 美国 - IEPL - SS/SSR - 01
+      - 美国 - IEPL - SS/SSR - 02
+      - 美国 - IEPL - SS/SSR - 03
+      - 美国 - IEPL - SS/SSR - 04
+      - 美国 - IEPL - SS/SSR - 05
+      - 美国 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 01
+      - 香港 - IEPL - SS/SSR - 02
+      - 香港 - IEPL - SS/SSR - 03
+      - 香港 - IEPL - SS/SSR - 04
+      - 香港 - IEPL - SS/SSR - 05
+      - 香港 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 07
+      - 香港 - IEPL - SS/SSR - 08
+      - 香港 - IEPL - SS/SSR - 09
+      - 香港 - IEPL - SS/SSR - 10
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - Lv4 乌克兰 基辅
-      - Lv4 新加坡17do
-      - Lv4 香港Gcore
-      - Lv4 新加坡13
-      - Lv4 新加坡10
-      - Lv4 新加坡12
-      - Lv4 香港Gcore2
-      - Lv4 新加坡15
-      - Lv4 新加坡16do
-      - Lv4 新加坡5
-      - Lv4 新加坡3
-      - Lv4 新加坡4
-      - 临时乌克兰 基辅
-      - Lv4 新加坡11
-      - Lv4 新加坡6
-      - Lv4 新加坡1
-      - Lv4 日本Gcore
-      - Lv4 香港1nextnet
-      - Lv4 香港2nextnet
-      - Lv4 新加坡8
-      - Lv4 新加坡2
-      - Lv4 韩国 甲骨文
-      - Lv4n 台湾 解锁NF 2x
-      - Lv4 台湾3x
-      - Lv4 台湾4
-      - Lv4 台湾2xsg-sh
-      - Lv4 新加坡9
-      - Lv4 新加坡
-      - Lv4 新加坡 解锁NF 大概GPT 2x
-      - Lv4 日本4 解锁迪士尼
-      - Lv4 意大利 可可西里
-      - Lv4 美国3 大概能用ChatGPT
-      - Lv4 香港neko HN
-      - Lv4 香港s
-      - Lv4 日本lins
-      - Lv4 日本3
-      - Lv4 美国 圣何塞 1
-      - Lv4 美国gtt3NF
-      - Lv4 美国 洛杉矶 inp
-      - Lv4 美国 圣何塞4
-      - Lv4 美国inp2
-      - Lv4 法国巴黎 0.5x
-      - Lv4 泰国
-      - Lv4 荷兰 阿姆斯特丹
-      - Lv4 香港HE2-hgc-sh
-      - Lv4 土耳其
-      - Lv4 土耳其2
-      - Lv4 日本n 3x
-      - Lv3 加拿大 多伦多
-      - Lv3 澳大利亚 悉尼
-      - Lv3 德国 lin
-      - Lv3 美国 洛杉矶inp3
-      - Lv3 美国gtt5解锁奈飞
-      - Lv3 美国 芝加哥X
-      - Lv3 美国 芝加哥2
-      - Lv3 美国 gcore
-      - Lv3 印度 班加罗
-      - Lv3 美国 gtt4
-      - Lv3 俄罗斯
-      - Lv3 俄罗斯2
-      - Lv3 英国
-      - Lv3 英国3上
-      - Lv3 英国4广
-      - Lv3 美国 圣何塞3NF广
-      - Lv3 美国 圣何塞4NF广
-      - Lv4 日本 vir 5x
-      - Lv4 香港s 2x
-      - Lv4 香港ipv6 5x
-      - Lv4 日本ipv6 5x
-      - Lv3 美国Rn解锁NF
+      - 台湾 - IEPL - SS/SSR - 01
+      - 台湾 - IEPL - SS/SSR - 02
+      - 台湾 - IEPL - SS/SSR - 03
+      - 台湾 - IEPL - SS/SSR - 04
+      - 台湾 - IEPL - SS/SSR - 05
+      - 台湾 - IEPL - SS/SSR - 06
+      - 新加坡 - IEPL - SS/SSR - 01
+      - 新加坡 - IEPL - SS/SSR - 02
+      - 新加坡 - IEPL - SS/SSR - 03
+      - 新加坡 - IEPL - SS/SSR - 04
+      - 新加坡 - IEPL - SS/SSR - 05
+      - 新加坡 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 01
+      - 日本 - IEPL - SS/SSR - 02
+      - 日本 - IEPL - SS/SSR - 03
+      - 日本 - IEPL - SS/SSR - 04
+      - 日本 - IEPL - SS/SSR - 05
+      - 日本 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 07
+      - 日本 - IEPL - SS/SSR - 08
+      - 美国 - IEPL - SS/SSR - 01
+      - 美国 - IEPL - SS/SSR - 02
+      - 美国 - IEPL - SS/SSR - 03
+      - 美国 - IEPL - SS/SSR - 04
+      - 美国 - IEPL - SS/SSR - 05
+      - 美国 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 01
+      - 香港 - IEPL - SS/SSR - 02
+      - 香港 - IEPL - SS/SSR - 03
+      - 香港 - IEPL - SS/SSR - 04
+      - 香港 - IEPL - SS/SSR - 05
+      - 香港 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 07
+      - 香港 - IEPL - SS/SSR - 08
+      - 香港 - IEPL - SS/SSR - 09
+      - 香港 - IEPL - SS/SSR - 10
   - name: 🎥 NETFLIX
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - Lv4 乌克兰 基辅
-      - Lv4 新加坡17do
-      - Lv4 香港Gcore
-      - Lv4 新加坡13
-      - Lv4 新加坡10
-      - Lv4 新加坡12
-      - Lv4 香港Gcore2
-      - Lv4 新加坡15
-      - Lv4 新加坡16do
-      - Lv4 新加坡5
-      - Lv4 新加坡3
-      - Lv4 新加坡4
-      - 临时乌克兰 基辅
-      - Lv4 新加坡11
-      - Lv4 新加坡6
-      - Lv4 新加坡1
-      - Lv4 日本Gcore
-      - Lv4 香港1nextnet
-      - Lv4 香港2nextnet
-      - Lv4 新加坡8
-      - Lv4 新加坡2
-      - Lv4 韩国 甲骨文
-      - Lv4n 台湾 解锁NF 2x
-      - Lv4 台湾3x
-      - Lv4 台湾4
-      - Lv4 台湾2xsg-sh
-      - Lv4 新加坡9
-      - Lv4 新加坡
-      - Lv4 新加坡 解锁NF 大概GPT 2x
-      - Lv4 日本4 解锁迪士尼
-      - Lv4 意大利 可可西里
-      - Lv4 美国3 大概能用ChatGPT
-      - Lv4 香港neko HN
-      - Lv4 香港s
-      - Lv4 日本lins
-      - Lv4 日本3
-      - Lv4 美国 圣何塞 1
-      - Lv4 美国gtt3NF
-      - Lv4 美国 洛杉矶 inp
-      - Lv4 美国 圣何塞4
-      - Lv4 美国inp2
-      - Lv4 法国巴黎 0.5x
-      - Lv4 泰国
-      - Lv4 荷兰 阿姆斯特丹
-      - Lv4 香港HE2-hgc-sh
-      - Lv4 土耳其
-      - Lv4 土耳其2
-      - Lv4 日本n 3x
-      - Lv3 加拿大 多伦多
-      - Lv3 澳大利亚 悉尼
-      - Lv3 德国 lin
-      - Lv3 美国 洛杉矶inp3
-      - Lv3 美国gtt5解锁奈飞
-      - Lv3 美国 芝加哥X
-      - Lv3 美国 芝加哥2
-      - Lv3 美国 gcore
-      - Lv3 印度 班加罗
-      - Lv3 美国 gtt4
-      - Lv3 俄罗斯
-      - Lv3 俄罗斯2
-      - Lv3 英国
-      - Lv3 英国3上
-      - Lv3 英国4广
-      - Lv3 美国 圣何塞3NF广
-      - Lv3 美国 圣何塞4NF广
-      - Lv4 日本 vir 5x
-      - Lv4 香港s 2x
-      - Lv4 香港ipv6 5x
-      - Lv4 日本ipv6 5x
-      - Lv3 美国Rn解锁NF
+      - 台湾 - IEPL - SS/SSR - 01
+      - 台湾 - IEPL - SS/SSR - 02
+      - 台湾 - IEPL - SS/SSR - 03
+      - 台湾 - IEPL - SS/SSR - 04
+      - 台湾 - IEPL - SS/SSR - 05
+      - 台湾 - IEPL - SS/SSR - 06
+      - 新加坡 - IEPL - SS/SSR - 01
+      - 新加坡 - IEPL - SS/SSR - 02
+      - 新加坡 - IEPL - SS/SSR - 03
+      - 新加坡 - IEPL - SS/SSR - 04
+      - 新加坡 - IEPL - SS/SSR - 05
+      - 新加坡 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 01
+      - 日本 - IEPL - SS/SSR - 02
+      - 日本 - IEPL - SS/SSR - 03
+      - 日本 - IEPL - SS/SSR - 04
+      - 日本 - IEPL - SS/SSR - 05
+      - 日本 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 07
+      - 日本 - IEPL - SS/SSR - 08
+      - 美国 - IEPL - SS/SSR - 01
+      - 美国 - IEPL - SS/SSR - 02
+      - 美国 - IEPL - SS/SSR - 03
+      - 美国 - IEPL - SS/SSR - 04
+      - 美国 - IEPL - SS/SSR - 05
+      - 美国 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 01
+      - 香港 - IEPL - SS/SSR - 02
+      - 香港 - IEPL - SS/SSR - 03
+      - 香港 - IEPL - SS/SSR - 04
+      - 香港 - IEPL - SS/SSR - 05
+      - 香港 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 07
+      - 香港 - IEPL - SS/SSR - 08
+      - 香港 - IEPL - SS/SSR - 09
+      - 香港 - IEPL - SS/SSR - 10
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -321,320 +185,187 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - Lv4 乌克兰 基辅
-      - Lv4 新加坡17do
-      - Lv4 香港Gcore
-      - Lv4 新加坡13
-      - Lv4 新加坡10
-      - Lv4 新加坡12
-      - Lv4 香港Gcore2
-      - Lv4 新加坡15
-      - Lv4 新加坡16do
-      - Lv4 新加坡5
-      - Lv4 新加坡3
-      - Lv4 新加坡4
-      - 临时乌克兰 基辅
-      - Lv4 新加坡11
-      - Lv4 新加坡6
-      - Lv4 新加坡1
-      - Lv4 日本Gcore
-      - Lv4 香港1nextnet
-      - Lv4 香港2nextnet
-      - Lv4 新加坡8
-      - Lv4 新加坡2
-      - Lv4 韩国 甲骨文
-      - Lv4n 台湾 解锁NF 2x
-      - Lv4 台湾3x
-      - Lv4 台湾4
-      - Lv4 台湾2xsg-sh
-      - Lv4 新加坡9
-      - Lv4 新加坡
-      - Lv4 新加坡 解锁NF 大概GPT 2x
-      - Lv4 日本4 解锁迪士尼
-      - Lv4 意大利 可可西里
-      - Lv4 美国3 大概能用ChatGPT
-      - Lv4 香港neko HN
-      - Lv4 香港s
-      - Lv4 日本lins
-      - Lv4 日本3
-      - Lv4 美国 圣何塞 1
-      - Lv4 美国gtt3NF
-      - Lv4 美国 洛杉矶 inp
-      - Lv4 美国 圣何塞4
-      - Lv4 美国inp2
-      - Lv4 法国巴黎 0.5x
-      - Lv4 泰国
-      - Lv4 荷兰 阿姆斯特丹
-      - Lv4 香港HE2-hgc-sh
-      - Lv4 土耳其
-      - Lv4 土耳其2
-      - Lv4 日本n 3x
-      - Lv3 加拿大 多伦多
-      - Lv3 澳大利亚 悉尼
-      - Lv3 德国 lin
-      - Lv3 美国 洛杉矶inp3
-      - Lv3 美国gtt5解锁奈飞
-      - Lv3 美国 芝加哥X
-      - Lv3 美国 芝加哥2
-      - Lv3 美国 gcore
-      - Lv3 印度 班加罗
-      - Lv3 美国 gtt4
-      - Lv3 俄罗斯
-      - Lv3 俄罗斯2
-      - Lv3 英国
-      - Lv3 英国3上
-      - Lv3 英国4广
-      - Lv3 美国 圣何塞3NF广
-      - Lv3 美国 圣何塞4NF广
-      - Lv4 日本 vir 5x
-      - Lv4 香港s 2x
-      - Lv4 香港ipv6 5x
-      - Lv4 日本ipv6 5x
-      - Lv3 美国Rn解锁NF
+      - 台湾 - IEPL - SS/SSR - 01
+      - 台湾 - IEPL - SS/SSR - 02
+      - 台湾 - IEPL - SS/SSR - 03
+      - 台湾 - IEPL - SS/SSR - 04
+      - 台湾 - IEPL - SS/SSR - 05
+      - 台湾 - IEPL - SS/SSR - 06
+      - 新加坡 - IEPL - SS/SSR - 01
+      - 新加坡 - IEPL - SS/SSR - 02
+      - 新加坡 - IEPL - SS/SSR - 03
+      - 新加坡 - IEPL - SS/SSR - 04
+      - 新加坡 - IEPL - SS/SSR - 05
+      - 新加坡 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 01
+      - 日本 - IEPL - SS/SSR - 02
+      - 日本 - IEPL - SS/SSR - 03
+      - 日本 - IEPL - SS/SSR - 04
+      - 日本 - IEPL - SS/SSR - 05
+      - 日本 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 07
+      - 日本 - IEPL - SS/SSR - 08
+      - 美国 - IEPL - SS/SSR - 01
+      - 美国 - IEPL - SS/SSR - 02
+      - 美国 - IEPL - SS/SSR - 03
+      - 美国 - IEPL - SS/SSR - 04
+      - 美国 - IEPL - SS/SSR - 05
+      - 美国 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 01
+      - 香港 - IEPL - SS/SSR - 02
+      - 香港 - IEPL - SS/SSR - 03
+      - 香港 - IEPL - SS/SSR - 04
+      - 香港 - IEPL - SS/SSR - 05
+      - 香港 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 07
+      - 香港 - IEPL - SS/SSR - 08
+      - 香港 - IEPL - SS/SSR - 09
+      - 香港 - IEPL - SS/SSR - 10
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
-      - Lv4 香港Gcore
-      - Lv4 香港Gcore2
-      - Lv4 香港1nextnet
-      - Lv4 香港2nextnet
-      - Lv4n 台湾 解锁NF 2x
-      - Lv4 台湾3x
-      - Lv4 台湾4
-      - Lv4 台湾2xsg-sh
-      - Lv4 香港neko HN
-      - Lv4 香港s
-      - Lv4 香港HE2-hgc-sh
-      - Lv4 香港s 2x
-      - Lv4 香港ipv6 5x
+      - 台湾 - IEPL - SS/SSR - 01
+      - 台湾 - IEPL - SS/SSR - 02
+      - 台湾 - IEPL - SS/SSR - 03
+      - 台湾 - IEPL - SS/SSR - 04
+      - 台湾 - IEPL - SS/SSR - 05
+      - 台湾 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 01
+      - 香港 - IEPL - SS/SSR - 02
+      - 香港 - IEPL - SS/SSR - 03
+      - 香港 - IEPL - SS/SSR - 04
+      - 香港 - IEPL - SS/SSR - 05
+      - 香港 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 07
+      - 香港 - IEPL - SS/SSR - 08
+      - 香港 - IEPL - SS/SSR - 09
+      - 香港 - IEPL - SS/SSR - 10
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - Lv4 乌克兰 基辅
-      - Lv4 新加坡17do
-      - Lv4 香港Gcore
-      - Lv4 新加坡13
-      - Lv4 新加坡10
-      - Lv4 新加坡12
-      - Lv4 香港Gcore2
-      - Lv4 新加坡15
-      - Lv4 新加坡16do
-      - Lv4 新加坡5
-      - Lv4 新加坡3
-      - Lv4 新加坡4
-      - 临时乌克兰 基辅
-      - Lv4 新加坡11
-      - Lv4 新加坡6
-      - Lv4 新加坡1
-      - Lv4 日本Gcore
-      - Lv4 香港1nextnet
-      - Lv4 香港2nextnet
-      - Lv4 新加坡8
-      - Lv4 新加坡2
-      - Lv4 韩国 甲骨文
-      - Lv4n 台湾 解锁NF 2x
-      - Lv4 台湾3x
-      - Lv4 台湾4
-      - Lv4 台湾2xsg-sh
-      - Lv4 新加坡9
-      - Lv4 新加坡
-      - Lv4 新加坡 解锁NF 大概GPT 2x
-      - Lv4 日本4 解锁迪士尼
-      - Lv4 意大利 可可西里
-      - Lv4 美国3 大概能用ChatGPT
-      - Lv4 香港neko HN
-      - Lv4 香港s
-      - Lv4 日本lins
-      - Lv4 日本3
-      - Lv4 美国 圣何塞 1
-      - Lv4 美国gtt3NF
-      - Lv4 美国 洛杉矶 inp
-      - Lv4 美国 圣何塞4
-      - Lv4 美国inp2
-      - Lv4 法国巴黎 0.5x
-      - Lv4 泰国
-      - Lv4 荷兰 阿姆斯特丹
-      - Lv4 香港HE2-hgc-sh
-      - Lv4 土耳其
-      - Lv4 土耳其2
-      - Lv4 日本n 3x
-      - Lv3 加拿大 多伦多
-      - Lv3 澳大利亚 悉尼
-      - Lv3 德国 lin
-      - Lv3 美国 洛杉矶inp3
-      - Lv3 美国gtt5解锁奈飞
-      - Lv3 美国 芝加哥X
-      - Lv3 美国 芝加哥2
-      - Lv3 美国 gcore
-      - Lv3 印度 班加罗
-      - Lv3 美国 gtt4
-      - Lv3 俄罗斯
-      - Lv3 俄罗斯2
-      - Lv3 英国
-      - Lv3 英国3上
-      - Lv3 英国4广
-      - Lv3 美国 圣何塞3NF广
-      - Lv3 美国 圣何塞4NF广
-      - Lv4 日本 vir 5x
-      - Lv4 香港s 2x
-      - Lv4 香港ipv6 5x
-      - Lv4 日本ipv6 5x
-      - Lv3 美国Rn解锁NF
+      - 台湾 - IEPL - SS/SSR - 01
+      - 台湾 - IEPL - SS/SSR - 02
+      - 台湾 - IEPL - SS/SSR - 03
+      - 台湾 - IEPL - SS/SSR - 04
+      - 台湾 - IEPL - SS/SSR - 05
+      - 台湾 - IEPL - SS/SSR - 06
+      - 新加坡 - IEPL - SS/SSR - 01
+      - 新加坡 - IEPL - SS/SSR - 02
+      - 新加坡 - IEPL - SS/SSR - 03
+      - 新加坡 - IEPL - SS/SSR - 04
+      - 新加坡 - IEPL - SS/SSR - 05
+      - 新加坡 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 01
+      - 日本 - IEPL - SS/SSR - 02
+      - 日本 - IEPL - SS/SSR - 03
+      - 日本 - IEPL - SS/SSR - 04
+      - 日本 - IEPL - SS/SSR - 05
+      - 日本 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 07
+      - 日本 - IEPL - SS/SSR - 08
+      - 美国 - IEPL - SS/SSR - 01
+      - 美国 - IEPL - SS/SSR - 02
+      - 美国 - IEPL - SS/SSR - 03
+      - 美国 - IEPL - SS/SSR - 04
+      - 美国 - IEPL - SS/SSR - 05
+      - 美国 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 01
+      - 香港 - IEPL - SS/SSR - 02
+      - 香港 - IEPL - SS/SSR - 03
+      - 香港 - IEPL - SS/SSR - 04
+      - 香港 - IEPL - SS/SSR - 05
+      - 香港 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 07
+      - 香港 - IEPL - SS/SSR - 08
+      - 香港 - IEPL - SS/SSR - 09
+      - 香港 - IEPL - SS/SSR - 10
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - Lv4 乌克兰 基辅
-      - Lv4 新加坡17do
-      - Lv4 香港Gcore
-      - Lv4 新加坡13
-      - Lv4 新加坡10
-      - Lv4 新加坡12
-      - Lv4 香港Gcore2
-      - Lv4 新加坡15
-      - Lv4 新加坡16do
-      - Lv4 新加坡5
-      - Lv4 新加坡3
-      - Lv4 新加坡4
-      - 临时乌克兰 基辅
-      - Lv4 新加坡11
-      - Lv4 新加坡6
-      - Lv4 新加坡1
-      - Lv4 日本Gcore
-      - Lv4 香港1nextnet
-      - Lv4 香港2nextnet
-      - Lv4 新加坡8
-      - Lv4 新加坡2
-      - Lv4 韩国 甲骨文
-      - Lv4n 台湾 解锁NF 2x
-      - Lv4 台湾3x
-      - Lv4 台湾4
-      - Lv4 台湾2xsg-sh
-      - Lv4 新加坡9
-      - Lv4 新加坡
-      - Lv4 新加坡 解锁NF 大概GPT 2x
-      - Lv4 日本4 解锁迪士尼
-      - Lv4 意大利 可可西里
-      - Lv4 美国3 大概能用ChatGPT
-      - Lv4 香港neko HN
-      - Lv4 香港s
-      - Lv4 日本lins
-      - Lv4 日本3
-      - Lv4 美国 圣何塞 1
-      - Lv4 美国gtt3NF
-      - Lv4 美国 洛杉矶 inp
-      - Lv4 美国 圣何塞4
-      - Lv4 美国inp2
-      - Lv4 法国巴黎 0.5x
-      - Lv4 泰国
-      - Lv4 荷兰 阿姆斯特丹
-      - Lv4 香港HE2-hgc-sh
-      - Lv4 土耳其
-      - Lv4 土耳其2
-      - Lv4 日本n 3x
-      - Lv3 加拿大 多伦多
-      - Lv3 澳大利亚 悉尼
-      - Lv3 德国 lin
-      - Lv3 美国 洛杉矶inp3
-      - Lv3 美国gtt5解锁奈飞
-      - Lv3 美国 芝加哥X
-      - Lv3 美国 芝加哥2
-      - Lv3 美国 gcore
-      - Lv3 印度 班加罗
-      - Lv3 美国 gtt4
-      - Lv3 俄罗斯
-      - Lv3 俄罗斯2
-      - Lv3 英国
-      - Lv3 英国3上
-      - Lv3 英国4广
-      - Lv3 美国 圣何塞3NF广
-      - Lv3 美国 圣何塞4NF广
-      - Lv4 日本 vir 5x
-      - Lv4 香港s 2x
-      - Lv4 香港ipv6 5x
-      - Lv4 日本ipv6 5x
-      - Lv3 美国Rn解锁NF
+      - 台湾 - IEPL - SS/SSR - 01
+      - 台湾 - IEPL - SS/SSR - 02
+      - 台湾 - IEPL - SS/SSR - 03
+      - 台湾 - IEPL - SS/SSR - 04
+      - 台湾 - IEPL - SS/SSR - 05
+      - 台湾 - IEPL - SS/SSR - 06
+      - 新加坡 - IEPL - SS/SSR - 01
+      - 新加坡 - IEPL - SS/SSR - 02
+      - 新加坡 - IEPL - SS/SSR - 03
+      - 新加坡 - IEPL - SS/SSR - 04
+      - 新加坡 - IEPL - SS/SSR - 05
+      - 新加坡 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 01
+      - 日本 - IEPL - SS/SSR - 02
+      - 日本 - IEPL - SS/SSR - 03
+      - 日本 - IEPL - SS/SSR - 04
+      - 日本 - IEPL - SS/SSR - 05
+      - 日本 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 07
+      - 日本 - IEPL - SS/SSR - 08
+      - 美国 - IEPL - SS/SSR - 01
+      - 美国 - IEPL - SS/SSR - 02
+      - 美国 - IEPL - SS/SSR - 03
+      - 美国 - IEPL - SS/SSR - 04
+      - 美国 - IEPL - SS/SSR - 05
+      - 美国 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 01
+      - 香港 - IEPL - SS/SSR - 02
+      - 香港 - IEPL - SS/SSR - 03
+      - 香港 - IEPL - SS/SSR - 04
+      - 香港 - IEPL - SS/SSR - 05
+      - 香港 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 07
+      - 香港 - IEPL - SS/SSR - 08
+      - 香港 - IEPL - SS/SSR - 09
+      - 香港 - IEPL - SS/SSR - 10
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - Lv4 乌克兰 基辅
-      - Lv4 新加坡17do
-      - Lv4 香港Gcore
-      - Lv4 新加坡13
-      - Lv4 新加坡10
-      - Lv4 新加坡12
-      - Lv4 香港Gcore2
-      - Lv4 新加坡15
-      - Lv4 新加坡16do
-      - Lv4 新加坡5
-      - Lv4 新加坡3
-      - Lv4 新加坡4
-      - 临时乌克兰 基辅
-      - Lv4 新加坡11
-      - Lv4 新加坡6
-      - Lv4 新加坡1
-      - Lv4 日本Gcore
-      - Lv4 香港1nextnet
-      - Lv4 香港2nextnet
-      - Lv4 新加坡8
-      - Lv4 新加坡2
-      - Lv4 韩国 甲骨文
-      - Lv4n 台湾 解锁NF 2x
-      - Lv4 台湾3x
-      - Lv4 台湾4
-      - Lv4 台湾2xsg-sh
-      - Lv4 新加坡9
-      - Lv4 新加坡
-      - Lv4 新加坡 解锁NF 大概GPT 2x
-      - Lv4 日本4 解锁迪士尼
-      - Lv4 意大利 可可西里
-      - Lv4 美国3 大概能用ChatGPT
-      - Lv4 香港neko HN
-      - Lv4 香港s
-      - Lv4 日本lins
-      - Lv4 日本3
-      - Lv4 美国 圣何塞 1
-      - Lv4 美国gtt3NF
-      - Lv4 美国 洛杉矶 inp
-      - Lv4 美国 圣何塞4
-      - Lv4 美国inp2
-      - Lv4 法国巴黎 0.5x
-      - Lv4 泰国
-      - Lv4 荷兰 阿姆斯特丹
-      - Lv4 香港HE2-hgc-sh
-      - Lv4 土耳其
-      - Lv4 土耳其2
-      - Lv4 日本n 3x
-      - Lv3 加拿大 多伦多
-      - Lv3 澳大利亚 悉尼
-      - Lv3 德国 lin
-      - Lv3 美国 洛杉矶inp3
-      - Lv3 美国gtt5解锁奈飞
-      - Lv3 美国 芝加哥X
-      - Lv3 美国 芝加哥2
-      - Lv3 美国 gcore
-      - Lv3 印度 班加罗
-      - Lv3 美国 gtt4
-      - Lv3 俄罗斯
-      - Lv3 俄罗斯2
-      - Lv3 英国
-      - Lv3 英国3上
-      - Lv3 英国4广
-      - Lv3 美国 圣何塞3NF广
-      - Lv3 美国 圣何塞4NF广
-      - Lv4 日本 vir 5x
-      - Lv4 香港s 2x
-      - Lv4 香港ipv6 5x
-      - Lv4 日本ipv6 5x
-      - Lv3 美国Rn解锁NF
+      - 台湾 - IEPL - SS/SSR - 01
+      - 台湾 - IEPL - SS/SSR - 02
+      - 台湾 - IEPL - SS/SSR - 03
+      - 台湾 - IEPL - SS/SSR - 04
+      - 台湾 - IEPL - SS/SSR - 05
+      - 台湾 - IEPL - SS/SSR - 06
+      - 新加坡 - IEPL - SS/SSR - 01
+      - 新加坡 - IEPL - SS/SSR - 02
+      - 新加坡 - IEPL - SS/SSR - 03
+      - 新加坡 - IEPL - SS/SSR - 04
+      - 新加坡 - IEPL - SS/SSR - 05
+      - 新加坡 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 01
+      - 日本 - IEPL - SS/SSR - 02
+      - 日本 - IEPL - SS/SSR - 03
+      - 日本 - IEPL - SS/SSR - 04
+      - 日本 - IEPL - SS/SSR - 05
+      - 日本 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 07
+      - 日本 - IEPL - SS/SSR - 08
+      - 美国 - IEPL - SS/SSR - 01
+      - 美国 - IEPL - SS/SSR - 02
+      - 美国 - IEPL - SS/SSR - 03
+      - 美国 - IEPL - SS/SSR - 04
+      - 美国 - IEPL - SS/SSR - 05
+      - 美国 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 01
+      - 香港 - IEPL - SS/SSR - 02
+      - 香港 - IEPL - SS/SSR - 03
+      - 香港 - IEPL - SS/SSR - 04
+      - 香港 - IEPL - SS/SSR - 05
+      - 香港 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 07
+      - 香港 - IEPL - SS/SSR - 08
+      - 香港 - IEPL - SS/SSR - 09
+      - 香港 - IEPL - SS/SSR - 10
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -650,76 +381,42 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - Lv4 乌克兰 基辅
-      - Lv4 新加坡17do
-      - Lv4 香港Gcore
-      - Lv4 新加坡13
-      - Lv4 新加坡10
-      - Lv4 新加坡12
-      - Lv4 香港Gcore2
-      - Lv4 新加坡15
-      - Lv4 新加坡16do
-      - Lv4 新加坡5
-      - Lv4 新加坡3
-      - Lv4 新加坡4
-      - 临时乌克兰 基辅
-      - Lv4 新加坡11
-      - Lv4 新加坡6
-      - Lv4 新加坡1
-      - Lv4 日本Gcore
-      - Lv4 香港1nextnet
-      - Lv4 香港2nextnet
-      - Lv4 新加坡8
-      - Lv4 新加坡2
-      - Lv4 韩国 甲骨文
-      - Lv4n 台湾 解锁NF 2x
-      - Lv4 台湾3x
-      - Lv4 台湾4
-      - Lv4 台湾2xsg-sh
-      - Lv4 新加坡9
-      - Lv4 新加坡
-      - Lv4 新加坡 解锁NF 大概GPT 2x
-      - Lv4 日本4 解锁迪士尼
-      - Lv4 意大利 可可西里
-      - Lv4 美国3 大概能用ChatGPT
-      - Lv4 香港neko HN
-      - Lv4 香港s
-      - Lv4 日本lins
-      - Lv4 日本3
-      - Lv4 美国 圣何塞 1
-      - Lv4 美国gtt3NF
-      - Lv4 美国 洛杉矶 inp
-      - Lv4 美国 圣何塞4
-      - Lv4 美国inp2
-      - Lv4 法国巴黎 0.5x
-      - Lv4 泰国
-      - Lv4 荷兰 阿姆斯特丹
-      - Lv4 香港HE2-hgc-sh
-      - Lv4 土耳其
-      - Lv4 土耳其2
-      - Lv4 日本n 3x
-      - Lv3 加拿大 多伦多
-      - Lv3 澳大利亚 悉尼
-      - Lv3 德国 lin
-      - Lv3 美国 洛杉矶inp3
-      - Lv3 美国gtt5解锁奈飞
-      - Lv3 美国 芝加哥X
-      - Lv3 美国 芝加哥2
-      - Lv3 美国 gcore
-      - Lv3 印度 班加罗
-      - Lv3 美国 gtt4
-      - Lv3 俄罗斯
-      - Lv3 俄罗斯2
-      - Lv3 英国
-      - Lv3 英国3上
-      - Lv3 英国4广
-      - Lv3 美国 圣何塞3NF广
-      - Lv3 美国 圣何塞4NF广
-      - Lv4 日本 vir 5x
-      - Lv4 香港s 2x
-      - Lv4 香港ipv6 5x
-      - Lv4 日本ipv6 5x
-      - Lv3 美国Rn解锁NF
+      - 台湾 - IEPL - SS/SSR - 01
+      - 台湾 - IEPL - SS/SSR - 02
+      - 台湾 - IEPL - SS/SSR - 03
+      - 台湾 - IEPL - SS/SSR - 04
+      - 台湾 - IEPL - SS/SSR - 05
+      - 台湾 - IEPL - SS/SSR - 06
+      - 新加坡 - IEPL - SS/SSR - 01
+      - 新加坡 - IEPL - SS/SSR - 02
+      - 新加坡 - IEPL - SS/SSR - 03
+      - 新加坡 - IEPL - SS/SSR - 04
+      - 新加坡 - IEPL - SS/SSR - 05
+      - 新加坡 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 01
+      - 日本 - IEPL - SS/SSR - 02
+      - 日本 - IEPL - SS/SSR - 03
+      - 日本 - IEPL - SS/SSR - 04
+      - 日本 - IEPL - SS/SSR - 05
+      - 日本 - IEPL - SS/SSR - 06
+      - 日本 - IEPL - SS/SSR - 07
+      - 日本 - IEPL - SS/SSR - 08
+      - 美国 - IEPL - SS/SSR - 01
+      - 美国 - IEPL - SS/SSR - 02
+      - 美国 - IEPL - SS/SSR - 03
+      - 美国 - IEPL - SS/SSR - 04
+      - 美国 - IEPL - SS/SSR - 05
+      - 美国 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 01
+      - 香港 - IEPL - SS/SSR - 02
+      - 香港 - IEPL - SS/SSR - 03
+      - 香港 - IEPL - SS/SSR - 04
+      - 香港 - IEPL - SS/SSR - 05
+      - 香港 - IEPL - SS/SSR - 06
+      - 香港 - IEPL - SS/SSR - 07
+      - 香港 - IEPL - SS/SSR - 08
+      - 香港 - IEPL - SS/SSR - 09
+      - 香港 - IEPL - SS/SSR - 10
 rules:
   - DOMAIN-SUFFIX,local,🎯 全球直连
   - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve

@@ -31,9 +31,13 @@ else
     exit 1
 fi
 
+# Specify the filename which the configration will be stored
+echo "File to store the configration:~/.config/clash/"
+read filename
 # Execute curl command
 curl http://localhost:25500/version
-curl "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}" > ~/.config/clash/zm.yaml
+echo "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}"
+curl "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}" > ~/.config/clash/${filename}.yaml
 
 if [[ $(wc -l < ~/.config/clash/zm.yaml) -lt 4 ]]; then
   echo "Error: ~/.config/clash/zm.yaml are less than 4 lines"
@@ -43,7 +47,8 @@ fi
 # Preprocess the clash config
 
 # Comment out the mode: Rule line
-sed -i 's/mode: Rule/#mode: Rule/' ~/.config/clash/zm.yaml
+sed -i 's/mode: Rule/#mode: Rule/' ~/.config/clash/${filename}.yaml
 
 # Add the external-ui: clash-dashboard line
-sed -i '/external-controller/ i external-ui: clash-dashboard' ~/.config/clash/zm.yaml
+sed -i '/external-controller/ i external-ui: clash-dashboard' ~/.config/clash/${filename}.yaml
+

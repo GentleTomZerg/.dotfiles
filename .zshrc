@@ -142,11 +142,27 @@ function updateproxy() {
 
 # Start proxy
 function startproxy() {
+# Check if clash is already running
   if [[ $(pidof clash) ]]; then
     echo "clash has already started."
     return 1
   fi
-  nohup clash -f ~/.config/clash/zm.yaml > /dev/null & 
+
+  # Prompt the user to choose a configuration file
+  echo "Choose the configuration file:"
+
+  # Use the `select` command to display a numbered list of all the *.yaml files in the ~/.config/clash/ directory
+  select filename in ~/.config/clash/*.yaml; do
+    # Check if the user entered a valid selection
+    if [[ -n "$filename" ]]; then
+      nohup clash -f "$filename" > /dev/null &
+      echo "Starting clash with configuration file: $filename"
+      break
+    else
+      # Display an error message and prompt the user to choose a valid selection
+      echo "Invalid selection. Please try again."
+    fi
+  done
 }  
 
 # Stop proxy
