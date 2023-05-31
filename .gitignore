@@ -15,6 +15,11 @@
 !/.config/lvim/config.lua
 !/.config/lvim/lua
 
+!/.config/clash
+/.config/clash/*
+!/.config/clash/update.sh
+!/.config/clash/subconverter.sh
+
 !/.config/i3
 !/.config/rofi
 !/.config/picom
@@ -23,7 +28,6 @@
 !/.config/neofetch
 !/.config/polybar
 !/.config/clipit
-!/.config/clash
 !/.screenlayout/
 !/dotfiles-wiki
 
