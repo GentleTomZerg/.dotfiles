@@ -10,15 +10,6 @@ lvim.plugins = {
     end,
   },
 
-  -- Hop (Like Easymotion)
-  -- {
-  --   "phaazon/hop.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("hop").setup()
-  --   end,
-  -- },
-
   {
     "phaazon/hop.nvim",
     event = "BufRead",
@@ -37,8 +28,15 @@ lvim.plugins = {
     end
   },
 
+  -- java plugin
   "mfussenegger/nvim-jdtls",
 
+  -- python plugin
+  -- "ChristianChiarulli/swenv.nvim",
+  "stevearc/dressing.nvim",
+  "mfussenegger/nvim-dap-python",
+  "nvim-neotest/neotest",
+  "nvim-neotest/neotest-python",
 
   -- {
   --   'Exafunction/codeium.vim',

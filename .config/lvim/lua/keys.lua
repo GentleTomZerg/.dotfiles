@@ -6,11 +6,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["H"] = "^"
 lvim.keys.normal_mode["L"] = "$"
 lvim.keys.normal_mode[";"] = ":"
-  -- control split screen
-lvim.keys.normal_mode["<A-h>"] = "<C-w><Left>"
-lvim.keys.normal_mode["<A-l>"] = '<C-w><Right>'
-lvim.keys.normal_mode["<A-j>"] = '<C-w><Down>'
-lvim.keys.normal_mode["<A-k>"] = '<C-w><Up>'
   -- insert mode
 lvim.keys.insert_mode["<A-l>"] = "<Right>"
 lvim.keys.insert_mode["<A-h>"] = "<Left>"
@@ -18,4 +13,4 @@ lvim.keys.insert_mode["<A-j>"] = "<Down>"
 lvim.keys.insert_mode["<A-k>"] = "<Up>"
 lvim.keys.insert_mode["<A-Esc>"] = "``<Left>"
 
-
+-- plugins keymapping
