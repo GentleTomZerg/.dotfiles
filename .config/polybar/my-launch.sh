@@ -6,6 +6,10 @@ killall polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
+interface=$(ip link | awk '/wl/ {print $2}' | cut -d':' -f1)
+
+sed -i "1s/.*/[global]/" "$(dirname "$0")/config.ini"
+sed -i "2s/.*/wifi-interface=$interface/" "$(dirname "$0")/config.ini"
 # Launch polybar
 polybar main -c $(dirname $0)/config.ini &
 
