@@ -24,9 +24,13 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
-lvim.colorscheme = "catppuccin"
+lvim.colorscheme = "onedark"
 -- lvim.builtin.lualine.options.theme = "tokyonight-day"
 lvim.lsp.enabled = true
+lvim.builtin.lualine.sections = {
+  lualine_a = {'mode'},
+  -- lualine_b = {'branch'}
+}
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"

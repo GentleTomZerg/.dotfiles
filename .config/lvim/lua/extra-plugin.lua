@@ -39,13 +39,17 @@ lvim.plugins = {
   "nvim-neotest/neotest-python",
 
   -- theme plugin
-  { "catppuccin/nvim", name = "catppuccin",
-    -- opts = {
-    --   flavour = "frappe",
-    -- },
-  },
 
-  {"navarasu/onedark.nvim", name = "onedark"}
+  {"navarasu/onedark.nvim", name = "onedark",
+    config = function ()
+      require('onedark').setup {
+        -- style = 'cool'
+        -- style = 'warmer'
+        style = 'deep'
+      }
+    end
+
+  }
   -- {
   --   'Exafunction/codeium.vim',
   --   config = function ()
