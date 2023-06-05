@@ -51,4 +51,6 @@ sed -i 's/mode: Rule/#mode: Rule/' ~/.config/clash/${filename}.yaml
 
 # Add the external-ui: clash-dashboard line
 sed -i '/external-controller/ i external-ui: clash-dashboard' ~/.config/clash/${filename}.yaml
+# Add the secret password to use the clash-dashboard
+sed -i '/external-controller/ i secret: 707399' ~/.config/clash/${filename}.yaml
 
