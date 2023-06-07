@@ -1,6 +1,5 @@
-# import:
-#  - ~/.config/alacritty/alacritty-theme/themes/snazzy.yaml
-
+import:
+ - ~/.config/alacritty/alacritty-theme/themes/one_dark.yaml
 font:
   normal:
     family: SauceCodePro Nerd font 

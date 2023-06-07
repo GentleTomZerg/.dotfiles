@@ -47,11 +47,11 @@ local config = {
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
-    "-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
+    "-javaagent:" .. home .. "/.local/share/lvim/mason/packages/jdtls/lombok.jar",
     "-jar",
-    vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+    vim.fn.glob(home .. "/.local/share/lvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
     "-configuration",
-    home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. os_config,
+    home .. "/.local/share/lvim/mason/packages/jdtls/config_" .. os_config,
     "-data",
     workspace_dir,
   },
@@ -67,12 +67,8 @@ local config = {
         updateBuildConfiguration = "interactive",
         runtimes = {
           {
-            name = "JavaSE-11",
-            path = "~/.sdkman/candidates/java/11.0.12-open",
-          },
-          {
             name = "JavaSE-17",
-            path = "~/.sdkman/candidates/java/17.0.7-tem",
+            path = "~/.sdkman/candidates/java/17.0.7-tem"
           },
         },
       },
@@ -113,6 +109,7 @@ config["on_attach"] = function(client, bufnr)
   if status_ok then
     jdtls_dap.setup_dap_main_class_configs()
   end
+  require("jdtls.setup").add_commands()
 end
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
