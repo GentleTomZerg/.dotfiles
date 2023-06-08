@@ -109,7 +109,6 @@ config["on_attach"] = function(client, bufnr)
   if status_ok then
     jdtls_dap.setup_dap_main_class_configs()
   end
-  require("jdtls.setup").add_commands()
 end
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
