@@ -16,12 +16,6 @@
 !/.config/lvim/lua
 !/.config/lvim/ftplugin/
 
-# !/.config/nvim
-# /.config/nvim/*
-# !/.conig/nvim/lua/
-# /.config/nvim/lua/*
-# !/.config/nvim/lua/user
-
 !/.config/clash
 /.config/clash/*
 !/.config/clash/update.sh
