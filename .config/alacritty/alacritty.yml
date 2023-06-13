@@ -17,14 +17,15 @@ font:
     family: SauceCodePro Nerd Font
     style: Bold Italic
 
-  size: 20
+  size: 18
 
 cursor:
   style:
     shape: Underline
     blinking: Always
 
-
+window:
+  opacity: 0.85
 
 
 
