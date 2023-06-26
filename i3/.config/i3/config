@@ -43,8 +43,6 @@ exec_always --no-startup-id fcitx5
 exec_always --no-startup-id ~/.config/i3/tap-to-click.sh
 exec_always --no-startup-id ~/.config/i3/inverse-scroll.sh
 # exec --no-startup-id clipit &
-# FIX: can not hidden the modules at startup, need further investigation
-# exec_always --no-startup-id ~/.config/i3/polybar.sh
 
 
 

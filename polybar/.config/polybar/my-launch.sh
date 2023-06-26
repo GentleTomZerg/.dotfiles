@@ -16,3 +16,10 @@ polybar main -c $(dirname $0)/config.ini &
 if [[ $(xrandr -q | grep 'DP-2 connected') ]]; then
 	polybar external -c $(dirname $0)/config.ini &
 fi
+
+
+# Hide all the modules below when startup polybar
+# i3wm has $mod+Shift+t keymappings to toggle the modules
+polybar-msg action "#cpu.module_toggle"
+polybar-msg action "#memory.module_toggle"
+polybar-msg action "#filesystem.module_toggle"
