@@ -175,6 +175,10 @@ function stopproxy() {
   kill $(pidof clash)
 }
 
+# Hardware Control for XiaoXinPro
+source ~/.config/i3/sysmod.sh
+source ~/.config/i3/batctl.sh
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
