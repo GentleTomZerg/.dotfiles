@@ -44,8 +44,6 @@ exec_always --no-startup-id ~/.config/i3/tap-to-click.sh
 exec_always --no-startup-id ~/.config/i3/inverse-scroll.sh
 # exec --no-startup-id clipit &
 
-
-
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
