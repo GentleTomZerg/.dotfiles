@@ -14,3 +14,7 @@ sysmod_balanced() {
 sysmod_performance() {
 	sudo sh -c "echo 'performance' > /sys/firmware/acpi/platform_profile"
 }
+
+sysmod_show() {
+	sh -c "cat /sys/firmware/acpi/platform_profile"
+}
