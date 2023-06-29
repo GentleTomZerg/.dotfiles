@@ -94,7 +94,25 @@ sudo dnf install lazygit
 ```
 
 13. Chinese input
-<!-- TODO: -->
+
+- install `fcitx5`
+- install `fcitx5-chinese-addons`
+- open fcitx5 config, add pinyin
+- reboot
+- add the following code to /etc/environment and login again
+
+  ```shell
+  GTK_IM_MODULE=fcitx
+  QT_IM_MODULE=fcitx
+  XMODIFIERS=@im=fcitx
+  SDL_IM_MODULE=fcitx
+  GLFW_IM_MODULE=ibus
+  ```
+
+- Theme: follow this [link](https://github.com/hosxy/Fcitx5-Material-Color). Remember to restart the fcitx5 after changing the theme.
+
+- Remember to **Enable Cloud Pinyin** in fcitx5-config
+- Dictionary: Follow the link [fcitx5-pinyin-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki) and [mw2fcitx](https://github.com/outloudvi/mw2fcitx)
 
 14. Display
 
@@ -108,3 +126,10 @@ sudo dnf install lazygit
 ```shell
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
+
+16. Rofi
+
+    There are some really nice themes and applets written for rofi, download from here:
+    [rofi-collection](https://github.com/adi1090x/rofi)
+
+    Follow the link and setup as instructed. The `i3wm` and `polybar` will use this preconfigured repository.
