@@ -3,7 +3,7 @@
 1. Install necessary packages in command line
 
 ```shell
-dnf install clash alacritty i3-gaps picom polybar rofi stow arandr google-chrome-stable zsh ranger light feh fcitx5
+sudo dnf install clash alacritty i3-gaps picom polybar rofi stow arandr google-chrome-stable zsh ranger light feh fcitx5 xinput
 ```
 
 2. Git clone dotfiles config
@@ -75,6 +75,9 @@ nvim
 sudo dnf install gcc npm cargo go luarocks python3-pip
 ```
 
+- install the optional packages astronvim web told(like `bottom`)
+- remember to install `gcc` and `g++`, just type g++ in terminal, it will tell you what packages provide usage of `g++`. Then the treesitter will compile without problem.
+
 11. Enabel alacritty theme
 
 ```shell
@@ -94,3 +97,14 @@ sudo dnf install lazygit
 <!-- TODO: -->
 
 14. Display
+
+- first use `arandr` to set the monitors. (GUI tool)
+- then use `autorandr` to save the current monitors config (`autorandr --save [name]`)
+<!-- TODO: -->
+- Bug: the i3wm has problems to initialize the monitors display corrently when first enter, it needs a manual refresh.
+
+15. Enable RPM free and non-free
+
+```shell
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
