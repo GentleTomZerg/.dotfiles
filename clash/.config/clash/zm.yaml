@@ -7,19 +7,19 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：14 天, server: 120.232.140.78, port: 28703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡16do, server: 120.232.140.78, port: 28703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: 距离下次重置剩余：2 天, server: 120.232.140.78, port: 38703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv4 新加坡17do, server: 120.232.140.78, port: 38703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv4 日本1, server: 120.232.140.78, port: 31228, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv4 新加坡11, server: 120.232.140.78, port: 49219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv4 新加坡13, server: 120.232.140.78, port: 18401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv4 日本5, server: 120.232.140.78, port: 42218, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv4 台湾2 解锁NF 2x, server: 120.232.140.78, port: 39711, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv4 新加坡15, server: 120.232.140.78, port: 45447, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv4 日本2, server: 120.232.140.78, port: 45177, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv4 乌克兰 基辅, server: 120.232.140.78, port: 27401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv4 新加坡4, server: 120.232.140.78, port: 49213, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 日本1, server: 120.232.140.78, port: 31128, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 台湾2 解锁NF 2x, server: 120.232.140.78, port: 39711, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv4 台湾 解锁NF 2x, server: 120.232.140.78, port: 39911, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡13, server: 120.232.140.78, port: 18401, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡15, server: 120.232.140.78, port: 45447, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡11, server: 120.232.140.78, port: 49219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 日本5, server: 120.232.140.78, port: 42218, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv4 新加坡17do, server: 120.232.140.78, port: 38703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv4 新加坡16do, server: 120.232.140.78, port: 28703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv4 香港Gcore2解锁NF, server: 120.232.140.78, port: 41074, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv4 香港Gcore 解锁NF, server: 120.232.140.78, port: 41073, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv4 新加坡10, server: 120.232.140.78, port: 45076, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
@@ -59,13 +59,15 @@ proxies:
   - {name: Lv4 土耳其, server: 120.232.140.78, port: 45030, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv4 土耳其2, server: 120.232.140.78, port: 32319, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv4 日本n 3x, server: 120.232.140.78, port: 32219, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
-  - {name: Lv3 印度 直连, server: 412s31sa41.download.887211.xyz, port: 28703, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 412s31sa41.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv3 印度 直连, server: 412s31sa41.download.887211.xyz, port: 35847, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 412s31sa41.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv3 印度 直连2, server: 41a26121sa41.download.887211.xyz, port: 35147, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 41a26121sa41.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv3 加拿大 多伦多, server: 120.232.140.78, port: 35111, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv3 澳大利亚 悉尼, server: 120.232.140.78, port: 37677, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv3 德国 lin, server: 120.232.140.78, port: 45221, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv3 美国 洛杉矶inp3, server: 120.232.140.78, port: 45787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv3 美国gtt5解锁奈飞, server: gtt5.887211.xyz, port: 443, type: vmess, uuid: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: gtt5.887211.xyz, network: ws, ws-opts: {path: /, headers: {Host: gtt5.887211.xyz}}, udp: true}
   - {name: Lv3 美国 芝加哥X, server: 120.232.140.78, port: 42714, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
+  - {name: Lv3 美国 rn2, server: 120.232.140.78, port: 12711, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv3 美国 芝加哥2, server: 120.232.140.78, port: 47135, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv3 美国 gcore, server: 120.232.140.78, port: 43315, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
   - {name: Lv3 印度 班加罗, server: 120.232.140.78, port: 41787, type: trojan, password: 95b68edb-c304-4f5e-8d00-5a8dcaca6670, sni: 279088.download.windowsupdate.com, skip-cert-verify: true, udp: true}
@@ -88,19 +90,19 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：14 天
-      - Lv4 新加坡16do
+      - 距离下次重置剩余：2 天
+      - Lv4 新加坡17do
+      - Lv4 日本1
+      - Lv4 新加坡11
+      - Lv4 新加坡13
+      - Lv4 日本5
+      - Lv4 台湾2 解锁NF 2x
+      - Lv4 新加坡15
       - Lv4 日本2
       - Lv4 乌克兰 基辅
       - Lv4 新加坡4
-      - Lv4 日本1
-      - Lv4 台湾2 解锁NF 2x
       - Lv4 台湾 解锁NF 2x
-      - Lv4 新加坡13
-      - Lv4 新加坡15
-      - Lv4 新加坡11
-      - Lv4 日本5
-      - Lv4 新加坡17do
+      - Lv4 新加坡16do
       - Lv4 香港Gcore2解锁NF
       - Lv4 香港Gcore 解锁NF
       - Lv4 新加坡10
@@ -141,12 +143,14 @@ proxy-groups:
       - Lv4 土耳其2
       - Lv4 日本n 3x
       - Lv3 印度 直连
+      - Lv3 印度 直连2
       - Lv3 加拿大 多伦多
       - Lv3 澳大利亚 悉尼
       - Lv3 德国 lin
       - Lv3 美国 洛杉矶inp3
       - Lv3 美国gtt5解锁奈飞
       - Lv3 美国 芝加哥X
+      - Lv3 美国 rn2
       - Lv3 美国 芝加哥2
       - Lv3 美国 gcore
       - Lv3 印度 班加罗
@@ -168,19 +172,19 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：14 天
-      - Lv4 新加坡16do
+      - 距离下次重置剩余：2 天
+      - Lv4 新加坡17do
+      - Lv4 日本1
+      - Lv4 新加坡11
+      - Lv4 新加坡13
+      - Lv4 日本5
+      - Lv4 台湾2 解锁NF 2x
+      - Lv4 新加坡15
       - Lv4 日本2
       - Lv4 乌克兰 基辅
       - Lv4 新加坡4
-      - Lv4 日本1
-      - Lv4 台湾2 解锁NF 2x
       - Lv4 台湾 解锁NF 2x
-      - Lv4 新加坡13
-      - Lv4 新加坡15
-      - Lv4 新加坡11
-      - Lv4 日本5
-      - Lv4 新加坡17do
+      - Lv4 新加坡16do
       - Lv4 香港Gcore2解锁NF
       - Lv4 香港Gcore 解锁NF
       - Lv4 新加坡10
@@ -221,12 +225,14 @@ proxy-groups:
       - Lv4 土耳其2
       - Lv4 日本n 3x
       - Lv3 印度 直连
+      - Lv3 印度 直连2
       - Lv3 加拿大 多伦多
       - Lv3 澳大利亚 悉尼
       - Lv3 德国 lin
       - Lv3 美国 洛杉矶inp3
       - Lv3 美国gtt5解锁奈飞
       - Lv3 美国 芝加哥X
+      - Lv3 美国 rn2
       - Lv3 美国 芝加哥2
       - Lv3 美国 gcore
       - Lv3 印度 班加罗
@@ -249,19 +255,19 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：14 天
-      - Lv4 新加坡16do
+      - 距离下次重置剩余：2 天
+      - Lv4 新加坡17do
+      - Lv4 日本1
+      - Lv4 新加坡11
+      - Lv4 新加坡13
+      - Lv4 日本5
+      - Lv4 台湾2 解锁NF 2x
+      - Lv4 新加坡15
       - Lv4 日本2
       - Lv4 乌克兰 基辅
       - Lv4 新加坡4
-      - Lv4 日本1
-      - Lv4 台湾2 解锁NF 2x
       - Lv4 台湾 解锁NF 2x
-      - Lv4 新加坡13
-      - Lv4 新加坡15
-      - Lv4 新加坡11
-      - Lv4 日本5
-      - Lv4 新加坡17do
+      - Lv4 新加坡16do
       - Lv4 香港Gcore2解锁NF
       - Lv4 香港Gcore 解锁NF
       - Lv4 新加坡10
@@ -302,12 +308,14 @@ proxy-groups:
       - Lv4 土耳其2
       - Lv4 日本n 3x
       - Lv3 印度 直连
+      - Lv3 印度 直连2
       - Lv3 加拿大 多伦多
       - Lv3 澳大利亚 悉尼
       - Lv3 德国 lin
       - Lv3 美国 洛杉矶inp3
       - Lv3 美国gtt5解锁奈飞
       - Lv3 美国 芝加哥X
+      - Lv3 美国 rn2
       - Lv3 美国 芝加哥2
       - Lv3 美国 gcore
       - Lv3 印度 班加罗
@@ -342,19 +350,19 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：14 天
-      - Lv4 新加坡16do
+      - 距离下次重置剩余：2 天
+      - Lv4 新加坡17do
+      - Lv4 日本1
+      - Lv4 新加坡11
+      - Lv4 新加坡13
+      - Lv4 日本5
+      - Lv4 台湾2 解锁NF 2x
+      - Lv4 新加坡15
       - Lv4 日本2
       - Lv4 乌克兰 基辅
       - Lv4 新加坡4
-      - Lv4 日本1
-      - Lv4 台湾2 解锁NF 2x
       - Lv4 台湾 解锁NF 2x
-      - Lv4 新加坡13
-      - Lv4 新加坡15
-      - Lv4 新加坡11
-      - Lv4 日本5
-      - Lv4 新加坡17do
+      - Lv4 新加坡16do
       - Lv4 香港Gcore2解锁NF
       - Lv4 香港Gcore 解锁NF
       - Lv4 新加坡10
@@ -395,12 +403,14 @@ proxy-groups:
       - Lv4 土耳其2
       - Lv4 日本n 3x
       - Lv3 印度 直连
+      - Lv3 印度 直连2
       - Lv3 加拿大 多伦多
       - Lv3 澳大利亚 悉尼
       - Lv3 德国 lin
       - Lv3 美国 洛杉矶inp3
       - Lv3 美国gtt5解锁奈飞
       - Lv3 美国 芝加哥X
+      - Lv3 美国 rn2
       - Lv3 美国 芝加哥2
       - Lv3 美国 gcore
       - Lv3 印度 班加罗
@@ -442,19 +452,19 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：14 天
-      - Lv4 新加坡16do
+      - 距离下次重置剩余：2 天
+      - Lv4 新加坡17do
+      - Lv4 日本1
+      - Lv4 新加坡11
+      - Lv4 新加坡13
+      - Lv4 日本5
+      - Lv4 台湾2 解锁NF 2x
+      - Lv4 新加坡15
       - Lv4 日本2
       - Lv4 乌克兰 基辅
       - Lv4 新加坡4
-      - Lv4 日本1
-      - Lv4 台湾2 解锁NF 2x
       - Lv4 台湾 解锁NF 2x
-      - Lv4 新加坡13
-      - Lv4 新加坡15
-      - Lv4 新加坡11
-      - Lv4 日本5
-      - Lv4 新加坡17do
+      - Lv4 新加坡16do
       - Lv4 香港Gcore2解锁NF
       - Lv4 香港Gcore 解锁NF
       - Lv4 新加坡10
@@ -495,12 +505,14 @@ proxy-groups:
       - Lv4 土耳其2
       - Lv4 日本n 3x
       - Lv3 印度 直连
+      - Lv3 印度 直连2
       - Lv3 加拿大 多伦多
       - Lv3 澳大利亚 悉尼
       - Lv3 德国 lin
       - Lv3 美国 洛杉矶inp3
       - Lv3 美国gtt5解锁奈飞
       - Lv3 美国 芝加哥X
+      - Lv3 美国 rn2
       - Lv3 美国 芝加哥2
       - Lv3 美国 gcore
       - Lv3 印度 班加罗
@@ -522,19 +534,19 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：14 天
-      - Lv4 新加坡16do
+      - 距离下次重置剩余：2 天
+      - Lv4 新加坡17do
+      - Lv4 日本1
+      - Lv4 新加坡11
+      - Lv4 新加坡13
+      - Lv4 日本5
+      - Lv4 台湾2 解锁NF 2x
+      - Lv4 新加坡15
       - Lv4 日本2
       - Lv4 乌克兰 基辅
       - Lv4 新加坡4
-      - Lv4 日本1
-      - Lv4 台湾2 解锁NF 2x
       - Lv4 台湾 解锁NF 2x
-      - Lv4 新加坡13
-      - Lv4 新加坡15
-      - Lv4 新加坡11
-      - Lv4 日本5
-      - Lv4 新加坡17do
+      - Lv4 新加坡16do
       - Lv4 香港Gcore2解锁NF
       - Lv4 香港Gcore 解锁NF
       - Lv4 新加坡10
@@ -575,12 +587,14 @@ proxy-groups:
       - Lv4 土耳其2
       - Lv4 日本n 3x
       - Lv3 印度 直连
+      - Lv3 印度 直连2
       - Lv3 加拿大 多伦多
       - Lv3 澳大利亚 悉尼
       - Lv3 德国 lin
       - Lv3 美国 洛杉矶inp3
       - Lv3 美国gtt5解锁奈飞
       - Lv3 美国 芝加哥X
+      - Lv3 美国 rn2
       - Lv3 美国 芝加哥2
       - Lv3 美国 gcore
       - Lv3 印度 班加罗
@@ -603,19 +617,19 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：14 天
-      - Lv4 新加坡16do
+      - 距离下次重置剩余：2 天
+      - Lv4 新加坡17do
+      - Lv4 日本1
+      - Lv4 新加坡11
+      - Lv4 新加坡13
+      - Lv4 日本5
+      - Lv4 台湾2 解锁NF 2x
+      - Lv4 新加坡15
       - Lv4 日本2
       - Lv4 乌克兰 基辅
       - Lv4 新加坡4
-      - Lv4 日本1
-      - Lv4 台湾2 解锁NF 2x
       - Lv4 台湾 解锁NF 2x
-      - Lv4 新加坡13
-      - Lv4 新加坡15
-      - Lv4 新加坡11
-      - Lv4 日本5
-      - Lv4 新加坡17do
+      - Lv4 新加坡16do
       - Lv4 香港Gcore2解锁NF
       - Lv4 香港Gcore 解锁NF
       - Lv4 新加坡10
@@ -656,12 +670,14 @@ proxy-groups:
       - Lv4 土耳其2
       - Lv4 日本n 3x
       - Lv3 印度 直连
+      - Lv3 印度 直连2
       - Lv3 加拿大 多伦多
       - Lv3 澳大利亚 悉尼
       - Lv3 德国 lin
       - Lv3 美国 洛杉矶inp3
       - Lv3 美国gtt5解锁奈飞
       - Lv3 美国 芝加哥X
+      - Lv3 美国 rn2
       - Lv3 美国 芝加哥2
       - Lv3 美国 gcore
       - Lv3 印度 班加罗
@@ -693,19 +709,19 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：14 天
-      - Lv4 新加坡16do
+      - 距离下次重置剩余：2 天
+      - Lv4 新加坡17do
+      - Lv4 日本1
+      - Lv4 新加坡11
+      - Lv4 新加坡13
+      - Lv4 日本5
+      - Lv4 台湾2 解锁NF 2x
+      - Lv4 新加坡15
       - Lv4 日本2
       - Lv4 乌克兰 基辅
       - Lv4 新加坡4
-      - Lv4 日本1
-      - Lv4 台湾2 解锁NF 2x
       - Lv4 台湾 解锁NF 2x
-      - Lv4 新加坡13
-      - Lv4 新加坡15
-      - Lv4 新加坡11
-      - Lv4 日本5
-      - Lv4 新加坡17do
+      - Lv4 新加坡16do
       - Lv4 香港Gcore2解锁NF
       - Lv4 香港Gcore 解锁NF
       - Lv4 新加坡10
@@ -746,12 +762,14 @@ proxy-groups:
       - Lv4 土耳其2
       - Lv4 日本n 3x
       - Lv3 印度 直连
+      - Lv3 印度 直连2
       - Lv3 加拿大 多伦多
       - Lv3 澳大利亚 悉尼
       - Lv3 德国 lin
       - Lv3 美国 洛杉矶inp3
       - Lv3 美国gtt5解锁奈飞
       - Lv3 美国 芝加哥X
+      - Lv3 美国 rn2
       - Lv3 美国 芝加哥2
       - Lv3 美国 gcore
       - Lv3 印度 班加罗
