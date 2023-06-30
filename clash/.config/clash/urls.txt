@@ -1,3 +1,4 @@
 urls.txt
 https://s.52zm.cloud/api/v1/client/subscribe?token=83156bd22c47d23040013ca6e8d63d9f
 https://hutaod.com/link/5yv3ZVHEoEqHEyG3?clash=1
+https://v1.dogapi.yachts/api/v1/client/subscribe?token=cbcb42de1c5dfeedf0fcce561c55d66c
