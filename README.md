@@ -138,3 +138,10 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
     [rofi-collection](https://github.com/adi1090x/rofi)
 
     Follow the link and setup as instructed. The `i3wm` and `polybar` will use this preconfigured repository.
+
+# Some useful tools:
+
+- cpufetch
+- lsd
+- bpytop
+- speedtest
