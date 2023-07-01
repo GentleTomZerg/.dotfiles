@@ -120,6 +120,11 @@ sudo dnf install lazygit
 - then use `autorandr` to save the current monitors config (`autorandr --save [name]`)
 <!-- TODO: -->
 - Bug: the i3wm has problems to initialize the monitors display corrently when first enter, it needs a manual refresh.
+- Temporal solution:
+
+  I use arandr to customize a laptop left, monitor right config. Let autorandr to save it, in this way, two monitors will have correct display of wallpapers.
+
+  If we put laptop left and monitor right, the first display when we entered i3wm shows the laptop-size wall-paper in the monitor and the monitor-size wall-paper in both laptop and monitor. Now, I suspect it is the problem of `feh` or `i3wm` multiple monitor config rule.
 
 15. Enable RPM free and non-free
 
