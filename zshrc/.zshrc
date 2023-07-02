@@ -122,6 +122,7 @@ export EDITOR='nvim'
 # My alias
 alias c="clear"
 alias ls="lsd"
+alias vim="nvim"
 # My Configurations
 
 # Set Proxy

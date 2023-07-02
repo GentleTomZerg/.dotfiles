@@ -139,6 +139,11 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
     Follow the link and setup as instructed. The `i3wm` and `polybar` will use this preconfigured repository.
 
+17. Ranger
+
+    - Enable icons for ranger, follow this [link](https://github.com/alexanderjeurissen/ranger_devicons)
+    - stow the config from my .dotfiles
+
 # Some useful tools:
 
 - cpufetch
