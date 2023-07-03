@@ -2,21 +2,21 @@ import:
   - ~/.config/alacritty/alacritty-theme/themes/one_dark.yaml
 font:
   normal:
-    family: JetBrainsMono Nerd font
+    family: FiraCode Nerd font
     style: Regular
 
   bold:
-    family: JetBrainsMono Nerd Font
+    family: FiraCode Nerd Font
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font
+    family: FiraCode Nerd Font
     style: Italic
 
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    family: FiraCode Nerd Font
     style: Bold Italic
-
+  # Other Fonts: JetBrainsMono
   size: 18
 
 cursor:

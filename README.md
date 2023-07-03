@@ -2,13 +2,13 @@
 
 1. Install necessary packages in command line
 
-```shell
+```bash
 sudo dnf install clash alacritty i3-gaps picom polybar rofi stow arandr google-chrome-stable zsh ranger light feh fcitx5 xinput
 ```
 
 2. Git clone dotfiles config
 
-```shell
+```bash
 ssh-kgen -t ed25519 -C "997707754@qq.com"
 # add the content in ~/.ssh/id_ed25519.pub to github ssh key
 mkdir ~/stow
@@ -18,7 +18,7 @@ git clone git@github.com:GentleTomZerg/.dotfiles.git ~/stow
 
 3. Stow the configuration
 
-```shell
+```bash
 stow alacritty/ clash/ i3/ ideavimrc/ polybar/ picom/ rofi/ wiki/ Xresources/ zshrc/
 ```
 
@@ -57,7 +57,7 @@ stow alacritty/ clash/ i3/ ideavimrc/ polybar/ picom/ rofi/ wiki/ Xresources/ zs
 
 9. Enable clash-dashboard
 
-```shell
+```bash
 git clone git@github.com:Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard
 cd ~/.config/clash/clash-dashboard/
 git checkout gh-pages
@@ -65,7 +65,7 @@ git checkout gh-pages
 
 10. Nvim Config
 
-```shell
+```bash
 
 git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 mkdir -p ~/.config/nvim/lua/user
@@ -80,7 +80,7 @@ sudo dnf install gcc npm cargo go luarocks python3-pip
 
 11. Enabel alacritty theme
 
-```shell
+```bash
 # We use Alacritty's default Linux config directory as our storage location here.
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
@@ -88,7 +88,7 @@ git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/theme
 
 12. Install lazygit
 
-```shell
+```bash
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
 ```
@@ -101,7 +101,7 @@ sudo dnf install lazygit
 - reboot
 - add the following code to /etc/environment and login again
 
-  ```shell
+  ```bash
   GTK_IM_MODULE=fcitx
   QT_IM_MODULE=fcitx
   XMODIFIERS=@im=fcitx
@@ -128,7 +128,7 @@ sudo dnf install lazygit
 
 15. Enable RPM free and non-free
 
-```shell
+```bash
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
@@ -143,6 +143,13 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
     - Enable icons for ranger, follow this [link](https://github.com/alexanderjeurissen/ranger_devicons)
     - stow the config from my .dotfiles
+
+18. Develop Packages
+
+```bash
+sudo dnf install fontconfig-devel freetype-devel libX11-xcb libX11-devel libstdc++-static libstdc++-devel
+sudo dnf groupinstall "Development Tools" "Development Libraries"
+```
 
 # Some useful tools:
 
