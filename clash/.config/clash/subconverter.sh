@@ -2,11 +2,11 @@
 
 # Check if three arguments were provided
 if [ "$#" -lt 2 ] || [ "$#" -gt 3 ]; then
-    echo "Usage: $0 target url config"
-    echo "target: the software you are using"
-    echo "url: the url provided by your server"
-    echo "config: not necessary"
-    exit 1
+	echo "Usage: $0 target url config"
+	echo "target: the software you are using"
+	echo "url: the url provided by your server"
+	echo "config: not necessary"
+	exit 1
 fi
 
 # Assign the arguments to variables
@@ -15,42 +15,40 @@ url="$2"
 config="NULL"
 
 if [ "$#" -eq 3 ]; then
-    config="$3"
+	config="$3"
 fi
-
 
 # Set container name or ID
 CONTAINER_NAME_OR_ID="subconverter"
 
 # Check if container is already running
-if sudo docker ps --filter "name=$CONTAINER_NAME_OR_ID" | grep -q $CONTAINER_NAME_OR_ID ; then
-    echo "Container is running"
+if sudo docker ps --filter "name=$CONTAINER_NAME_OR_ID" | grep -q $CONTAINER_NAME_OR_ID; then
+	echo "Container is running"
 else
-    echo "Container is not running, use the command below"
-    echo "sudo docker run -d --restart=always -p 25500:25500 --name subconverter tindy2013/subconverter:latest"
-    exit 1
+	echo "Container is not running, use the command below"
+	echo "sudo docker run -d --restart=always -p 25500:25500 --name subconverter tindy2013/subconverter:latest"
+	exit 1
 fi
 
 # Specify the filename which the configration will be stored
 echo "File to store the configration:~/.config/clash/"
-read filename
+read -r filename
 # Execute curl command
 curl http://localhost:25500/version
 echo "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}"
-curl "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}" > ~/.config/clash/${filename}.yaml
+curl "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}" >~/.config/clash/"${filename}".yaml
 
-if [[ $(wc -l < ~/.config/clash/zm.yaml) -lt 4 ]]; then
-  echo "Error: ~/.config/clash/zm.yaml are less than 4 lines"
-  echo "Try to update proxy again"
-  exit 1
+if [[ $(wc -l <~/.config/clash/"${filename}".yaml) -lt 4 ]]; then
+	echo "Error: ~/.config/clash/${filename}.yaml are less than 4 lines"
+	echo "Try to update proxy again"
+	exit 1
 fi
 # Preprocess the clash config
 
 # Comment out the mode: Rule line
-sed -i 's/mode: Rule/#mode: Rule/' ~/.config/clash/${filename}.yaml
+sed -i 's/mode: Rule/#mode: Rule/' ~/.config/clash/"${filename}".yaml
 
 # Add the external-ui: clash-dashboard line
-sed -i '/external-controller/ i external-ui: clash-dashboard' ~/.config/clash/${filename}.yaml
+sed -i '/external-controller/ i external-ui: clash-dashboard' ~/.config/clash/"${filename}".yaml
 # Add the secret password to use the clash-dashboard
-sed -i '/external-controller/ i secret: 707399' ~/.config/clash/${filename}.yaml
-
+sed -i '/external-controller/ i secret: 707399' ~/.config/clash/"${filename}".yaml
