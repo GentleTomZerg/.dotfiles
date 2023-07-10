@@ -157,3 +157,32 @@ sudo dnf groupinstall "Development Tools" "Development Libraries"
 - lsd
 - bpytop
 - speedtest
+
+# Fedora Dual Boot and Kernel Update
+
+## Switch to New Kernel
+
+- If the kernel is updated, use `grub-customizer` to detect all the new available boot entry.
+- Then, use the command `sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg`
+
+## Delete Old Kernels
+
+- Check Installed Kernels
+
+```bash
+rpm -qa kernel\* |sort -V
+```
+
+- Delete Old Kernels
+
+```bash
+## dnf repoquery set negative --latest-limit ##
+## as how many old kernels you want keep ##
+## IMPORTANT: the --latest-limit depends on the number of kernels you have.
+dnf remove $(dnf repoquery --installonly --latest-limit=-2 -q)
+```
+
+## Set Max Number of Kernels
+
+- go to `/etc/dnf/dnf.conf`
+- change `installonly_limit=$(NUMBER)`
