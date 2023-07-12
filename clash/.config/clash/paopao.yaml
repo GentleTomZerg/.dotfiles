@@ -7,7 +7,7 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：20 天, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 距离下次重置剩余：19 天, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 香港B1 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 香港B2 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 香港B3 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
@@ -83,7 +83,7 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：20 天
+      - 距离下次重置剩余：19 天
       - 香港B1 | 0.5x
       - 香港B2 | 0.5x
       - 香港B3 | 0.5x
@@ -158,7 +158,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：20 天
+      - 距离下次重置剩余：19 天
       - 香港B1 | 0.5x
       - 香港B2 | 0.5x
       - 香港B3 | 0.5x
@@ -234,7 +234,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：20 天
+      - 距离下次重置剩余：19 天
       - 香港B1 | 0.5x
       - 香港B2 | 0.5x
       - 香港B3 | 0.5x
@@ -322,7 +322,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：20 天
+      - 距离下次重置剩余：19 天
       - 香港B1 | 0.5x
       - 香港B2 | 0.5x
       - 香港B3 | 0.5x
@@ -418,7 +418,7 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：20 天
+      - 距离下次重置剩余：19 天
       - 香港B1 | 0.5x
       - 香港B2 | 0.5x
       - 香港B3 | 0.5x
@@ -493,7 +493,7 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：20 天
+      - 距离下次重置剩余：19 天
       - 香港B1 | 0.5x
       - 香港B2 | 0.5x
       - 香港B3 | 0.5x
@@ -569,7 +569,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：20 天
+      - 距离下次重置剩余：19 天
       - 香港B1 | 0.5x
       - 香港B2 | 0.5x
       - 香港B3 | 0.5x
@@ -654,7 +654,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：20 天
+      - 距离下次重置剩余：19 天
       - 香港B1 | 0.5x
       - 香港B2 | 0.5x
       - 香港B3 | 0.5x
