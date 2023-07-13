@@ -36,10 +36,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # My Configuration
+exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/polybar/my-launch.sh
-exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/*
+exec_always --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/Endy_vector_satelliet.png
+# exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/*
 exec_always --no-startup-id picom
-exec_always --no-startup-id fcitx5 
+exec_always --no-startup-id fcitx5 -d 
 exec_always --no-startup-id ~/.config/i3/tap-to-click.sh
 exec_always --no-startup-id ~/.config/i3/inverse-scroll.sh
 # exec --no-startup-id clipit &
@@ -61,8 +63,8 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5 
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -79,10 +81,13 @@ bindsym $mod+g exec google-chrome-stable --proxy-server=127.0.0.1:7890
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id rofi -show drun
+
+# lock screen
+bindsym $mod+x exec ~/.config/i3/blur-lock
 # A more modern dmenu replacement is rofi:
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
-bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh
+# bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
+# bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
