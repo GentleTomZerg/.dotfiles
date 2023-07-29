@@ -7,65 +7,41 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：19 天, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港B1 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港B2 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港B3 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港B4 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港B5 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 10005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港01, server: node00.sa3g6doi98x23as1axc.catapi.management, port: 31001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港02, server: node00.sa3g6doi98x23as1axc.catapi.management, port: 31002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港03, server: node00.sa3g6doi98x23as1axc.catapi.management, port: 31003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港04, server: node00.sa3g6doi98x23as1axc.catapi.management, port: 31004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港05, server: node00.sa3g6doi98x23as1axc.catapi.management, port: 31005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港06, server: node00.sa3g6doi98x23as1axc.catapi.management, port: 31006, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港07, server: node00.sa3g6doi98x23as1axc.catapi.management, port: 31007, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 香港08, server: node00.sa3g6doi98x23as1axc.catapi.management, port: 31008, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本B1 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 11001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本B2 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 11002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本B3 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 11003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本B4 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 11004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本B5 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 11005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本01, server: node01.sa3g6doi98x23as1axc.catapi.management, port: 32001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本02, server: node01.sa3g6doi98x23as1axc.catapi.management, port: 32002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本03, server: node01.sa3g6doi98x23as1axc.catapi.management, port: 32003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本04, server: node01.sa3g6doi98x23as1axc.catapi.management, port: 32004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本05, server: node01.sa3g6doi98x23as1axc.catapi.management, port: 32005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本06, server: node01.sa3g6doi98x23as1axc.catapi.management, port: 32006, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本07, server: node01.sa3g6doi98x23as1axc.catapi.management, port: 32007, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 日本08, server: node01.sa3g6doi98x23as1axc.catapi.management, port: 32008, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡B1 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 12001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡B2 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 12002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡B3 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 12003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡B4 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 12004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡B5 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 12005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡01, server: node02.sa3g6doi98x23as1axc.catapi.management, port: 33001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡02, server: node02.sa3g6doi98x23as1axc.catapi.management, port: 33002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡03, server: node02.sa3g6doi98x23as1axc.catapi.management, port: 33003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡04, server: node02.sa3g6doi98x23as1axc.catapi.management, port: 33004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡05, server: node02.sa3g6doi98x23as1axc.catapi.management, port: 33005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡06, server: node02.sa3g6doi98x23as1axc.catapi.management, port: 33006, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡07, server: node02.sa3g6doi98x23as1axc.catapi.management, port: 33007, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 新加坡08, server: node02.sa3g6doi98x23as1axc.catapi.management, port: 33008, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国B1 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 13001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国B2 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 13002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国B3 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 13003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国B4 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 13004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国B5 | 0.5x, server: node00.gde52px1vwf5q6301fxn.catapi.management, port: 13005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国01, server: node03.sa3g6doi98x23as1axc.catapi.management, port: 34001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国02, server: node03.sa3g6doi98x23as1axc.catapi.management, port: 34002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国03, server: node03.sa3g6doi98x23as1axc.catapi.management, port: 34003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国04, server: node03.sa3g6doi98x23as1axc.catapi.management, port: 34004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国05, server: node03.sa3g6doi98x23as1axc.catapi.management, port: 34005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国06, server: node03.sa3g6doi98x23as1axc.catapi.management, port: 34006, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国07, server: node03.sa3g6doi98x23as1axc.catapi.management, port: 34007, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国08, server: node03.sa3g6doi98x23as1axc.catapi.management, port: 34008, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 台湾01, server: node04.sa3g6doi98x23as1axc.catapi.management, port: 35001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 台湾02, server: node04.sa3g6doi98x23as1axc.catapi.management, port: 35002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 台湾03, server: node04.sa3g6doi98x23as1axc.catapi.management, port: 35003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 香港01, server: node00-1.sa3g6doi98x23as1axc.catapi.management, port: 31001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 香港02, server: node00-1.sa3g6doi98x23as1axc.catapi.management, port: 31002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 香港03, server: node00-1.sa3g6doi98x23as1axc.catapi.management, port: 31003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 香港04, server: node00-1.sa3g6doi98x23as1axc.catapi.management, port: 31004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 香港05, server: node00-2.sa3g6doi98x23as1axc.catapi.management, port: 31005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 香港06, server: node00-2.sa3g6doi98x23as1axc.catapi.management, port: 31006, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 香港07, server: node00-2.sa3g6doi98x23as1axc.catapi.management, port: 31007, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 香港08, server: node00-2.sa3g6doi98x23as1axc.catapi.management, port: 31008, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 日本01, server: node01-1.sa3g6doi98x23as1axc.catapi.management, port: 32001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 日本02, server: node01-1.sa3g6doi98x23as1axc.catapi.management, port: 32002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 日本03, server: node01-1.sa3g6doi98x23as1axc.catapi.management, port: 32003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 日本04, server: node01-1.sa3g6doi98x23as1axc.catapi.management, port: 32004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 日本05, server: node01-2.sa3g6doi98x23as1axc.catapi.management, port: 32005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 日本06, server: node01-2.sa3g6doi98x23as1axc.catapi.management, port: 32006, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 日本07, server: node01-2.sa3g6doi98x23as1axc.catapi.management, port: 32007, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 日本08, server: node01-2.sa3g6doi98x23as1axc.catapi.management, port: 32008, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 新加坡01, server: node02-1.sa3g6doi98x23as1axc.catapi.management, port: 33001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 新加坡02, server: node02-1.sa3g6doi98x23as1axc.catapi.management, port: 33002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 新加坡03, server: node02-1.sa3g6doi98x23as1axc.catapi.management, port: 33003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 新加坡04, server: node02-1.sa3g6doi98x23as1axc.catapi.management, port: 33004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 新加坡05, server: node02-2.sa3g6doi98x23as1axc.catapi.management, port: 33005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 新加坡06, server: node02-2.sa3g6doi98x23as1axc.catapi.management, port: 33006, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 新加坡07, server: node02-2.sa3g6doi98x23as1axc.catapi.management, port: 33007, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 新加坡08, server: node02-2.sa3g6doi98x23as1axc.catapi.management, port: 33008, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 美国01, server: node03-1.sa3g6doi98x23as1axc.catapi.management, port: 34001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 美国02, server: node03-1.sa3g6doi98x23as1axc.catapi.management, port: 34002, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 美国03, server: node03-1.sa3g6doi98x23as1axc.catapi.management, port: 34003, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 美国04, server: node03-1.sa3g6doi98x23as1axc.catapi.management, port: 34004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 美国05, server: node03-2.sa3g6doi98x23as1axc.catapi.management, port: 34005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 美国06, server: node03-2.sa3g6doi98x23as1axc.catapi.management, port: 34006, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 美国07, server: node03-2.sa3g6doi98x23as1axc.catapi.management, port: 34007, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 美国08, server: node03-2.sa3g6doi98x23as1axc.catapi.management, port: 34008, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
+  - {name: 台湾01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35001, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 英国01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35004, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 德国01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35005, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 迪拜01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35006, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 韩国01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35007, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 印度01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35008, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 爱尔兰01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35009, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
@@ -75,20 +51,12 @@ proxies:
   - {name: 阿根廷01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35013, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 土耳其01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35014, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
   - {name: 俄罗斯01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35015, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 乌克兰01, server: node03.gde52px1vwf5q6301fxn.catapi.management, port: 35016, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
-  - {name: 美国家宽01, server: node05.sa3g6doi98x23as1axc.catapi.management, port: 35017, type: ss, cipher: chacha20-ietf-poly1305, password: 29391694-160b-4d4e-aaff-fff3e894651b, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：19 天
-      - 香港B1 | 0.5x
-      - 香港B2 | 0.5x
-      - 香港B3 | 0.5x
-      - 香港B4 | 0.5x
-      - 香港B5 | 0.5x
       - 香港01
       - 香港02
       - 香港03
@@ -97,11 +65,6 @@ proxy-groups:
       - 香港06
       - 香港07
       - 香港08
-      - 日本B1 | 0.5x
-      - 日本B2 | 0.5x
-      - 日本B3 | 0.5x
-      - 日本B4 | 0.5x
-      - 日本B5 | 0.5x
       - 日本01
       - 日本02
       - 日本03
@@ -110,11 +73,6 @@ proxy-groups:
       - 日本06
       - 日本07
       - 日本08
-      - 新加坡B1 | 0.5x
-      - 新加坡B2 | 0.5x
-      - 新加坡B3 | 0.5x
-      - 新加坡B4 | 0.5x
-      - 新加坡B5 | 0.5x
       - 新加坡01
       - 新加坡02
       - 新加坡03
@@ -123,11 +81,6 @@ proxy-groups:
       - 新加坡06
       - 新加坡07
       - 新加坡08
-      - 美国B1 | 0.5x
-      - 美国B2 | 0.5x
-      - 美国B3 | 0.5x
-      - 美国B4 | 0.5x
-      - 美国B5 | 0.5x
       - 美国01
       - 美国02
       - 美国03
@@ -137,11 +90,8 @@ proxy-groups:
       - 美国07
       - 美国08
       - 台湾01
-      - 台湾02
-      - 台湾03
       - 英国01
       - 德国01
-      - 迪拜01
       - 韩国01
       - 印度01
       - 爱尔兰01
@@ -151,19 +101,11 @@ proxy-groups:
       - 阿根廷01
       - 土耳其01
       - 俄罗斯01
-      - 乌克兰01
-      - 美国家宽01
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：19 天
-      - 香港B1 | 0.5x
-      - 香港B2 | 0.5x
-      - 香港B3 | 0.5x
-      - 香港B4 | 0.5x
-      - 香港B5 | 0.5x
       - 香港01
       - 香港02
       - 香港03
@@ -172,11 +114,6 @@ proxy-groups:
       - 香港06
       - 香港07
       - 香港08
-      - 日本B1 | 0.5x
-      - 日本B2 | 0.5x
-      - 日本B3 | 0.5x
-      - 日本B4 | 0.5x
-      - 日本B5 | 0.5x
       - 日本01
       - 日本02
       - 日本03
@@ -185,11 +122,6 @@ proxy-groups:
       - 日本06
       - 日本07
       - 日本08
-      - 新加坡B1 | 0.5x
-      - 新加坡B2 | 0.5x
-      - 新加坡B3 | 0.5x
-      - 新加坡B4 | 0.5x
-      - 新加坡B5 | 0.5x
       - 新加坡01
       - 新加坡02
       - 新加坡03
@@ -198,11 +130,6 @@ proxy-groups:
       - 新加坡06
       - 新加坡07
       - 新加坡08
-      - 美国B1 | 0.5x
-      - 美国B2 | 0.5x
-      - 美国B3 | 0.5x
-      - 美国B4 | 0.5x
-      - 美国B5 | 0.5x
       - 美国01
       - 美国02
       - 美国03
@@ -212,11 +139,8 @@ proxy-groups:
       - 美国07
       - 美国08
       - 台湾01
-      - 台湾02
-      - 台湾03
       - 英国01
       - 德国01
-      - 迪拜01
       - 韩国01
       - 印度01
       - 爱尔兰01
@@ -226,20 +150,12 @@ proxy-groups:
       - 阿根廷01
       - 土耳其01
       - 俄罗斯01
-      - 乌克兰01
-      - 美国家宽01
   - name: 🎥 NETFLIX
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：19 天
-      - 香港B1 | 0.5x
-      - 香港B2 | 0.5x
-      - 香港B3 | 0.5x
-      - 香港B4 | 0.5x
-      - 香港B5 | 0.5x
       - 香港01
       - 香港02
       - 香港03
@@ -248,11 +164,6 @@ proxy-groups:
       - 香港06
       - 香港07
       - 香港08
-      - 日本B1 | 0.5x
-      - 日本B2 | 0.5x
-      - 日本B3 | 0.5x
-      - 日本B4 | 0.5x
-      - 日本B5 | 0.5x
       - 日本01
       - 日本02
       - 日本03
@@ -261,11 +172,6 @@ proxy-groups:
       - 日本06
       - 日本07
       - 日本08
-      - 新加坡B1 | 0.5x
-      - 新加坡B2 | 0.5x
-      - 新加坡B3 | 0.5x
-      - 新加坡B4 | 0.5x
-      - 新加坡B5 | 0.5x
       - 新加坡01
       - 新加坡02
       - 新加坡03
@@ -274,11 +180,6 @@ proxy-groups:
       - 新加坡06
       - 新加坡07
       - 新加坡08
-      - 美国B1 | 0.5x
-      - 美国B2 | 0.5x
-      - 美国B3 | 0.5x
-      - 美国B4 | 0.5x
-      - 美国B5 | 0.5x
       - 美国01
       - 美国02
       - 美国03
@@ -288,11 +189,8 @@ proxy-groups:
       - 美国07
       - 美国08
       - 台湾01
-      - 台湾02
-      - 台湾03
       - 英国01
       - 德国01
-      - 迪拜01
       - 韩国01
       - 印度01
       - 爱尔兰01
@@ -302,8 +200,6 @@ proxy-groups:
       - 阿根廷01
       - 土耳其01
       - 俄罗斯01
-      - 乌克兰01
-      - 美国家宽01
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -322,12 +218,6 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：19 天
-      - 香港B1 | 0.5x
-      - 香港B2 | 0.5x
-      - 香港B3 | 0.5x
-      - 香港B4 | 0.5x
-      - 香港B5 | 0.5x
       - 香港01
       - 香港02
       - 香港03
@@ -336,11 +226,6 @@ proxy-groups:
       - 香港06
       - 香港07
       - 香港08
-      - 日本B1 | 0.5x
-      - 日本B2 | 0.5x
-      - 日本B3 | 0.5x
-      - 日本B4 | 0.5x
-      - 日本B5 | 0.5x
       - 日本01
       - 日本02
       - 日本03
@@ -349,11 +234,6 @@ proxy-groups:
       - 日本06
       - 日本07
       - 日本08
-      - 新加坡B1 | 0.5x
-      - 新加坡B2 | 0.5x
-      - 新加坡B3 | 0.5x
-      - 新加坡B4 | 0.5x
-      - 新加坡B5 | 0.5x
       - 新加坡01
       - 新加坡02
       - 新加坡03
@@ -362,11 +242,6 @@ proxy-groups:
       - 新加坡06
       - 新加坡07
       - 新加坡08
-      - 美国B1 | 0.5x
-      - 美国B2 | 0.5x
-      - 美国B3 | 0.5x
-      - 美国B4 | 0.5x
-      - 美国B5 | 0.5x
       - 美国01
       - 美国02
       - 美国03
@@ -376,11 +251,8 @@ proxy-groups:
       - 美国07
       - 美国08
       - 台湾01
-      - 台湾02
-      - 台湾03
       - 英国01
       - 德国01
-      - 迪拜01
       - 韩国01
       - 印度01
       - 爱尔兰01
@@ -390,17 +262,10 @@ proxy-groups:
       - 阿根廷01
       - 土耳其01
       - 俄罗斯01
-      - 乌克兰01
-      - 美国家宽01
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
-      - 香港B1 | 0.5x
-      - 香港B2 | 0.5x
-      - 香港B3 | 0.5x
-      - 香港B4 | 0.5x
-      - 香港B5 | 0.5x
       - 香港01
       - 香港02
       - 香港03
@@ -410,20 +275,12 @@ proxy-groups:
       - 香港07
       - 香港08
       - 台湾01
-      - 台湾02
-      - 台湾03
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：19 天
-      - 香港B1 | 0.5x
-      - 香港B2 | 0.5x
-      - 香港B3 | 0.5x
-      - 香港B4 | 0.5x
-      - 香港B5 | 0.5x
       - 香港01
       - 香港02
       - 香港03
@@ -432,11 +289,6 @@ proxy-groups:
       - 香港06
       - 香港07
       - 香港08
-      - 日本B1 | 0.5x
-      - 日本B2 | 0.5x
-      - 日本B3 | 0.5x
-      - 日本B4 | 0.5x
-      - 日本B5 | 0.5x
       - 日本01
       - 日本02
       - 日本03
@@ -445,11 +297,6 @@ proxy-groups:
       - 日本06
       - 日本07
       - 日本08
-      - 新加坡B1 | 0.5x
-      - 新加坡B2 | 0.5x
-      - 新加坡B3 | 0.5x
-      - 新加坡B4 | 0.5x
-      - 新加坡B5 | 0.5x
       - 新加坡01
       - 新加坡02
       - 新加坡03
@@ -458,11 +305,6 @@ proxy-groups:
       - 新加坡06
       - 新加坡07
       - 新加坡08
-      - 美国B1 | 0.5x
-      - 美国B2 | 0.5x
-      - 美国B3 | 0.5x
-      - 美国B4 | 0.5x
-      - 美国B5 | 0.5x
       - 美国01
       - 美国02
       - 美国03
@@ -472,11 +314,8 @@ proxy-groups:
       - 美国07
       - 美国08
       - 台湾01
-      - 台湾02
-      - 台湾03
       - 英国01
       - 德国01
-      - 迪拜01
       - 韩国01
       - 印度01
       - 爱尔兰01
@@ -486,19 +325,11 @@ proxy-groups:
       - 阿根廷01
       - 土耳其01
       - 俄罗斯01
-      - 乌克兰01
-      - 美国家宽01
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：19 天
-      - 香港B1 | 0.5x
-      - 香港B2 | 0.5x
-      - 香港B3 | 0.5x
-      - 香港B4 | 0.5x
-      - 香港B5 | 0.5x
       - 香港01
       - 香港02
       - 香港03
@@ -507,11 +338,6 @@ proxy-groups:
       - 香港06
       - 香港07
       - 香港08
-      - 日本B1 | 0.5x
-      - 日本B2 | 0.5x
-      - 日本B3 | 0.5x
-      - 日本B4 | 0.5x
-      - 日本B5 | 0.5x
       - 日本01
       - 日本02
       - 日本03
@@ -520,11 +346,6 @@ proxy-groups:
       - 日本06
       - 日本07
       - 日本08
-      - 新加坡B1 | 0.5x
-      - 新加坡B2 | 0.5x
-      - 新加坡B3 | 0.5x
-      - 新加坡B4 | 0.5x
-      - 新加坡B5 | 0.5x
       - 新加坡01
       - 新加坡02
       - 新加坡03
@@ -533,11 +354,6 @@ proxy-groups:
       - 新加坡06
       - 新加坡07
       - 新加坡08
-      - 美国B1 | 0.5x
-      - 美国B2 | 0.5x
-      - 美国B3 | 0.5x
-      - 美国B4 | 0.5x
-      - 美国B5 | 0.5x
       - 美国01
       - 美国02
       - 美国03
@@ -547,11 +363,8 @@ proxy-groups:
       - 美国07
       - 美国08
       - 台湾01
-      - 台湾02
-      - 台湾03
       - 英国01
       - 德国01
-      - 迪拜01
       - 韩国01
       - 印度01
       - 爱尔兰01
@@ -561,20 +374,12 @@ proxy-groups:
       - 阿根廷01
       - 土耳其01
       - 俄罗斯01
-      - 乌克兰01
-      - 美国家宽01
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：19 天
-      - 香港B1 | 0.5x
-      - 香港B2 | 0.5x
-      - 香港B3 | 0.5x
-      - 香港B4 | 0.5x
-      - 香港B5 | 0.5x
       - 香港01
       - 香港02
       - 香港03
@@ -583,11 +388,6 @@ proxy-groups:
       - 香港06
       - 香港07
       - 香港08
-      - 日本B1 | 0.5x
-      - 日本B2 | 0.5x
-      - 日本B3 | 0.5x
-      - 日本B4 | 0.5x
-      - 日本B5 | 0.5x
       - 日本01
       - 日本02
       - 日本03
@@ -596,11 +396,6 @@ proxy-groups:
       - 日本06
       - 日本07
       - 日本08
-      - 新加坡B1 | 0.5x
-      - 新加坡B2 | 0.5x
-      - 新加坡B3 | 0.5x
-      - 新加坡B4 | 0.5x
-      - 新加坡B5 | 0.5x
       - 新加坡01
       - 新加坡02
       - 新加坡03
@@ -609,11 +404,6 @@ proxy-groups:
       - 新加坡06
       - 新加坡07
       - 新加坡08
-      - 美国B1 | 0.5x
-      - 美国B2 | 0.5x
-      - 美国B3 | 0.5x
-      - 美国B4 | 0.5x
-      - 美国B5 | 0.5x
       - 美国01
       - 美国02
       - 美国03
@@ -623,11 +413,8 @@ proxy-groups:
       - 美国07
       - 美国08
       - 台湾01
-      - 台湾02
-      - 台湾03
       - 英国01
       - 德国01
-      - 迪拜01
       - 韩国01
       - 印度01
       - 爱尔兰01
@@ -637,8 +424,6 @@ proxy-groups:
       - 阿根廷01
       - 土耳其01
       - 俄罗斯01
-      - 乌克兰01
-      - 美国家宽01
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -654,12 +439,6 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：19 天
-      - 香港B1 | 0.5x
-      - 香港B2 | 0.5x
-      - 香港B3 | 0.5x
-      - 香港B4 | 0.5x
-      - 香港B5 | 0.5x
       - 香港01
       - 香港02
       - 香港03
@@ -668,11 +447,6 @@ proxy-groups:
       - 香港06
       - 香港07
       - 香港08
-      - 日本B1 | 0.5x
-      - 日本B2 | 0.5x
-      - 日本B3 | 0.5x
-      - 日本B4 | 0.5x
-      - 日本B5 | 0.5x
       - 日本01
       - 日本02
       - 日本03
@@ -681,11 +455,6 @@ proxy-groups:
       - 日本06
       - 日本07
       - 日本08
-      - 新加坡B1 | 0.5x
-      - 新加坡B2 | 0.5x
-      - 新加坡B3 | 0.5x
-      - 新加坡B4 | 0.5x
-      - 新加坡B5 | 0.5x
       - 新加坡01
       - 新加坡02
       - 新加坡03
@@ -694,11 +463,6 @@ proxy-groups:
       - 新加坡06
       - 新加坡07
       - 新加坡08
-      - 美国B1 | 0.5x
-      - 美国B2 | 0.5x
-      - 美国B3 | 0.5x
-      - 美国B4 | 0.5x
-      - 美国B5 | 0.5x
       - 美国01
       - 美国02
       - 美国03
@@ -708,11 +472,8 @@ proxy-groups:
       - 美国07
       - 美国08
       - 台湾01
-      - 台湾02
-      - 台湾03
       - 英国01
       - 德国01
-      - 迪拜01
       - 韩国01
       - 印度01
       - 爱尔兰01
@@ -722,8 +483,6 @@ proxy-groups:
       - 阿根廷01
       - 土耳其01
       - 俄罗斯01
-      - 乌克兰01
-      - 美国家宽01
 rules:
   - DOMAIN-SUFFIX,local,🎯 全球直连
   - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
