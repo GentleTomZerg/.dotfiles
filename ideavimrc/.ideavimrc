@@ -1,12 +1,17 @@
 "base
 set showmode
 set showcmd
-"clipboard
+set relativenumber
+
+"Clipboard
 set clipboard+=unnamed
 set clipboard+=ideaput
 
-"leader key
+"Leader key
 let mapleader=" "
+
+"Simplify keys
+inoremap jj <Esc>
 
 
 "Terminal
@@ -24,8 +29,8 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 
 " - manipulate buffers(tabs)
-nnoremap <leader>bp :action PreviousTab<CR>
-nnoremap <leader>bn :action NextTab<CR>
+nnoremap <s-h> :action PreviousTab<CR>
+nnoremap <s-l> :action NextTab<CR>
 nnoremap <leader>c :action CloseContent<CR>
 
 "Which Key
@@ -33,8 +38,17 @@ set which-key
 set notimeout
 set timeoutlen=5000
 
+"Easy Motion
+Plug 'easymotion/vim-easymotion'
+set easymotion
+noremap s <Nop>
+" Press the leader key twice before using the mapping
+nnoremap s <Plug>(easymotion-jumptoanywhere)
+
 "Editing Code
+" - using Shift-j to merge two lines in a smart way
 set ideajoin
+
 nnoremap <leader>/ :action CommentByLineComment<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
@@ -49,8 +63,10 @@ inoremap <a-l> <RIGHT>
 
 
 "File Explore
+Plug 'preservim/nerdtree'
 set NERDTree
-nnoremap <leader>e :NERDTreeFocus<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>o :NERDTreeFocus<CR>
 
 "LSP
 nnoremap <leader>lf :action ReformatCode<CR>

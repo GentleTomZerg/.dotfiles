@@ -177,6 +177,28 @@ function stopproxy() {
   kill $(pidof clash)
 }
 
+# Start Git Proxy
+function gsetproxy() {
+  git config --global http.proxy http://localhost:7890
+  git config --global https.proxy https://localhost:7890
+}
+
+# Unset Git Proxy
+function gunsetproxy() {
+  git config --global --unset http.proxy
+  git config --global --unset https.proxy
+}
+
+# Check Git Proxy Status
+function ggetproxy() {
+  git config --global --get http.proxy
+  git config --global --get https.proxy
+}
+
 # Hardware Control for XiaoXinPro
 source ~/.config/i3/sysmod.sh
 source ~/.config/i3/batctl.sh
+
+
+# Enable pyenv virtualenv
+eval "$(pyenv virtualenv-init -)"

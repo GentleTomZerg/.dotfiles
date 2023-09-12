@@ -6,6 +6,10 @@
 sudo dnf install clash alacritty i3-gaps picom polybar rofi stow arandr google-chrome-stable zsh ranger light feh fcitx5 xinput
 ```
 
+install fonts
+sudo pacman -S ttf-firacode-nerd
+sudo pacman -S ttf-jetbrains-mono-nerd
+
 2. Git clone dotfiles config
 
 ```bash

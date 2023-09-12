@@ -17,7 +17,7 @@ font:
     family: FiraCode Nerd Font
     style: Bold Italic
   # Other Fonts: JetBrainsMono
-  size: 18
+  size: 14
 
 cursor:
   style:
