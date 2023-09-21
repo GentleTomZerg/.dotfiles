@@ -10,12 +10,8 @@ set clipboard+=ideaput
 "Leader key
 let mapleader=" "
 
-"Simplify keys
-inoremap jj <Esc>
-
-
 "Terminal
-nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
 
 "Window Navigation
 sethandler <c-h> a:vim
@@ -56,11 +52,16 @@ nnoremap <leader>w :w<CR>
 nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 
+nnoremap / :action Find<CR>
+
 inoremap <a-j> <DOWN>
 inoremap <a-k> <UP>
 inoremap <a-h> <LEFT>
 inoremap <a-l> <RIGHT>
+inoremap jj <Esc>
 
+vnoremap <leader>/ :action CommentByLineComment<CR>
+vnoremap ii <ESC>
 
 "File Explore
 Plug 'preservim/nerdtree'
@@ -74,8 +75,9 @@ nnoremap <leader>lq :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>lo :action OptimizeImports<CR>
 nnoremap <leader>lr :action RenameElement<CR>
 nnoremap <leader>la :action ShowIntentionActions<CR>
+nnoremap <leader>lg :action Generate<CR>
 
-"goto
+"Goto
 nnoremap gc :action GotoClass<CR>
 nnoremap gi :action GotoImplementation<CR>
 nnoremap gd :action GotoDeclaration<CR>
@@ -104,11 +106,28 @@ nnoremap <leader>df :action ChooseDebugConfiguration<CR>
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fr :action RecentFiles<CR>
 nnoremap <leader>fg :action FindInPath<CR>
-nnoremap <leader>fp :action ManageRecentProjects<CR>
 nnoremap <leader>fm :action MainMenu<CR>
+nnoremap <leader>ft :action ActivateTODOToolWindow<CR>
+
+" Projects
+nnoremap <leader>p :action ManageRecentProjects<CR>
 
 
-"Git (TODO)
+"Git
+nnoremap [g :action VcsShowPrevChangeMarker<CR>
+nnoremap ]g :action VcsShowNextChangeMarker<CR>
+nnoremap <leader>gp :action Vcs.Push<CR>
+nnoremap <leader>gu :action Vcs.UpdateProject<CR>
+"nnoremap <leader>gd :action Vcs.ChangesView<CR>
+
+
+
+"Window Management
+nnoremap <leader>x :action HideActiveWindow<CR>
+
+" Refresh ideavimrc
+nnoremap <leader>rr :action Ideavim.ReloadVimRc.reload<CR>
+
 
 
 
