@@ -7,13 +7,16 @@ sudo dnf install clash alacritty i3-gaps picom polybar rofi stow arandr google-c
 ```
 
 - install fonts
-  // For terminal and polybar
+
+```bash
+# For terminal and polybar
   sudo pacman -S ttf-firacode-nerd
   sudo pacman -S ttf-jetbrains-mono-nerd
 
-  // For AUR Google-Chrome
+# For AUR Google-Chrome
   sudo pacman -S noto-fonts-cjk
   sudo pacman -S noto-fonts-emoji
+```
 
 2. Git clone dotfiles config
 
@@ -42,6 +45,8 @@ stow alacritty/ clash/ i3/ ideavimrc/ polybar/ picom/ rofi/ wiki/ Xresources/ zs
 - go to nerfont websites
 - download Jetbrains Mono Nerd Font
 - unzip the zip under ~/.local/share/fonts/
+- NOTE: archlinux can use pacman to download the fonts
+- However, we need to specify where to find the fonts in zshrc
 
 6. Now we can use i3wm
 
