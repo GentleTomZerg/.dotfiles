@@ -7,227 +7,159 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：5 天, server: hk.kunlun-ppg.com, port: 10801, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港01, server: hk.kunlun-ppg.com, port: 10801, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港02, server: hk.kunlun-ppg.com, port: 10802, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港03, server: hk.kunlun-ppg.com, port: 10803, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港04, server: hk.kunlun-ppg.com, port: 10804, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港05, server: hk.kunlun-ppg.com, port: 10805, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港06, server: hk.kunlun-ppg.com, port: 10806, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港07, server: hk.kunlun-ppg.com, port: 10807, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港08, server: hk.kunlun-ppg.com, port: 10808, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港09家宽, server: hk.kunlun-ppg.com, port: 10809, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 香港10家宽, server: hk.kunlun-ppg.com, port: 10810, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 日本01, server: jp.kunlun-ppg.com, port: 10811, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 日本02, server: jp.kunlun-ppg.com, port: 10812, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 日本03, server: jp.kunlun-ppg.com, port: 10813, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 日本04, server: jp.kunlun-ppg.com, port: 10814, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 日本05, server: jp.kunlun-ppg.com, port: 10815, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 日本06, server: jp.kunlun-ppg.com, port: 10816, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 日本07, server: jp.kunlun-ppg.com, port: 10817, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 日本08, server: jp.kunlun-ppg.com, port: 10818, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 美国01, server: us.kunlun-ppg.com, port: 10819, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 美国02, server: us.kunlun-ppg.com, port: 10820, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 美国03, server: us.kunlun-ppg.com, port: 10821, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 美国04, server: us.kunlun-ppg.com, port: 10822, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 美国05, server: us.kunlun-ppg.com, port: 10823, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 美国06, server: us.kunlun-ppg.com, port: 10824, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 美国07, server: us.kunlun-ppg.com, port: 10825, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 美国08, server: us.kunlun-ppg.com, port: 10826, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 新加坡01, server: sg.kunlun-ppg.com, port: 10827, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 新加坡02, server: sg.kunlun-ppg.com, port: 10828, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 新加坡03, server: sg.kunlun-ppg.com, port: 10829, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 新加坡04, server: sg.kunlun-ppg.com, port: 10830, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 新加坡05, server: sg.kunlun-ppg.com, port: 10831, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 新加坡06, server: sg.kunlun-ppg.com, port: 10832, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 新加坡07, server: sg.kunlun-ppg.com, port: 10833, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 新加坡08, server: sg.kunlun-ppg.com, port: 10834, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 台湾01, server: other.kunlun-ppg.com, port: 10835, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 韩国01, server: other.kunlun-ppg.com, port: 10836, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 英国01, server: other.kunlun-ppg.com, port: 10837, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 法国01, server: other.kunlun-ppg.com, port: 10838, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 德国01, server: other.kunlun-ppg.com, port: 10839, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 印度01, server: other.kunlun-ppg.com, port: 10840, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 迪拜01, server: other.kunlun-ppg.com, port: 10841, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 巴西01, server: other.kunlun-ppg.com, port: 10842, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 南非01, server: other.kunlun-ppg.com, port: 10843, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 俄罗斯01, server: other.kunlun-ppg.com, port: 10844, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 乌克兰01, server: other.kunlun-ppg.com, port: 10845, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 土耳其01, server: other.kunlun-ppg.com, port: 10846, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 阿根廷01, server: other.kunlun-ppg.com, port: 10847, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 奥地利01, server: other.kunlun-ppg.com, port: 10848, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 意大利01, server: other.kunlun-ppg.com, port: 10849, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
-  - {name: 爱尔兰01, server: other.kunlun-ppg.com, port: 10850, type: trojan, password: 29391694-160b-4d4e-aaff-fff3e894651b, sni: alibaba-node.cn, skip-cert-verify: true, udp: true}
+  - {name: 记得定时更新订阅, server: hz-cm.youtushop.link, port: 17866, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港01-HGC, server: hz-cm.youtushop.link, port: 17866, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港02-HGC, server: gd-cm.youtushop.link, port: 27700, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港03, server: gd-cm.youtushop.link, port: 55966, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港04, server: gd-cm.youtushop.link, port: 21302, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港05, server: gd-cm.youtushop.link, port: 61259, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港06, server: hz-cm.youtushop.link, port: 25959, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡01, server: hz-cm.youtushop.link, port: 28954, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡02, server: hz-cm.youtushop.link, port: 32823, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡03, server: hz-cm.youtushop.link, port: 42902, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡04, server: hz-cm.youtushop.link, port: 41533, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡05, server: hz-cm.youtushop.link, port: 13715, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡06, server: hz-cm.youtushop.link, port: 63721, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国01, server: hz-cm.youtushop.link, port: 15242, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国02, server: hz-cu.youtushop.link, port: 31596, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国03, server: hz-cm.youtushop.link, port: 61192, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国04, server: gd-cm.youtushop.link, port: 58698, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国05, server: hz-cu.youtushop.link, port: 15241, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国06, server: hz-cu.youtushop.link, port: 36965, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本01-原生ip, server: hz-cu.youtushop.link, port: 18067, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本02, server: gd-cm.youtushop.link, port: 40346, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本03, server: hz-cm.youtushop.link, port: 17028, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本04, server: gd-cm.youtushop.link, port: 64200, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本05, server: hz-cm.youtushop.link, port: 44926, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本06, server: hz-cm.youtushop.link, port: 40819, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾01-原生ip, server: gd-cm.youtushop.link, port: 19251, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾02, server: hz-cu.youtushop.link, port: 56644, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾03, server: gd-cm.youtushop.link, port: 29939, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾04-家宽-动态IP, server: rk.youtushop.link, port: 29938, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾05, server: rk.youtushop.link, port: 17022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 英国01-家宽, server: gd-cm.youtushop.link, port: 63657, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 英国02, server: hz-cm.youtushop.link, port: 11368, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 印度, server: gd-cm.youtushop.link, port: 51793, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 澳洲, server: hz-cm.youtushop.link, port: 60523, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：5 天
-      - 香港01
-      - 香港02
+      - 记得定时更新订阅
+      - 香港01-HGC
+      - 香港02-HGC
       - 香港03
       - 香港04
       - 香港05
       - 香港06
-      - 香港07
-      - 香港08
-      - 香港09家宽
-      - 香港10家宽
-      - 日本01
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 日本07
-      - 日本08
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 美国07
-      - 美国08
       - 新加坡01
       - 新加坡02
       - 新加坡03
       - 新加坡04
       - 新加坡05
       - 新加坡06
-      - 新加坡07
-      - 新加坡08
-      - 台湾01
-      - 韩国01
-      - 英国01
-      - 法国01
-      - 德国01
-      - 印度01
-      - 迪拜01
-      - 巴西01
-      - 南非01
-      - 俄罗斯01
-      - 乌克兰01
-      - 土耳其01
-      - 阿根廷01
-      - 奥地利01
-      - 意大利01
-      - 爱尔兰01
+      - 美国01
+      - 美国02
+      - 美国03
+      - 美国04
+      - 美国05
+      - 美国06
+      - 日本01-原生ip
+      - 日本02
+      - 日本03
+      - 日本04
+      - 日本05
+      - 日本06
+      - 台湾01-原生ip
+      - 台湾02
+      - 台湾03
+      - 台湾04-家宽-动态IP
+      - 台湾05
+      - 英国01-家宽
+      - 英国02
+      - 印度
+      - 澳洲
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：5 天
-      - 香港01
-      - 香港02
+      - 记得定时更新订阅
+      - 香港01-HGC
+      - 香港02-HGC
       - 香港03
       - 香港04
       - 香港05
       - 香港06
-      - 香港07
-      - 香港08
-      - 香港09家宽
-      - 香港10家宽
-      - 日本01
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 日本07
-      - 日本08
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 美国07
-      - 美国08
       - 新加坡01
       - 新加坡02
       - 新加坡03
       - 新加坡04
       - 新加坡05
       - 新加坡06
-      - 新加坡07
-      - 新加坡08
-      - 台湾01
-      - 韩国01
-      - 英国01
-      - 法国01
-      - 德国01
-      - 印度01
-      - 迪拜01
-      - 巴西01
-      - 南非01
-      - 俄罗斯01
-      - 乌克兰01
-      - 土耳其01
-      - 阿根廷01
-      - 奥地利01
-      - 意大利01
-      - 爱尔兰01
+      - 美国01
+      - 美国02
+      - 美国03
+      - 美国04
+      - 美国05
+      - 美国06
+      - 日本01-原生ip
+      - 日本02
+      - 日本03
+      - 日本04
+      - 日本05
+      - 日本06
+      - 台湾01-原生ip
+      - 台湾02
+      - 台湾03
+      - 台湾04-家宽-动态IP
+      - 台湾05
+      - 英国01-家宽
+      - 英国02
+      - 印度
+      - 澳洲
   - name: 🎥 NETFLIX
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：5 天
-      - 香港01
-      - 香港02
+      - 记得定时更新订阅
+      - 香港01-HGC
+      - 香港02-HGC
       - 香港03
       - 香港04
       - 香港05
       - 香港06
-      - 香港07
-      - 香港08
-      - 香港09家宽
-      - 香港10家宽
-      - 日本01
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 日本07
-      - 日本08
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 美国07
-      - 美国08
       - 新加坡01
       - 新加坡02
       - 新加坡03
       - 新加坡04
       - 新加坡05
       - 新加坡06
-      - 新加坡07
-      - 新加坡08
-      - 台湾01
-      - 韩国01
-      - 英国01
-      - 法国01
-      - 德国01
-      - 印度01
-      - 迪拜01
-      - 巴西01
-      - 南非01
-      - 俄罗斯01
-      - 乌克兰01
-      - 土耳其01
-      - 阿根廷01
-      - 奥地利01
-      - 意大利01
-      - 爱尔兰01
+      - 美国01
+      - 美国02
+      - 美国03
+      - 美国04
+      - 美国05
+      - 美国06
+      - 日本01-原生ip
+      - 日本02
+      - 日本03
+      - 日本04
+      - 日本05
+      - 日本06
+      - 台湾01-原生ip
+      - 台湾02
+      - 台湾03
+      - 台湾04-家宽-动态IP
+      - 台湾05
+      - 英国01-家宽
+      - 英国02
+      - 印度
+      - 澳洲
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -246,242 +178,174 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：5 天
-      - 香港01
-      - 香港02
+      - 记得定时更新订阅
+      - 香港01-HGC
+      - 香港02-HGC
       - 香港03
       - 香港04
       - 香港05
       - 香港06
-      - 香港07
-      - 香港08
-      - 香港09家宽
-      - 香港10家宽
-      - 日本01
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 日本07
-      - 日本08
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 美国07
-      - 美国08
       - 新加坡01
       - 新加坡02
       - 新加坡03
       - 新加坡04
       - 新加坡05
       - 新加坡06
-      - 新加坡07
-      - 新加坡08
-      - 台湾01
-      - 韩国01
-      - 英国01
-      - 法国01
-      - 德国01
-      - 印度01
-      - 迪拜01
-      - 巴西01
-      - 南非01
-      - 俄罗斯01
-      - 乌克兰01
-      - 土耳其01
-      - 阿根廷01
-      - 奥地利01
-      - 意大利01
-      - 爱尔兰01
+      - 美国01
+      - 美国02
+      - 美国03
+      - 美国04
+      - 美国05
+      - 美国06
+      - 日本01-原生ip
+      - 日本02
+      - 日本03
+      - 日本04
+      - 日本05
+      - 日本06
+      - 台湾01-原生ip
+      - 台湾02
+      - 台湾03
+      - 台湾04-家宽-动态IP
+      - 台湾05
+      - 英国01-家宽
+      - 英国02
+      - 印度
+      - 澳洲
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
-      - 香港01
-      - 香港02
+      - 香港01-HGC
+      - 香港02-HGC
       - 香港03
       - 香港04
       - 香港05
       - 香港06
-      - 香港07
-      - 香港08
-      - 香港09家宽
-      - 香港10家宽
-      - 台湾01
+      - 台湾01-原生ip
+      - 台湾02
+      - 台湾03
+      - 台湾04-家宽-动态IP
+      - 台湾05
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：5 天
-      - 香港01
-      - 香港02
+      - 记得定时更新订阅
+      - 香港01-HGC
+      - 香港02-HGC
       - 香港03
       - 香港04
       - 香港05
       - 香港06
-      - 香港07
-      - 香港08
-      - 香港09家宽
-      - 香港10家宽
-      - 日本01
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 日本07
-      - 日本08
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 美国07
-      - 美国08
       - 新加坡01
       - 新加坡02
       - 新加坡03
       - 新加坡04
       - 新加坡05
       - 新加坡06
-      - 新加坡07
-      - 新加坡08
-      - 台湾01
-      - 韩国01
-      - 英国01
-      - 法国01
-      - 德国01
-      - 印度01
-      - 迪拜01
-      - 巴西01
-      - 南非01
-      - 俄罗斯01
-      - 乌克兰01
-      - 土耳其01
-      - 阿根廷01
-      - 奥地利01
-      - 意大利01
-      - 爱尔兰01
+      - 美国01
+      - 美国02
+      - 美国03
+      - 美国04
+      - 美国05
+      - 美国06
+      - 日本01-原生ip
+      - 日本02
+      - 日本03
+      - 日本04
+      - 日本05
+      - 日本06
+      - 台湾01-原生ip
+      - 台湾02
+      - 台湾03
+      - 台湾04-家宽-动态IP
+      - 台湾05
+      - 英国01-家宽
+      - 英国02
+      - 印度
+      - 澳洲
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：5 天
-      - 香港01
-      - 香港02
+      - 记得定时更新订阅
+      - 香港01-HGC
+      - 香港02-HGC
       - 香港03
       - 香港04
       - 香港05
       - 香港06
-      - 香港07
-      - 香港08
-      - 香港09家宽
-      - 香港10家宽
-      - 日本01
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 日本07
-      - 日本08
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 美国07
-      - 美国08
       - 新加坡01
       - 新加坡02
       - 新加坡03
       - 新加坡04
       - 新加坡05
       - 新加坡06
-      - 新加坡07
-      - 新加坡08
-      - 台湾01
-      - 韩国01
-      - 英国01
-      - 法国01
-      - 德国01
-      - 印度01
-      - 迪拜01
-      - 巴西01
-      - 南非01
-      - 俄罗斯01
-      - 乌克兰01
-      - 土耳其01
-      - 阿根廷01
-      - 奥地利01
-      - 意大利01
-      - 爱尔兰01
+      - 美国01
+      - 美国02
+      - 美国03
+      - 美国04
+      - 美国05
+      - 美国06
+      - 日本01-原生ip
+      - 日本02
+      - 日本03
+      - 日本04
+      - 日本05
+      - 日本06
+      - 台湾01-原生ip
+      - 台湾02
+      - 台湾03
+      - 台湾04-家宽-动态IP
+      - 台湾05
+      - 英国01-家宽
+      - 英国02
+      - 印度
+      - 澳洲
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：5 天
-      - 香港01
-      - 香港02
+      - 记得定时更新订阅
+      - 香港01-HGC
+      - 香港02-HGC
       - 香港03
       - 香港04
       - 香港05
       - 香港06
-      - 香港07
-      - 香港08
-      - 香港09家宽
-      - 香港10家宽
-      - 日本01
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 日本07
-      - 日本08
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 美国07
-      - 美国08
       - 新加坡01
       - 新加坡02
       - 新加坡03
       - 新加坡04
       - 新加坡05
       - 新加坡06
-      - 新加坡07
-      - 新加坡08
-      - 台湾01
-      - 韩国01
-      - 英国01
-      - 法国01
-      - 德国01
-      - 印度01
-      - 迪拜01
-      - 巴西01
-      - 南非01
-      - 俄罗斯01
-      - 乌克兰01
-      - 土耳其01
-      - 阿根廷01
-      - 奥地利01
-      - 意大利01
-      - 爱尔兰01
+      - 美国01
+      - 美国02
+      - 美国03
+      - 美国04
+      - 美国05
+      - 美国06
+      - 日本01-原生ip
+      - 日本02
+      - 日本03
+      - 日本04
+      - 日本05
+      - 日本06
+      - 台湾01-原生ip
+      - 台湾02
+      - 台湾03
+      - 台湾04-家宽-动态IP
+      - 台湾05
+      - 英国01-家宽
+      - 英国02
+      - 印度
+      - 澳洲
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -497,57 +361,40 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：5 天
-      - 香港01
-      - 香港02
+      - 记得定时更新订阅
+      - 香港01-HGC
+      - 香港02-HGC
       - 香港03
       - 香港04
       - 香港05
       - 香港06
-      - 香港07
-      - 香港08
-      - 香港09家宽
-      - 香港10家宽
-      - 日本01
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 日本07
-      - 日本08
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 美国07
-      - 美国08
       - 新加坡01
       - 新加坡02
       - 新加坡03
       - 新加坡04
       - 新加坡05
       - 新加坡06
-      - 新加坡07
-      - 新加坡08
-      - 台湾01
-      - 韩国01
-      - 英国01
-      - 法国01
-      - 德国01
-      - 印度01
-      - 迪拜01
-      - 巴西01
-      - 南非01
-      - 俄罗斯01
-      - 乌克兰01
-      - 土耳其01
-      - 阿根廷01
-      - 奥地利01
-      - 意大利01
-      - 爱尔兰01
+      - 美国01
+      - 美国02
+      - 美国03
+      - 美国04
+      - 美国05
+      - 美国06
+      - 日本01-原生ip
+      - 日本02
+      - 日本03
+      - 日本04
+      - 日本05
+      - 日本06
+      - 台湾01-原生ip
+      - 台湾02
+      - 台湾03
+      - 台湾04-家宽-动态IP
+      - 台湾05
+      - 英国01-家宽
+      - 英国02
+      - 印度
+      - 澳洲
 rules:
   - DOMAIN-SUFFIX,local,🎯 全球直连
   - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
