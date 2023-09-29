@@ -1,0 +1,28 @@
+// Place your key bindings in this file to override the defaults
+[
+    // Map insert mode move to alt+hjkl
+    {
+        "key": "alt+h",
+        "command": "cursorLeft",
+        "when": "editorTextFocus && vim.active && !inDebugRepl"
+    },
+
+    {
+        "key": "alt+j",
+        "command": "cursorDown",
+        "when": "editorTextFocus && vim.active && !inDebugRepl"
+    },
+
+
+    {
+        "key": "alt+k",
+        "command": "cursorUp",
+        "when": "editorTextFocus && vim.active && !inDebugRepl"
+    },
+
+    {
+        "key": "alt+l",
+        "command": "cursorRight",
+        "when": "editorTextFocus && vim.active && !inDebugRepl"
+    }
+]

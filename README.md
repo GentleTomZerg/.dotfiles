@@ -34,6 +34,15 @@ git clone git@github.com:GentleTomZerg/.dotfiles.git ~/stow
 stow alacritty/ clash/ i3/ ideavimrc/ polybar/ picom/ rofi/ wiki/ Xresources/ zshrc/
 ```
 
+- Vscode Configurtion
+  Different types of vscode has different path to of user settings
+
+```bash
+cd /path/to/vscode/User/settings/directory
+ln -s $HOME/stow/vscode/keybindings.json ./keybindings.json
+ln -s $HOME/stow/vscode/settings.json ./settings.json
+```
+
 4. Clash
 
 - before setting up oh-my-zsh, my zshrc scripts cannot be used to start proxy.

@@ -1,0 +1,30 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.fontFamily": "'FiraCode Nerd Font', 'monospace'",
+    "editor.fontSize": 16,
+    "editor.fontVariations": false,
+    "editor.formatOnSave": true,
+    "window.menuBarVisibility": "visible",
+    "workbench.activityBar.visible": false,
+    "json.format.keepLines": true,
+    /** Vscode Vim Configuration*/
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<Space>",
+    // Insert Mode
+    "vim.insertModeKeyBindingsNonRecursive": [
+        // Simpify
+        { "before": [ "j", "j" ], "after": [ "<esc>" ] },
+        { "before": [ "<A-j>" ], "after": [ "<down>" ] },
+    ],
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // Switch buffers
+        { "before": [ "<S-h>" ], "commands": [ ":bprevious" ] },
+        { "before": [ "<S-l>" ], "commands": [ ":bnext" ] },
+        // Save
+        { "before": [ "<leader>", "w" ], "commands": [ ":w" ] },
+        // Quit
+        { "before": [ "<leader>", "q" ], "commands": [ ":q" ] },
+        { "before": [ "<leader>", "t" ], "commands": [ "workbench.action.terminal.toggleTerminal" ] },
+    ],
+}
