@@ -9,22 +9,10 @@
     "json.format.keepLines": true,
     /** Vscode Vim Configuration*/
     "vim.useSystemClipboard": true,
-    "vim.leader": "<Space>",
+    "vim.leader": " ",
     // Insert Mode
     "vim.insertModeKeyBindingsNonRecursive": [
         // Simpify
-        { "before": [ "j", "j" ], "after": [ "<esc>" ] },
-        { "before": [ "<A-j>" ], "after": [ "<down>" ] },
-    ],
-
-    "vim.normalModeKeyBindingsNonRecursive": [
-        // Switch buffers
-        { "before": [ "<S-h>" ], "commands": [ ":bprevious" ] },
-        { "before": [ "<S-l>" ], "commands": [ ":bnext" ] },
-        // Save
-        { "before": [ "<leader>", "w" ], "commands": [ ":w" ] },
-        // Quit
-        { "before": [ "<leader>", "q" ], "commands": [ ":q" ] },
-        { "before": [ "<leader>", "t" ], "commands": [ "workbench.action.terminal.toggleTerminal" ] },
+        { "before": [ "j", "j" ], "after": [ "<esc>" ] }
     ],
 }
