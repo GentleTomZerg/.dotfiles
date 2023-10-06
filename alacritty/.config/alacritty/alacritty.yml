@@ -25,7 +25,7 @@ cursor:
     blinking: Always
 
 window:
-  opacity: 0.95
+  opacity: 0.90
   #window:
   # Window dimensions (changes require restart)
   #
@@ -51,7 +51,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 10
-    y: 0
+    y: 5
 # Spread additional padding evenly around the terminal content.
 #dynamic_padding: false
 

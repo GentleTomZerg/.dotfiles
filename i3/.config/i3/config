@@ -38,8 +38,8 @@ exec --no-startup-id nm-applet
 # My Configuration
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/polybar/my-launch.sh
-exec_always --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/Endy_vector_satelliet.png
-# exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/*
+# exec_always --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/Endy_vector_satelliet.png
+exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/endeavouros-my-collection1.jpg
 exec_always --no-startup-id picom
 exec_always --no-startup-id fcitx5 -d 
 exec_always --no-startup-id ~/.config/i3/tap-to-click.sh

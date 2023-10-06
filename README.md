@@ -43,6 +43,10 @@ ln -s $HOME/stow/vscode/keybindings.json ./keybindings.json
 ln -s $HOME/stow/vscode/settings.json ./settings.json
 ```
 
+- Xresources
+
+  This one is not used in archlinux
+
 4. Clash
 
 - before setting up oh-my-zsh, my zshrc scripts cannot be used to start proxy.
@@ -148,6 +152,12 @@ sudo dnf install lazygit
   I use arandr to customize a laptop left, monitor right config. Let autorandr to save it, in this way, two monitors will have correct display of wallpapers.
 
   If we put laptop left and monitor right, the first display when we entered i3wm shows the laptop-size wall-paper in the monitor and the monitor-size wall-paper in both laptop and monitor. Now, I suspect it is the problem of `feh` or `i3wm` multiple monitor config rule.
+
+- **We might face with complex conditions when switch between different monitors. The best way is to use `arandr`.**
+
+  - Use arandr to generate a basic display shell script and make modifications
+  - Change the refresh rate: `--rate 144.00`
+  - write script to let the script execute when start up
 
 15. Enable RPM free and non-free
 
