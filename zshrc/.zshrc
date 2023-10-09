@@ -199,6 +199,8 @@ function ggetproxy() {
 source ~/.config/i3/sysmod.sh
 source ~/.config/i3/batctl.sh
 
+# Change dpi
+source ~/.config/i3/dpi-setter.sh
 
 # Enable pyenv virtualenv
 eval "$(pyenv virtualenv-init -)"
