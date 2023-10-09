@@ -37,9 +37,6 @@ set timeoutlen=5000
 "Easy Motion
 Plug 'easymotion/vim-easymotion'
 set easymotion
-noremap s <Nop>
-" Press the leader key twice before using the mapping
-nnoremap s <Plug>(easymotion-jumptoanywhere)
 
 "Editing Code
 " - using Shift-j to merge two lines in a smart way
@@ -124,6 +121,8 @@ nnoremap <leader>gu :action Vcs.UpdateProject<CR>
 
 "Window Management
 nnoremap <leader>x :action HideActiveWindow<CR>
+nnoremap <leader>z :action ToggleZenMode<CR>
+
 
 " Refresh ideavimrc
 nnoremap <leader>rr :action Ideavim.ReloadVimRc.reload<CR>
