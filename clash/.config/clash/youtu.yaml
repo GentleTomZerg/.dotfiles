@@ -7,291 +7,195 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：25 天, server: hz-cm.youtushop.link, port: 17866, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 记得定时更新订阅, server: hz-cm.youtushop.link, port: 17866, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港01-专线, server: zxrk1.youtushop.link, port: 30001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港02-专线, server: zxrk1.youtushop.link, port: 30002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港03-专线, server: zxrk1.youtushop.link, port: 30003, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港04-专线, server: zxrk1.youtushop.link, port: 30004, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港05-专线, server: zxrk1.youtushop.link, port: 30005, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港06-专线, server: zxrk1.youtushop.link, port: 30006, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港07-专线, server: zxrk1.youtushop.link, port: 30007, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡01-专线, server: zxrk1.youtushop.link, port: 30011, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡02-专线, server: zxrk1.youtushop.link, port: 30012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡03-专线, server: zxrk1.youtushop.link, port: 30013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡04-专线, server: zxrk1.youtushop.link, port: 30014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡05-专线, server: zxrk1.youtushop.link, port: 30015, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡06-专线, server: zxrk1.youtushop.link, port: 30016, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国01-专线, server: zxrk2.youtushop.link, port: 30031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国02-专线, server: zxrk2.youtushop.link, port: 30032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国03-专线, server: zxrk2.youtushop.link, port: 30033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国04-专线, server: zxrk2.youtushop.link, port: 30034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国05-专线, server: zxrk2.youtushop.link, port: 30035, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国06-专线, server: zxrk2.youtushop.link, port: 30036, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本01-专线, server: zxrk2.youtushop.link, port: 30041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本02-专线, server: zxrk2.youtushop.link, port: 30042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本03-专线, server: zxrk2.youtushop.link, port: 30043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本04-专线, server: zxrk2.youtushop.link, port: 30044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本05-专线, server: zxrk2.youtushop.link, port: 30045, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本06-专线, server: zxrk2.youtushop.link, port: 30046, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾01-专线, server: zxrk2.youtushop.link, port: 30021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾02-专线, server: zxrk2.youtushop.link, port: 30021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾03-专线, server: zxrk2.youtushop.link, port: 30021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾04-专线, server: zxrk2.youtushop.link, port: 30024, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾05-专线, server: zxrk2.youtushop.link, port: 30025, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 英国-专线, server: zxrk2.youtushop.link, port: 30051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港01, server: hz-cm.youtushop.link, port: 17866, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港02, server: gd-cm.youtushop.link, port: 27700, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港03, server: gd-cm.youtushop.link, port: 55966, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港04, server: gd-cm.youtushop.link, port: 21302, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港05, server: gd-cm.youtushop.link, port: 61259, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港06, server: hz-cm.youtushop.link, port: 25959, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 香港07, server: hz-cm.youtushop.link, port: 25960, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡01, server: hz-cm.youtushop.link, port: 28954, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡02, server: hz-cm.youtushop.link, port: 32823, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡03, server: hz-cm.youtushop.link, port: 42902, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡04, server: hz-cm.youtushop.link, port: 41533, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡05, server: hz-cm.youtushop.link, port: 13715, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 新加坡06, server: hz-cm.youtushop.link, port: 63721, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国01, server: hz-cm.youtushop.link, port: 15242, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国02, server: hz-cu.youtushop.link, port: 31596, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国03, server: hz-cm.youtushop.link, port: 61192, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国04, server: gd-cm.youtushop.link, port: 58698, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国05, server: hz-cu.youtushop.link, port: 15241, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 美国06, server: hz-cu.youtushop.link, port: 36965, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本01-原生ip, server: hz-cu.youtushop.link, port: 18067, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本02, server: gd-cm.youtushop.link, port: 40346, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本03, server: hz-cm.youtushop.link, port: 17028, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本04, server: gd-cm.youtushop.link, port: 64200, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本05, server: hz-cm.youtushop.link, port: 44926, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 日本06, server: hz-cm.youtushop.link, port: 40819, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾01-原生ip, server: gd-cm.youtushop.link, port: 19251, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾02, server: hz-cu.youtushop.link, port: 56644, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾03, server: gd-cm.youtushop.link, port: 29939, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾04-家宽-动态IP, server: rk.youtushop.link, port: 29938, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 台湾05, server: rk.youtushop.link, port: 17022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 英国01-家宽, server: gd-cm.youtushop.link, port: 63657, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 英国02, server: hz-cm.youtushop.link, port: 11368, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 印度, server: gd-cm.youtushop.link, port: 51793, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 澳洲, server: hz-cm.youtushop.link, port: 60523, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 距离下次重置剩余：29 天, server: sdrk1.youtushop.link, port: 34001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 有问题先更新订阅, server: sdrk1.youtushop.link, port: 34001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港01-高速隧道, server: sdrk1.youtushop.link, port: 34001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港02-高速隧道, server: sdrk1.youtushop.link, port: 34002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港03-高速隧道, server: sdrk1.youtushop.link, port: 34003, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港04-高速隧道, server: sdrk1.youtushop.link, port: 34004, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港05-高速隧道, server: sdrk1.youtushop.link, port: 34005, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡01-高速隧道, server: sdrk1.youtushop.link, port: 34011, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡02-高速隧道, server: sdrk1.youtushop.link, port: 34012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡03-高速隧道, server: sdrk1.youtushop.link, port: 34013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡04-高速隧道, server: sdrk1.youtushop.link, port: 34014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国01-高速隧道, server: sdrk2.youtushop.link, port: 34031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国02-高速隧道, server: sdrk2.youtushop.link, port: 34032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国03-高速隧道, server: sdrk2.youtushop.link, port: 34033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国04-高速隧道, server: sdrk2.youtushop.link, port: 34034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本01-高速隧道, server: sdrk2.youtushop.link, port: 34041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本02-高速隧道, server: sdrk2.youtushop.link, port: 34042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本03-高速隧道, server: sdrk2.youtushop.link, port: 34043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾01-高速隧道, server: sdrk1.youtushop.link, port: 34021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾02-高速隧道, server: sdrk1.youtushop.link, port: 34022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 英国-高速隧道, server: sdrk1.youtushop.link, port: 34051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 印度-高速隧道, server: sdrk1.youtushop.link, port: 34061, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 澳洲-高速隧道, server: sdrk1.youtushop.link, port: 34071, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港01-专线*2, server: zxrk1.youtushop.link, port: 30001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港02-专线*2, server: zxrk1.youtushop.link, port: 30002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港03-专线*2, server: zxrk1.youtushop.link, port: 30003, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港04-专线*2, server: zxrk1.youtushop.link, port: 30004, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 香港05-专线*2, server: zxrk1.youtushop.link, port: 30005, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡01-专线*2, server: zxrk1.youtushop.link, port: 30011, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡02-专线*2, server: zxrk1.youtushop.link, port: 30012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡03-专线*2, server: zxrk1.youtushop.link, port: 30013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 新加坡04-专线*2, server: zxrk1.youtushop.link, port: 30014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国01-专线*2, server: zxrk2.youtushop.link, port: 30031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国02-专线*2, server: zxrk2.youtushop.link, port: 30032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国03-专线*2, server: zxrk2.youtushop.link, port: 30033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 美国04-专线*2, server: zxrk2.youtushop.link, port: 30034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本01-原生-专线*2, server: zxrk2.youtushop.link, port: 30041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本02-专线*2, server: zxrk2.youtushop.link, port: 30042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 日本03-专线*2, server: zxrk2.youtushop.link, port: 30043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾01-专线*2, server: zxrk1.youtushop.link, port: 30021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾02-家宽-专线*2, server: zxrk1.youtushop.link, port: 30022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 台湾03-专线*2, server: zxrk1.youtushop.link, port: 30023, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 英国-家宽-专线*2, server: zxrk2.youtushop.link, port: 30051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：25 天
-      - 记得定时更新订阅
-      - 香港01-专线
-      - 香港02-专线
-      - 香港03-专线
-      - 香港04-专线
-      - 香港05-专线
-      - 香港06-专线
-      - 香港07-专线
-      - 新加坡01-专线
-      - 新加坡02-专线
-      - 新加坡03-专线
-      - 新加坡04-专线
-      - 新加坡05-专线
-      - 新加坡06-专线
-      - 美国01-专线
-      - 美国02-专线
-      - 美国03-专线
-      - 美国04-专线
-      - 美国05-专线
-      - 美国06-专线
-      - 日本01-专线
-      - 日本02-专线
-      - 日本03-专线
-      - 日本04-专线
-      - 日本05-专线
-      - 日本06-专线
-      - 台湾01-专线
-      - 台湾02-专线
-      - 台湾03-专线
-      - 台湾04-专线
-      - 台湾05-专线
-      - 英国-专线
-      - 香港01
-      - 香港02
-      - 香港03
-      - 香港04
-      - 香港05
-      - 香港06
-      - 香港07
-      - 新加坡01
-      - 新加坡02
-      - 新加坡03
-      - 新加坡04
-      - 新加坡05
-      - 新加坡06
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 日本01-原生ip
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 台湾01-原生ip
-      - 台湾02
-      - 台湾03
-      - 台湾04-家宽-动态IP
-      - 台湾05
-      - 英国01-家宽
-      - 英国02
-      - 印度
-      - 澳洲
+      - 距离下次重置剩余：29 天
+      - 有问题先更新订阅
+      - 香港01-高速隧道
+      - 香港02-高速隧道
+      - 香港03-高速隧道
+      - 香港04-高速隧道
+      - 香港05-高速隧道
+      - 新加坡01-高速隧道
+      - 新加坡02-高速隧道
+      - 新加坡03-高速隧道
+      - 新加坡04-高速隧道
+      - 美国01-高速隧道
+      - 美国02-高速隧道
+      - 美国03-高速隧道
+      - 美国04-高速隧道
+      - 日本01-高速隧道
+      - 日本02-高速隧道
+      - 日本03-高速隧道
+      - 台湾01-高速隧道
+      - 台湾02-高速隧道
+      - 英国-高速隧道
+      - 印度-高速隧道
+      - 澳洲-高速隧道
+      - 香港01-专线*2
+      - 香港02-专线*2
+      - 香港03-专线*2
+      - 香港04-专线*2
+      - 香港05-专线*2
+      - 新加坡01-专线*2
+      - 新加坡02-专线*2
+      - 新加坡03-专线*2
+      - 新加坡04-专线*2
+      - 美国01-专线*2
+      - 美国02-专线*2
+      - 美国03-专线*2
+      - 美国04-专线*2
+      - 日本01-原生-专线*2
+      - 日本02-专线*2
+      - 日本03-专线*2
+      - 台湾01-专线*2
+      - 台湾02-家宽-专线*2
+      - 台湾03-专线*2
+      - 英国-家宽-专线*2
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：25 天
-      - 记得定时更新订阅
-      - 香港01-专线
-      - 香港02-专线
-      - 香港03-专线
-      - 香港04-专线
-      - 香港05-专线
-      - 香港06-专线
-      - 香港07-专线
-      - 新加坡01-专线
-      - 新加坡02-专线
-      - 新加坡03-专线
-      - 新加坡04-专线
-      - 新加坡05-专线
-      - 新加坡06-专线
-      - 美国01-专线
-      - 美国02-专线
-      - 美国03-专线
-      - 美国04-专线
-      - 美国05-专线
-      - 美国06-专线
-      - 日本01-专线
-      - 日本02-专线
-      - 日本03-专线
-      - 日本04-专线
-      - 日本05-专线
-      - 日本06-专线
-      - 台湾01-专线
-      - 台湾02-专线
-      - 台湾03-专线
-      - 台湾04-专线
-      - 台湾05-专线
-      - 英国-专线
-      - 香港01
-      - 香港02
-      - 香港03
-      - 香港04
-      - 香港05
-      - 香港06
-      - 香港07
-      - 新加坡01
-      - 新加坡02
-      - 新加坡03
-      - 新加坡04
-      - 新加坡05
-      - 新加坡06
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 日本01-原生ip
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 台湾01-原生ip
-      - 台湾02
-      - 台湾03
-      - 台湾04-家宽-动态IP
-      - 台湾05
-      - 英国01-家宽
-      - 英国02
-      - 印度
-      - 澳洲
+      - 距离下次重置剩余：29 天
+      - 有问题先更新订阅
+      - 香港01-高速隧道
+      - 香港02-高速隧道
+      - 香港03-高速隧道
+      - 香港04-高速隧道
+      - 香港05-高速隧道
+      - 新加坡01-高速隧道
+      - 新加坡02-高速隧道
+      - 新加坡03-高速隧道
+      - 新加坡04-高速隧道
+      - 美国01-高速隧道
+      - 美国02-高速隧道
+      - 美国03-高速隧道
+      - 美国04-高速隧道
+      - 日本01-高速隧道
+      - 日本02-高速隧道
+      - 日本03-高速隧道
+      - 台湾01-高速隧道
+      - 台湾02-高速隧道
+      - 英国-高速隧道
+      - 印度-高速隧道
+      - 澳洲-高速隧道
+      - 香港01-专线*2
+      - 香港02-专线*2
+      - 香港03-专线*2
+      - 香港04-专线*2
+      - 香港05-专线*2
+      - 新加坡01-专线*2
+      - 新加坡02-专线*2
+      - 新加坡03-专线*2
+      - 新加坡04-专线*2
+      - 美国01-专线*2
+      - 美国02-专线*2
+      - 美国03-专线*2
+      - 美国04-专线*2
+      - 日本01-原生-专线*2
+      - 日本02-专线*2
+      - 日本03-专线*2
+      - 台湾01-专线*2
+      - 台湾02-家宽-专线*2
+      - 台湾03-专线*2
+      - 英国-家宽-专线*2
   - name: 🎥 NETFLIX
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：25 天
-      - 记得定时更新订阅
-      - 香港01-专线
-      - 香港02-专线
-      - 香港03-专线
-      - 香港04-专线
-      - 香港05-专线
-      - 香港06-专线
-      - 香港07-专线
-      - 新加坡01-专线
-      - 新加坡02-专线
-      - 新加坡03-专线
-      - 新加坡04-专线
-      - 新加坡05-专线
-      - 新加坡06-专线
-      - 美国01-专线
-      - 美国02-专线
-      - 美国03-专线
-      - 美国04-专线
-      - 美国05-专线
-      - 美国06-专线
-      - 日本01-专线
-      - 日本02-专线
-      - 日本03-专线
-      - 日本04-专线
-      - 日本05-专线
-      - 日本06-专线
-      - 台湾01-专线
-      - 台湾02-专线
-      - 台湾03-专线
-      - 台湾04-专线
-      - 台湾05-专线
-      - 英国-专线
-      - 香港01
-      - 香港02
-      - 香港03
-      - 香港04
-      - 香港05
-      - 香港06
-      - 香港07
-      - 新加坡01
-      - 新加坡02
-      - 新加坡03
-      - 新加坡04
-      - 新加坡05
-      - 新加坡06
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 日本01-原生ip
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 台湾01-原生ip
-      - 台湾02
-      - 台湾03
-      - 台湾04-家宽-动态IP
-      - 台湾05
-      - 英国01-家宽
-      - 英国02
-      - 印度
-      - 澳洲
+      - 距离下次重置剩余：29 天
+      - 有问题先更新订阅
+      - 香港01-高速隧道
+      - 香港02-高速隧道
+      - 香港03-高速隧道
+      - 香港04-高速隧道
+      - 香港05-高速隧道
+      - 新加坡01-高速隧道
+      - 新加坡02-高速隧道
+      - 新加坡03-高速隧道
+      - 新加坡04-高速隧道
+      - 美国01-高速隧道
+      - 美国02-高速隧道
+      - 美国03-高速隧道
+      - 美国04-高速隧道
+      - 日本01-高速隧道
+      - 日本02-高速隧道
+      - 日本03-高速隧道
+      - 台湾01-高速隧道
+      - 台湾02-高速隧道
+      - 英国-高速隧道
+      - 印度-高速隧道
+      - 澳洲-高速隧道
+      - 香港01-专线*2
+      - 香港02-专线*2
+      - 香港03-专线*2
+      - 香港04-专线*2
+      - 香港05-专线*2
+      - 新加坡01-专线*2
+      - 新加坡02-专线*2
+      - 新加坡03-专线*2
+      - 新加坡04-专线*2
+      - 美国01-专线*2
+      - 美国02-专线*2
+      - 美国03-专线*2
+      - 美国04-专线*2
+      - 日本01-原生-专线*2
+      - 日本02-专线*2
+      - 日本03-专线*2
+      - 台湾01-专线*2
+      - 台湾02-家宽-专线*2
+      - 台湾03-专线*2
+      - 英国-家宽-专线*2
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -310,319 +214,214 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：25 天
-      - 记得定时更新订阅
-      - 香港01-专线
-      - 香港02-专线
-      - 香港03-专线
-      - 香港04-专线
-      - 香港05-专线
-      - 香港06-专线
-      - 香港07-专线
-      - 新加坡01-专线
-      - 新加坡02-专线
-      - 新加坡03-专线
-      - 新加坡04-专线
-      - 新加坡05-专线
-      - 新加坡06-专线
-      - 美国01-专线
-      - 美国02-专线
-      - 美国03-专线
-      - 美国04-专线
-      - 美国05-专线
-      - 美国06-专线
-      - 日本01-专线
-      - 日本02-专线
-      - 日本03-专线
-      - 日本04-专线
-      - 日本05-专线
-      - 日本06-专线
-      - 台湾01-专线
-      - 台湾02-专线
-      - 台湾03-专线
-      - 台湾04-专线
-      - 台湾05-专线
-      - 英国-专线
-      - 香港01
-      - 香港02
-      - 香港03
-      - 香港04
-      - 香港05
-      - 香港06
-      - 香港07
-      - 新加坡01
-      - 新加坡02
-      - 新加坡03
-      - 新加坡04
-      - 新加坡05
-      - 新加坡06
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 日本01-原生ip
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 台湾01-原生ip
-      - 台湾02
-      - 台湾03
-      - 台湾04-家宽-动态IP
-      - 台湾05
-      - 英国01-家宽
-      - 英国02
-      - 印度
-      - 澳洲
+      - 距离下次重置剩余：29 天
+      - 有问题先更新订阅
+      - 香港01-高速隧道
+      - 香港02-高速隧道
+      - 香港03-高速隧道
+      - 香港04-高速隧道
+      - 香港05-高速隧道
+      - 新加坡01-高速隧道
+      - 新加坡02-高速隧道
+      - 新加坡03-高速隧道
+      - 新加坡04-高速隧道
+      - 美国01-高速隧道
+      - 美国02-高速隧道
+      - 美国03-高速隧道
+      - 美国04-高速隧道
+      - 日本01-高速隧道
+      - 日本02-高速隧道
+      - 日本03-高速隧道
+      - 台湾01-高速隧道
+      - 台湾02-高速隧道
+      - 英国-高速隧道
+      - 印度-高速隧道
+      - 澳洲-高速隧道
+      - 香港01-专线*2
+      - 香港02-专线*2
+      - 香港03-专线*2
+      - 香港04-专线*2
+      - 香港05-专线*2
+      - 新加坡01-专线*2
+      - 新加坡02-专线*2
+      - 新加坡03-专线*2
+      - 新加坡04-专线*2
+      - 美国01-专线*2
+      - 美国02-专线*2
+      - 美国03-专线*2
+      - 美国04-专线*2
+      - 日本01-原生-专线*2
+      - 日本02-专线*2
+      - 日本03-专线*2
+      - 台湾01-专线*2
+      - 台湾02-家宽-专线*2
+      - 台湾03-专线*2
+      - 英国-家宽-专线*2
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
-      - 香港01-专线
-      - 香港02-专线
-      - 香港03-专线
-      - 香港04-专线
-      - 香港05-专线
-      - 香港06-专线
-      - 香港07-专线
-      - 台湾01-专线
-      - 台湾02-专线
-      - 台湾03-专线
-      - 台湾04-专线
-      - 台湾05-专线
-      - 香港01
-      - 香港02
-      - 香港03
-      - 香港04
-      - 香港05
-      - 香港06
-      - 香港07
-      - 台湾01-原生ip
-      - 台湾02
-      - 台湾03
-      - 台湾04-家宽-动态IP
-      - 台湾05
+      - 香港01-高速隧道
+      - 香港02-高速隧道
+      - 香港03-高速隧道
+      - 香港04-高速隧道
+      - 香港05-高速隧道
+      - 台湾01-高速隧道
+      - 台湾02-高速隧道
+      - 香港01-专线*2
+      - 香港02-专线*2
+      - 香港03-专线*2
+      - 香港04-专线*2
+      - 香港05-专线*2
+      - 台湾01-专线*2
+      - 台湾02-家宽-专线*2
+      - 台湾03-专线*2
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：25 天
-      - 记得定时更新订阅
-      - 香港01-专线
-      - 香港02-专线
-      - 香港03-专线
-      - 香港04-专线
-      - 香港05-专线
-      - 香港06-专线
-      - 香港07-专线
-      - 新加坡01-专线
-      - 新加坡02-专线
-      - 新加坡03-专线
-      - 新加坡04-专线
-      - 新加坡05-专线
-      - 新加坡06-专线
-      - 美国01-专线
-      - 美国02-专线
-      - 美国03-专线
-      - 美国04-专线
-      - 美国05-专线
-      - 美国06-专线
-      - 日本01-专线
-      - 日本02-专线
-      - 日本03-专线
-      - 日本04-专线
-      - 日本05-专线
-      - 日本06-专线
-      - 台湾01-专线
-      - 台湾02-专线
-      - 台湾03-专线
-      - 台湾04-专线
-      - 台湾05-专线
-      - 英国-专线
-      - 香港01
-      - 香港02
-      - 香港03
-      - 香港04
-      - 香港05
-      - 香港06
-      - 香港07
-      - 新加坡01
-      - 新加坡02
-      - 新加坡03
-      - 新加坡04
-      - 新加坡05
-      - 新加坡06
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 日本01-原生ip
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 台湾01-原生ip
-      - 台湾02
-      - 台湾03
-      - 台湾04-家宽-动态IP
-      - 台湾05
-      - 英国01-家宽
-      - 英国02
-      - 印度
-      - 澳洲
+      - 距离下次重置剩余：29 天
+      - 有问题先更新订阅
+      - 香港01-高速隧道
+      - 香港02-高速隧道
+      - 香港03-高速隧道
+      - 香港04-高速隧道
+      - 香港05-高速隧道
+      - 新加坡01-高速隧道
+      - 新加坡02-高速隧道
+      - 新加坡03-高速隧道
+      - 新加坡04-高速隧道
+      - 美国01-高速隧道
+      - 美国02-高速隧道
+      - 美国03-高速隧道
+      - 美国04-高速隧道
+      - 日本01-高速隧道
+      - 日本02-高速隧道
+      - 日本03-高速隧道
+      - 台湾01-高速隧道
+      - 台湾02-高速隧道
+      - 英国-高速隧道
+      - 印度-高速隧道
+      - 澳洲-高速隧道
+      - 香港01-专线*2
+      - 香港02-专线*2
+      - 香港03-专线*2
+      - 香港04-专线*2
+      - 香港05-专线*2
+      - 新加坡01-专线*2
+      - 新加坡02-专线*2
+      - 新加坡03-专线*2
+      - 新加坡04-专线*2
+      - 美国01-专线*2
+      - 美国02-专线*2
+      - 美国03-专线*2
+      - 美国04-专线*2
+      - 日本01-原生-专线*2
+      - 日本02-专线*2
+      - 日本03-专线*2
+      - 台湾01-专线*2
+      - 台湾02-家宽-专线*2
+      - 台湾03-专线*2
+      - 英国-家宽-专线*2
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：25 天
-      - 记得定时更新订阅
-      - 香港01-专线
-      - 香港02-专线
-      - 香港03-专线
-      - 香港04-专线
-      - 香港05-专线
-      - 香港06-专线
-      - 香港07-专线
-      - 新加坡01-专线
-      - 新加坡02-专线
-      - 新加坡03-专线
-      - 新加坡04-专线
-      - 新加坡05-专线
-      - 新加坡06-专线
-      - 美国01-专线
-      - 美国02-专线
-      - 美国03-专线
-      - 美国04-专线
-      - 美国05-专线
-      - 美国06-专线
-      - 日本01-专线
-      - 日本02-专线
-      - 日本03-专线
-      - 日本04-专线
-      - 日本05-专线
-      - 日本06-专线
-      - 台湾01-专线
-      - 台湾02-专线
-      - 台湾03-专线
-      - 台湾04-专线
-      - 台湾05-专线
-      - 英国-专线
-      - 香港01
-      - 香港02
-      - 香港03
-      - 香港04
-      - 香港05
-      - 香港06
-      - 香港07
-      - 新加坡01
-      - 新加坡02
-      - 新加坡03
-      - 新加坡04
-      - 新加坡05
-      - 新加坡06
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 日本01-原生ip
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 台湾01-原生ip
-      - 台湾02
-      - 台湾03
-      - 台湾04-家宽-动态IP
-      - 台湾05
-      - 英国01-家宽
-      - 英国02
-      - 印度
-      - 澳洲
+      - 距离下次重置剩余：29 天
+      - 有问题先更新订阅
+      - 香港01-高速隧道
+      - 香港02-高速隧道
+      - 香港03-高速隧道
+      - 香港04-高速隧道
+      - 香港05-高速隧道
+      - 新加坡01-高速隧道
+      - 新加坡02-高速隧道
+      - 新加坡03-高速隧道
+      - 新加坡04-高速隧道
+      - 美国01-高速隧道
+      - 美国02-高速隧道
+      - 美国03-高速隧道
+      - 美国04-高速隧道
+      - 日本01-高速隧道
+      - 日本02-高速隧道
+      - 日本03-高速隧道
+      - 台湾01-高速隧道
+      - 台湾02-高速隧道
+      - 英国-高速隧道
+      - 印度-高速隧道
+      - 澳洲-高速隧道
+      - 香港01-专线*2
+      - 香港02-专线*2
+      - 香港03-专线*2
+      - 香港04-专线*2
+      - 香港05-专线*2
+      - 新加坡01-专线*2
+      - 新加坡02-专线*2
+      - 新加坡03-专线*2
+      - 新加坡04-专线*2
+      - 美国01-专线*2
+      - 美国02-专线*2
+      - 美国03-专线*2
+      - 美国04-专线*2
+      - 日本01-原生-专线*2
+      - 日本02-专线*2
+      - 日本03-专线*2
+      - 台湾01-专线*2
+      - 台湾02-家宽-专线*2
+      - 台湾03-专线*2
+      - 英国-家宽-专线*2
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：25 天
-      - 记得定时更新订阅
-      - 香港01-专线
-      - 香港02-专线
-      - 香港03-专线
-      - 香港04-专线
-      - 香港05-专线
-      - 香港06-专线
-      - 香港07-专线
-      - 新加坡01-专线
-      - 新加坡02-专线
-      - 新加坡03-专线
-      - 新加坡04-专线
-      - 新加坡05-专线
-      - 新加坡06-专线
-      - 美国01-专线
-      - 美国02-专线
-      - 美国03-专线
-      - 美国04-专线
-      - 美国05-专线
-      - 美国06-专线
-      - 日本01-专线
-      - 日本02-专线
-      - 日本03-专线
-      - 日本04-专线
-      - 日本05-专线
-      - 日本06-专线
-      - 台湾01-专线
-      - 台湾02-专线
-      - 台湾03-专线
-      - 台湾04-专线
-      - 台湾05-专线
-      - 英国-专线
-      - 香港01
-      - 香港02
-      - 香港03
-      - 香港04
-      - 香港05
-      - 香港06
-      - 香港07
-      - 新加坡01
-      - 新加坡02
-      - 新加坡03
-      - 新加坡04
-      - 新加坡05
-      - 新加坡06
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 日本01-原生ip
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 台湾01-原生ip
-      - 台湾02
-      - 台湾03
-      - 台湾04-家宽-动态IP
-      - 台湾05
-      - 英国01-家宽
-      - 英国02
-      - 印度
-      - 澳洲
+      - 距离下次重置剩余：29 天
+      - 有问题先更新订阅
+      - 香港01-高速隧道
+      - 香港02-高速隧道
+      - 香港03-高速隧道
+      - 香港04-高速隧道
+      - 香港05-高速隧道
+      - 新加坡01-高速隧道
+      - 新加坡02-高速隧道
+      - 新加坡03-高速隧道
+      - 新加坡04-高速隧道
+      - 美国01-高速隧道
+      - 美国02-高速隧道
+      - 美国03-高速隧道
+      - 美国04-高速隧道
+      - 日本01-高速隧道
+      - 日本02-高速隧道
+      - 日本03-高速隧道
+      - 台湾01-高速隧道
+      - 台湾02-高速隧道
+      - 英国-高速隧道
+      - 印度-高速隧道
+      - 澳洲-高速隧道
+      - 香港01-专线*2
+      - 香港02-专线*2
+      - 香港03-专线*2
+      - 香港04-专线*2
+      - 香港05-专线*2
+      - 新加坡01-专线*2
+      - 新加坡02-专线*2
+      - 新加坡03-专线*2
+      - 新加坡04-专线*2
+      - 美国01-专线*2
+      - 美国02-专线*2
+      - 美国03-专线*2
+      - 美国04-专线*2
+      - 日本01-原生-专线*2
+      - 日本02-专线*2
+      - 日本03-专线*2
+      - 台湾01-专线*2
+      - 台湾02-家宽-专线*2
+      - 台湾03-专线*2
+      - 英国-家宽-专线*2
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -638,73 +437,49 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：25 天
-      - 记得定时更新订阅
-      - 香港01-专线
-      - 香港02-专线
-      - 香港03-专线
-      - 香港04-专线
-      - 香港05-专线
-      - 香港06-专线
-      - 香港07-专线
-      - 新加坡01-专线
-      - 新加坡02-专线
-      - 新加坡03-专线
-      - 新加坡04-专线
-      - 新加坡05-专线
-      - 新加坡06-专线
-      - 美国01-专线
-      - 美国02-专线
-      - 美国03-专线
-      - 美国04-专线
-      - 美国05-专线
-      - 美国06-专线
-      - 日本01-专线
-      - 日本02-专线
-      - 日本03-专线
-      - 日本04-专线
-      - 日本05-专线
-      - 日本06-专线
-      - 台湾01-专线
-      - 台湾02-专线
-      - 台湾03-专线
-      - 台湾04-专线
-      - 台湾05-专线
-      - 英国-专线
-      - 香港01
-      - 香港02
-      - 香港03
-      - 香港04
-      - 香港05
-      - 香港06
-      - 香港07
-      - 新加坡01
-      - 新加坡02
-      - 新加坡03
-      - 新加坡04
-      - 新加坡05
-      - 新加坡06
-      - 美国01
-      - 美国02
-      - 美国03
-      - 美国04
-      - 美国05
-      - 美国06
-      - 日本01-原生ip
-      - 日本02
-      - 日本03
-      - 日本04
-      - 日本05
-      - 日本06
-      - 台湾01-原生ip
-      - 台湾02
-      - 台湾03
-      - 台湾04-家宽-动态IP
-      - 台湾05
-      - 英国01-家宽
-      - 英国02
-      - 印度
-      - 澳洲
+      - 距离下次重置剩余：29 天
+      - 有问题先更新订阅
+      - 香港01-高速隧道
+      - 香港02-高速隧道
+      - 香港03-高速隧道
+      - 香港04-高速隧道
+      - 香港05-高速隧道
+      - 新加坡01-高速隧道
+      - 新加坡02-高速隧道
+      - 新加坡03-高速隧道
+      - 新加坡04-高速隧道
+      - 美国01-高速隧道
+      - 美国02-高速隧道
+      - 美国03-高速隧道
+      - 美国04-高速隧道
+      - 日本01-高速隧道
+      - 日本02-高速隧道
+      - 日本03-高速隧道
+      - 台湾01-高速隧道
+      - 台湾02-高速隧道
+      - 英国-高速隧道
+      - 印度-高速隧道
+      - 澳洲-高速隧道
+      - 香港01-专线*2
+      - 香港02-专线*2
+      - 香港03-专线*2
+      - 香港04-专线*2
+      - 香港05-专线*2
+      - 新加坡01-专线*2
+      - 新加坡02-专线*2
+      - 新加坡03-专线*2
+      - 新加坡04-专线*2
+      - 美国01-专线*2
+      - 美国02-专线*2
+      - 美国03-专线*2
+      - 美国04-专线*2
+      - 日本01-原生-专线*2
+      - 日本02-专线*2
+      - 日本03-专线*2
+      - 台湾01-专线*2
+      - 台湾02-家宽-专线*2
+      - 台湾03-专线*2
+      - 英国-家宽-专线*2
 rules:
   - DOMAIN-SUFFIX,local,🎯 全球直连
   - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve

@@ -177,6 +177,13 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
     - Enable icons for ranger, follow this [link](https://github.com/alexanderjeurissen/ranger_devicons)
     - stow the config from my .dotfiles
 
+18. Bluetooth
+
+    ```bash
+    sudo systemctl start bluetooth
+    sudo systemctl enable bluetooth
+    ```
+
 # Grub
 
 We can config grub under the path /etc/default/grub
