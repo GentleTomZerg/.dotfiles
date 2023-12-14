@@ -5,14 +5,30 @@
     "editor.fontVariations": false,
     "editor.formatOnSave": true,
     "window.menuBarVisibility": "visible",
-    "workbench.activityBar.visible": false,
     "json.format.keepLines": true,
     /** Vscode Vim Configuration*/
     "vim.useSystemClipboard": true,
     "vim.leader": " ",
+    // Normal Mode
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // Save
+        { "before": [ "<leader>", "w" ], "after": [ ":", "w", "<cr>" ] },
+        // Quit
+        { "before": [ "<leader>", "q" ], "after": [ ":", "q", "<cr>" ] },
+        // Comment
+        { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
+        // Window Management
+    ],
     // Insert Mode
     "vim.insertModeKeyBindingsNonRecursive": [
-        // Simpify
-        { "before": [ "j", "j" ], "after": [ "<esc>" ] }
+        // ESC
+        { "before": [ "j", "j" ], "after": [ "<esc>" ] },
+        { "before": [ "j", "k" ], "after": [ "<esc>" ] },
     ],
+    // Visula Mode
+    "vim.visualModeKeyBindingsNonRecursive": [
+        // Comment
+        { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
+    ],
+    "workbench.activityBar.location": "hidden",
 }
