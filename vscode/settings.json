@@ -17,6 +17,8 @@
         { "before": [ "<leader>", "q" ], "after": [ ":", "q", "<cr>" ] },
         // Comment
         { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
+        // Toggle Terminal
+        { "before": [ "<leader>", "t" ], "commands": [ "workbench.action.terminal.toggleTerminal" ] },
         // Window Management
     ],
     // Insert Mode
