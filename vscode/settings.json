@@ -5,32 +5,48 @@
     "editor.fontVariations": false,
     "editor.formatOnSave": true,
     "window.menuBarVisibility": "visible",
+    // "workbench.activityBar.location": "hidden",
     "json.format.keepLines": true,
     /** Vscode Vim Configuration*/
     "vim.useSystemClipboard": true,
-    "vim.leader": " ",
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
     // Normal Mode
     "vim.normalModeKeyBindingsNonRecursive": [
         // Save
         { "before": [ "<leader>", "w" ], "after": [ ":", "w", "<cr>" ] },
         // Quit
         { "before": [ "<leader>", "q" ], "after": [ ":", "q", "<cr>" ] },
+        { "before": [ "<leader>", "c" ], "after": [ ":", "q", "<cr>" ] },
         // Comment
         { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
-        // Toggle Terminal
-        { "before": [ "<leader>", "t" ], "commands": [ "workbench.action.terminal.toggleTerminal" ] },
+        // Toggle Terminal(disable): is better to use the defaut one
+        // leader + t can not provide the best working experience :(
+        // have to compromise
+        // { "before": [ "<leader>", "t" ], "commands": [ "workbench.action.terminal.toggleTerminal" ] },
+
+        // File Explorer
+        { "before": [ "<leader>", "e" ], "commands": [ "workbench.explorer.fileView.focus" ] },
+        { "before": [ "<leader>", "o" ], "commands": [ "revealInExplorer" ] },
+        // Switch Editor
+        { "before": [ "<S-h>" ], "commands": [ "workbench.action.previousEditor" ] },
+        { "before": [ "<S-l>" ], "commands": [ "workbench.action.nextEditor" ] },
         // Window Management
+        { "before": [ "<C-h>" ], "after": [ "<C-w>", "h" ] },
+        { "before": [ "<C-j>" ], "after": [ "<C-w>", "j" ] },
+        { "before": [ "<C-k>" ], "after": [ "<C-w>", "k" ] },
+        { "before": [ "<C-l>" ], "after": [ "<C-w>", "l" ] },
     ],
     // Insert Mode
     "vim.insertModeKeyBindingsNonRecursive": [
         // ESC
         { "before": [ "j", "j" ], "after": [ "<esc>" ] },
         { "before": [ "j", "k" ], "after": [ "<esc>" ] },
+
     ],
     // Visula Mode
     "vim.visualModeKeyBindingsNonRecursive": [
         // Comment
         { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
     ],
-    "workbench.activityBar.location": "hidden",
 }

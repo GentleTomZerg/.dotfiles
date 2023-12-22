@@ -1,8 +1,102 @@
 [
-    // vim insert mode
-    // - change arrow keys
+    // Switch Tabs
+    // Explorer
+    {
+        "key": "e",
+        "command": "workbench.explorer.fileView.focus",
+        "when": "!editorFocus && !inputFocus"
+    },
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "shift+a",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "x",
+        "command": "filesExplorer.cut",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "moveFileToTrash",
+        "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "shift+d",
+        "command": "deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "c",
+        "command": "workbench.files.action.collapseExplorerFolders",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "s",
+        "command": "explorer.openToSide",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    {
+        "key": "f",
+        "command": "revealFileInOS",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    {
+        "key": "t",
+        "command": "openInTerminal",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "u",
+        "command": "copyFilePath",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    {
+        "key": "i",
+        "command": "copyRelativeFilePath",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+
+    // map arrow keys to alt+hjkl
+    {
+        "key": "alt+h",
+        "command": "cursorLeft",
+        "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
+    },
     {
         "key": "alt+j",
-        "command": "",
+        "command": "cursorDown",
+        "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
     },
+    {
+        "key": "alt+k",
+        "command": "cursorUp",
+        "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
+    },
+    {
+        "key": "alt+l",
+        "command": "cursorRight",
+        "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
+    },
+
 ]
