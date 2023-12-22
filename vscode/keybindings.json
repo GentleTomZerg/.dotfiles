@@ -98,5 +98,9 @@
         "command": "cursorRight",
         "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
     },
-
+    {
+        "key": "escape",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorTextFocus"
+    }
 ]

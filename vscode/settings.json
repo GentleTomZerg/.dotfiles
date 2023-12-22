@@ -20,10 +20,8 @@
         { "before": [ "<leader>", "c" ], "after": [ ":", "q", "<cr>" ] },
         // Comment
         { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
-        // Toggle Terminal(disable): is better to use the defaut one
-        // leader + t can not provide the best working experience :(
-        // have to compromise
-        // { "before": [ "<leader>", "t" ], "commands": [ "workbench.action.terminal.toggleTerminal" ] },
+        // Terminal
+        { "before": [ "<leader>", "t" ], "commands": [ "workbench.action.terminal.toggleTerminal" ] },
 
         // File Explorer
         { "before": [ "<leader>", "e" ], "commands": [ "workbench.explorer.fileView.focus" ] },
