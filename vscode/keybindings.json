@@ -98,7 +98,7 @@
         "command": "cursorRight",
         "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
     },
-    // Better Escape Key
+    // Better Escape Key (like ideavim): esc always bring you back to editor
     {
         "key": "escape",
         "command": "workbench.action.focusActiveEditorGroup",

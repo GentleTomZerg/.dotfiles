@@ -5,6 +5,7 @@
     "editor.fontVariations": false,
     "editor.formatOnSave": true,
     "window.menuBarVisibility": "visible",
+    "window.titleBarStyle": "custom",
     // "workbench.activityBar.location": "hidden",
     "json.format.keepLines": true,
     /** Vscode Vim Configuration*/
@@ -34,6 +35,10 @@
         { "before": [ "<C-j>" ], "after": [ "<C-w>", "j" ] },
         { "before": [ "<C-k>" ], "after": [ "<C-w>", "k" ] },
         { "before": [ "<C-l>" ], "after": [ "<C-w>", "l" ] },
+        // LSP
+        { "before": [ "<leader>", "l", "f" ], "commands": [ "editor.action.formatDocument" ] },
+        { "before": [ "<leader>", "l", "a" ], "commands": [ "editor.action.quickFix" ] },
+        { "before": [ "<leader>", "l", "r" ], "commands": [ "editor.action.rename" ] },
     ],
     // Insert Mode
     "vim.insertModeKeyBindingsNonRecursive": [
@@ -47,5 +52,5 @@
         // Comment
         { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
     ],
-    "window.titleBarStyle": "custom",
+    "redhat.telemetry.enabled": true,
 }
