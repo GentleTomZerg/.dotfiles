@@ -2,6 +2,7 @@
 set showmode
 set showcmd
 set relativenumber
+set highlightedyank
 
 "Clipboard
 set clipboard+=unnamed
@@ -37,6 +38,7 @@ set timeoutlen=5000
 "Easy Motion
 Plug 'easymotion/vim-easymotion'
 set easymotion
+set notimeout
 
 "Editing Code
 " - using Shift-j to merge two lines in a smart way
@@ -64,7 +66,7 @@ vnoremap ii <ESC>
 Plug 'preservim/nerdtree'
 set NERDTree
 nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <leader>o :NERDTreeFocus<CR>
+nnoremap <leader>o :action SelectInProjectView<CR>
 
 "LSP
 nnoremap <leader>lf :action ReformatCode<CR>

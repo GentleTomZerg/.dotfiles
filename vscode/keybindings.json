@@ -98,6 +98,7 @@
         "command": "cursorRight",
         "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
     },
+    // Better Escape Key
     {
         "key": "escape",
         "command": "workbench.action.focusActiveEditorGroup",

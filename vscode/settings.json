@@ -47,4 +47,5 @@
         // Comment
         { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
     ],
+    "window.titleBarStyle": "custom",
 }
