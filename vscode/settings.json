@@ -6,6 +6,7 @@
     "editor.formatOnSave": true,
     "window.menuBarVisibility": "visible",
     "window.titleBarStyle": "custom",
+    "redhat.telemetry.enabled": true,
     // "workbench.activityBar.location": "hidden",
     "json.format.keepLines": true,
     /** Vscode Vim Configuration*/
@@ -35,10 +36,25 @@
         { "before": [ "<C-j>" ], "after": [ "<C-w>", "j" ] },
         { "before": [ "<C-k>" ], "after": [ "<C-w>", "k" ] },
         { "before": [ "<C-l>" ], "after": [ "<C-w>", "l" ] },
+        { "before": [ "<C-up>" ], "after": [ "<C-w>", "+" ] },
+        { "before": [ "<C-down>" ], "after": [ "<C-w>", "-" ] },
+        { "before": [ "<C-left>" ], "after": [ "<C-w>", "<" ] },
+        { "before": [ "<C-right>" ], "after": [ "<C-w>", ">" ] },
         // LSP
+        { "before": [ "K" ], "commands": [ "editor.action.showHover" ] },
         { "before": [ "<leader>", "l", "f" ], "commands": [ "editor.action.formatDocument" ] },
         { "before": [ "<leader>", "l", "a" ], "commands": [ "editor.action.quickFix" ] },
         { "before": [ "<leader>", "l", "r" ], "commands": [ "editor.action.rename" ] },
+        // - outline(大纲)
+        { "before": [ "<leader>", "l", "s" ], "commands": [ "outline.focus" ] },
+        { "before": [ "g", "I" ], "commands": [ "editor.action.goToImplementation" ] },
+        { "before": [ "g", "r" ], "commands": [ "editor.action.goToReferences" ] },
+        // Git
+        { "before": [ "[", "g" ], "commands": [ "editor.action.dirtydiff.previous" ] },
+        { "before": [ "]", "g" ], "commands": [ "editor.action.dirtydiff.next" ] },
+        // Find
+        { "before": [ "<leader>", "f", "w" ], "commands": [ "workbench.action.findInFiles" ] },
+
     ],
     // Insert Mode
     "vim.insertModeKeyBindingsNonRecursive": [
@@ -52,5 +68,4 @@
         // Comment
         { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
     ],
-    "redhat.telemetry.enabled": true,
 }
