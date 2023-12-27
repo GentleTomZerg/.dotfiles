@@ -7,7 +7,7 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：9 天, server: sdrk1.youtushop.link, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 距离下次重置剩余：1 天, server: sdrk1.youtushop.link, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道-香港-有问题先更新订阅, server: sdrk1.youtushop.link, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线2x-香港1, server: zxrk1.youtushop2.link, port: 30001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线2x-香港2, server: zxrk1.youtushop2.link, port: 30002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
@@ -65,7 +65,7 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：9 天
+      - 距离下次重置剩余：1 天
       - 高速隧道-香港-有问题先更新订阅
       - 专线2x-香港1
       - 专线2x-香港2
@@ -122,7 +122,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：9 天
+      - 距离下次重置剩余：1 天
       - 高速隧道-香港-有问题先更新订阅
       - 专线2x-香港1
       - 专线2x-香港2
@@ -180,7 +180,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：9 天
+      - 距离下次重置剩余：1 天
       - 高速隧道-香港-有问题先更新订阅
       - 专线2x-香港1
       - 专线2x-香港2
@@ -250,7 +250,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：9 天
+      - 距离下次重置剩余：1 天
       - 高速隧道-香港-有问题先更新订阅
       - 专线2x-香港1
       - 专线2x-香港2
@@ -329,7 +329,7 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：9 天
+      - 距离下次重置剩余：1 天
       - 高速隧道-香港-有问题先更新订阅
       - 专线2x-香港1
       - 专线2x-香港2
@@ -386,7 +386,7 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：9 天
+      - 距离下次重置剩余：1 天
       - 高速隧道-香港-有问题先更新订阅
       - 专线2x-香港1
       - 专线2x-香港2
@@ -444,7 +444,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：9 天
+      - 距离下次重置剩余：1 天
       - 高速隧道-香港-有问题先更新订阅
       - 专线2x-香港1
       - 专线2x-香港2
@@ -511,7 +511,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：9 天
+      - 距离下次重置剩余：1 天
       - 高速隧道-香港-有问题先更新订阅
       - 专线2x-香港1
       - 专线2x-香港2

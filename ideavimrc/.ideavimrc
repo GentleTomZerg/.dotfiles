@@ -84,6 +84,7 @@ nnoremap gs :action GotoSuperMethod<CR>
 nnoremap gt :action GotoTest<CR>
 nnoremap gb :action Back<CR>
 nnoremap gf :action Forward<CR>
+nnoremap gr :action FindUsages<CR>
 
 
 
