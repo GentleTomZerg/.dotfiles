@@ -57,6 +57,7 @@
         // Find
         { "before": [ "<leader>", "f", "w" ], "commands": [ "workbench.action.findInFiles" ] },
         { "before": [ "<leader>", "f", "o" ], "commands": [ "workbench.action.openRecent" ] },
+        { "before": [ "<leader>", "f", "f" ], "commands": [ "workbench.action.quickOpen" ] },
         // UI
         { "before": [ "<leader>", "u", "z" ], "commands": [ "workbench.action.toggleZenMode" ] },
 

@@ -47,7 +47,7 @@
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
     },
     {
-        "key": "c",
+        "key": "z",
         "command": "workbench.files.action.collapseExplorerFolders",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
     },
@@ -57,15 +57,25 @@
         "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
     },
     {
-        "key": "f",
+        "key": "O",
         "command": "revealFileInOS",
         "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
     },
     {
-        "key": "t",
-        "command": "openInTerminal",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+        "key": "R",
+        "command": "workbench.files.action.refreshFilesExplorer",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
     },
+    {
+        "key": "/",
+        "command": "filesExplorer.findInWorkspace",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    // {
+    //     "key": "t",
+    //     "command": "openInTerminal",
+    //     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    // },
     {
         "key": "u",
         "command": "copyFilePath",
