@@ -7,6 +7,7 @@
     "window.menuBarVisibility": "visible",
     "window.titleBarStyle": "custom",
     "redhat.telemetry.enabled": true,
+    "zenMode.centerLayout": false,
     // "workbench.activityBar.location": "hidden",
     "json.format.keepLines": true,
     /** Vscode Vim Configuration*/
@@ -46,7 +47,8 @@
         { "before": [ "<leader>", "l", "a" ], "commands": [ "editor.action.quickFix" ] },
         { "before": [ "<leader>", "l", "r" ], "commands": [ "editor.action.rename" ] },
         // - outline(大纲)
-        { "before": [ "<leader>", "l", "s" ], "commands": [ "outline.focus" ] },
+        { "before": [ "<leader>", "l", "s" ], "commands": [ "outline.toggleVisibility" ] },
+        { "before": [ "<leader>", "l", "S" ], "commands": [ "outline.focus" ] },
         { "before": [ "g", "I" ], "commands": [ "editor.action.goToImplementation" ] },
         { "before": [ "g", "r" ], "commands": [ "editor.action.goToReferences" ] },
         // Git
@@ -54,6 +56,9 @@
         { "before": [ "]", "g" ], "commands": [ "editor.action.dirtydiff.next" ] },
         // Find
         { "before": [ "<leader>", "f", "w" ], "commands": [ "workbench.action.findInFiles" ] },
+        { "before": [ "<leader>", "f", "o" ], "commands": [ "workbench.action.openRecent" ] },
+        // UI
+        { "before": [ "<leader>", "u", "z" ], "commands": [ "workbench.action.toggleZenMode" ] },
 
     ],
     // Insert Mode
