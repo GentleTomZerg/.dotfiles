@@ -57,12 +57,12 @@
         "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
     },
     {
-        "key": "O",
+        "key": "shift+o",
         "command": "revealFileInOS",
         "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
     },
     {
-        "key": "R",
+        "key": "shift+r",
         "command": "workbench.files.action.refreshFilesExplorer",
         "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
     },
