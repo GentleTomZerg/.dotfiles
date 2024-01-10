@@ -47,8 +47,7 @@
         { "before": [ "<leader>", "l", "a" ], "commands": [ "editor.action.quickFix" ] },
         { "before": [ "<leader>", "l", "r" ], "commands": [ "editor.action.rename" ] },
         // - outline(大纲)
-        { "before": [ "<leader>", "l", "s" ], "commands": [ "outline.toggleVisibility" ] },
-        { "before": [ "<leader>", "l", "S" ], "commands": [ "outline.focus" ] },
+        { "before": [ "<leader>", "l", "s" ], "commands": [ "outline.focus" ] },
         { "before": [ "g", "I" ], "commands": [ "editor.action.goToImplementation" ] },
         { "before": [ "g", "r" ], "commands": [ "editor.action.goToReferences" ] },
         // Git
@@ -60,6 +59,9 @@
         { "before": [ "<leader>", "f", "f" ], "commands": [ "workbench.action.quickOpen" ] },
         // UI
         { "before": [ "<leader>", "u", "z" ], "commands": [ "workbench.action.toggleZenMode" ] },
+        { "before": [ "<leader>", "u", "a" ], "commands": [ "workbench.action.toggleActivityBarVisibility" ] },
+        { "before": [ "<leader>", "u", "s" ], "commands": [ "outline.toggleVisibility" ] },
+        { "before": [ "<leader>", "u", "e" ], "commands": [ "workbench.action.toggleSidebarVisibility" ] },
 
     ],
     // Insert Mode
@@ -74,4 +76,5 @@
         // Comment
         { "before": [ "<leader>", "/" ], "commands": [ "editor.action.commentLine" ] },
     ],
+    "workbench.activityBar.location": "hidden",
 }
