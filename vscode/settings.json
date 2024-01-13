@@ -16,6 +16,8 @@
   "vim.easymotion": true,
   // Normal Mode
   "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["j"], "after": ["g", "j"] },
+    { "before": ["k"], "after": ["g", "k"] },
     // Save
     { "before": ["<leader>", "w"], "after": [":", "w", "<cr>"] },
     // Quit
@@ -107,4 +109,20 @@
     // Comment
     { "before": ["<leader>", "/"], "commands": ["editor.action.commentLine"] }
   ],
+
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "on"
+    },
+    "cSpell.fixSpellingWithRenameProvider": true,
+    "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+    "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
+  },
+  "workbench.activityBar.location": "hidden"
 }
