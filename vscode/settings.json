@@ -8,7 +8,6 @@
   "window.titleBarStyle": "custom",
   "redhat.telemetry.enabled": true,
   "zenMode.centerLayout": false,
-  // "workbench.activityBar.location": "hidden",
   "json.format.keepLines": true,
   /** Vscode Vim Configuration*/
   "vim.useSystemClipboard": true,
@@ -111,18 +110,16 @@
   ],
 
   "[markdown]": {
-    "editor.unicodeHighlight.ambiguousCharacters": false,
-    "editor.unicodeHighlight.invisibleCharacters": false,
-    "diffEditor.ignoreTrimWhitespace": false,
     "editor.wordWrap": "on",
     "editor.quickSuggestions": {
-      "comments": "off",
-      "strings": "off",
+      "comments": "on",
+      "strings": "on",
       "other": "on"
     },
+    "editor.snippetSuggestions": "top",
     "cSpell.fixSpellingWithRenameProvider": true,
     "cSpell.advanced.feature.useReferenceProviderWithRename": true,
     "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
   },
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
 }
