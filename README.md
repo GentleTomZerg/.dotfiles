@@ -1,5 +1,16 @@
 # How to use this configuration file?
 
+First things first, go to the free world, we need proxy.
+Unfortunately, it seems that the ssh + git way has been blocked, so we need to give configurations for ssh proxy
+
+```bash
+# ~/.ssh/config
+Host github.com
+  Hostname ssh.github.com
+  User git
+  Port 443
+```
+
 1. Install necessary packages in command line
 
 ```bash
