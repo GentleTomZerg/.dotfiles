@@ -7,9 +7,10 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：19 天, server: sdrk1.youtushop.link, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-香港-有问题先尝试切换线路, server: sdrk1.youtushop.link, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-香港-ChatGPT用非香港节点, server: sdrk1.youtushop.link, port: 34103, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 有问题先尝试切换线路, server: sdrk1.youtushop.link, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 网站:youtu0.com, server: sdrk1.youtushop.link, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 网站:youtunice.com, server: sdrk1.youtushop.link, port: 34102, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: ChatGPT用非香港节点, server: sdrk1.youtushop.link, port: 34103, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-香港1, server: zxrk1.youtushop2.link, port: 30001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-香港2, server: zxrk1.youtushop2.link, port: 30002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-香港3, server: zxrk1.youtushop2.link, port: 30003, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
@@ -27,21 +28,21 @@ proxies:
   - {name: 专线3x-新加坡3, server: zxrk1.youtushop2.link, port: 30013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-新加坡4, server: zxrk1.youtushop2.link, port: 30014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道0.5x-新加坡1, server: sdrk1.youtushop.link, port: 34011, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-新加坡2, server: sdrk1.youtushop.link, port: 34012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道0.5x-新加坡2, server: sdrk1.youtushop.link, port: 34012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-新加坡3, server: sdrk1.youtushop.link, port: 34013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-新加坡4, server: sdrk1.youtushop.link, port: 34014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-台湾1, server: zxrk1.youtushop2.link, port: 30021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-台湾2-原生ip, server: zxrk1.youtushop2.link, port: 30022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-台湾2-原生IP, server: zxrk1.youtushop2.link, port: 30022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-台湾1, server: sdrk1.youtushop.link, port: 34021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-台湾2, server: sdrk1.youtushop.link, port: 34022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-日本1, server: zxrk2.youtushop2.link, port: 30041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-日本2, server: zxrk2.youtushop2.link, port: 30042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-日本3, server: zxrk2.youtushop2.link, port: 30043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-日本4-原生IP-ChatGPT, server: zxrk2.youtushop2.link, port: 30044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-日本4, server: zxrk2.youtushop2.link, port: 30044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-日本1, server: sdrk2.youtushop.link, port: 34041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-日本2, server: sdrk2.youtushop.link, port: 34042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-日本3, server: sdrk2.youtushop.link, port: 34043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-日本4-原生IP-ChatGPT, server: sdrk2.youtushop.link, port: 34044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-日本4-原生IP, server: sdrk2.youtushop.link, port: 34044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-美国1, server: zxrk2.youtushop2.link, port: 30031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-美国2, server: zxrk2.youtushop2.link, port: 30032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-美国3, server: zxrk2.youtushop2.link, port: 30033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
@@ -49,7 +50,7 @@ proxies:
   - {name: 高速隧道1x-美国1, server: sdrk2.youtushop.link, port: 34031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-美国2, server: sdrk2.youtushop.link, port: 34032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-美国3, server: sdrk2.youtushop.link, port: 34033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-美国4-原生IP-ChatGPT, server: sdrk2.youtushop.link, port: 34034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-美国4, server: sdrk2.youtushop.link, port: 34034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-英国-家宽, server: zxrk1.youtushop2.link, port: 30051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-英国, server: sdrk1.youtushop.link, port: 34051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道1x-印度, server: sdrk1.youtushop.link, port: 34061, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
@@ -66,9 +67,10 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：19 天
-      - 高速隧道1x-香港-有问题先尝试切换线路
-      - 专线3x-香港-ChatGPT用非香港节点
+      - 有问题先尝试切换线路
+      - 网站:youtu0.com
+      - 网站:youtunice.com
+      - ChatGPT用非香港节点
       - 专线3x-香港1
       - 专线3x-香港2
       - 专线3x-香港3
@@ -86,21 +88,21 @@ proxy-groups:
       - 专线3x-新加坡3
       - 专线3x-新加坡4
       - 高速隧道0.5x-新加坡1
-      - 高速隧道1x-新加坡2
+      - 高速隧道0.5x-新加坡2
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生ip
+      - 专线3x-台湾2-原生IP
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
       - 专线3x-日本2
       - 专线3x-日本3
-      - 专线3x-日本4-原生IP-ChatGPT
+      - 专线3x-日本4
       - 高速隧道1x-日本1
       - 高速隧道1x-日本2
       - 高速隧道1x-日本3
-      - 高速隧道1x-日本4-原生IP-ChatGPT
+      - 高速隧道1x-日本4-原生IP
       - 专线3x-美国1
       - 专线3x-美国2
       - 专线3x-美国3
@@ -108,7 +110,7 @@ proxy-groups:
       - 高速隧道1x-美国1
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
-      - 高速隧道1x-美国4-原生IP-ChatGPT
+      - 高速隧道1x-美国4
       - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 高速隧道1x-印度
@@ -124,9 +126,10 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：19 天
-      - 高速隧道1x-香港-有问题先尝试切换线路
-      - 专线3x-香港-ChatGPT用非香港节点
+      - 有问题先尝试切换线路
+      - 网站:youtu0.com
+      - 网站:youtunice.com
+      - ChatGPT用非香港节点
       - 专线3x-香港1
       - 专线3x-香港2
       - 专线3x-香港3
@@ -144,21 +147,21 @@ proxy-groups:
       - 专线3x-新加坡3
       - 专线3x-新加坡4
       - 高速隧道0.5x-新加坡1
-      - 高速隧道1x-新加坡2
+      - 高速隧道0.5x-新加坡2
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生ip
+      - 专线3x-台湾2-原生IP
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
       - 专线3x-日本2
       - 专线3x-日本3
-      - 专线3x-日本4-原生IP-ChatGPT
+      - 专线3x-日本4
       - 高速隧道1x-日本1
       - 高速隧道1x-日本2
       - 高速隧道1x-日本3
-      - 高速隧道1x-日本4-原生IP-ChatGPT
+      - 高速隧道1x-日本4-原生IP
       - 专线3x-美国1
       - 专线3x-美国2
       - 专线3x-美国3
@@ -166,7 +169,7 @@ proxy-groups:
       - 高速隧道1x-美国1
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
-      - 高速隧道1x-美国4-原生IP-ChatGPT
+      - 高速隧道1x-美国4
       - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 高速隧道1x-印度
@@ -183,9 +186,10 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：19 天
-      - 高速隧道1x-香港-有问题先尝试切换线路
-      - 专线3x-香港-ChatGPT用非香港节点
+      - 有问题先尝试切换线路
+      - 网站:youtu0.com
+      - 网站:youtunice.com
+      - ChatGPT用非香港节点
       - 专线3x-香港1
       - 专线3x-香港2
       - 专线3x-香港3
@@ -203,21 +207,21 @@ proxy-groups:
       - 专线3x-新加坡3
       - 专线3x-新加坡4
       - 高速隧道0.5x-新加坡1
-      - 高速隧道1x-新加坡2
+      - 高速隧道0.5x-新加坡2
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生ip
+      - 专线3x-台湾2-原生IP
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
       - 专线3x-日本2
       - 专线3x-日本3
-      - 专线3x-日本4-原生IP-ChatGPT
+      - 专线3x-日本4
       - 高速隧道1x-日本1
       - 高速隧道1x-日本2
       - 高速隧道1x-日本3
-      - 高速隧道1x-日本4-原生IP-ChatGPT
+      - 高速隧道1x-日本4-原生IP
       - 专线3x-美国1
       - 专线3x-美国2
       - 专线3x-美国3
@@ -225,7 +229,7 @@ proxy-groups:
       - 高速隧道1x-美国1
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
-      - 高速隧道1x-美国4-原生IP-ChatGPT
+      - 高速隧道1x-美国4
       - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 高速隧道1x-印度
@@ -254,9 +258,10 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：19 天
-      - 高速隧道1x-香港-有问题先尝试切换线路
-      - 专线3x-香港-ChatGPT用非香港节点
+      - 有问题先尝试切换线路
+      - 网站:youtu0.com
+      - 网站:youtunice.com
+      - ChatGPT用非香港节点
       - 专线3x-香港1
       - 专线3x-香港2
       - 专线3x-香港3
@@ -274,21 +279,21 @@ proxy-groups:
       - 专线3x-新加坡3
       - 专线3x-新加坡4
       - 高速隧道0.5x-新加坡1
-      - 高速隧道1x-新加坡2
+      - 高速隧道0.5x-新加坡2
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生ip
+      - 专线3x-台湾2-原生IP
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
       - 专线3x-日本2
       - 专线3x-日本3
-      - 专线3x-日本4-原生IP-ChatGPT
+      - 专线3x-日本4
       - 高速隧道1x-日本1
       - 高速隧道1x-日本2
       - 高速隧道1x-日本3
-      - 高速隧道1x-日本4-原生IP-ChatGPT
+      - 高速隧道1x-日本4-原生IP
       - 专线3x-美国1
       - 专线3x-美国2
       - 专线3x-美国3
@@ -296,7 +301,7 @@ proxy-groups:
       - 高速隧道1x-美国1
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
-      - 高速隧道1x-美国4-原生IP-ChatGPT
+      - 高速隧道1x-美国4
       - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 高速隧道1x-印度
@@ -311,8 +316,7 @@ proxy-groups:
     type: select
     proxies:
       - 🎯 全球直连
-      - 高速隧道1x-香港-有问题先尝试切换线路
-      - 专线3x-香港-ChatGPT用非香港节点
+      - ChatGPT用非香港节点
       - 专线3x-香港1
       - 专线3x-香港2
       - 专线3x-香港3
@@ -326,7 +330,7 @@ proxy-groups:
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生ip
+      - 专线3x-台湾2-原生IP
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 🔰 节点选择
@@ -335,9 +339,10 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：19 天
-      - 高速隧道1x-香港-有问题先尝试切换线路
-      - 专线3x-香港-ChatGPT用非香港节点
+      - 有问题先尝试切换线路
+      - 网站:youtu0.com
+      - 网站:youtunice.com
+      - ChatGPT用非香港节点
       - 专线3x-香港1
       - 专线3x-香港2
       - 专线3x-香港3
@@ -355,21 +360,21 @@ proxy-groups:
       - 专线3x-新加坡3
       - 专线3x-新加坡4
       - 高速隧道0.5x-新加坡1
-      - 高速隧道1x-新加坡2
+      - 高速隧道0.5x-新加坡2
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生ip
+      - 专线3x-台湾2-原生IP
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
       - 专线3x-日本2
       - 专线3x-日本3
-      - 专线3x-日本4-原生IP-ChatGPT
+      - 专线3x-日本4
       - 高速隧道1x-日本1
       - 高速隧道1x-日本2
       - 高速隧道1x-日本3
-      - 高速隧道1x-日本4-原生IP-ChatGPT
+      - 高速隧道1x-日本4-原生IP
       - 专线3x-美国1
       - 专线3x-美国2
       - 专线3x-美国3
@@ -377,7 +382,7 @@ proxy-groups:
       - 高速隧道1x-美国1
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
-      - 高速隧道1x-美国4-原生IP-ChatGPT
+      - 高速隧道1x-美国4
       - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 高速隧道1x-印度
@@ -393,9 +398,10 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：19 天
-      - 高速隧道1x-香港-有问题先尝试切换线路
-      - 专线3x-香港-ChatGPT用非香港节点
+      - 有问题先尝试切换线路
+      - 网站:youtu0.com
+      - 网站:youtunice.com
+      - ChatGPT用非香港节点
       - 专线3x-香港1
       - 专线3x-香港2
       - 专线3x-香港3
@@ -413,21 +419,21 @@ proxy-groups:
       - 专线3x-新加坡3
       - 专线3x-新加坡4
       - 高速隧道0.5x-新加坡1
-      - 高速隧道1x-新加坡2
+      - 高速隧道0.5x-新加坡2
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生ip
+      - 专线3x-台湾2-原生IP
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
       - 专线3x-日本2
       - 专线3x-日本3
-      - 专线3x-日本4-原生IP-ChatGPT
+      - 专线3x-日本4
       - 高速隧道1x-日本1
       - 高速隧道1x-日本2
       - 高速隧道1x-日本3
-      - 高速隧道1x-日本4-原生IP-ChatGPT
+      - 高速隧道1x-日本4-原生IP
       - 专线3x-美国1
       - 专线3x-美国2
       - 专线3x-美国3
@@ -435,7 +441,7 @@ proxy-groups:
       - 高速隧道1x-美国1
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
-      - 高速隧道1x-美国4-原生IP-ChatGPT
+      - 高速隧道1x-美国4
       - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 高速隧道1x-印度
@@ -452,9 +458,10 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：19 天
-      - 高速隧道1x-香港-有问题先尝试切换线路
-      - 专线3x-香港-ChatGPT用非香港节点
+      - 有问题先尝试切换线路
+      - 网站:youtu0.com
+      - 网站:youtunice.com
+      - ChatGPT用非香港节点
       - 专线3x-香港1
       - 专线3x-香港2
       - 专线3x-香港3
@@ -472,21 +479,21 @@ proxy-groups:
       - 专线3x-新加坡3
       - 专线3x-新加坡4
       - 高速隧道0.5x-新加坡1
-      - 高速隧道1x-新加坡2
+      - 高速隧道0.5x-新加坡2
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生ip
+      - 专线3x-台湾2-原生IP
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
       - 专线3x-日本2
       - 专线3x-日本3
-      - 专线3x-日本4-原生IP-ChatGPT
+      - 专线3x-日本4
       - 高速隧道1x-日本1
       - 高速隧道1x-日本2
       - 高速隧道1x-日本3
-      - 高速隧道1x-日本4-原生IP-ChatGPT
+      - 高速隧道1x-日本4-原生IP
       - 专线3x-美国1
       - 专线3x-美国2
       - 专线3x-美国3
@@ -494,7 +501,7 @@ proxy-groups:
       - 高速隧道1x-美国1
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
-      - 高速隧道1x-美国4-原生IP-ChatGPT
+      - 高速隧道1x-美国4
       - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 高速隧道1x-印度
@@ -520,9 +527,10 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：19 天
-      - 高速隧道1x-香港-有问题先尝试切换线路
-      - 专线3x-香港-ChatGPT用非香港节点
+      - 有问题先尝试切换线路
+      - 网站:youtu0.com
+      - 网站:youtunice.com
+      - ChatGPT用非香港节点
       - 专线3x-香港1
       - 专线3x-香港2
       - 专线3x-香港3
@@ -540,21 +548,21 @@ proxy-groups:
       - 专线3x-新加坡3
       - 专线3x-新加坡4
       - 高速隧道0.5x-新加坡1
-      - 高速隧道1x-新加坡2
+      - 高速隧道0.5x-新加坡2
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生ip
+      - 专线3x-台湾2-原生IP
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
       - 专线3x-日本2
       - 专线3x-日本3
-      - 专线3x-日本4-原生IP-ChatGPT
+      - 专线3x-日本4
       - 高速隧道1x-日本1
       - 高速隧道1x-日本2
       - 高速隧道1x-日本3
-      - 高速隧道1x-日本4-原生IP-ChatGPT
+      - 高速隧道1x-日本4-原生IP
       - 专线3x-美国1
       - 专线3x-美国2
       - 专线3x-美国3
@@ -562,7 +570,7 @@ proxy-groups:
       - 高速隧道1x-美国1
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
-      - 高速隧道1x-美国4-原生IP-ChatGPT
+      - 高速隧道1x-美国4
       - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 高速隧道1x-印度

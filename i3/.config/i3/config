@@ -74,6 +74,9 @@ bindsym $mod+Return exec alacritty
 # Toggle modules of polybar
 bindsym $mod+Shift+t exec ~/.config/i3/polybar.sh
 
+# Screenshot
+bindsym $mod+Shift+s exec flameshot gui
+
 
 # start google chrome
 bindsym $mod+g exec google-chrome-stable --proxy-server=127.0.0.1:7890
