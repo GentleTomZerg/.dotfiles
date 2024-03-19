@@ -7,59 +7,62 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 有问题先尝试切换线路, server: sdrk1.youtushop.link, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 网站:youtu0.com, server: sdrk1.youtushop.link, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 网站:youtunice.com, server: sdrk1.youtushop.link, port: 34102, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: ChatGPT用非香港节点, server: sdrk1.youtushop.link, port: 34103, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-香港1, server: zxrk1.youtushop2.link, port: 30001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-香港2, server: zxrk1.youtushop2.link, port: 30002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-香港3, server: zxrk1.youtushop2.link, port: 30003, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-香港4, server: zxrk1.youtushop2.link, port: 30004, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-香港5, server: zxrk1.youtushop2.link, port: 30005, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-香港6, server: zxrk1.youtushop2.link, port: 30006, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道0.5x-香港1, server: sdrk1.youtushop.link, port: 34001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-香港2, server: sdrk1.youtushop.link, port: 34002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-香港3, server: sdrk1.youtushop.link, port: 34003, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-香港4, server: sdrk1.youtushop.link, port: 34004, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-香港5, server: sdrk1.youtushop.link, port: 34005, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-香港6, server: sdrk1.youtushop.link, port: 34006, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-新加坡1, server: zxrk1.youtushop2.link, port: 30011, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-新加坡2, server: zxrk1.youtushop2.link, port: 30012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-新加坡3, server: zxrk1.youtushop2.link, port: 30013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-新加坡4, server: zxrk1.youtushop2.link, port: 30014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道0.5x-新加坡1, server: sdrk1.youtushop.link, port: 34011, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道0.5x-新加坡2, server: sdrk1.youtushop.link, port: 34012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-新加坡3, server: sdrk1.youtushop.link, port: 34013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-新加坡4, server: sdrk1.youtushop.link, port: 34014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-台湾1, server: zxrk1.youtushop2.link, port: 30021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-台湾2-原生IP, server: zxrk1.youtushop2.link, port: 30022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-台湾1, server: sdrk1.youtushop.link, port: 34021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-台湾2, server: sdrk1.youtushop.link, port: 34022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-日本1, server: zxrk2.youtushop2.link, port: 30041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-日本2, server: zxrk2.youtushop2.link, port: 30042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-日本3, server: zxrk2.youtushop2.link, port: 30043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-日本4, server: zxrk2.youtushop2.link, port: 30044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-日本1, server: sdrk2.youtushop.link, port: 34041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-日本2, server: sdrk2.youtushop.link, port: 34042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-日本3, server: sdrk2.youtushop.link, port: 34043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-日本4-原生IP, server: sdrk2.youtushop.link, port: 34044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-美国1, server: zxrk2.youtushop2.link, port: 30031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-美国2, server: zxrk2.youtushop2.link, port: 30032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-美国3, server: zxrk2.youtushop2.link, port: 30033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-美国4, server: zxrk2.youtushop2.link, port: 30034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-美国1, server: sdrk2.youtushop.link, port: 34031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-美国2, server: sdrk2.youtushop.link, port: 34032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-美国3, server: sdrk2.youtushop.link, port: 34033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-美国4, server: sdrk2.youtushop.link, port: 34034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-英国-家宽, server: zxrk1.youtushop2.link, port: 30051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-英国, server: sdrk1.youtushop.link, port: 34051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-印度, server: sdrk1.youtushop.link, port: 34061, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道1x-澳洲, server: sdrk1.youtushop.link, port: 34071, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-马来西亚, server: zxrk1.youtushop2.link, port: 30091, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 距离下次重置剩余：21 天, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 有问题先尝试切换线路, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 网站:youtu0.com, server: rk3.youtu2.top, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 网站:youtunice.com, server: rk3.youtu2.top, port: 34102, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: ChatGPT用非香港节点, server: rk3.youtu2.top, port: 34103, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-香港1, server: rk1.youtu2.top, port: 30001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-香港2, server: rk1.youtu2.top, port: 30002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-香港3, server: rk1.youtu2.top, port: 30003, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-香港4, server: rk1.youtu2.top, port: 30004, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-香港5, server: rk1.youtu2.top, port: 30005, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-香港6, server: rk1.youtu2.top, port: 30006, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-香港7, server: rk1.youtu2.top, port: 30007, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道0.5x-香港1, server: rk3.youtu2.top, port: 34001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道0.5x-香港2, server: rk3.youtu2.top, port: 34002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-香港3, server: rk3.youtu2.top, port: 34003, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-香港4, server: rk3.youtu2.top, port: 34004, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-香港5, server: rk3.youtu2.top, port: 34005, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-香港6, server: rk3.youtu2.top, port: 34006, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-香港7, server: rk3.youtu2.top, port: 34007, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-新加坡1, server: rk1.youtu2.top, port: 30011, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-新加坡2, server: rk1.youtu2.top, port: 30012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-新加坡3, server: rk1.youtu2.top, port: 30013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-新加坡4, server: rk1.youtu2.top, port: 30014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道0.5x-新加坡1, server: rk3.youtu2.top, port: 34011, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道0.5x-新加坡2, server: rk3.youtu2.top, port: 34012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-新加坡3, server: rk3.youtu2.top, port: 34013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-新加坡4, server: rk3.youtu2.top, port: 34014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-台湾1, server: rk1.youtu2.top, port: 30021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-台湾2, server: rk1.youtu2.top, port: 30022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-台湾1, server: rk3.youtu2.top, port: 34021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-台湾2, server: rk3.youtu2.top, port: 34022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-日本1, server: rk2.youtu2.top, port: 30041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-日本2, server: rk2.youtu2.top, port: 30042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-日本3, server: rk2.youtu2.top, port: 30043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-日本4, server: rk2.youtu2.top, port: 30044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-日本1, server: rk4.youtu2.top, port: 34041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-日本2, server: rk4.youtu2.top, port: 34042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-日本3, server: rk4.youtu2.top, port: 34043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-日本4-原生IP, server: rk4.youtu2.top, port: 34044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-美国1, server: rk2.youtu2.top, port: 30031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-美国2, server: rk2.youtu2.top, port: 30032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-美国3, server: rk2.youtu2.top, port: 30033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-美国4, server: rk2.youtu2.top, port: 30034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-美国1, server: rk4.youtu2.top, port: 34031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-美国2, server: rk4.youtu2.top, port: 34032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-美国3, server: rk4.youtu2.top, port: 34033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-美国4, server: rk4.youtu2.top, port: 34034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-英国-家宽, server: rk2.youtu2.top, port: 30051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-英国, server: rk3.youtu2.top, port: 34051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-印度, server: rk3.youtu2.top, port: 34061, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 高速隧道1x-澳洲, server: rk3.youtu2.top, port: 34071, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线3x-马来西亚, server: rk2.youtu2.top, port: 30091, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道3x-马来西亚, server: sdrk1.youtushop.link, port: 34091, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线5x-土耳其, server: zxrk1.youtushop.link, port: 30081, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线5x-土耳其, server: rk2.youtu2.top, port: 30081, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道5x-土耳其, server: sdrk1.youtushop.link, port: 34081, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线5x-阿根廷, server: zxrk1.youtushop.link, port: 30082, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 专线5x-阿根廷, server: rk2.youtu2.top, port: 30082, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道5x-阿根廷, server: sdrk2.youtushop.link, port: 34082, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
@@ -67,6 +70,7 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
+      - 距离下次重置剩余：21 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -77,12 +81,14 @@ proxy-groups:
       - 专线3x-香港4
       - 专线3x-香港5
       - 专线3x-香港6
+      - 专线3x-香港7
       - 高速隧道0.5x-香港1
-      - 高速隧道1x-香港2
+      - 高速隧道0.5x-香港2
       - 高速隧道1x-香港3
       - 高速隧道1x-香港4
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
+      - 高速隧道1x-香港7
       - 专线3x-新加坡1
       - 专线3x-新加坡2
       - 专线3x-新加坡3
@@ -92,7 +98,7 @@ proxy-groups:
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生IP
+      - 专线3x-台湾2
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
@@ -126,6 +132,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
+      - 距离下次重置剩余：21 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -136,12 +143,14 @@ proxy-groups:
       - 专线3x-香港4
       - 专线3x-香港5
       - 专线3x-香港6
+      - 专线3x-香港7
       - 高速隧道0.5x-香港1
-      - 高速隧道1x-香港2
+      - 高速隧道0.5x-香港2
       - 高速隧道1x-香港3
       - 高速隧道1x-香港4
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
+      - 高速隧道1x-香港7
       - 专线3x-新加坡1
       - 专线3x-新加坡2
       - 专线3x-新加坡3
@@ -151,7 +160,7 @@ proxy-groups:
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生IP
+      - 专线3x-台湾2
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
@@ -186,6 +195,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
+      - 距离下次重置剩余：21 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -196,12 +206,14 @@ proxy-groups:
       - 专线3x-香港4
       - 专线3x-香港5
       - 专线3x-香港6
+      - 专线3x-香港7
       - 高速隧道0.5x-香港1
-      - 高速隧道1x-香港2
+      - 高速隧道0.5x-香港2
       - 高速隧道1x-香港3
       - 高速隧道1x-香港4
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
+      - 高速隧道1x-香港7
       - 专线3x-新加坡1
       - 专线3x-新加坡2
       - 专线3x-新加坡3
@@ -211,7 +223,7 @@ proxy-groups:
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生IP
+      - 专线3x-台湾2
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
@@ -258,6 +270,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
+      - 距离下次重置剩余：21 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -268,12 +281,14 @@ proxy-groups:
       - 专线3x-香港4
       - 专线3x-香港5
       - 专线3x-香港6
+      - 专线3x-香港7
       - 高速隧道0.5x-香港1
-      - 高速隧道1x-香港2
+      - 高速隧道0.5x-香港2
       - 高速隧道1x-香港3
       - 高速隧道1x-香港4
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
+      - 高速隧道1x-香港7
       - 专线3x-新加坡1
       - 专线3x-新加坡2
       - 专线3x-新加坡3
@@ -283,7 +298,7 @@ proxy-groups:
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生IP
+      - 专线3x-台湾2
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
@@ -323,14 +338,16 @@ proxy-groups:
       - 专线3x-香港4
       - 专线3x-香港5
       - 专线3x-香港6
+      - 专线3x-香港7
       - 高速隧道0.5x-香港1
-      - 高速隧道1x-香港2
+      - 高速隧道0.5x-香港2
       - 高速隧道1x-香港3
       - 高速隧道1x-香港4
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
+      - 高速隧道1x-香港7
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生IP
+      - 专线3x-台湾2
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 🔰 节点选择
@@ -339,6 +356,7 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
+      - 距离下次重置剩余：21 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -349,12 +367,14 @@ proxy-groups:
       - 专线3x-香港4
       - 专线3x-香港5
       - 专线3x-香港6
+      - 专线3x-香港7
       - 高速隧道0.5x-香港1
-      - 高速隧道1x-香港2
+      - 高速隧道0.5x-香港2
       - 高速隧道1x-香港3
       - 高速隧道1x-香港4
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
+      - 高速隧道1x-香港7
       - 专线3x-新加坡1
       - 专线3x-新加坡2
       - 专线3x-新加坡3
@@ -364,7 +384,7 @@ proxy-groups:
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生IP
+      - 专线3x-台湾2
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
@@ -398,6 +418,7 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
+      - 距离下次重置剩余：21 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -408,12 +429,14 @@ proxy-groups:
       - 专线3x-香港4
       - 专线3x-香港5
       - 专线3x-香港6
+      - 专线3x-香港7
       - 高速隧道0.5x-香港1
-      - 高速隧道1x-香港2
+      - 高速隧道0.5x-香港2
       - 高速隧道1x-香港3
       - 高速隧道1x-香港4
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
+      - 高速隧道1x-香港7
       - 专线3x-新加坡1
       - 专线3x-新加坡2
       - 专线3x-新加坡3
@@ -423,7 +446,7 @@ proxy-groups:
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生IP
+      - 专线3x-台湾2
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
@@ -458,6 +481,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
+      - 距离下次重置剩余：21 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -468,12 +492,14 @@ proxy-groups:
       - 专线3x-香港4
       - 专线3x-香港5
       - 专线3x-香港6
+      - 专线3x-香港7
       - 高速隧道0.5x-香港1
-      - 高速隧道1x-香港2
+      - 高速隧道0.5x-香港2
       - 高速隧道1x-香港3
       - 高速隧道1x-香港4
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
+      - 高速隧道1x-香港7
       - 专线3x-新加坡1
       - 专线3x-新加坡2
       - 专线3x-新加坡3
@@ -483,7 +509,7 @@ proxy-groups:
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生IP
+      - 专线3x-台湾2
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
@@ -527,6 +553,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
+      - 距离下次重置剩余：21 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -537,12 +564,14 @@ proxy-groups:
       - 专线3x-香港4
       - 专线3x-香港5
       - 专线3x-香港6
+      - 专线3x-香港7
       - 高速隧道0.5x-香港1
-      - 高速隧道1x-香港2
+      - 高速隧道0.5x-香港2
       - 高速隧道1x-香港3
       - 高速隧道1x-香港4
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
+      - 高速隧道1x-香港7
       - 专线3x-新加坡1
       - 专线3x-新加坡2
       - 专线3x-新加坡3
@@ -552,7 +581,7 @@ proxy-groups:
       - 高速隧道1x-新加坡3
       - 高速隧道1x-新加坡4
       - 专线3x-台湾1
-      - 专线3x-台湾2-原生IP
+      - 专线3x-台湾2
       - 高速隧道1x-台湾1
       - 高速隧道1x-台湾2
       - 专线3x-日本1
