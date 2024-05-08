@@ -122,4 +122,8 @@
     "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
   },
   "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
 }
