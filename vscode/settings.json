@@ -100,6 +100,7 @@
   // Insert Mode
   "vim.insertModeKeyBindingsNonRecursive": [
     // ESC
+
     { "before": ["j", "j"], "after": ["<esc>"] },
     { "before": ["j", "k"], "after": ["<esc>"] }
   ],
@@ -121,5 +122,15 @@
     "cSpell.advanced.feature.useReferenceProviderWithRename": true,
     "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
   },
-  "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "Atom One Dark",
+  "window.zoomLevel": 1,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "command": "vscode-neovim.escape"
+    }
+  },
 }
