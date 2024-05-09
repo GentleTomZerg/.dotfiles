@@ -11,7 +11,6 @@ local nx_keymap = function(lhs, rhs)
 end
 
 --#region keymap
-vim.keymap.set({ "n" }, "<leader><cr>", "<cmd>source $MYVIMRC<cr>")
 -- #General Mappings
 vim.g.mapleader = " "
 vim.keymap.set({ "n" }, "<leader>n", api.file.new)
@@ -28,10 +27,15 @@ vim.keymap.set({ "n", "v" }, "<leader>e", api.workbench.focusExplorer)
 vim.keymap.set({ "n", "v" }, "<leader>o", api.workbench.revealInExplorer)
 
 -- #LSP
+vim.keymap.set({ "n" }, "<leader>la", api.lsp.quickFix)
+vim.keymap.set({ "n" }, "<leader>lf", api.lsp.format)
 vim.keymap.set({ "n" }, "<leader>lr", api.lsp.rename)
 vim.keymap.set({ "n" }, "<leader>ls", api.lsp.showSymbols)
 vim.keymap.set({ "n" }, "gI", api.lsp.goImpl)
 vim.keymap.set({ "n" }, "gr", api.lsp.goRef)
+
+-- #Git
+vim.keymap.set({ "n" }, "<leader>gb", api.git.switch)
 
 nv_keymap("<leader>h", "^")
 nv_keymap("<leader>l", "$")
