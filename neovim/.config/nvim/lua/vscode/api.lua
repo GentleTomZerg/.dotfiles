@@ -77,9 +77,12 @@ local workbench = {
   revealInExplorer = function()
     vscode.call("revealInExplorer")
   end,
+  reloadWindow = function()
+    vscode.call("workbench.action.reloadWindow")
+  end
 }
 
-local toggle = {
+local ui = {
   toggleActivityBar = function()
     vscode.call("workbench.action.toggleActivityBarVisibility")
   end,
@@ -92,6 +95,9 @@ local toggle = {
   theme = function()
     vscode.call("workbench.action.selectTheme")
   end,
+  terminal = function()
+    vscode.call("workbench.action.terminal.toggleTerminal")
+  end
 }
 
 -- if bookmark extension is used
@@ -117,24 +123,18 @@ local search = {
   referenceInSideBar = function()
     vscode.call("references-view.find")
   end,
-  project = function()
+  wordUnderCursor = function()
     vscode.call("editor.action.addSelectionToNextFindMatch")
     vscode.call("workbench.action.findInFiles")
   end,
   text = function()
     vscode.call("workbench.action.findInFiles")
   end,
-}
-
-local project = {
-  findFile = function()
-    vscode.call("workbench.action.quickOpen")
-  end,
-  switch = function()
+  recent = function()
     vscode.call("workbench.action.openRecent")
   end,
-  tree = function()
-    vscode.call("workbench.view.explorer")
+  findFile = function()
+    vscode.call("workbench.action.quickOpen")
   end,
 }
 
@@ -166,7 +166,9 @@ local git = {
   publish = function()
     vscode.call("git.publish")
   end,
-
+  viewCommit = function()
+    vscode.call("git.viewCommit")
+  end,
   -- if gitlens installed
   graph = function()
     vscode.call("gitlens.showGraphPage")
@@ -219,12 +221,6 @@ local fold = {
 --   end,
 -- }
 
-local refactor = {
-  showMenu = function()
-    vscode.call("editor.action.refactor")
-  end,
-}
-
 local lsp = {
   format = function()
     vscode.call("editor.action.formatDocument")
@@ -244,6 +240,9 @@ local lsp = {
   quickFix = function()
     vscode.call("editor.action.quickFix")
   end,
+  showMenu = function()
+    vscode.call("editor.action.refactor")
+  end,
 }
 
 return {
@@ -253,4 +252,6 @@ return {
   comment = comment,
   editor = editor,
   git = git,
+  search = search,
+  ui = ui,
 }

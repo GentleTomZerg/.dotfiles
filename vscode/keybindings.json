@@ -110,10 +110,10 @@
     },
     // Better Escape Key (like ideavim): esc always bring you back to editor
     {
-        "key": "capslock",
+        "key": "esc",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus"
-    },
+    }
 ]
        
        

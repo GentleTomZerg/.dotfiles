@@ -13,6 +13,7 @@ end
 --#region keymap
 -- #General Mappings
 vim.g.mapleader = " "
+vim.keymap.set({ "n" }, "<leader><cr>", api.workbench.reloadWindow)
 vim.keymap.set({ "n" }, "<leader>n", api.file.new)
 vim.keymap.set({ "n" }, "<leader>w", api.file.save)
 vim.keymap.set({ "n" }, "<leader>c", api.editor.closeActive)
@@ -30,12 +31,26 @@ vim.keymap.set({ "n", "v" }, "<leader>o", api.workbench.revealInExplorer)
 vim.keymap.set({ "n" }, "<leader>la", api.lsp.quickFix)
 vim.keymap.set({ "n" }, "<leader>lf", api.lsp.format)
 vim.keymap.set({ "n" }, "<leader>lr", api.lsp.rename)
+vim.keymap.set({ "n" }, "<leader>ll", api.lsp.showMenu)
 vim.keymap.set({ "n" }, "<leader>ls", api.lsp.showSymbols)
 vim.keymap.set({ "n" }, "gI", api.lsp.goImpl)
 vim.keymap.set({ "n" }, "gr", api.lsp.goRef)
 
 -- #Git
 vim.keymap.set({ "n" }, "<leader>gb", api.git.switch)
+
+-- #Telescope
+vim.keymap.set({ "n" }, "<leader>fo", api.search.recent)
+vim.keymap.set({ "n" }, "<leader>fw", api.search.wordUnderCursor)
+vim.keymap.set({ "n" }, "<leader>ff", api.search.findFile)
+
+-- #UI
+vim.keymap.set({ "n" }, "<leader>ua", api.ui.toggleActivityBar)
+vim.keymap.set({ "n" }, "<leader>uz", api.ui.toggleZenMode)
+vim.keymap.set({ "n" }, "<leader>ue", api.ui.toggleSideBarVisibility)
+
+-- #terminal
+vim.keymap.set({ "n" }, "<leader>t", api.ui.terminal)
 
 nv_keymap("<leader>h", "^")
 nv_keymap("<leader>l", "$")
