@@ -91,26 +91,26 @@
     {
         "key": "alt+h",
         "command": "cursorLeft",
-        "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
+        "when": "neovim.mode == insert && editorTextFocus && !inDebugRepl"
     },
     {
         "key": "alt+j",
         "command": "cursorDown",
-        "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
+        "when": "neovim.mode == insert && editorTextFocus && !inDebugRepl"
     },
     {
         "key": "alt+k",
         "command": "cursorUp",
-        "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
+        "when": "neovim.mode == insert && editorTextFocus && !inDebugRepl"
     },
     {
         "key": "alt+l",
         "command": "cursorRight",
-        "when": "vim.active && editorTextFocus && vim.mode == 'Insert' && !inDebugRepl"
+        "when": "neovim.mode == insert && editorTextFocus && !inDebugRepl"
     },
     // Better Escape Key (like ideavim): esc always bring you back to editor
     {
-        "key": "esc",
+        "key": "escape",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus"
     }
