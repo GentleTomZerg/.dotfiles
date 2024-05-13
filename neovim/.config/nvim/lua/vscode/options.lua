@@ -2,10 +2,9 @@ local opt = vim.opt -- set local variable
 
 -- line number
 opt.relativenumber = true -- 显示相对行号
-opt.number = true         -- 显示行号
+opt.number = true -- 显示行号
 
 -- 缩进
-opt.tabstop = 4 -- 设置缩进为4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
@@ -21,4 +20,4 @@ opt.mouse:append("a")
 
 -- 启用系统剪贴板
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
-opt.signcolumn = "yes"        -- 左侧多一列，有利于debug和插件提示
+opt.signcolumn = "yes" -- 左侧多一列，有利于debug和插件提示
