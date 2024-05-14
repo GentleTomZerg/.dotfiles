@@ -33,11 +33,14 @@ vim.keymap.set({ "n" }, "<leader>lf", api.lsp.format)
 vim.keymap.set({ "n" }, "<leader>lr", api.lsp.rename)
 vim.keymap.set({ "n" }, "<leader>ll", api.lsp.showMenu)
 vim.keymap.set({ "n" }, "<leader>ls", api.lsp.showSymbols)
+vim.keymap.set({ "n" }, "<leader>ld", api.diagnostic.list)
 vim.keymap.set({ "n" }, "gI", api.lsp.goImpl)
 vim.keymap.set({ "n" }, "gr", api.lsp.goRef)
 
 -- #Git
 vim.keymap.set({ "n" }, "<leader>gb", api.git.switch)
+vim.keymap.set({ "n" }, "[g", api.git.previousGitHunk)
+vim.keymap.set({ "n" }, "]g", api.git.nextGitHunk)
 
 -- #Telescope
 vim.keymap.set({ "n" }, "<leader>fo", api.search.recent)
@@ -49,8 +52,12 @@ vim.keymap.set({ "n" }, "<leader>ua", api.ui.toggleActivityBar)
 vim.keymap.set({ "n" }, "<leader>uz", api.ui.toggleZenMode)
 vim.keymap.set({ "n" }, "<leader>ue", api.ui.toggleSideBarVisibility)
 
--- #terminal
+-- #Terminal
 vim.keymap.set({ "n" }, "<leader>t", api.ui.terminal)
+
+-- #Diagnostic
+vim.keymap.set({ "n" }, "[d", api.diagnostic.previous)
+vim.keymap.set({ "n" }, "]d", api.diagnostic.next)
 
 nv_keymap("<leader>h", "^")
 nv_keymap("<leader>l", "$")

@@ -35,17 +35,17 @@ local file = {
 	end,
 }
 
--- local error = {
---   list = function()
---     vscode.call("workbench.actions.view.problems")
---   end,
---   next = function()
---     vscode.call("editor.action.marker.next")
---   end,
---   previous = function()
---     vscode.call("editor.action.marker.prev")
---   end,
--- }
+local diagnostic = {
+	list = function()
+		vscode.call("workbench.actions.view.problems")
+	end,
+	next = function()
+		vscode.call("editor.action.marker.next")
+	end,
+	previous = function()
+		vscode.call("editor.action.marker.prev")
+	end,
+}
 
 local editor = {
 	closeActive = function()
@@ -169,6 +169,12 @@ local git = {
 	viewCommit = function()
 		vscode.call("git.viewCommit")
 	end,
+	previousGitHunk = function()
+		vscode.call("editor.action.dirtydiff.previous")
+	end,
+	nextGitHunk = function()
+		vscode.call("editor.action.dirtydiff.next")
+	end,
 	-- if gitlens installed
 	graph = function()
 		vscode.call("gitlens.showGraphPage")
@@ -255,4 +261,5 @@ return {
 	search = search,
 	ui = ui,
 	fold = fold,
+	diagnostic = diagnostic,
 }
