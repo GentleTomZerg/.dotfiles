@@ -122,7 +122,6 @@
     "cSpell.advanced.feature.useReferenceProviderWithRename": true,
     "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
   },
-  "workbench.colorTheme": "Atom One Dark",
   "window.zoomLevel": 1,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
@@ -132,5 +131,6 @@
     "jj": {
       "command": "vscode-neovim.escape"
     }
-  }
+  },
+  "workbench.colorTheme": "Material Theme Darker"
 }

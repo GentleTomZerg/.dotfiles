@@ -7,7 +7,7 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：10 天, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
+  - {name: 距离下次重置剩余：9 天, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 有问题先尝试切换线路, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 网站:youtu0.com, server: rk3.youtu2.top, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 网站:youtunice.com, server: rk3.youtu2.top, port: 34102, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
@@ -59,8 +59,6 @@ proxies:
   - {name: 高速隧道1x-澳洲, server: rk3.youtu2.top, port: 34071, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线3x-马来西亚, server: rk2.youtu2.top, port: 30091, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道3x-马来西亚, server: rk3.youtu2.top, port: 34091, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 专线3x-韩国, server: rk1.youtu2.top, port: 30083, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
-  - {name: 高速隧道3x-韩国, server: rk3.youtu2.top, port: 34083, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线5x-土耳其, server: rk2.youtu2.top, port: 30081, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 高速隧道5x-土耳其, server: rk3.youtu2.top, port: 34081, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
   - {name: 专线5x-阿根廷, server: rk2.youtu2.top, port: 30082, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2, udp: true}
@@ -71,7 +69,7 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：10 天
+      - 距离下次重置剩余：9 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -123,8 +121,6 @@ proxy-groups:
       - 高速隧道1x-澳洲
       - 专线3x-马来西亚
       - 高速隧道3x-马来西亚
-      - 专线3x-韩国
-      - 高速隧道3x-韩国
       - 专线5x-土耳其
       - 高速隧道5x-土耳其
       - 专线5x-阿根廷
@@ -134,7 +130,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：10 天
+      - 距离下次重置剩余：9 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -186,8 +182,6 @@ proxy-groups:
       - 高速隧道1x-澳洲
       - 专线3x-马来西亚
       - 高速隧道3x-马来西亚
-      - 专线3x-韩国
-      - 高速隧道3x-韩国
       - 专线5x-土耳其
       - 高速隧道5x-土耳其
       - 专线5x-阿根廷
@@ -198,7 +192,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：10 天
+      - 距离下次重置剩余：9 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -250,8 +244,6 @@ proxy-groups:
       - 高速隧道1x-澳洲
       - 专线3x-马来西亚
       - 高速隧道3x-马来西亚
-      - 专线3x-韩国
-      - 高速隧道3x-韩国
       - 专线5x-土耳其
       - 高速隧道5x-土耳其
       - 专线5x-阿根廷
@@ -274,7 +266,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：10 天
+      - 距离下次重置剩余：9 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -326,8 +318,6 @@ proxy-groups:
       - 高速隧道1x-澳洲
       - 专线3x-马来西亚
       - 高速隧道3x-马来西亚
-      - 专线3x-韩国
-      - 高速隧道3x-韩国
       - 专线5x-土耳其
       - 高速隧道5x-土耳其
       - 专线5x-阿根廷
@@ -360,7 +350,7 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：10 天
+      - 距离下次重置剩余：9 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -412,8 +402,6 @@ proxy-groups:
       - 高速隧道1x-澳洲
       - 专线3x-马来西亚
       - 高速隧道3x-马来西亚
-      - 专线3x-韩国
-      - 高速隧道3x-韩国
       - 专线5x-土耳其
       - 高速隧道5x-土耳其
       - 专线5x-阿根廷
@@ -423,7 +411,7 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：10 天
+      - 距离下次重置剩余：9 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -475,8 +463,6 @@ proxy-groups:
       - 高速隧道1x-澳洲
       - 专线3x-马来西亚
       - 高速隧道3x-马来西亚
-      - 专线3x-韩国
-      - 高速隧道3x-韩国
       - 专线5x-土耳其
       - 高速隧道5x-土耳其
       - 专线5x-阿根廷
@@ -487,7 +473,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：10 天
+      - 距离下次重置剩余：9 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -539,8 +525,6 @@ proxy-groups:
       - 高速隧道1x-澳洲
       - 专线3x-马来西亚
       - 高速隧道3x-马来西亚
-      - 专线3x-韩国
-      - 高速隧道3x-韩国
       - 专线5x-土耳其
       - 高速隧道5x-土耳其
       - 专线5x-阿根廷
@@ -560,7 +544,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：10 天
+      - 距离下次重置剩余：9 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -612,8 +596,6 @@ proxy-groups:
       - 高速隧道1x-澳洲
       - 专线3x-马来西亚
       - 高速隧道3x-马来西亚
-      - 专线3x-韩国
-      - 高速隧道3x-韩国
       - 专线5x-土耳其
       - 高速隧道5x-土耳其
       - 专线5x-阿根廷

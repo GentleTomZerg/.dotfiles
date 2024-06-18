@@ -196,6 +196,11 @@ function ggetproxy() {
   git config --global --get https.proxy
 }
 
+# Update pacman mirror list
+function update_pacmirror() {
+  sudo reflector --latest 10 --sort rate --protocol https --country China | sudo tee /etc/pacman.d/mirrorlist
+}
+
 # Hardware Control for XiaoXinPro
 source ~/.config/i3/sysmod.sh
 source ~/.config/i3/batctl.sh
