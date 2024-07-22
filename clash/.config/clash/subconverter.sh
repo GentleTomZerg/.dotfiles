@@ -1,5 +1,9 @@
 #!/bin/bash
 
+urlencode() {
+  python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$1"
+}
+
 # Check if three arguments were provided
 if [ "$#" -lt 2 ] || [ "$#" -gt 3 ]; then
 	echo "Usage: $0 target url config"
@@ -35,8 +39,8 @@ echo "File to store the configration:~/.config/clash/"
 read -r filename
 # Execute curl command
 curl http://localhost:25500/version
-echo "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}"
-curl "http://127.0.0.1:25500/sub?target=${target}&url=${url}&config=${config}" >~/.config/clash/"${filename}".yaml
+echo "http://127.0.0.1:25500/sub?target=${target}&url=$(urlencode "$url")&config=${config}"
+curl "http://127.0.0.1:25500/sub?target=${target}&url=$(urlencode "$url")&config=${config}" >~/.config/clash/"${filename}".yaml
 
 if [[ $(wc -l <~/.config/clash/"${filename}".yaml) -lt 4 ]]; then
 	echo "Error: ~/.config/clash/${filename}.yaml are less than 4 lines"

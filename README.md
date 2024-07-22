@@ -3,6 +3,21 @@
 First things first, go to the free world, we need proxy.
 Unfortunately, it seems that the ssh + git way has been blocked, so we need to give configurations for ssh proxy
 
+## New Challenges
+
+Docker Hub is not easy to reach now, we need to set proxy for our docker
+
+```shell
+# /etc/docker/daemon.json
+mkdir /etc/docker
+echo '{
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:7890",
+    "https-proxy": "https://127.0.0.1:7890"
+  }
+}' | sudo tee /etc/docker/daemon.json > /dev/null
+```
+
 ```bash
 # ~/.ssh/config
 Host github.com
