@@ -1,4 +1,4 @@
-local api = require("vscode.api")
+local api = require("vscode-config.api")
 -- https://vi.stackexchange.com/a/31887
 local nv_keymap = function(lhs, rhs)
 	vim.api.nvim_set_keymap("n", lhs, rhs, { noremap = true, silent = true })

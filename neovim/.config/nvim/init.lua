@@ -1,7 +1,7 @@
 if vim.g.vscode then
 	-- Vscode extension
-	require("vscode.options")
-	require("vscode.keymappings")
+	require("vscode-config.options")
+	require("vscode-config.keymappings")
 else
 	-- bootstrap lazy.vim, LazyVim and your plugins
 	-- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
