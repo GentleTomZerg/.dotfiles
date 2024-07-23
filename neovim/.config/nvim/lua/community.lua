@@ -31,6 +31,7 @@ return {
 
 	{ import = "astrocommunity.pack.cpp" },
 	{ import = "astrocommunity.pack.html-css" },
+	{ import = "astrocommunity.pack.bash" },
 
 	-- markdown preview
 	{ import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },

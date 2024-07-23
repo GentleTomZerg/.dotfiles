@@ -124,77 +124,10 @@ export TERMINAL='alacritty'
 alias c="clear"
 alias ls="lsd"
 alias vim="nvim"
-# My Configurations
 
-# Set Proxy
-function setproxy() {
-    export {http,https,ftp,all}_proxy="http://127.0.0.1:7890"
-    export {HTTP,HTTPS,FTP,ALL}_PROXY="http://127.0.0.1:7890"
-}
-
-# Unset Proxy
-function unsetproxy() {
-    unset {http,https,ftp,all}_proxy
-    unset {HTTP,HTTPS,FTP,ALL}_PROXY
-}
-
-# Update proxy Configurations
-function updateproxy() {
-  ~/.config/clash/update.sh
-}
-
-# Start proxy
-function startproxy() {
-# Check if clash is already running
-  if [[ $(pidof clash) ]]; then
-    echo "clash has already started."
-    return 1
-  fi
-
-  # Prompt the user to choose a configuration file
-  echo "Choose the configuration file:"
-
-  # Use the `select` command to display a numbered list of all the *.yaml files in the ~/.config/clash/ directory
-  select filename in ~/.config/clash/*.yaml; do
-    # Check if the user entered a valid selection
-    if [[ -n "$filename" ]]; then
-      nohup clash -f "$filename" > /dev/null &
-      echo "Starting clash with configuration file: $filename"
-      break
-    else
-      # Display an error message and prompt the user to choose a valid selection
-      echo "Invalid selection. Please try again."
-    fi
-  done
-}  
-
-# Stop proxy
-function stopproxy() {
-  if [[ -z $(pidof clash) ]]; then
-    echo "clash is not running"
-    return 1
-  fi
-
-  kill $(pidof clash)
-}
-
-# Start Git Proxy
-function gsetproxy() {
-  git config --global http.proxy http://localhost:7890
-  git config --global https.proxy https://localhost:7890
-}
-
-# Unset Git Proxy
-function gunsetproxy() {
-  git config --global --unset http.proxy
-  git config --global --unset https.proxy
-}
-
-# Check Git Proxy Status
-function ggetproxy() {
-  git config --global --get http.proxy
-  git config --global --get https.proxy
-}
+# My Configurations 
+# Proxy Api
+source ~/.config/clash/clash-api.sh
 
 # Update pacman mirror list
 function update_pacmirror() {
@@ -207,6 +140,3 @@ source ~/.config/i3/batctl.sh
 
 # Change dpi
 source ~/.config/i3/dpi-setter.sh
-
-# Enable pyenv virtualenv
-eval "$(pyenv virtualenv-init -)"
