@@ -50,7 +50,7 @@ window {
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @selected;
-    background-color:            black / 10%;
+    background-color:            black / 50%;
     cursor:                      "default";
 }
 
@@ -105,7 +105,7 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     7;
+    columns:                     4;
     lines:                       4;
     cycle:                       true;
     dynamic:                     true;

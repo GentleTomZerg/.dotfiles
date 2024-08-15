@@ -11,10 +11,8 @@ interface=$(ip link | awk '/wl/ {print $2}' | cut -d':' -f1)
 sed -i "1s/.*/[global]/" "$(dirname "$0")/config.ini"
 sed -i "2s/.*/wifi-interface=$interface/" "$(dirname "$0")/config.ini"
 # Launch polybar
-polybar main -c $(dirname $0)/config.ini &
+polybar main -c "$(dirname "$0")/config.ini" &
 
-if [[ $(xrandr -q | grep 'DP-2 connected') ]]; then
-	polybar external -c $(dirname $0)/config.ini &
+if xrandr -q | grep -q 'DP-2 connected'; then
+	polybar external -c "$(dirname "$0")/config.ini" &
 fi
-# TODO: Can we get the signal that all the polybar has been properly installed
-# and then hide all of them? The sleep 1 second way is really bad.

@@ -7,7 +7,7 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：3 天, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 距离下次重置剩余：11 天, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 有问题先尝试切换线路, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 网站:youtu0.com, server: rk3.youtu2.top, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 网站:youtunice.com, server: rk3.youtu2.top, port: 34102, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
@@ -33,18 +33,18 @@ proxies:
   - {name: 高速隧道0.8x-新加坡2, server: rk3.youtu2.top, port: 34012, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道0.8x-新加坡3, server: rk3.youtu2.top, port: 34013, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道1x-新加坡4, server: rk3.youtu2.top, port: 34014, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-台湾1, server: rk1.youtu2.top, port: 30021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-台湾2, server: rk1.youtu2.top, port: 30022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 高速隧道1x-台湾1, server: rk3.youtu2.top, port: 34021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 高速隧道1x-台湾2, server: rk3.youtu2.top, port: 34022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-日本1, server: rk2.youtu2.top, port: 30041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-日本2, server: rk2.youtu2.top, port: 30042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-日本3, server: rk2.youtu2.top, port: 30043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-日本4, server: rk2.youtu2.top, port: 30044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 高速隧道1x-日本1, server: rk4.youtu2.top, port: 34041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 高速隧道1x-日本2, server: rk4.youtu2.top, port: 34042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 高速隧道1x-日本3, server: rk4.youtu2.top, port: 34043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 高速隧道1x-日本4, server: rk4.youtu2.top, port: 34044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线2.5x-台湾1-GPT, server: rk1.youtu2.top, port: 30021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线2.5x-台湾2-GPT, server: rk1.youtu2.top, port: 30022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 高速隧道1x-台湾1-GPT, server: rk3.youtu2.top, port: 34021, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 高速隧道1x-台湾2-GPT, server: rk3.youtu2.top, port: 34022, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线2.5x-日本1-GPT, server: rk2.youtu2.top, port: 30041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线2.5x-日本2-GPT, server: rk2.youtu2.top, port: 30042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线2.5x-日本3-GPT, server: rk2.youtu2.top, port: 30043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线2.5x-日本4-GPT, server: rk2.youtu2.top, port: 30044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 高速隧道1x-日本1-GPT, server: rk4.youtu2.top, port: 34041, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 高速隧道1x-日本2-GPT, server: rk4.youtu2.top, port: 34042, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 高速隧道1x-日本3-GPT, server: rk4.youtu2.top, port: 34043, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 高速隧道1x-日本4-GPT, server: rk4.youtu2.top, port: 34044, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线2.5x-美国1, server: rk2.youtu2.top, port: 30031, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线2.5x-美国2, server: rk2.youtu2.top, port: 30032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线2.5x-美国3, server: rk2.youtu2.top, port: 30033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
@@ -53,11 +53,11 @@ proxies:
   - {name: 高速隧道1x-美国2, server: rk4.youtu2.top, port: 34032, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道1x-美国3, server: rk4.youtu2.top, port: 34033, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道1x-美国4, server: rk4.youtu2.top, port: 34034, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-英国-家宽, server: rk2.youtu2.top, port: 30051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线3x-英国-家宽, server: rk1.youtu2.top, port: 30051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道1x-英国, server: rk3.youtu2.top, port: 34051, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线3x-澳洲, server: rk1.youtu2.top, port: 34071, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道3x-澳洲, server: rk3.youtu2.top, port: 34071, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-马来西亚, server: rk2.youtu2.top, port: 30091, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线2.5x-马来西亚, server: rk1.youtu2.top, port: 30091, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道2.5x-马来西亚, server: rk3.youtu2.top, port: 34091, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线5x-土耳其, server: rk2.youtu2.top, port: 30081, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道5x-土耳其, server: rk3.youtu2.top, port: 34081, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
@@ -69,7 +69,7 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：3 天
+      - 距离下次重置剩余：11 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -95,18 +95,18 @@ proxy-groups:
       - 高速隧道0.8x-新加坡2
       - 高速隧道0.8x-新加坡3
       - 高速隧道1x-新加坡4
-      - 专线2.5x-台湾1
-      - 专线2.5x-台湾2
-      - 高速隧道1x-台湾1
-      - 高速隧道1x-台湾2
-      - 专线2.5x-日本1
-      - 专线2.5x-日本2
-      - 专线2.5x-日本3
-      - 专线2.5x-日本4
-      - 高速隧道1x-日本1
-      - 高速隧道1x-日本2
-      - 高速隧道1x-日本3
-      - 高速隧道1x-日本4
+      - 专线2.5x-台湾1-GPT
+      - 专线2.5x-台湾2-GPT
+      - 高速隧道1x-台湾1-GPT
+      - 高速隧道1x-台湾2-GPT
+      - 专线2.5x-日本1-GPT
+      - 专线2.5x-日本2-GPT
+      - 专线2.5x-日本3-GPT
+      - 专线2.5x-日本4-GPT
+      - 高速隧道1x-日本1-GPT
+      - 高速隧道1x-日本2-GPT
+      - 高速隧道1x-日本3-GPT
+      - 高速隧道1x-日本4-GPT
       - 专线2.5x-美国1
       - 专线2.5x-美国2
       - 专线2.5x-美国3
@@ -115,7 +115,7 @@ proxy-groups:
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
       - 高速隧道1x-美国4
-      - 专线2.5x-英国-家宽
+      - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 专线3x-澳洲
       - 高速隧道3x-澳洲
@@ -130,7 +130,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：3 天
+      - 距离下次重置剩余：11 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -156,18 +156,18 @@ proxy-groups:
       - 高速隧道0.8x-新加坡2
       - 高速隧道0.8x-新加坡3
       - 高速隧道1x-新加坡4
-      - 专线2.5x-台湾1
-      - 专线2.5x-台湾2
-      - 高速隧道1x-台湾1
-      - 高速隧道1x-台湾2
-      - 专线2.5x-日本1
-      - 专线2.5x-日本2
-      - 专线2.5x-日本3
-      - 专线2.5x-日本4
-      - 高速隧道1x-日本1
-      - 高速隧道1x-日本2
-      - 高速隧道1x-日本3
-      - 高速隧道1x-日本4
+      - 专线2.5x-台湾1-GPT
+      - 专线2.5x-台湾2-GPT
+      - 高速隧道1x-台湾1-GPT
+      - 高速隧道1x-台湾2-GPT
+      - 专线2.5x-日本1-GPT
+      - 专线2.5x-日本2-GPT
+      - 专线2.5x-日本3-GPT
+      - 专线2.5x-日本4-GPT
+      - 高速隧道1x-日本1-GPT
+      - 高速隧道1x-日本2-GPT
+      - 高速隧道1x-日本3-GPT
+      - 高速隧道1x-日本4-GPT
       - 专线2.5x-美国1
       - 专线2.5x-美国2
       - 专线2.5x-美国3
@@ -176,7 +176,7 @@ proxy-groups:
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
       - 高速隧道1x-美国4
-      - 专线2.5x-英国-家宽
+      - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 专线3x-澳洲
       - 高速隧道3x-澳洲
@@ -192,7 +192,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：3 天
+      - 距离下次重置剩余：11 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -218,18 +218,18 @@ proxy-groups:
       - 高速隧道0.8x-新加坡2
       - 高速隧道0.8x-新加坡3
       - 高速隧道1x-新加坡4
-      - 专线2.5x-台湾1
-      - 专线2.5x-台湾2
-      - 高速隧道1x-台湾1
-      - 高速隧道1x-台湾2
-      - 专线2.5x-日本1
-      - 专线2.5x-日本2
-      - 专线2.5x-日本3
-      - 专线2.5x-日本4
-      - 高速隧道1x-日本1
-      - 高速隧道1x-日本2
-      - 高速隧道1x-日本3
-      - 高速隧道1x-日本4
+      - 专线2.5x-台湾1-GPT
+      - 专线2.5x-台湾2-GPT
+      - 高速隧道1x-台湾1-GPT
+      - 高速隧道1x-台湾2-GPT
+      - 专线2.5x-日本1-GPT
+      - 专线2.5x-日本2-GPT
+      - 专线2.5x-日本3-GPT
+      - 专线2.5x-日本4-GPT
+      - 高速隧道1x-日本1-GPT
+      - 高速隧道1x-日本2-GPT
+      - 高速隧道1x-日本3-GPT
+      - 高速隧道1x-日本4-GPT
       - 专线2.5x-美国1
       - 专线2.5x-美国2
       - 专线2.5x-美国3
@@ -238,7 +238,7 @@ proxy-groups:
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
       - 高速隧道1x-美国4
-      - 专线2.5x-英国-家宽
+      - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 专线3x-澳洲
       - 高速隧道3x-澳洲
@@ -266,7 +266,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：3 天
+      - 距离下次重置剩余：11 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -292,18 +292,18 @@ proxy-groups:
       - 高速隧道0.8x-新加坡2
       - 高速隧道0.8x-新加坡3
       - 高速隧道1x-新加坡4
-      - 专线2.5x-台湾1
-      - 专线2.5x-台湾2
-      - 高速隧道1x-台湾1
-      - 高速隧道1x-台湾2
-      - 专线2.5x-日本1
-      - 专线2.5x-日本2
-      - 专线2.5x-日本3
-      - 专线2.5x-日本4
-      - 高速隧道1x-日本1
-      - 高速隧道1x-日本2
-      - 高速隧道1x-日本3
-      - 高速隧道1x-日本4
+      - 专线2.5x-台湾1-GPT
+      - 专线2.5x-台湾2-GPT
+      - 高速隧道1x-台湾1-GPT
+      - 高速隧道1x-台湾2-GPT
+      - 专线2.5x-日本1-GPT
+      - 专线2.5x-日本2-GPT
+      - 专线2.5x-日本3-GPT
+      - 专线2.5x-日本4-GPT
+      - 高速隧道1x-日本1-GPT
+      - 高速隧道1x-日本2-GPT
+      - 高速隧道1x-日本3-GPT
+      - 高速隧道1x-日本4-GPT
       - 专线2.5x-美国1
       - 专线2.5x-美国2
       - 专线2.5x-美国3
@@ -312,7 +312,7 @@ proxy-groups:
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
       - 高速隧道1x-美国4
-      - 专线2.5x-英国-家宽
+      - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 专线3x-澳洲
       - 高速隧道3x-澳洲
@@ -340,17 +340,17 @@ proxy-groups:
       - 高速隧道1x-香港5
       - 高速隧道1x-香港6
       - 高速隧道1x-香港7
-      - 专线2.5x-台湾1
-      - 专线2.5x-台湾2
-      - 高速隧道1x-台湾1
-      - 高速隧道1x-台湾2
+      - 专线2.5x-台湾1-GPT
+      - 专线2.5x-台湾2-GPT
+      - 高速隧道1x-台湾1-GPT
+      - 高速隧道1x-台湾2-GPT
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：3 天
+      - 距离下次重置剩余：11 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -376,18 +376,18 @@ proxy-groups:
       - 高速隧道0.8x-新加坡2
       - 高速隧道0.8x-新加坡3
       - 高速隧道1x-新加坡4
-      - 专线2.5x-台湾1
-      - 专线2.5x-台湾2
-      - 高速隧道1x-台湾1
-      - 高速隧道1x-台湾2
-      - 专线2.5x-日本1
-      - 专线2.5x-日本2
-      - 专线2.5x-日本3
-      - 专线2.5x-日本4
-      - 高速隧道1x-日本1
-      - 高速隧道1x-日本2
-      - 高速隧道1x-日本3
-      - 高速隧道1x-日本4
+      - 专线2.5x-台湾1-GPT
+      - 专线2.5x-台湾2-GPT
+      - 高速隧道1x-台湾1-GPT
+      - 高速隧道1x-台湾2-GPT
+      - 专线2.5x-日本1-GPT
+      - 专线2.5x-日本2-GPT
+      - 专线2.5x-日本3-GPT
+      - 专线2.5x-日本4-GPT
+      - 高速隧道1x-日本1-GPT
+      - 高速隧道1x-日本2-GPT
+      - 高速隧道1x-日本3-GPT
+      - 高速隧道1x-日本4-GPT
       - 专线2.5x-美国1
       - 专线2.5x-美国2
       - 专线2.5x-美国3
@@ -396,7 +396,7 @@ proxy-groups:
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
       - 高速隧道1x-美国4
-      - 专线2.5x-英国-家宽
+      - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 专线3x-澳洲
       - 高速隧道3x-澳洲
@@ -411,7 +411,7 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：3 天
+      - 距离下次重置剩余：11 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -437,18 +437,18 @@ proxy-groups:
       - 高速隧道0.8x-新加坡2
       - 高速隧道0.8x-新加坡3
       - 高速隧道1x-新加坡4
-      - 专线2.5x-台湾1
-      - 专线2.5x-台湾2
-      - 高速隧道1x-台湾1
-      - 高速隧道1x-台湾2
-      - 专线2.5x-日本1
-      - 专线2.5x-日本2
-      - 专线2.5x-日本3
-      - 专线2.5x-日本4
-      - 高速隧道1x-日本1
-      - 高速隧道1x-日本2
-      - 高速隧道1x-日本3
-      - 高速隧道1x-日本4
+      - 专线2.5x-台湾1-GPT
+      - 专线2.5x-台湾2-GPT
+      - 高速隧道1x-台湾1-GPT
+      - 高速隧道1x-台湾2-GPT
+      - 专线2.5x-日本1-GPT
+      - 专线2.5x-日本2-GPT
+      - 专线2.5x-日本3-GPT
+      - 专线2.5x-日本4-GPT
+      - 高速隧道1x-日本1-GPT
+      - 高速隧道1x-日本2-GPT
+      - 高速隧道1x-日本3-GPT
+      - 高速隧道1x-日本4-GPT
       - 专线2.5x-美国1
       - 专线2.5x-美国2
       - 专线2.5x-美国3
@@ -457,7 +457,7 @@ proxy-groups:
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
       - 高速隧道1x-美国4
-      - 专线2.5x-英国-家宽
+      - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 专线3x-澳洲
       - 高速隧道3x-澳洲
@@ -473,7 +473,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：3 天
+      - 距离下次重置剩余：11 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -499,18 +499,18 @@ proxy-groups:
       - 高速隧道0.8x-新加坡2
       - 高速隧道0.8x-新加坡3
       - 高速隧道1x-新加坡4
-      - 专线2.5x-台湾1
-      - 专线2.5x-台湾2
-      - 高速隧道1x-台湾1
-      - 高速隧道1x-台湾2
-      - 专线2.5x-日本1
-      - 专线2.5x-日本2
-      - 专线2.5x-日本3
-      - 专线2.5x-日本4
-      - 高速隧道1x-日本1
-      - 高速隧道1x-日本2
-      - 高速隧道1x-日本3
-      - 高速隧道1x-日本4
+      - 专线2.5x-台湾1-GPT
+      - 专线2.5x-台湾2-GPT
+      - 高速隧道1x-台湾1-GPT
+      - 高速隧道1x-台湾2-GPT
+      - 专线2.5x-日本1-GPT
+      - 专线2.5x-日本2-GPT
+      - 专线2.5x-日本3-GPT
+      - 专线2.5x-日本4-GPT
+      - 高速隧道1x-日本1-GPT
+      - 高速隧道1x-日本2-GPT
+      - 高速隧道1x-日本3-GPT
+      - 高速隧道1x-日本4-GPT
       - 专线2.5x-美国1
       - 专线2.5x-美国2
       - 专线2.5x-美国3
@@ -519,7 +519,7 @@ proxy-groups:
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
       - 高速隧道1x-美国4
-      - 专线2.5x-英国-家宽
+      - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 专线3x-澳洲
       - 高速隧道3x-澳洲
@@ -544,7 +544,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：3 天
+      - 距离下次重置剩余：11 天
       - 有问题先尝试切换线路
       - 网站:youtu0.com
       - 网站:youtunice.com
@@ -570,18 +570,18 @@ proxy-groups:
       - 高速隧道0.8x-新加坡2
       - 高速隧道0.8x-新加坡3
       - 高速隧道1x-新加坡4
-      - 专线2.5x-台湾1
-      - 专线2.5x-台湾2
-      - 高速隧道1x-台湾1
-      - 高速隧道1x-台湾2
-      - 专线2.5x-日本1
-      - 专线2.5x-日本2
-      - 专线2.5x-日本3
-      - 专线2.5x-日本4
-      - 高速隧道1x-日本1
-      - 高速隧道1x-日本2
-      - 高速隧道1x-日本3
-      - 高速隧道1x-日本4
+      - 专线2.5x-台湾1-GPT
+      - 专线2.5x-台湾2-GPT
+      - 高速隧道1x-台湾1-GPT
+      - 高速隧道1x-台湾2-GPT
+      - 专线2.5x-日本1-GPT
+      - 专线2.5x-日本2-GPT
+      - 专线2.5x-日本3-GPT
+      - 专线2.5x-日本4-GPT
+      - 高速隧道1x-日本1-GPT
+      - 高速隧道1x-日本2-GPT
+      - 高速隧道1x-日本3-GPT
+      - 高速隧道1x-日本4-GPT
       - 专线2.5x-美国1
       - 专线2.5x-美国2
       - 专线2.5x-美国3
@@ -590,7 +590,7 @@ proxy-groups:
       - 高速隧道1x-美国2
       - 高速隧道1x-美国3
       - 高速隧道1x-美国4
-      - 专线2.5x-英国-家宽
+      - 专线3x-英国-家宽
       - 高速隧道1x-英国
       - 专线3x-澳洲
       - 高速隧道3x-澳洲
