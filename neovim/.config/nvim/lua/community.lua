@@ -20,7 +20,7 @@ return {
 	{
 		"nvim-jdtls",
 		keys = {
-			{ "<leader>df", "<cmd> lua require'jdtls'.test_class() <cr>",          desc = "Test all" },
+			{ "<leader>df", "<cmd> lua require'jdtls'.test_class() <cr>", desc = "Test all" },
 			{ "<leader>dn", "<cmd> lua require'jdtls'.test_nearest_method() <cr>", desc = "Test method" },
 		},
 	},
@@ -33,6 +33,7 @@ return {
 	{ import = "astrocommunity.pack.html-css" },
 	{ import = "astrocommunity.pack.bash" },
 	{ import = "astrocommunity.pack.vue" },
+	{ import = "astrocommunity.pack.python" },
 
 	-- markdown preview
 	{ import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
