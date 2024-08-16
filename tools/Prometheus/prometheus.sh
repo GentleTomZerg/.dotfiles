@@ -8,14 +8,19 @@
 #======================================================
 send_files() {
   local file_pattern=$1
+  local file_name
 
   for file in $file_pattern; do
     if [[ -f "$file" ]]; then
       echo "Sending file: $file"
+      file_name=$(basename "$bigfile_path")
       python3 email_sender.py \
-        --subject "$file" \
-        --body "$file" \
+        --subject "$file_name" \
+        --body "$file_name" \
         --attachment "$file"
+    else
+      echo "$file does not exist"
+      exit 1
     fi
   done
 }
@@ -33,6 +38,7 @@ split_file() {
     7z a -v"$size" "$file_name".7z "$bigfile_path"
   else
     echo "$bigfile_path does not exist"
+    exit 1
   fi
 }
 
