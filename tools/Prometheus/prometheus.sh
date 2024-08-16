@@ -27,7 +27,7 @@ send_files() {
 
 #======================================================
 # divide a large file into pieces of small chunks
-# Usage: split_file "/path/to/bigfile" "size"
+# Usage: split_file /path/to/bigfile size
 #======================================================
 split_file() {
   local bigfile_path=$1
@@ -46,8 +46,8 @@ main() {
   if [[ $# -lt 1 ]]; then
     echo "Usage: $0 <command> [args...]"
     echo "Commands:"
-    echo "  send_file '/path/to/file/pattern'"
-    echo "  split_file 'file_to_split' 'size'"
+    echo "  send_file /path/to/file/pattern"
+    echo "  split_file /path/to/file size"
     exit 1
   fi
 
@@ -57,14 +57,14 @@ main() {
   case "$command" in
   send_file)
     if [[ $# != 1 ]]; then
-      echo "Usage: $0 send_file '/path/to/file/pattern'"
+      echo "Usage: $0 send_file /path/to/file/pattern"
     else
       send_files "$1"
     fi
     ;;
   split_file)
     if [[ $# != 2 ]]; then
-      echo "Usage: $0 split_file 'file_to_split' 'size'"
+      echo "Usage: $0 split_file /path/to/file size"
     else
       split_file "$1" "$2"
     fi
