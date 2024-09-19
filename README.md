@@ -210,6 +210,18 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
     sudo systemctl enable bluetooth
     ```
 
+19. Kde-Connect
+
+To enable kdeconnect, the linux host machine needs to open specified ports and protocol for kdeconnect
+
+```bash
+sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
+7266 sudo firewall-cmd --reload
+7278 sudo firewall-cmd --list-all
+7282 sudo systemctl enable firewalld.service
+7295 systemctl status firewalld
+```
+
 # Grub
 
 We can config grub under the path /etc/default/grub
