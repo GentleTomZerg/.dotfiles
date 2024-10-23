@@ -34,6 +34,7 @@ return {
 	{ import = "astrocommunity.pack.bash" },
 	{ import = "astrocommunity.pack.vue" },
 	{ import = "astrocommunity.pack.python" },
+	-- { import = "astrocommunity.pack.nvchad-ui" },
 
 	-- markdown preview
 	{ import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },

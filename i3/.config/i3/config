@@ -222,6 +222,7 @@ for_window [class="^.*"] border pixel 0
 for_window [class="^copyq$"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Thunar" instance="thunar"] floating enable, resize set 1000 800, move postion 100 100
+for_window [class="KdeConnect" instance="kdeconnect-indicator"] floating enable
 # Gaps config
 gaps inner 10
 
