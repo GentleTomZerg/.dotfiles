@@ -140,3 +140,6 @@ source ~/.config/i3/batctl.sh
 
 # Change dpi
 source ~/.config/i3/dpi-setter.sh
+
+# fzf key bindings and fuzzy completion
+source <(fzf --zsh)
