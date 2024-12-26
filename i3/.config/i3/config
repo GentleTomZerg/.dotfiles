@@ -39,7 +39,7 @@ exec --no-startup-id nm-applet
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/polybar/my-launch.sh
 # exec_always --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/Endy_vector_satelliet.png
-exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/endeavouros-my-collection1.jpg
+exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/elysium_disco_1.png
 exec_always --no-startup-id picom
 exec_always --no-startup-id fcitx5 -d 
 exec_always  ~/.config/i3/tap-to-click.sh
@@ -69,7 +69,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # Toggle modules of polybar
 bindsym $mod+Shift+t exec ~/.config/i3/polybar.sh

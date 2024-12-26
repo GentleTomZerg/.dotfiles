@@ -105,7 +105,7 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 export EDITOR='nvim'
-export TERMINAL='alacritty'
+export TERMINAL='kitty'
 
 
 # Compilation flags
@@ -143,3 +143,14 @@ source ~/.config/i3/dpi-setter.sh
 
 # fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+# yazi
+# y shell wrapper that provides the ability to change the current working directory when exiting Yazi.
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
