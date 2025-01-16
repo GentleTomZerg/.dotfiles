@@ -7,16 +7,15 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：1 天, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 有问题先尝试切换线路, server: rk3.youtu2.top, port: 34100, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 距离下次重置剩余：12 天, server: rk3.youtu2.top, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 网站:youtu0.com, server: rk3.youtu2.top, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 网站:youtunice.com, server: rk3.youtu2.top, port: 34102, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线2.5x-香港1, server: rk1.youtu2.top, port: 30001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线2.5x-香港2, server: rk1.youtu2.top, port: 30002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线2.5x-香港3, server: rk1.youtu2.top, port: 30003, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-香港4, server: rk1.youtu2.top, port: 30004, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线2.5x-香港4, server: rk1.youtu2.top, port: 30008, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线2.5x-香港5, server: rk1.youtu2.top, port: 30005, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
-  - {name: 专线2.5x-香港6, server: rk1.youtu2.top, port: 30006, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 专线2.5x-香港6, server: rk1.youtu2.top, port: 30009, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线2.5x-香港7, server: rk1.youtu2.top, port: 30007, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道1x-香港1, server: rk3.youtu2.top, port: 34001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 高速隧道1x-香港2, server: rk3.youtu2.top, port: 34002, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
@@ -69,8 +68,7 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：1 天
-      - 有问题先尝试切换线路
+      - 距离下次重置剩余：12 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -130,8 +128,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：1 天
-      - 有问题先尝试切换线路
+      - 距离下次重置剩余：12 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -192,8 +189,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：1 天
-      - 有问题先尝试切换线路
+      - 距离下次重置剩余：12 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -266,8 +262,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：1 天
-      - 有问题先尝试切换线路
+      - 距离下次重置剩余：12 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -350,8 +345,7 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：1 天
-      - 有问题先尝试切换线路
+      - 距离下次重置剩余：12 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -411,8 +405,7 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：1 天
-      - 有问题先尝试切换线路
+      - 距离下次重置剩余：12 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -473,8 +466,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：1 天
-      - 有问题先尝试切换线路
+      - 距离下次重置剩余：12 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -544,8 +536,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：1 天
-      - 有问题先尝试切换线路
+      - 距离下次重置剩余：12 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
