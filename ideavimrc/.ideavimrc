@@ -58,9 +58,6 @@ inoremap <a-k> <UP>
 inoremap <a-h> <LEFT>
 inoremap <a-l> <RIGHT>
 inoremap jj <Esc>
-" For keyboard integrate Esc and ~ ` together
-inoremap <Esc> `
-inoremap <s-Esc> ~
 
 vnoremap <leader>/ :action CommentByLineComment<CR>
 vnoremap ii <ESC>
