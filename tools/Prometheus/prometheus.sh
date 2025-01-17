@@ -1,16 +1,15 @@
 #!/bin/bash
-
 #======================================================
 # using email A to send files to email B
 # one email for each file
-# Usage: send_files "/path/to/file/pattern"
+# Usage: send_files /path/to/file/pattern
 # Example: send_files /path/to/send/file/part_*
 #======================================================
 send_files() {
-  local file_pattern=$1
   local file_name
+  local files=("$@")
 
-  for file in $file_pattern; do
+  for file in "${files[@]}"; do
     if [[ -f "$file" ]]; then
       echo "Sending file: $file"
       file_name=$(basename "$bigfile_path")
@@ -56,14 +55,14 @@ main() {
 
   case "$command" in
   send_file)
-    if [[ $# != 1 ]]; then
+    if [[ $# -lt 1 ]]; then
       echo "Usage: $0 send_file /path/to/file/pattern"
     else
-      send_files "$1"
+      send_files "$@"
     fi
     ;;
   split_file)
-    if [[ $# != 2 ]]; then
+    if [[ $# -lt 2 ]]; then
       echo "Usage: $0 split_file /path/to/file size"
     else
       split_file "$1" "$2"
