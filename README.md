@@ -1,7 +1,17 @@
 # How to use this configuration file?
 
-First things first, go to the free world, we need proxy.
-Unfortunately, it seems that the ssh + git way has been blocked, so we need to give configurations for ssh proxy
+> Man was born free, and he is everywhere in chains
+
+I don't know if we were born free, but I do know we are in chains. To break the chains, we need network proxy to the free world.
+
+This article assumes we have a stable proxy service already. In my scenario, I have an IPhone with shadowrocket installed. If I connect my IPhone and my new laptop into the same local network, then my new laptop could use my IPhone as the proxy.**The Chains break!!!**
+
+Type this to the new laptop terminal, and we are ready to go!
+
+```bash
+export {http,https,ftp,all}_proxy="http://IPhone_inner_ip:Proxy_port"
+export {HTTP,HTTPS,FTP,ALL}_PROXY="http://IPhone_inner_ip:Proxy_port"
+```
 
 ## New Challenges
 
@@ -26,25 +36,30 @@ Host github.com
   Port 443
 ```
 
-1. Install necessary packages in command line
+## Start Configuration
+
+1. Install necessary packages
 
 ```bash
-sudo dnf install clash alacritty i3-gaps picom polybar rofi stow arandr google-chrome-stable zsh ranger light feh fcitx5 xinput
-```
+sudo pacman -S \
+clash kitty i3-gaps picom polybar rofi stow arandr google-chrome-stable zsh yazi light feh fcitx5 xinput docker \
+lazygit \
+neovim \
+zsh-autosuggestions \
+zsh-syntax-highlighting \
+zsh-theme-powerlevel10k-git \
+zsh-theme-powerlevel10k-git-debug \
 
-- install fonts
-
-```bash
 # For terminal and polybar
-  sudo pacman -S ttf-firacode-nerd
-  sudo pacman -S ttf-jetbrains-mono-nerd
+sudo pacman -S ttf-firacode-nerd
+sudo pacman -S ttf-jetbrains-mono-nerd
 
 # For AUR Google-Chrome
-  sudo pacman -S noto-fonts-cjk
-  sudo pacman -S noto-fonts-emoji
+sudo pacman -S noto-fonts-cjk
+sudo pacman -S noto-fonts-emoji
 ```
 
-2. Git clone dotfiles config
+2. Stow the configuration
 
 ```bash
 ssh-kgen -t ed25519 -C "997707754@qq.com"
@@ -52,46 +67,18 @@ ssh-kgen -t ed25519 -C "997707754@qq.com"
 mkdir ~/stow
 cd stow
 git clone git@github.com:GentleTomZerg/.dotfiles.git ~/stow
-```
 
-3. Stow the configuration
+stow clash i3 ideavimrc kitty neovim picom polybar README.md rofi tools vscode Xmodmap Xresources yazi zshrc
 
-```bash
-stow alacritty/ clash/ i3/ ideavimrc/ polybar/ picom/ rofi/ wiki/ Xresources/ zshrc/
-```
-
-- Vscode Configurtion
-  Different types of vscode has different path to of user settings
-
-```bash
+# Vscode Configurtion
+# Different types of vscode has different path to of user settings
 cd /path/to/vscode/User/settings/directory
 ln -s $HOME/stow/vscode/keybindings.json ./keybindings.json
 ln -s $HOME/stow/vscode/settings.json ./settings.json
 ```
 
-- Xresources
+3. Migrate to ZSH
 
-  This one is not used in archlinux
-
-4. Clash
-
-- before setting up oh-my-zsh, my zshrc scripts cannot be used to start proxy.
-- `clash -f ~/.config/clash/*.yaml`
-- then proxy service can be used
-
-5. Install fonts
-
-- go to nerfont websites
-- download Jetbrains Mono Nerd Font
-- unzip the zip under ~/.local/share/fonts/
-- NOTE: archlinux can use pacman to download the fonts
-- However, we need to specify where to find the fonts in zshrc
-
-6. Now we can use i3wm
-
-7. Shell
-
-- open alacritty
 - type zsh in bash
 - enter chsh
 - zsh will prompt you to install packages which provides chsh
@@ -99,54 +86,35 @@ ln -s $HOME/stow/vscode/settings.json ./settings.json
 - logout from i3wm and login again
 - now zsh shell is the default shell
 
-8. Install oh-my-zsh
+4. Install oh-my-zsh
 
 - go to oh-my-zsh paste the download script and execute
 - oh-my-zsh will make the .zshrc symlinked by stow as a old version and provide a new version.
 - delete the old and new version
 - stow zshrc again
-- Problems might occur: plugins missings -> google and solve it
-- Now, clash can be triggered by `startproxy`
 
-9. Enable clash-dashboard
+5. Clash
 
-```bash
-git clone git@github.com:Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard
-cd ~/.config/clash/clash-dashboard/
-git checkout gh-pages
-```
+Now, we can use clash on the new laptop!!!
 
-10. Nvim Config
+- Add proxy subscribe url to ~/stow/clash/.config/clash/urls.txt
+- Type `updateproxy` in terminal and follow instructions
+- Type `startproxy` in terminal and follow instructions
+- Clash-Dashboard
 
-```bash
+  clash-dashborad github repo is archived::cry::
+  The scripts below is memory of the past
 
-git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-mkdir -p ~/.config/nvim/lua/user
-git clone git@github.com:GentleTomZerg/astrovim-config.git ~/.config/nvim/lua/user
-nvim
+  ```bash
+  git clone git@github.com:Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard
+  cd ~/.config/clash/clash-dashboard/
+  git checkout gh-pages
+  ```
 
-sudo dnf install gcc npm cargo go luarocks python3-pip
-```
+6. AstroNvim
+   Just Google it and follow instructions!
 
-- install the optional packages astronvim web told(like `bottom`)
-- remember to install `gcc` and `g++`, just type g++ in terminal, it will tell you what packages provide usage of `g++`. Then the treesitter will compile without problem.
-
-11. Enabel alacritty theme
-
-```bash
-# We use Alacritty's default Linux config directory as our storage location here.
-mkdir -p ~/.config/alacritty/themes
-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-```
-
-12. Install lazygit
-
-```bash
-sudo dnf copr enable atim/lazygit -y
-sudo dnf install lazygit
-```
-
-13. Chinese input
+7. Chinese input
 
 - install `fcitx5`
 - install `fcitx5-chinese-addons`
@@ -167,7 +135,7 @@ sudo dnf install lazygit
 - Remember to **Enable Cloud Pinyin** in fcitx5-config
 - Dictionary: Follow the link [fcitx5-pinyin-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki) and [mw2fcitx](https://github.com/outloudvi/mw2fcitx)
 
-14. Display
+8. Display
 
 - first use `arandr` to set the monitors. (GUI tool)
 - then use `autorandr` to save the current monitors config (`autorandr --save [name]`)
@@ -185,32 +153,21 @@ sudo dnf install lazygit
   - Change the refresh rate: `--rate 144.00`
   - write script to let the script execute when start up
 
-15. Enable RPM free and non-free
+9. Rofi
 
-```bash
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-```
+   There are some really nice themes and applets written for rofi, download from here:
+   [rofi-collection](https://github.com/adi1090x/rofi)
 
-16. Rofi
+   Follow the link and setup as instructed. The `i3wm` and `polybar` will use this preconfigured repository.
 
-    There are some really nice themes and applets written for rofi, download from here:
-    [rofi-collection](https://github.com/adi1090x/rofi)
-
-    Follow the link and setup as instructed. The `i3wm` and `polybar` will use this preconfigured repository.
-
-17. Ranger
-
-    - Enable icons for ranger, follow this [link](https://github.com/alexanderjeurissen/ranger_devicons)
-    - stow the config from my .dotfiles
-
-18. Bluetooth
+10. Bluetooth
 
     ```bash
     sudo systemctl start bluetooth
     sudo systemctl enable bluetooth
     ```
 
-19. Kde-Connect
+11. Kde-Connect
 
 To enable kdeconnect, the linux host machine needs to open specified ports and protocol for kdeconnect
 
@@ -303,39 +260,3 @@ GRUB_DISABLE_OS_PROBER="false"
 - lsd
 - bpytop
 - speedtest
-
-# Fedora Stuff
-
-Develop Packages(Fedora)
-
-```bash
-sudo dnf install fontconfig-devel freetype-devel libX11-xcb libX11-devel libstdc++-static libstdc++-devel
-sudo dnf groupinstall "Development Tools" "Development Libraries"
-```
-
-## Switch to New Kernel
-
-- If the kernel is updated, use `grub-customizer` to detect all the new available boot entry.
-- Then, use the command `sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg`
-
-## Delete Old Kernels
-
-- Check Installed Kernels
-
-```bash
-rpm -qa kernel\* |sort -V
-```
-
-- Delete Old Kernels
-
-```bash
-## dnf repoquery set negative --latest-limit ##
-## as how many old kernels you want keep ##
-## IMPORTANT: the --latest-limit depends on the number of kernels you have.
-dnf remove $(dnf repoquery --installonly --latest-limit=-2 -q)
-```
-
-## Set Max Number of Kernels
-
-- go to `/etc/dnf/dnf.conf`
-- change `installonly_limit=$(NUMBER)`
