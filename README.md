@@ -11,6 +11,8 @@ Type this to the new laptop terminal, and we are ready to go!
 ```bash
 export {http,https,ftp,all}_proxy="http://IPhone_inner_ip:Proxy_port"
 export {HTTP,HTTPS,FTP,ALL}_PROXY="http://IPhone_inner_ip:Proxy_port"
+export {http,https,ftp,all}_proxy="http://192.168.1.6:1082"
+export {HTTP,HTTPS,FTP,ALL}_PROXY="http://192.168.1.6:1082"
 ```
 
 ## New Challenges

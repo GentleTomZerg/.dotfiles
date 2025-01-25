@@ -33,7 +33,13 @@ function ggetproxy() {
   git config --global --get https.proxy
 }
 
+function backup_yaml() {
+  echo "$CLASH_CONFIG_PATH/"
+  find "$CLASH_CONFIG_PATH/" -type f -name "*.yaml" -exec cp {} {}.bak \;
+}
+
 function updateproxy() {
+    backup_yaml
     [ -s "$URL_FILE" ] || { touch "$URL_FILE" && echo "No url in '$URL_FILE'" && return 1; }
 
     # List all URLs in the file and prompt the user to choose one
