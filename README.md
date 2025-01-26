@@ -11,6 +11,7 @@ Type this to the new laptop terminal, and we are ready to go!
 ```bash
 export {http,https,ftp,all}_proxy="http://IPhone_inner_ip:Proxy_port"
 export {HTTP,HTTPS,FTP,ALL}_PROXY="http://IPhone_inner_ip:Proxy_port"
+# Eg:
 export {http,https,ftp,all}_proxy="http://192.168.1.6:1082"
 export {HTTP,HTTPS,FTP,ALL}_PROXY="http://192.168.1.6:1082"
 ```
@@ -254,6 +255,34 @@ GRUB_DISABLE_SUBMENU="false"
 # functionality install os-prober and uncomment to detect and include other
 # operating systems.
 GRUB_DISABLE_OS_PROBER="false"
+```
+
+# Lightdm
+
+We can beautify our login session
+
+- install web-greeter
+
+```bash
+yay -S web-greeter
+```
+
+- change the default greeter of lightdm
+
+```bash
+#greeter-session=lightdm-slick-greeter
+greeter-session=web-greeter
+```
+
+- Tweak the config files under `/etc/lightdm/lightdm.config`
+
+# Timeshift
+
+Backup arch system!!!
+
+```bash
+sudo pacman -S timeshift
+yay -S timeshit autosnap
 ```
 
 # Some useful tools:
