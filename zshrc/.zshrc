@@ -113,7 +113,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 export EDITOR='nvim'
 export TERMINAL='kitty'
-
+export OPENAI_API_KEY='sk-3ab5a52ea62944faaa4485461f43a03d'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
