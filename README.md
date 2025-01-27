@@ -257,24 +257,24 @@ GRUB_DISABLE_SUBMENU="false"
 GRUB_DISABLE_OS_PROBER="false"
 ```
 
-# Lightdm
+# SDDM
 
-We can beautify our login session
+Migrate from `lightdm` to `sddm`
 
-- install web-greeter
-
-```bash
-yay -S web-greeter
-```
-
-- change the default greeter of lightdm
+- sddm and theme
 
 ```bash
-#greeter-session=lightdm-slick-greeter
-greeter-session=web-greeter
+pacman -S sddm
+yay -S where-is-my-sddm-theme
 ```
 
-- Tweak the config files under `/etc/lightdm/lightdm.config`
+- modify sddm configuration file
+
+```bash
+vim /etc/sddm.conf.d/kde_settings.conf
+[Theme]
+Current=where_is_my_sddm_theme
+```
 
 # Timeshift
 
