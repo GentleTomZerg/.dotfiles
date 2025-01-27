@@ -172,15 +172,15 @@ Now, we can use clash on the new laptop!!!
 
 11. Kde-Connect
 
-To enable kdeconnect, the linux host machine needs to open specified ports and protocol for kdeconnect
+    To enable kdeconnect, the linux host machine needs to open specified ports and protocol for kdeconnect
 
-```bash
-sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
-7266 sudo firewall-cmd --reload
-7278 sudo firewall-cmd --list-all
-7282 sudo systemctl enable firewalld.service
-7295 systemctl status firewalld
-```
+    ```bash
+    sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
+    7266 sudo firewall-cmd --reload
+    7278 sudo firewall-cmd --list-all
+    7282 sudo systemctl enable firewalld.service
+    7295 systemctl status firewalld
+    ```
 
 # Grub
 
@@ -274,6 +274,14 @@ yay -S where-is-my-sddm-theme
 vim /etc/sddm.conf.d/kde_settings.conf
 [Theme]
 Current=where_is_my_sddm_theme
+```
+
+- enable and start sddm
+
+```bash
+systemctl stop lightdm.service
+systemctl enable sddm.service
+systemctl start sddm.service
 ```
 
 # Timeshift
