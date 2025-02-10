@@ -299,3 +299,11 @@ yay -S timeshit autosnap
 - lsd
 - bpytop
 - speedtest
+
+# Hyprland
+
+- clipboard issue
+- waybar
+- ranger chrome code resolution problem
+- wallpaper
+- glaze problem

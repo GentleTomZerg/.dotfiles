@@ -7,7 +7,7 @@ external-ui: clash-dashboard
 secret: 707399
 external-controller: :9090
 proxies:
-  - {name: 距离下次重置剩余：1 天, server: rk3.youtu2.top, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
+  - {name: 距离下次重置剩余：18 天, server: rk3.youtu2.top, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 网站:youtu0.com, server: rk3.youtu2.top, port: 34101, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 网站:youtunice.com, server: rk3.youtu2.top, port: 34102, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
   - {name: 专线2.5x-香港1, server: rk1.youtu2.top, port: 30001, type: ss, cipher: chacha20-ietf-poly1305, password: 2087c258-4373-440d-b968-cbf6f5947dd2}
@@ -68,7 +68,7 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：1 天
+      - 距离下次重置剩余：18 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -128,7 +128,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 距离下次重置剩余：1 天
+      - 距离下次重置剩余：18 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -189,7 +189,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：1 天
+      - 距离下次重置剩余：18 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -262,7 +262,7 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 距离下次重置剩余：1 天
+      - 距离下次重置剩余：18 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -345,7 +345,7 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 距离下次重置剩余：1 天
+      - 距离下次重置剩余：18 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -405,7 +405,7 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 距离下次重置剩余：1 天
+      - 距离下次重置剩余：18 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -466,7 +466,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：1 天
+      - 距离下次重置剩余：18 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
@@ -536,7 +536,7 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 距离下次重置剩余：1 天
+      - 距离下次重置剩余：18 天
       - 网站:youtu0.com
       - 网站:youtunice.com
       - 专线2.5x-香港1
