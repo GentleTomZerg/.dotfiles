@@ -20,7 +20,7 @@
       "default": ""
     },
     "persistent-workspaces": {
-      "*": 5
+      "*": 3
     }
   },
   // Taskbar
@@ -202,15 +202,13 @@
   },
   // System tray
   "tray": {
-    "icon-size": 21,
-    "spacing": 10
+    "icon-size": 14,
+    "spacing": 0
   },
   // Clock
   "clock": {
     "format": "{:%H:%M %a}",
-    "on-click": "flatpak run com.ml4w.calendar",
-    "timezone": "",
-    "tooltip": false
+    "format-alt": "{:%A, %B %d, %Y (%R)}"
   },
   // System
   "custom/system": {
@@ -328,11 +326,11 @@
   // Pulseaudio
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
-    "format": "{icon}  {volume}%",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth-muted": " ",
+    "format-muted": " ",
+    "format-source": "",
     "format-source-muted": "",
     "format-icons": {
       "headphone": " ",

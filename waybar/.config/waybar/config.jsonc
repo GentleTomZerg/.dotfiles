@@ -13,8 +13,8 @@
   "layer": "top",
   "margin-top": 0,
   "margin-bottom": 0,
-  "margin-left": 14,
-  "margin-right": 14,
+  "margin-left": 8,
+  "margin-right": 8,
   "spacing": 0,
   // Load Modules
   "include": [
@@ -27,9 +27,9 @@
     // "group/links",
     //"wlr/taskbar",
     // "group/quicklinks",
+    // "custom/empty",
     "hyprland/workspaces",
     "group/hardware",
-    "custom/empty",
   ],
   // Modules Center
   "modules-center": [

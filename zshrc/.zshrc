@@ -163,3 +163,8 @@ function y() {
 
 # enable starship
 eval "$(starship init zsh)"
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
