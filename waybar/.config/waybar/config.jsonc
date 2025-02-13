@@ -22,32 +22,16 @@
     "~/.config/waybar/modules.json",
   ],
   // Modules Left
-  "modules-left": [
-    // "custom/appmenu",
-    // "group/links",
-    //"wlr/taskbar",
-    // "group/quicklinks",
-    // "custom/empty",
-    "hyprland/workspaces",
-    "group/hardware",
-  ],
+  "modules-left": ["hyprland/workspaces", "group/hardware", "bluetooth"],
   // Modules Center
-  "modules-center": [
-    "hyprland/window",
-    "custom/empty"
-  ],
+  "modules-center": ["hyprland/window", "custom/empty"],
   // Modules Right
   "modules-right": [
-    // "custom/updates",
     "pulseaudio",
     "backlight",
-    "bluetooth",
     "battery",
     "network",
-    // "group/tools",
     "tray",
-    // "custom/exit",
-    // "custom/ml4w-welcome",
     "clock",
   ],
 }
