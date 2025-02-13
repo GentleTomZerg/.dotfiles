@@ -19,19 +19,12 @@
   // Load Modules
   "include": [
     // "~/.config/ml4w/settings/waybar-quicklinks.json",
-    "~/.config/waybar/modules.json",
+    "~/.config/waybar/modules.jsonc",
   ],
   // Modules Left
   "modules-left": ["hyprland/workspaces", "group/hardware", "bluetooth"],
   // Modules Center
   "modules-center": ["hyprland/window", "custom/empty"],
   // Modules Right
-  "modules-right": [
-    "pulseaudio",
-    "backlight",
-    "battery",
-    "network",
-    "tray",
-    "clock",
-  ],
+  "modules-right": ["group/audiolight", "group/batnet", "tray", "clock"],
 }
