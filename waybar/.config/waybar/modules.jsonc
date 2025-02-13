@@ -64,6 +64,13 @@
     "on-click": "blueman-manager",
     "format-no-controller": "",
   },
+  // Clash
+  "custom/clash": {
+    "format": "{}",
+    "exec": "~/.config/waybar/check_clash.sh",
+    "interval": 5,
+    "return-type": "json",
+  },
   // Hyprland Window
   "hyprland/window": {
     "rewrite": {
@@ -73,6 +80,8 @@
       "(.*) - Outlook": "$1",
       "(.*) Microsoft Teams": "$1",
     },
+    "icon": true,
+    "max-length": 32,
     "separate-outputs": true,
   },
   // Pulseaudio

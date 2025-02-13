@@ -86,6 +86,10 @@ window#waybar {
   color: @iconcolor;
 }
 
+#custom-clash {
+  color: @iconcolor;
+}
+
 /* -----------------------------------------------------
  * Bluetooth
  * ----------------------------------------------------- */
@@ -149,7 +153,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 #audiolight {
   border-radius: 8px 8px 8px 8px;
-  background-color: @color3;
+  background-color: @foreground;
   opacity: 0.8;
 }
 
@@ -208,7 +212,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 #batnet {
   border-radius: 8px 8px 8px 8px;
-  background-color: @color3;
+  background-color: @foreground;
   opacity: 0.8;
 }
 

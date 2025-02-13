@@ -22,9 +22,14 @@
     "~/.config/waybar/modules.jsonc",
   ],
   // Modules Left
-  "modules-left": ["hyprland/workspaces", "group/hardware", "bluetooth"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "group/hardware",
+    "bluetooth",
+    "custom/clash",
+  ],
   // Modules Center
-  "modules-center": ["hyprland/window", "custom/empty"],
+  "modules-center": ["hyprland/window"],
   // Modules Right
   "modules-right": ["group/audiolight", "group/batnet", "tray", "clock"],
 }
