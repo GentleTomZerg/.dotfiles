@@ -302,8 +302,9 @@ yay -S timeshit autosnap
 
 # Hyprland
 
-- clipboard issue
+- clipboard issue -> cliphist how to maintain recent history?
 - waybar
-- ranger chrome code resolution problem
+- rofi chrome code resolution problem -> rofi-wayland chrome,code has sepcial config ways
 - wallpaper
 - glaze problem
+- hyprland -> floating window
