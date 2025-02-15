@@ -5,6 +5,8 @@
 ---@type LazySpec
 return {
 	"AstroNvim/astrocommunity",
+	-- heirline
+	{ import = "astrocommunity.recipes.heirline-mode-text-statusline" },
 	-- colorscheme
 	{ import = "astrocommunity.colorscheme.catppuccin" },
 	-- Language Packs

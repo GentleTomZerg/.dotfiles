@@ -154,7 +154,7 @@ window#waybar.empty #window {
 #audiolight {
   border-radius: 8px 8px 8px 8px;
   background-color: @foreground;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* -----------------------------------------------------
@@ -213,7 +213,7 @@ window#waybar.empty #window {
 #batnet {
   border-radius: 8px 8px 8px 8px;
   background-color: @foreground;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* -----------------------------------------------------
@@ -238,7 +238,7 @@ window#waybar.empty #window {
   font-weight: bold;
   border-radius: 8px 8px 8px 8px;
   padding: 1px 8px 0px 8px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 /* -----------------------------------------------------
  * Tooltips

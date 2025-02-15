@@ -29,9 +29,9 @@ return {
 				highlight_separator_active = "NeoTreeTabSeparatorActive",
 			},
 			-- neo-tree window
-			window = {
-				position = "float",
-			},
+			-- window = {
+			-- 	position = "float",
+			-- },
 		},
 	},
 }
