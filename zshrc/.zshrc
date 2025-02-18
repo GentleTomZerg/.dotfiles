@@ -168,3 +168,6 @@ eval "$(starship init zsh)"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+
+# enable zoxide
+eval "$(zoxide init zsh)"
