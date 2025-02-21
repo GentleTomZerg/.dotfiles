@@ -307,4 +307,4 @@ yay -S timeshit autosnap
 - rofi chrome code resolution problem -> rofi-wayland chrome,code has sepcial config ways
 - wallpaper
 - glaze problem
-- hyprland -> floating window
+- hyprland -> floating window(Thunar)
