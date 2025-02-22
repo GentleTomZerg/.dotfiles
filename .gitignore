@@ -1,3 +1,5 @@
 /neovim/.config/nvim/lazy-lock.json
 # ignore all dirs under dic but preserve files
 /stardict/.stardict/dic/*/
+/yazi/.config/yazi/package.toml
+/yazi/.config/yazi/plugins/
