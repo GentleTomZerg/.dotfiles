@@ -302,9 +302,11 @@ yay -S timeshit autosnap
 
 # Hyprland
 
-- clipboard issue -> cliphist how to maintain recent history?
-- waybar
-- rofi chrome code resolution problem -> rofi-wayland chrome,code has sepcial config ways
-- wallpaper
+```bash
+
+sudo pacman -S \
+wayland hyprland rofi-wayland cliphist waybar pywal
+```
+
+- enable wayland mode for electron app -> see: `$HOME/stow/electronflags`
 - glaze problem
-- hyprland -> floating window(Thunar)
