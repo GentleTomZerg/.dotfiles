@@ -23,13 +23,15 @@
   ],
   // Modules Left
   "modules-left": [
+    // "keyboard-state",
     "hyprland/workspaces",
     "group/hardware",
     "bluetooth",
     "custom/clash",
+    "pulseaudio",
   ],
   // Modules Center
   "modules-center": ["hyprland/window"],
   // Modules Right
-  "modules-right": ["group/audiolight", "group/batnet", "tray", "clock"],
+  "modules-right": ["group/batnet", "tray", "clock"],
 }

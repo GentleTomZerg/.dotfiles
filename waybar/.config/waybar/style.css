@@ -90,6 +90,10 @@ window#waybar {
   color: @iconcolor;
 }
 
+#keyboard-state {
+  color: @iconcolor;
+}
+
 /* -----------------------------------------------------
  * Bluetooth
  * ----------------------------------------------------- */
@@ -130,7 +134,7 @@ window#waybar.empty #window {
 
 #pulseaudio {
   border-radius: 5px 5px 5px 5px;
-  color: @color4;
+  color: @textcolor;
 }
 
 #pulseaudio.muted {
@@ -212,7 +216,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 #batnet {
   border-radius: 8px 8px 8px 8px;
-  background-color: @foreground;
+  background-color: @color3;
   opacity: 0.9;
 }
 

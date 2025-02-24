@@ -324,7 +324,9 @@
   "keyboard-state": {
     "numlock": true,
     "capslock": true,
-    "format": "{name} {icon}",
+    "format": {
+      "capslock": "C {icon}",
+    },
     "format-icons": {
       "locked": "",
       "unlocked": "",
