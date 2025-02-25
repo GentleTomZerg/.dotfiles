@@ -310,3 +310,4 @@ wayland hyprland rofi-wayland cliphist waybar pywal
 
 - enable wayland mode for electron app -> see: `$HOME/stow/electronflags`
 - glaze problem
+  TODO: dunst to show sound and backlight!!!

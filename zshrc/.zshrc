@@ -112,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 export EDITOR='nvim'
 export TERMINAL='kitty'
+export TERM='xterm-kitty'
 export OPENAI_API_KEY='sk-3ab5a52ea62944faaa4485461f43a03d'
 
 # Compilation flags
@@ -133,7 +134,8 @@ alias vim="nvim"
 
 # My Configurations 
 # Proxy Api
-source ~/.config/clash/clash-api.sh
+# source ~/.config/clash/clash-api.sh
+source ~/.config/clash/mihomo-api.sh
 
 # Update pacman mirror list
 function update_pacmirror() {

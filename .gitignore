@@ -4,3 +4,6 @@
 # ignore yazi plugin files
 /yazi/.config/yazi/package.toml
 /yazi/.config/yazi/plugins/
+# ignore mihomo related files
+/clash/.config/clash/cache.db
+/clash/.config/clash/metacubexd/
