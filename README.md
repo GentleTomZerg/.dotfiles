@@ -60,6 +60,9 @@ sudo pacman -S ttf-jetbrains-mono-nerd
 # For AUR Google-Chrome
 sudo pacman -S noto-fonts-cjk
 sudo pacman -S noto-fonts-emoji
+
+# For clash-meta
+yay -S mihomo
 ```
 
 2. Stow the configuration
@@ -96,22 +99,20 @@ ln -s $HOME/stow/vscode/settings.json ./settings.json
 - delete the old and new version
 - stow zshrc again
 
-5. Clash
+5. Clash / Mihomo
 
-Now, we can use clash on the new laptop!!!
+   Now, we can use Mihomo on the new laptop!!!
 
-- Add proxy subscribe url to ~/stow/clash/.config/clash/urls.txt
-- Type `updateproxy` in terminal and follow instructions
+- ~~Add proxy subscribe url to /stow/clash/.config/clash/urls.txt~~
+- ~~Type `updateproxy` in terminal and follow instructions~~
+- ~~Type `startproxy` in terminal and follow instructions~~
+- ~~Clash-Dashboard~~
+- Enter subscribe url to '$HOME/stow/clash/.config/clash/mihomo.yaml'
 - Type `startproxy` in terminal and follow instructions
-- Clash-Dashboard
-
-  clash-dashborad github repo is archived::cry::
-  The scripts below is memory of the past
+- Mihomo Dashboard
 
   ```bash
-  git clone git@github.com:Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard
-  cd ~/.config/clash/clash-dashboard/
-  git checkout gh-pages
+  git clone -b gh-pages git@github.com:MetaCubeX/metacubexd.git
   ```
 
 6. AstroNvim
@@ -310,4 +311,3 @@ wayland hyprland rofi-wayland cliphist waybar pywal
 
 - enable wayland mode for electron app -> see: `$HOME/stow/electronflags`
 - glaze problem
-  TODO: dunst to show sound and backlight!!!

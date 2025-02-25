@@ -2,6 +2,6 @@
 #================================
 # Check if clash has been started
 #================================
-if pgrep -x clash >/dev/null; then
+if pgrep -x mihomo >/dev/null; then
   echo "{\"text\":\" \", \"tooltip\":\"clash is on\"}"
 fi
