@@ -11,7 +11,7 @@ proxy-providers:
         interval: 300,
       }
     override:
-      additional-prefix: "[YOUTU]"
+      additional-prefix: ""
   #
   # provider2:
   #   url: ""

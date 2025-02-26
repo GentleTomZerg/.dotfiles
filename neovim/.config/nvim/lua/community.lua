@@ -24,4 +24,6 @@ return {
 	{ import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
 	-- color display
 	{ import = "astrocommunity.color.nvim-highlight-colors" },
+	-- easy motion
+	{ import = "astrocommunity.motion.flash-nvim" },
 }
