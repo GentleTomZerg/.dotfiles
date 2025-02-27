@@ -306,7 +306,7 @@ yay -S timeshit autosnap
 ```bash
 
 sudo pacman -S \
-wayland hyprland rofi-wayland cliphist waybar pywal
+wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock slurp grim
 ```
 
 - enable wayland mode for electron app -> see: `$HOME/stow/electronflags`
