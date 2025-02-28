@@ -118,6 +118,7 @@ nnoremap [g :action VcsShowPrevChangeMarker<CR>
 nnoremap ]g :action VcsShowNextChangeMarker<CR>
 nnoremap <leader>gp :action Vcs.Push<CR>
 nnoremap <leader>gu :action Vcs.UpdateProject<CR>
+nnoremap <leader>gg :!kitty -e lazygit &<CR>
 "nnoremap <leader>gd :action Vcs.ChangesView<CR>
 
 

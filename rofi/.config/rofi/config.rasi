@@ -8,6 +8,7 @@ configuration {
     display-ssh: "SSH:";
     display-drun: "Apps:";
     display-window: "Windows:";
+    terminal: "kitty";
 }
 
 @theme "tokyo"
