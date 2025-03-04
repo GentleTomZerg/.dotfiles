@@ -180,7 +180,7 @@ local git = {
 		vscode.call("gitlens.showGraphPage")
 	end,
 	lazygit = function()
-		vim.fn.jobstart({ "alacritty", "-e", "lazygit" }, { detach = true })
+		vscode.call("lazygit.openLazygit")
 	end,
 }
 
