@@ -22,8 +22,11 @@ return {
 
 	-- markdown preview
 	{ import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+	{ import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
 	-- color display
 	{ import = "astrocommunity.color.nvim-highlight-colors" },
 	-- easy motion
 	{ import = "astrocommunity.motion.flash-nvim" },
+	-- media
+	{ import = "astrocommunity.media.img-clip-nvim" },
 }

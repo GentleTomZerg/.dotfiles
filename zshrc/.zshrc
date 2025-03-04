@@ -166,3 +166,6 @@ eval "$(pyenv init -)"
 
 # enable zoxide
 eval "$(zoxide init zsh)"
+
+# thefuck
+eval $(thefuck --alias)

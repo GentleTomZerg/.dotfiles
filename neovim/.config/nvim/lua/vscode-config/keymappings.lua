@@ -41,7 +41,7 @@ vim.keymap.set({ "n" }, "gr", api.lsp.goRef)
 vim.keymap.set({ "n" }, "<leader>gb", api.git.switch)
 vim.keymap.set({ "n" }, "[g", api.git.previousGitHunk)
 vim.keymap.set({ "n" }, "]g", api.git.nextGitHunk)
-
+vim.keymap.set({ "n" }, "<leader>gg", api.git.lazygit, { desc = "Open LazyGit in Alacritty" })
 -- #Telescope
 vim.keymap.set({ "n" }, "<leader>fo", api.search.recent)
 vim.keymap.set({ "n" }, "<leader>fw", api.search.wordUnderCursor)

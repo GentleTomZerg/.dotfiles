@@ -179,6 +179,9 @@ local git = {
 	graph = function()
 		vscode.call("gitlens.showGraphPage")
 	end,
+	lazygit = function()
+		vim.fn.jobstart({ "alacritty", "-e", "lazygit" }, { detach = true })
+	end,
 }
 
 local fold = {
