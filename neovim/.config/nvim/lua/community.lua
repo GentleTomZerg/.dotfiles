@@ -10,7 +10,7 @@ return {
 	-- colorscheme
 	{ import = "astrocommunity.colorscheme.catppuccin" },
 	-- Language Packs
-	{ import = "astrocommunity.pack.java" },
+	-- { import = "astrocommunity.pack.java" },
 	{ import = "astrocommunity.pack.lua" },
 	{ import = "astrocommunity.pack.markdown" },
 	{ import = "astrocommunity.pack.cpp" },
@@ -18,8 +18,8 @@ return {
 	{ import = "astrocommunity.pack.bash" },
 	{ import = "astrocommunity.pack.vue" },
 	{ import = "astrocommunity.pack.python" },
-	-- { import = "astrocommunity.pack.nvchad-ui" },
-
+	-- lsp
+	{ import = "astrocommunity.lsp.nvim-java" },
 	-- markdown preview
 	{ import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
 	{ import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
