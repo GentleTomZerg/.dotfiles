@@ -168,4 +168,4 @@ eval "$(pyenv init -)"
 eval "$(zoxide init zsh)"
 
 # thefuck
-eval $(thefuck --alias)
+# eval $(thefuck --alias)

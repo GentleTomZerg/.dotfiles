@@ -300,6 +300,7 @@ yay -S timeshit autosnap
 - lsd
 - bpytop
 - speedtest
+- auto-cpufreq
 
 # Hyprland
 
@@ -312,6 +313,5 @@ wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock 
 - enable wayland mode for electron app -> see: `$HOME/stow/electronflags`
 - glaze problem
 - practice lazygit
-- combine lazygit with idea vscode workflow?
 - lsp format file, can it have a template? or only change the modified lines
-- xdg-open -> how to set the default open way?
+- learn what oh my zsh is, and what starship is, how to enhance zsh speed

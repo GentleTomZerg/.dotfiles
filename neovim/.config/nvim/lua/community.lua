@@ -29,4 +29,6 @@ return {
 	{ import = "astrocommunity.motion.flash-nvim" },
 	-- media
 	{ import = "astrocommunity.media.img-clip-nvim" },
+	-- debug
+	{ import = "astrocommunity.debugging.nvim-dap-virtual-text" },
 }
