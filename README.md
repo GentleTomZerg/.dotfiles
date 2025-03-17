@@ -1,3 +1,17 @@
+---
+title: My Linux Configuration
+authors:
+  - GentleTomZerg
+date:
+  created: 2025-03-17
+  updated: 2025-03-17
+categories:
+  - Linux
+tags:
+  - linux
+  - dotfiles
+---
+
 # How to use this configuration file?
 
 > Man was born free, and he is everywhere in chains
@@ -7,6 +21,8 @@ I don't know if we were born free, but I do know we are in chains. To break the 
 This article assumes we have a stable proxy service already. In my scenario, I have an IPhone with shadowrocket installed. If I connect my IPhone and my new laptop into the same local network, then my new laptop could use my IPhone as the proxy.**The Chains break!!!**
 
 Type this to the new laptop terminal, and we are ready to go!
+
+<!-- more -->
 
 ```bash
 export {http,https,ftp,all}_proxy="http://IPhone_inner_ip:Proxy_port"
