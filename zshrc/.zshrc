@@ -8,25 +8,45 @@ source "${ZINIT_HOME}/zinit.zsh"
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
 # Zsh plugins
 zinit load zdharma-continuum/history-search-multi-word
 zinit light zsh-users/zsh-completions
-autoload -Uz compinit
-compinit
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light jeffreytse/zsh-vi-mode
+zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
+
+# Load completions
+autoload -Uz compinit && compinit
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' menu no
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# Vi-mode Config 
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
+
+
 # Env Variables
 export EDITOR='nvim'
 export TERMINAL='kitty'
 export TERM='xterm-kitty'
 export OPENAI_API_KEY='sk-3ab5a52ea62944faaa4485461f43a03d'
 
-# My alias
+# Alias
 alias c="clear"
 alias ls="lsd"
 alias vim="nvim"
