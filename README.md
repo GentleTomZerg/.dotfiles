@@ -4,7 +4,7 @@ authors:
   - GentleTomZerg
 date:
   created: 2025-03-17
-  updated: 2025-03-17
+  updated: 2025-03-24
 categories:
   - Linux
 tags:
@@ -331,3 +331,4 @@ wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock 
 - practice lazygit
 - lsp format file, can it have a template? or only change the modified lines
 - learn what oh my zsh is, and what starship is, how to enhance zsh speed
+- learn tmux

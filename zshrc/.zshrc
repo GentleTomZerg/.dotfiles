@@ -12,10 +12,14 @@ SAVEHIST=10000
 # Zsh plugins
 zinit load zdharma-continuum/history-search-multi-word
 zinit light zsh-users/zsh-completions
+autoload -Uz compinit
+compinit
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light jeffreytse/zsh-vi-mode
-
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 # Env Variables
 export EDITOR='nvim'
 export TERMINAL='kitty'
