@@ -50,7 +50,6 @@ export OPENAI_API_KEY='sk-3ab5a52ea62944faaa4485461f43a03d'
 alias c="clear"
 alias ls="lsd"
 alias vim="nvim"
-alias zqi="zoxide query -i"
 
 # My Configurations 
 # source ~/.config/clash/clash-api.sh

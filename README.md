@@ -108,12 +108,9 @@ ln -s $HOME/stow/vscode/settings.json ./settings.json
 - logout from i3wm and login again
 - now zsh shell is the default shell
 
-4. Install oh-my-zsh
+4. Install plugins of zshrc
 
-- go to oh-my-zsh paste the download script and execute
-- oh-my-zsh will make the .zshrc symlinked by stow as a old version and provide a new version.
-- delete the old and new version
-- stow zshrc again
+- see `$HOME/stow/zshrc/.zshrc`
 
 5. Clash / Mihomo
 
@@ -330,5 +327,4 @@ wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock 
 - glaze problem
 - practice lazygit
 - lsp format file, can it have a template? or only change the modified lines
-- learn what oh my zsh is, and what starship is, how to enhance zsh speed
 - learn tmux
