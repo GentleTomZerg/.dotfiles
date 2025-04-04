@@ -60,13 +60,6 @@ function update_pacmirror() {
   sudo reflector --latest 10 --sort rate --protocol https --country China | sudo tee /etc/pacman.d/mirrorlist
 }
 
-# Hardware Control for XiaoXinPro
-source ~/.config/i3/sysmod.sh
-source ~/.config/i3/batctl.sh
-
-# Change dpi
-source ~/.config/i3/dpi-setter.sh
-
 # Fzf 
 source <(fzf --zsh)
 
@@ -91,6 +84,3 @@ eval "$(pyenv init -)"
 
 # Zoxide
 eval "$(zoxide init zsh)"
-
-# thefuck
-eval $(thefuck --alias)
