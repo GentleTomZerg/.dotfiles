@@ -38,7 +38,7 @@ function backup_yaml() {
 
 function startproxy() {
 # Check if clash is already running
-  if [[ $(pidof mihomo) ]]; then
+  if [[ $(pgrep -x mihomo) ]]; then
     echo "mihomo has already started."
     return 1;
   fi
@@ -59,11 +59,11 @@ function startproxy() {
 }  
 
 function stopproxy() {
-  if [[ -z $(pidof mihomo) ]]; then
+  if [[ -z $(pgrep -x mihomo) ]]; then
     echo "mihomo is not running"
     return 1
   fi
 
-  kill "$(pidof mihomo)"
+  kill "$(pgrep -x mihomo)"
 }
 
