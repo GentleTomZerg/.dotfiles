@@ -328,3 +328,10 @@ wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock 
 - practice lazygit
 - lsp format file, can it have a template? or only change the modified lines
 - learn tmux
+
+# MacOs
+
+- `Raycast` replace `rofi`
+- `Aerospace` as tiling window manager
+- zsh vi-mode -> copy and paste with system clipboard?
+- alt-hijk insert node on astronvim macos

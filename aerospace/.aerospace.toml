@@ -87,8 +87,8 @@ automatically-unhide-macos-hidden-apps = false
     # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-    alt-enter = 'exec-and-forget open -n -b "net.kovidgoyal.kitty"'
-    alt-g = 'exec-and-forget open -n -b "com.google.Chrome" --args --proxy-server=127.0.0.1:7890'
+    alt-enter = 'exec-and-forget open -b "net.kovidgoyal.kitty"'
+    alt-g = 'exec-and-forget open -b "com.google.Chrome"'
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
