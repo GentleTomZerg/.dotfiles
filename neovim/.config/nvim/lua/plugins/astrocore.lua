@@ -82,6 +82,10 @@ return {
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
       },
+      i = {
+        -- smart insert semicolon
+        [";;"] = { "<C-o>A;" },
+      },
     },
   },
 }
