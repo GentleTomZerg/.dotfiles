@@ -2,7 +2,6 @@
 # ignore all dirs under dic but preserve files
 /stardict/.stardict/dic/*/
 # ignore yazi plugin files
-/yazi/.config/yazi/package.toml
 /yazi/.config/yazi/plugins/
 /yazi/.config/yazi/flavors/
 # ignore mihomo related files
