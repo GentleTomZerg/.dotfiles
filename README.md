@@ -1,17 +1,3 @@
----
-title: My Linux Configuration
-authors:
-  - GentleTomZerg
-date:
-  created: 2025-03-17
-  updated: 2025-03-24
-categories:
-  - Linux
-tags:
-  - linux
-  - dotfiles
----
-
 # How to use this configuration file?
 
 > Man was born free, and he is everywhere in chains
@@ -30,44 +16,21 @@ export {HTTP,HTTPS,FTP,ALL}_PROXY="http://IPhone_inner_ip:Proxy_port"
 # Eg:
 export {http,https,ftp,all}_proxy="http://192.168.1.6:1082"
 export {HTTP,HTTPS,FTP,ALL}_PROXY="http://192.168.1.6:1082"
-```
 
-## New Challenges
-
-Docker Hub is not easy to reach now, we need to set proxy for our docker
-
-```shell
-# /etc/docker/daemon.json
-mkdir /etc/docker
-echo '{
-  "proxies": {
-    "http-proxy": "http://127.0.0.1:7890",
-    "https-proxy": "https://127.0.0.1:7890"
-  }
-}' | sudo tee /etc/docker/daemon.json > /dev/null
-```
-
-```bash
-# ~/.ssh/config
-Host github.com
-  Hostname ssh.github.com
-  User git
-  Port 443
+# Plugins configuration process needs git
+git config --global http.proxy $CLASH_URL
+git config --global https.proxy $CLASH_URL
 ```
 
 ## Start Configuration
 
-1. Install necessary packages
+### Install necessary packages
 
 ```bash
 sudo pacman -S \
 clash kitty i3-gaps picom polybar rofi stow arandr google-chrome-stable zsh yazi light feh fcitx5 xinput docker \
 lazygit \
 neovim \
-zsh-autosuggestions \
-zsh-syntax-highlighting \
-zsh-theme-powerlevel10k-git \
-zsh-theme-powerlevel10k-git-debug \
 
 # For terminal and polybar
 sudo pacman -S ttf-firacode-nerd
@@ -81,7 +44,7 @@ sudo pacman -S noto-fonts-emoji
 yay -S mihomo
 ```
 
-2. Stow the configuration
+### Stow the configuration
 
 ```bash
 ssh-kgen -t ed25519 -C "997707754@qq.com"
@@ -99,22 +62,17 @@ ln -s $HOME/stow/vscode/keybindings.json ./keybindings.json
 ln -s $HOME/stow/vscode/settings.json ./settings.json
 ```
 
-3. Migrate to ZSH
+### Migrate to ZSH
 
 - type zsh in bash
 - enter chsh
 - zsh will prompt you to install packages which provides chsh
 - `sudo chsh -s /path/to/zsh` **Must use sudo**
-- logout from i3wm and login again
 - now zsh shell is the default shell
 
-4. Install plugins of zshrc
+### Clash / Mihomo
 
-- see `$HOME/stow/zshrc/.zshrc`
-
-5. Clash / Mihomo
-
-   Now, we can use Mihomo on the new laptop!!!
+Now, we can use Mihomo on the new laptop!!!
 
 - ~~Add proxy subscribe url to /stow/clash/.config/clash/urls.txt~~
 - ~~Type `updateproxy` in terminal and follow instructions~~
@@ -128,10 +86,11 @@ ln -s $HOME/stow/vscode/settings.json ./settings.json
   git clone -b gh-pages git@github.com:MetaCubeX/metacubexd.git
   ```
 
-6. AstroNvim
-   Just Google it and follow instructions!
+### AstroNvim
 
-7. Chinese input
+Just Google it and follow instructions!
+
+### Chinese input
 
 - install `fcitx5`
 - install `fcitx5-chinese-addons`
@@ -152,39 +111,21 @@ ln -s $HOME/stow/vscode/settings.json ./settings.json
 - Remember to **Enable Cloud Pinyin** in fcitx5-config
 - Dictionary: Follow the link [fcitx5-pinyin-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki) and [mw2fcitx](https://github.com/outloudvi/mw2fcitx)
 
-8. Display
+### Rofi
 
-- first use `arandr` to set the monitors. (GUI tool)
-- then use `autorandr` to save the current monitors config (`autorandr --save [name]`)
-<!-- TODO: -->
-- Bug: the i3wm has problems to initialize the monitors display corrently when first enter, it needs a manual refresh.
-- Temporal solution:
+There are some really nice themes and applets written for rofi, download from here:
+[rofi-collection](https://github.com/adi1090x/rofi)
 
-  I use arandr to customize a laptop left, monitor right config. Let autorandr to save it, in this way, two monitors will have correct display of wallpapers.
+Follow the link and setup as instructed. The `i3wm` and `polybar` will use this preconfigured repository.
 
-  If we put laptop left and monitor right, the first display when we entered i3wm shows the laptop-size wall-paper in the monitor and the monitor-size wall-paper in both laptop and monitor. Now, I suspect it is the problem of `feh` or `i3wm` multiple monitor config rule.
+### Bluetooth
 
-- **We might face with complex conditions when switch between different monitors. The best way is to use `arandr`.**
+```bash
+sudo systemctl start bluetooth
+sudo systemctl enable bluetooth
+```
 
-  - Use arandr to generate a basic display shell script and make modifications
-  - Change the refresh rate: `--rate 144.00`
-  - write script to let the script execute when start up
-
-9. Rofi
-
-   There are some really nice themes and applets written for rofi, download from here:
-   [rofi-collection](https://github.com/adi1090x/rofi)
-
-   Follow the link and setup as instructed. The `i3wm` and `polybar` will use this preconfigured repository.
-
-10. Bluetooth
-
-    ```bash
-    sudo systemctl start bluetooth
-    sudo systemctl enable bluetooth
-    ```
-
-11. Kde-Connect
+### Kde-Connect
 
     To enable kdeconnect, the linux host machine needs to open specified ports and protocol for kdeconnect
 
@@ -196,7 +137,7 @@ ln -s $HOME/stow/vscode/settings.json ./settings.json
     7295 systemctl status firewalld
     ```
 
-# Grub
+## Grub
 
 We can config grub under the path /etc/default/grub
 Below is a configuration example.
@@ -271,7 +212,7 @@ GRUB_DISABLE_SUBMENU="false"
 GRUB_DISABLE_OS_PROBER="false"
 ```
 
-# SDDM
+## SDDM
 
 Migrate from `lightdm` to `sddm`
 
@@ -298,7 +239,7 @@ systemctl enable sddm.service
 systemctl start sddm.service
 ```
 
-# Timeshift
+## Timeshift
 
 Backup arch system!!!
 
@@ -334,4 +275,26 @@ wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock 
 - `Raycast` replace `rofi`
 - `Aerospace` as tiling window manager
 - zsh vi-mode -> copy and paste with system clipboard?
-- alt-hijk insert node on astronvim macos
+
+# New Challenges
+
+Docker Hub is not easy to reach now, we need to set proxy for our docker
+
+```bash
+# /etc/docker/daemon.json
+mkdir /etc/docker
+echo '{
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:7890",
+    "https-proxy": "https://127.0.0.1:7890"
+  }
+}' | sudo tee /etc/docker/daemon.json > /dev/null
+```
+
+```bash
+# ~/.ssh/config
+Host github.com
+  Hostname ssh.github.com
+  User git
+  Port 443
+```
