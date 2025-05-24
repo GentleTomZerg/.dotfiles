@@ -18,8 +18,6 @@ return {
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.python" },
-  -- lsp
-  { import = "astrocommunity.lsp.nvim-java" },
   -- markdown preview
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
