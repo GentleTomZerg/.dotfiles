@@ -7,5 +7,4 @@
 /yazi/.config/yazi/package.toml
 # ignore mihomo related files
 /clash/.config/clash/cache.db
-/clash/.config/clash/metacubexd/
-/clash/.config/clash/Yacd-mata/
+/clash/.config/clash/external-ui/

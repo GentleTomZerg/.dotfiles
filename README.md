@@ -83,7 +83,12 @@ Now, we can use Mihomo on the new laptop!!!
 - Mihomo Dashboard
 
   ```bash
-  git clone -b gh-pages git@github.com:MetaCubeX/metacubexd.git
+  # NOTE!!!
+  # when mihomo parse the configuration file, it will prefix /$HOME/.config/mihomo to external-ui
+  # so, make sure to place the ui gh-pages under directory /$HOME/.config/mihomo
+  git clone -b gh-pages git@github.com:MetaCubeX/metacubexd.git /$HOME/.config/mihomo/external-ui
+  external-ui: external-ui/Yacd-meta
+
   ```
 
 ### AstroNvim
