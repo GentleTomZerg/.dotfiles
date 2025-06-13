@@ -299,7 +299,8 @@ echo '{
 ```bash
 # ~/.ssh/config
 Host github.com
-  Hostname ssh.github.com
-  User git
-  Port 443
+    Hostname ssh.github.com
+    Port 443
+    User git
+    ProxyCommand nc -x 127.0.0.1:7890 -X 5 %h %p
 ```
