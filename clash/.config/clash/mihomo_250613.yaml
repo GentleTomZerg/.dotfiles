@@ -12,6 +12,19 @@ proxy-providers:
       }
     override:
       additional-prefix: ""
+  #
+  # provider2:
+  #   url: ""
+  #   type: http
+  #   interval: 86400
+  #   health-check:
+  #     {
+  #       enable: true,
+  #       url: "https://www.gstatic.com/generate_204",
+  #       interval: 300,
+  #     }
+  #   override:
+  #     additional-prefix: "[provider2]"
 
 proxies:
   - name: "直连"
@@ -21,11 +34,12 @@ proxies:
 mixed-port: 7890
 ipv6: true
 allow-lan: true
-unified-delay: false
+unified-delay: true
 tcp-concurrent: true
 external-controller: 127.0.0.1:9090
-external-ui: ui
-external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+secret: 707399
+external-ui: Yacd-meta
+# external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
 find-process-mode: strict
 global-client-fingerprint: chrome
@@ -61,18 +75,28 @@ tun:
 dns:
   enable: true
   ipv6: true
+  respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-filter:
     - "*"
     - "+.lan"
     - "+.local"
     - "+.market.xiaomi.com"
-  default-nameserver:
-    - tls://223.5.5.5
-    - tls://223.6.6.6
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    # - https://120.53.53.53/dns-query
+    # - https://223.5.5.5/dns-query
+  proxy-server-nameserver:
+    - https://120.53.53.53/dns-query
+    - https://223.5.5.5/dns-query
+  nameserver-policy:
+    "rule-set:cn_domain,private_domain":
+      - https://120.53.53.53/dns-query
+      - https://223.5.5.5/dns-query
+    "rule-set:geolocation-!cn":
+      - "https://dns.cloudflare.com/dns-query"
+      - "https://dns.google/dns-query"
 
 proxy-groups:
   - name: 默认
