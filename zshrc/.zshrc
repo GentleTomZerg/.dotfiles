@@ -35,10 +35,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Vi-mode Config 
+# Vi-mode Config
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-
 
 # Env Variables
 export EDITOR='nvim'
@@ -51,16 +50,16 @@ alias c="clear"
 alias ls="lsd"
 alias vim="nvim"
 
-# My Configurations 
+# My Configurations
 # source ~/.config/clash/clash-api.sh
 source ~/.config/clash/mihomo-api.sh
 
 # Update pacman mirror list
 function update_pacmirror() {
-  sudo reflector --latest 10 --sort rate --protocol https --country China | sudo tee /etc/pacman.d/mirrorlist
+	sudo reflector --latest 10 --sort rate --protocol https --country China | sudo tee /etc/pacman.d/mirrorlist
 }
 
-# Fzf 
+# Fzf
 source <(fzf --zsh)
 
 # Yazi
