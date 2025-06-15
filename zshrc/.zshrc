@@ -20,13 +20,13 @@ setopt hist_find_no_dups
 # Zsh plugins
 zinit load zdharma-continuum/history-search-multi-word
 zinit light zsh-users/zsh-completions
+## Load completions
+autoload -Uz compinit && compinit
+zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light jeffreytse/zsh-vi-mode
 zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
-
-# Load completions
-autoload -Uz compinit && compinit
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -49,6 +49,7 @@ export OPENAI_API_KEY='sk-3ab5a52ea62944faaa4485461f43a03d'
 alias c="clear"
 alias ls="lsd"
 alias vim="nvim"
+alias lg="lazygit"
 
 # My Configurations
 # source ~/.config/clash/clash-api.sh
