@@ -41,8 +41,8 @@ ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
 # Env Variables
 export EDITOR='nvim'
-export TERMINAL='kitty'
-export TERM='xterm-kitty'
+# export TERMINAL='kitty'
+# export TERM='xterm-kitty'
 export OPENAI_API_KEY='sk-3ab5a52ea62944faaa4485461f43a03d'
 
 # Alias
