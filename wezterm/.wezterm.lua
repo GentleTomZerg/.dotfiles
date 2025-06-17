@@ -15,7 +15,7 @@ config.window_background_opacity = 0.7
 config.macos_window_background_blur = 20
 
 -- Color scheme
-config.color_scheme = "One Dark (Gogh)"
+config.color_scheme = "Catppuccin Macchiato"
 
 -- Disable Ligatures
 config.harfbuzz_features = { "calt = 0", "clig = 0", "liga = 0" }
