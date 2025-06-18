@@ -6,7 +6,10 @@ local config = wezterm.config_builder()
 
 -- Fonts
 config.font_size = 14
-config.font = wezterm.font("FiraCode Nerd Font")
+config.font = wezterm.font_with_fallback({
+  "FiraCode Nerd Font",
+  "LXGW WenKai",
+})
 
 -- Window
 config.enable_tab_bar = false
