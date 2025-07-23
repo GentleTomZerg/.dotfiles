@@ -1,7 +1,7 @@
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
   provider1:
-    url: "https://a.youtulink3.top/api/v1/client/subscribe?token=4c43c19428c2ff275c920b65c892d524"
+    url: "https://5.utushop.top/api/v1/client/subscribe?token=adc6f35a8f9c4936aa4cd078d6d4134d"
     type: http
     interval: 86400
     health-check:
