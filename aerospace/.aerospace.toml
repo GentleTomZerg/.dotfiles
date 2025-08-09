@@ -90,6 +90,8 @@ automatically-unhide-macos-hidden-apps = false
     # alt-enter = 'exec-and-forget open -n -b "net.kovidgoyal.kitty"'
     alt-enter = 'exec-and-forget open -n -b "com.github.wez.wezterm"'
     alt-g = 'exec-and-forget open -b "com.google.Chrome"'
+    alt-down = 'volume down'
+    alt-up = 'volume up'
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
