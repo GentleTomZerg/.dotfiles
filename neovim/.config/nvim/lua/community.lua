@@ -30,4 +30,6 @@ return {
   { import = "astrocommunity.media.img-clip-nvim" },
   -- debug
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
+  -- ui
+  { import = "astrocommunity.color.transparent-nvim" },
 }
