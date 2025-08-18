@@ -8,6 +8,17 @@ return {
       transparent_background = true,
     },
   },
+
+  {
+    "xiyaowong/transparent.nvim",
+    opts = {
+      extra_groups = {
+        "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
+        "NvimTreeNormal", -- NvimTree
+        "FloatBorder",
+      },
+    },
+  },
   -- For Astro Built-in Plugins
   {
     "nvim-neo-tree/neo-tree.nvim",

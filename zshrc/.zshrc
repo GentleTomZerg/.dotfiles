@@ -77,11 +77,6 @@ function y() {
 # Starship prompt
 eval "$(starship init zsh)"
 
-# Pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
 # Zoxide
 eval "$(zoxide init zsh)"
 
