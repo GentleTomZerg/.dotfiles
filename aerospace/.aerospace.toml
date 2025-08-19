@@ -101,7 +101,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-j = 'focus down'
     alt-k = 'focus up'
     alt-l = 'focus right'
-    alt-f = 'fullscreen'
+    alt-f = 'macos-native-fullscreen'
     alt-q = 'close --quit-if-last-window'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
