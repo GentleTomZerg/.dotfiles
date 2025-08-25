@@ -1,7 +1,7 @@
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
   provider1:
-    url: "https://5.utushop.top/api/v1/client/subscribe?token=910af698472cb2490b4d9c87edf17b32"
+    url: "https://5.utushop.top/api/v1/client/subscribe?token=abff2cef18f02f633b40a7064c356b5e"
     type: http
     interval: 86400
     health-check:
