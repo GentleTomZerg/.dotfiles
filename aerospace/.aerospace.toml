@@ -92,6 +92,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-g = 'exec-and-forget open -b "com.google.Chrome"'
     alt-down = 'volume down'
     alt-up = 'volume up'
+    alt-shift-s = 'exec-and-forget screencapture -i -c'
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
