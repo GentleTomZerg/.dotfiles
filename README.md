@@ -280,6 +280,7 @@ wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock 
 - `Raycast` replace `rofi`
 - `Aerospace` as tiling window manager
 - zsh vi-mode -> copy and paste with system clipboard?
+- Remember to disable the <Ctrl-UP/DOWN/LEFT/RIGHT> keys in system settings, or vim can not resize
 
 # New Challenges
 
