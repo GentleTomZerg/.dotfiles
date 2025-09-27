@@ -1,7 +1,7 @@
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
   provider1:
-    url: "https://5.utushop.top/api/v1/client/subscribe?token=abff2cef18f02f633b40a7064c356b5e"
+    url: "https://yt2.ewpbh.cn/api/v1/client/subscribe?token=561667c4fd9f66ae52181b9176cac85e"
     type: http
     interval: 86400
     health-check:
@@ -100,6 +100,11 @@ proxy-groups:
     proxies:
       [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点, 自动选择, 直连]
 
+  - name: Apple
+    type: select
+    proxies:
+      [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点, 自动选择, 直连]
+
   - name: 巴哈姆特
     type: select
     proxies:
@@ -192,6 +197,7 @@ rules:
   - RULE-SET,telegram_domain,Telegram
   - RULE-SET,netflix_domain,NETFLIX
   - RULE-SET,bilibili_domain,哔哩哔哩
+  - RULE-SET,apple_domain,Apple
   - RULE-SET,bahamut_domain,巴哈姆特
   - RULE-SET,spotify_domain,Spotify
   - RULE-SET,cn_domain,国内
@@ -241,6 +247,9 @@ rule-providers:
   bilibili_domain:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.mrs"
+  apple_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"
   bahamut_domain:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bahamut.mrs"
