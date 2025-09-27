@@ -281,6 +281,7 @@ wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock 
 - `Aerospace` as tiling window manager
 - zsh vi-mode -> copy and paste with system clipboard?
 - Remember to disable the <Ctrl-UP/DOWN/LEFT/RIGHT> keys in system settings, or vim can not resize
+- Time zone problem: use this `sudo rm /var/db/timed/com.apple.timed.plist`
 
 # New Challenges
 
