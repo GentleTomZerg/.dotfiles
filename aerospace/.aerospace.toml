@@ -168,7 +168,8 @@ automatically-unhide-macos-hidden-apps = false
     shift-down = ['volume set 0', 'mode main']
 
 [workspace-to-monitor-force-assignment]
-    1 = 'built-in'
+    0  'built-in'
+    1 = 'main'
     2 = 'main'
     3 = 'main'
     4 = 'main'
@@ -177,4 +178,3 @@ automatically-unhide-macos-hidden-apps = false
     7 = 'main'
     8 = 'main'
     9 = 'main'
-    0 = 'main'
