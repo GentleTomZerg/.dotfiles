@@ -1,137 +1,172 @@
-"base
+""============ Vim Settings ==========="
+set scrolloff=10
+set relativenumber
 set showmode
 set showcmd
-set relativenumber
+
+set smartcase
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
 set highlightedyank
 
-"Clipboard
+set visualbell
+
 set clipboard+=unnamed
-set clipboard+=ideaput
 
-"Leader key
-let mapleader=" "
-
-"Terminal
-nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
-
-"Window Navigation
+" unmap idea keybindings
 sethandler <c-h> a:vim
 sethandler <c-l> a:vim
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
-" - switch windows
+
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-
-" - manipulate buffers(tabs)
 nnoremap <s-h> :action PreviousTab<CR>
 nnoremap <s-l> :action NextTab<CR>
-nnoremap <leader>c :action CloseContent<CR>
 
-"Which Key
-set which-key
-set notimeout
-set timeoutlen=5000
-
-"Easy Motion
-Plug 'easymotion/vim-easymotion'
-set easymotion
-set notimeout
-
-"Editing Code
-" - using Shift-j to merge two lines in a smart way
-set ideajoin
-
-nnoremap <leader>/ :action CommentByLineComment<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>w :w<CR>
-
-nnoremap [[ :action MethodUp<CR>
-nnoremap ]] :action MethodDown<CR>
-
-nnoremap / :action Find<CR>
-
-inoremap <a-j> <DOWN>
-inoremap <a-k> <UP>
-inoremap <a-h> <LEFT>
-inoremap <a-l> <RIGHT>
 inoremap jj <Esc>
 
-vnoremap <leader>/ :action CommentByLineComment<CR>
-vnoremap ii <ESC>
+""=========== Leader Key ========="
+let mapleader=" "
 
-"File Explore
-Plug 'preservim/nerdtree'
+""============ Plugins ============="
+set which-key
+set notimeout
+set ideajoin
 set NERDTree
+set surround
+set easymotion
+
+""============ Key Mappings =========="
+" Basic
+nnoremap <leader>c :action CloseContent<CR>
+nnoremap <leader>C :q!<CR>
+nnoremap <leader>/ :action CommentByLineComment<CR>
+vnoremap <leader>/ :action CommentByLineComment<CR>
+nnoremap <leader>w :w<CR>
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>o :action SelectInProjectView<CR>
+nnoremap <leader>R :action RenameFile<CR>
 
-"LSP
+let g:WhichKey_ShowVimActions = "true"
+let g:WhichKeyDesc_basic_close_buffer = "<Space>c Close buffer"
+let g:WhichKeyDesc_basic_force_close_buffer = "<Space>C Force Close buffer"
+let g:WhichKeyDesc_basic_comment = "<Space>/ Toggle comment line"
+let g:WhichKeyDesc_basic_save = "<Space>w Save"
+let g:WhichKeyDesc_basic_explorer = "<Space>e Open File Explorer"
+let g:WhichKeyDesc_basic_explorer_show_current_file = "<Space>o Show Current File in Explorer"
+let g:WhichKeyDesc_basic_rename_file = "<Space>R Rename File"
+
+" Find
+" TODO: find registers
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fb :action Switcher<CR>
+nnoremap <leader>fo :action RecentFiles<CR>
+nnoremap <leader>fp :action ManageRecentProjects<CR>
+nnoremap <leader>fw :action FindInPath<CR>
+nnoremap <leader>fc :action FindWordAtCaret<CR>
+nnoremap <leader>fT :action ActivateTODOToolWindow<CR>
+nnoremap <leader>fA :action SearchEverywhere<CR>
+nnoremap <leader>fa :action GotoAction<CR>
+
+let g:WhichKeyDesc_find = "<Space>f Find"
+let g:WhichKeyDesc_find_files = "<Space>ff Find Files"
+let g:WhichKeyDesc_find_buffers = "<Space>fb Find Buffers"
+let g:WhichKeyDesc_find_old_files = "<Space>fo Find Old Files"
+let g:WhichKeyDesc_find_projects = "<Space>fp Find Projects"
+let g:WhichKeyDesc_find_words = "<Space>fw Find Words"
+let g:WhichKeyDesc_find_words_under_cursor = "<Space>fc Find Word under Cursor"
+let g:WhichKeyDesc_find_todos= "<Space>fT Find TODO"
+let g:WhichKeyDesc_find_All= "<Space>fA Find All"
+let g:WhichKeyDesc_find_actions= "<Space>fa Find Actions"
+
+" Gitsymotion-prefix)
+" TODO: open lazygit
+nnoremap <leader>gb :action Git.Branches<CR>
+nnoremap <leader>gd :action Compare.SameVersion<CR>
+nnoremap <leader>gl :action Annotate<CR>
+nnoremap <leader>gr :action Vcs.RollbackChangedLines<CR>
+nnoremap ]g :action VcsShowNextChangeMarker<CR>
+nnoremap [g :action VcsShowPrevChangeMarker<CR>
+
+let g:WhichKeyDesc_git = "<Space>g Git"
+let g:WhichKeyDesc_git_branches = "<Space>gb Git Branches"
+let g:WhichKeyDesc_git_diff = "<Space>gd Git Diff"
+let g:WhichKeyDesc_git_blame = "<Space>gl Git Blame"
+let g:WhichKeyDesc_git_rollback = "<Space>gr Git Rollback Changed LInes"
+
+"Terminal
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+
+let g:WhichKeyDesc_terminal = "<Space>t Terminal"
+
+" LSP
+" TODO: combine actions?
+nnoremap <leader>la :action ShowIntentionActions<CR>
 nnoremap <leader>lf :action ReformatCode<CR>
+nnoremap <leader>lr :action RenameElement<CR>
 nnoremap <leader>lq :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>lo :action OptimizeImports<CR>
-nnoremap <leader>lr :action RenameElement<CR>
-nnoremap <leader>la :action ShowIntentionActions<CR>
 nnoremap <leader>lg :action Generate<CR>
+nnoremap <leader>ls :action GotoSymbol<CR>
 
-"Goto
-nnoremap gc :action GotoClass<CR>
-nnoremap gi :action GotoImplementation<CR>
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gs :action GotoSuperMethod<CR>
-nnoremap gt :action GotoTest<CR>
-nnoremap gb :action Back<CR>
-nnoremap gf :action Forward<CR>
-nnoremap gr :action FindUsages<CR>
+nnoremap grc :action GotoClass<CR>
+nnoremap gri :action GotoImplementation<CR>
+nnoremap grs :action GotoSuperMethod<CR>
+nnoremap grr :action FindUsages<CR>
 
+let g:WhichKeyDesc_lsp = "<Space>l Language Tools"
+let g:WhichKeyDesc_lsp_actions = "<Space>la Lsp Actions"
+let g:WhichKeyDesc_lsp_reformat_code = "<Space>lf Format Buffer"
+let g:WhichKeyDesc_lsp_rename_current_symbol = "<Space>lr Rename Current Symbol"
+let g:WhichKeyDesc_lsp_refactor_action = "<Space>lq Refactor"
+let g:WhichKeyDesc_lsp_optimize_imports = "<Space>lq Optimize Imports"
+let g:WhichKeyDesc_lsp_generate = "<Space>lg Generate"
+let g:WhichKeyDesc_lsp_generate = "<Space>ls Search Symbols"
 
+" Debugger
+" TODO: some action does not exists fix it!
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+nnoremap <leader>dB :action Debugger.RemoveAllBreakpoints<CR>
+nnoremap <leader>dc :action Resume<CR>
+nnoremap <leader>dC :action ChooseDebugConfiguration<CR>
+nnoremap <leader>di :action StepInto<CR>
+nnoremap <leader>do :action StepOver<CR>
+nnoremap <leader>dO :action StepOut<CR>
+nnoremap <leader>dQ :action Stop<CR>
 
-"Debugging and Run
-nnoremap <leader>rs :action ContextRun<CR>
-" -run current file
-nnoremap <leader>rc :action RunClass<CR> 
-nnoremap <leader>rf :action ChooseRunConfiguration<CR>
-nnoremap <leader>ru :action ActivateRunToolWindow<CR>
+let g:WhichKeyDesc_debugger = "<Space>d Debugger"
+let g:WhichKeyDesc_debugger_toggle_breakpoint = "<Space>db Toggle Breakpoint"
+let g:WhichKeyDesc_debugger_remove_all_breakpoints = "<Space>dB Clear Breakpoints"
+let g:WhichKeyDesc_debugger_continue = "<Space>dc Continue"
+let g:WhichKeyDesc_debugger_choose_debug_config = "<Space>dC Choose Debug Config"
+let g:WhichKeyDesc_debugger_step_into = "<Space>di Step Into"
+let g:WhichKeyDesc_debugger_step_over = "<Space>do Step Over"
+let g:WhichKeyDesc_debugger_step_out = "<Space>dO Step Out"
+let g:WhichKeyDesc_debugger_stop = "<Space>dQ Terminate Session"
 
+" UI
+nnoremap <leader>uq :action HideActiveWindow<CR>
+nnoremap <leader>uQ :action HideAllWindows<CR>
+nnoremap <leader>uz :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>ut :action ViewToolButtons<CR>
+nnoremap <leader>ul :action ViewStatusBar<CR>
 
-nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
-nnoremap <leader>ds :action ContextDebug<CR>
-nnoremap <leader>du :action ActivateDebugToolWindow<CR>
-nnoremap <leader>db :action ViewBreakpoints<CR>
-nnoremap <leader>df :action ChooseDebugConfiguration<CR>
+let g:WhichKeyDesc_ui = "<Space>u UI"
+let g:WhichKeyDesc_ui_active_window = "<Space>uq Close Active Window"
+let g:WhichKeyDesc_ui_close_all_active_window = "<Space>uQ Close All Active Window"
+let g:WhichKeyDesc_ui_zen_mode = "<Space>uz Toggle Zen Mode"
+let g:WhichKeyDesc_ui_toggle_tool_buttons = "<Space>ut Toggle Tool Buttons"
+let g:WhichKeyDesc_ui_toggle_status_line = "<Space>ul Toggle Status Line"
 
-" File Navigation
-nnoremap <leader>ff :action GotoFile<CR>
-nnoremap <leader>fr :action RecentFiles<CR>
-nnoremap <leader>fg :action FindInPath<CR>
-nnoremap <leader>fm :action MainMenu<CR>
-nnoremap <leader>ft :action ActivateTODOToolWindow<CR>
-
-" Projects
-nnoremap <leader>p :action ManageRecentProjects<CR>
-
-
-"Git
-nnoremap [g :action VcsShowPrevChangeMarker<CR>
-nnoremap ]g :action VcsShowNextChangeMarker<CR>
-nnoremap <leader>gp :action Vcs.Push<CR>
-nnoremap <leader>gu :action Vcs.UpdateProject<CR>
-nnoremap <leader>gg :!kitty -e lazygit &<CR>
-"nnoremap <leader>gd :action Vcs.ChangesView<CR>
-
-
-
-"Window Management
-nnoremap <leader>x :action HideActiveWindow<CR>
-nnoremap <leader>z :action ToggleZenMode<CR>
-
-
-" Refresh ideavimrc
-nnoremap <leader>rr :action Ideavim.ReloadVimRc.reload<CR>
-
-
-
-
-
+"Nerdtree
+let g:NERDTreeMapNewFile = "a"
+let g:NERDTreeMapNewDir = "A"
+let g:NERDTreeMapQuit = "q"
+let g:NERDTreeMapActivateNode = "o"
+let g:NERDTreeMapToggleZoom = "z"
