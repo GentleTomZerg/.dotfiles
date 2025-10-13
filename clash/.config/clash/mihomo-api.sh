@@ -55,7 +55,9 @@ function startproxy() {
         
     # 4. Use yq's internal load_str() function for clean, safe URL injection
     # If yq fails, remove the newly created runtime config before returning.
-    if ! yq eval '.["proxy-providers"].provider1.url = load_str("'"$MIHOMO_SUBSCRIBE_URL"'")' -i "$MIHOMO_CONFIG_RUNTIME"; then
+    # 
+        export MIHOMO_URL=$(< "$MIHOMO_SUBSCRIBE_URL")
+        if ! yq eval '.["proxy-providers"].provider1.url = env(MIHOMO_URL)' -i "$MIHOMO_CONFIG_RUNTIME"; then
         echo "Error: yq failed to inject subscription URL." >&2
         rm -f "$MIHOMO_CONFIG_RUNTIME" # Clean up failed config
         return 1
