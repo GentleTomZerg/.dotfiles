@@ -1,7 +1,7 @@
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
   provider1:
-    url: "https://yt2.ewpbh.cn/api/v1/client/subscribe?token=561667c4fd9f66ae52181b9176cac85e"
+    url: "https://your.proxy.com"
     type: http
     interval: 86400
     health-check:
@@ -24,7 +24,6 @@ allow-lan: true
 unified-delay: false
 tcp-concurrent: true
 external-controller: 127.0.0.1:9090
-secret: 707399
 external-ui: external-ui/Yacd-meta
 
 find-process-mode: strict

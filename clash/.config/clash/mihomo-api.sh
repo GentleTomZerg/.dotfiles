@@ -1,11 +1,14 @@
 #!/bin/bash
-CLASH_URL="http://127.0.0.1:7890"
-CLASH_CONFIG_PATH="$HOME/.config/clash"
+MIHOMO_SERVICE_URL="http://127.0.0.1:7890"
+MIHOMO_CONFIG_PATH="$HOME/.config/clash"
+MIHOMO_SUBSCRIBE_URL=$(cat "$MIHOMO_CONFIG_PATH"/subscribe_url.txt)
+MIHOMO_CONFIG_TEMPLATE="$MIHOMO_CONFIG_PATH/mihomo.yaml"
+MIHOMO_CONFIG_RUNTIME="$MIHOMO_CONFIG_PATH/mihomo_runtime.yaml"
 
 
 function setproxy() {
-    export {http,https,ftp,all}_proxy="$CLASH_URL"
-    export {HTTP,HTTPS,FTP,ALL}_PROXY="$CLASH_URL"
+    export {http,https,ftp,all}_proxy="$MIHOMO_SERVICE_URL"
+    export {HTTP,HTTPS,FTP,ALL}_PROXY="$MIHOMO_SERVICE_URL"
 }
 
 function unsetproxy() {
@@ -15,8 +18,8 @@ function unsetproxy() {
 
 # Set Git Proxy
 function gsetproxy() {
-  git config --global http.proxy $CLASH_URL
-  git config --global https.proxy $CLASH_URL
+  git config --global http.proxy $MIHOMO_SERVICE_URL
+  git config --global https.proxy $MIHOMO_SERVICE_URL
 }
 
 # Unset Git Proxy
@@ -31,11 +34,6 @@ function ggetproxy() {
   git config --global --get https.proxy
 }
 
-function backup_yaml() {
-  echo "$CLASH_CONFIG_PATH/"
-  find "$CLASH_CONFIG_PATH/" -type f -name "*.yaml" -exec cp {} {}.bak \;
-}
-
 function startproxy() {
 # Check if clash is already running
   if [[ $(pgrep -x mihomo) ]]; then
@@ -43,19 +41,15 @@ function startproxy() {
     return 1;
   fi
 
-  echo "Choose the configuration file:"
+  yq eval '.["proxy-providers"].provider1.url = env(MIHOMO_SUBSCRIBE_URL)' -i "$MIHOMO_CONFIG_RUNTIME"
 
-  select filename in $CLASH_CONFIG_PATH/*.yaml; do
-    # Check if the user entered a valid selection
-    if [[ -n "$filename" ]]; then
-      nohup mihomo -f "$filename" > /dev/null &
-      echo "Starting mihomo with configuration file: $filename"
-      break
-    else
-      # Display an error message and prompt the user to choose a valid selection
-      echo "Invalid selection. Please try again."
-    fi
-  done
+  if [[ -f "$MIHOMO_CONFIG_RUNTIME" ]];then
+      nohup mihomo -f "$MIHOMO_CONFIG_RUNTIME" > /dev/null &
+      echo "Starting mihomo with configuration file: $MIHOMO_CONFIG_RUNTIME"
+  else
+      echo "$MIHOMO_CONFIG_RUNTIME not found"
+      return 1
+  fi
 }  
 
 function stopproxy() {
@@ -66,4 +60,3 @@ function stopproxy() {
 
   kill "$(pgrep -x mihomo)"
 }
-

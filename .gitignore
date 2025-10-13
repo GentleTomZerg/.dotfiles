@@ -8,3 +8,5 @@
 # ignore mihomo related files
 /clash/.config/clash/cache.db
 /clash/.config/clash/external-ui/
+/clash/.config/clash/mihomo_runtime.yaml
+/clash/.config/clash/subscribe_url.txt
