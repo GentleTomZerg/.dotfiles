@@ -1,7 +1,7 @@
 #!/bin/bash
 MIHOMO_SERVICE_URL="http://127.0.0.1:7890"
 MIHOMO_CONFIG_PATH="$HOME/.config/clash"
-MIHOMO_SUBSCRIBE_URL=$(cat "$MIHOMO_CONFIG_PATH"/subscribe_url.txt)
+MIHOMO_SUBSCRIBE_URL="$MIHOMO_CONFIG_PATH/subscribe_url.txt"
 MIHOMO_CONFIG_TEMPLATE="$MIHOMO_CONFIG_PATH/mihomo.yaml"
 MIHOMO_CONFIG_RUNTIME="$MIHOMO_CONFIG_PATH/mihomo_runtime.yaml"
 
@@ -35,22 +35,38 @@ function ggetproxy() {
 }
 
 function startproxy() {
-# Check if clash is already running
-  if [[ $(pgrep -x mihomo) ]]; then
-    echo "mihomo has already started."
-    return 1;
-  fi
+    # 1. Check if mihomo is already running (check must be first and robust)
+    if pgrep -x mihomo > /dev/null; then
+        echo "mihomo has already started."
+        return 1
+    fi
 
-  yq eval '.["proxy-providers"].provider1.url = env(MIHOMO_SUBSCRIBE_URL)' -i "$MIHOMO_CONFIG_RUNTIME"
+    # 2. Safety check for the URL file
+    if [[ ! -f "$MIHOMO_SUBSCRIBE_URL" ]]; then
+        echo "Error: Subscription URL file not found at $MIHOMO_SUBSCRIBE_URL" >&2
+        return 1
+    fi
 
-  if [[ -f "$MIHOMO_CONFIG_RUNTIME" ]];then
-      nohup mihomo -f "$MIHOMO_CONFIG_RUNTIME" > /dev/null &
-      echo "Starting mihomo with configuration file: $MIHOMO_CONFIG_RUNTIME"
-  else
-      echo "$MIHOMO_CONFIG_RUNTIME not found"
-      return 1
-  fi
-}  
+    # 3. Copy config template and check for failure
+    if ! cp "$MIHOMO_CONFIG_TEMPLATE" "$MIHOMO_CONFIG_RUNTIME"; then
+        echo "Error: Failed to copy template to runtime config." >&2
+        return 1
+    fi
+        
+    # 4. Use yq's internal load_str() function for clean, safe URL injection
+    # If yq fails, remove the newly created runtime config before returning.
+    if ! yq eval '.["proxy-providers"].provider1.url = load_str("'"$MIHOMO_SUBSCRIBE_URL"'")' -i "$MIHOMO_CONFIG_RUNTIME"; then
+        echo "Error: yq failed to inject subscription URL." >&2
+        rm -f "$MIHOMO_CONFIG_RUNTIME" # Clean up failed config
+        return 1
+    fi
+
+    # 5. Start mihomo in the background, redirecting all output (stdout and stderr) to /dev/null
+    nohup mihomo -f "$MIHOMO_CONFIG_RUNTIME" > /dev/null 2>&1 &
+
+    echo "mihomo started successfully with config: $MIHOMO_CONFIG_RUNTIME"
+    return 0
+}
 
 function stopproxy() {
   if [[ -z $(pgrep -x mihomo) ]]; then
