@@ -1,7 +1,7 @@
 #!/bin/bash
 MIHOMO_SERVICE_URL="http://127.0.0.1:7890"
 MIHOMO_CONFIG_PATH="$HOME/.config/clash"
-MIHOMO_SUBSCRIBE_URL="$MIHOMO_CONFIG_PATH/subscribe_url.txt"
+MIHOMO_SUBSCRIBE_URL_PATH="$MIHOMO_CONFIG_PATH/subscribe_url.txt"
 MIHOMO_CONFIG_TEMPLATE="$MIHOMO_CONFIG_PATH/mihomo.yaml"
 MIHOMO_CONFIG_RUNTIME="$MIHOMO_CONFIG_PATH/mihomo_runtime.yaml"
 
@@ -42,8 +42,8 @@ function startproxy() {
     fi
 
     # 2. Safety check for the URL file
-    if [[ ! -f "$MIHOMO_SUBSCRIBE_URL" ]]; then
-        echo "Error: Subscription URL file not found at $MIHOMO_SUBSCRIBE_URL" >&2
+    if [[ ! -f "$MIHOMO_SUBSCRIBE_URL_PATH" ]]; then
+        echo "Error: Subscription URL file not found at $MIHOMO_SUBSCRIBE_URL_PATH" >&2
         return 1
     fi
 
@@ -53,11 +53,10 @@ function startproxy() {
         return 1
     fi
         
-    # 4. Use yq's internal load_str() function for clean, safe URL injection
+    # 4. Use yq to do safely URL injection
     # If yq fails, remove the newly created runtime config before returning.
-    # 
-        export MIHOMO_URL=$(< "$MIHOMO_SUBSCRIBE_URL")
-        if ! yq eval '.["proxy-providers"].provider1.url = env(MIHOMO_URL)' -i "$MIHOMO_CONFIG_RUNTIME"; then
+    SUBSCRIBE_URL=$(< "$MIHOMO_SUBSCRIBE_URL_PATH")
+    if ! yq eval ".\"proxy-providers\".provider1.url = \"$SUBSCRIBE_URL\"" -i "$MIHOMO_CONFIG_RUNTIME"; then
         echo "Error: yq failed to inject subscription URL." >&2
         rm -f "$MIHOMO_CONFIG_RUNTIME" # Clean up failed config
         return 1
