@@ -114,6 +114,7 @@ nnoremap <leader>lq :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>lo :action OptimizeImports<CR>
 nnoremap <leader>lg :action Generate<CR>
 nnoremap <leader>ls :action GotoSymbol<CR>
+nnoremap <leader>ld :action ShowErrorDescription<CR>
 
 nnoremap grc :action GotoClass<CR>
 nnoremap gri :action GotoImplementation<CR>
@@ -127,7 +128,8 @@ let g:WhichKeyDesc_lsp_rename_current_symbol = "<Space>lr Rename Current Symbol"
 let g:WhichKeyDesc_lsp_refactor_action = "<Space>lq Refactor"
 let g:WhichKeyDesc_lsp_optimize_imports = "<Space>lq Optimize Imports"
 let g:WhichKeyDesc_lsp_generate = "<Space>lg Generate"
-let g:WhichKeyDesc_lsp_generate = "<Space>ls Search Symbols"
+let g:WhichKeyDesc_lsp_search_symbols = "<Space>ls Search Symbols"
+let g:WhichKeyDesc_lsp_hover_diagnostics = "<Space>ld Hover Diagnostics"
 
 " Debugger
 " TODO: some action does not exists fix it!
