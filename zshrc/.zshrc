@@ -51,6 +51,8 @@ alias ls="lsd"
 alias vim="nvim"
 alias lg="lazygit"
 
+unalias cp
+
 # My Configurations
 # source ~/.config/clash/clash-api.sh
 source ~/.config/clash/mihomo-api.sh
