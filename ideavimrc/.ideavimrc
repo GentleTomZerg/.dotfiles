@@ -40,7 +40,8 @@ set notimeout
 set ideajoin
 set NERDTree
 set surround
-set easymotion
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
 
 ""============ Key Mappings =========="
 " Basic
