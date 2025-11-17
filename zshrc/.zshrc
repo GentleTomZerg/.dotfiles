@@ -54,8 +54,8 @@ alias lg="lazygit"
 unalias cp
 
 # My Configurations
-# source ~/.config/clash/clash-api.sh
 source ~/.config/clash/mihomo-api.sh
+source ~/.config/zellij/util.sh
 
 # Update pacman mirror list
 function update_pacmirror() {
