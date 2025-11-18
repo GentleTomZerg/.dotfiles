@@ -50,6 +50,8 @@ alias c="clear"
 alias ls="lsd"
 alias vim="nvim"
 alias lg="lazygit"
+alias ze="zellij"
+alias zes="pick_zellij_sessions"
 
 unalias cp
 

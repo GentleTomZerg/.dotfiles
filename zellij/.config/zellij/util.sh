@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function zels() {
+function pick_zellij_sessions() {
   ZJ_SESSIONS=$(zellij list-sessions --short)
   NO_SESSIONS=$(echo "${ZJ_SESSIONS}" | wc -l)
 
