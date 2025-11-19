@@ -7,8 +7,8 @@ local config = wezterm.config_builder()
 -- Fonts
 config.font_size = 14
 config.font = wezterm.font_with_fallback({
-  "FiraCode Nerd Font",
-  "LXGW WenKai",
+	"FiraCode Nerd Font",
+	"LXGW WenKai",
 })
 
 -- Window
