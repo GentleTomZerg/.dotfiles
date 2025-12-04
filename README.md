@@ -4,7 +4,7 @@
 
 I don't know if we were born free, but I do know we are in chains. To break the chains, we need network proxy to the free world.
 
-This article assumes we have a stable proxy service already. In my scenario, I have an IPhone with shadowrocket installed. If I connect my IPhone and my new laptop into the same local network, then my new laptop could use my IPhone as the proxy.**The Chains break!!!**
+This article assumes we have a stable proxy service already. In my scenario, I have an IPhone with shadowrocket installed. If I connect my IPhone and my new laptop into the same local network, then my new laptop could use my IPhone as the proxy. **No More Chains!!!**
 
 Type this to the new laptop terminal, and we are ready to go!
 
@@ -22,38 +22,43 @@ git config --global http.proxy $CLASH_URL
 git config --global https.proxy $CLASH_URL
 ```
 
-## Start Configuration
+# Start Configuration
 
-### Install necessary packages
+## Install necessary packages
 
 ```bash
-sudo pacman -S \
-clash kitty i3-gaps picom polybar rofi stow arandr google-chrome-stable zsh yazi light feh fcitx5 xinput docker \
-lazygit \
-neovim \
+# Macos
+brew install \
+mihomo yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
+starship stow lazygit tldr p7zip lsd \
+aerospace raycast wezterm google-chrome homerow hyerkey intellij-idea keycastr wechat \
+font-fira-code-nerd-font font-lxgw-wenkai
 
-# For terminal and polybar
+# Archlinux hyprland
+sudo pacman -S \
+mihomo yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
+starship stow lazygit tldr p7zip lsd \
+
 sudo pacman -S ttf-firacode-nerd
 sudo pacman -S ttf-jetbrains-mono-nerd
-
-# For AUR Google-Chrome
 sudo pacman -S noto-fonts-cjk
 sudo pacman -S noto-fonts-emoji
 
-# For clash-meta
-yay -S mihomo
+sudo pacman -S \
+wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock slurp grim
 ```
 
-### Stow the configuration
+## Stow the configuration
 
 ```bash
-ssh-kgen -t ed25519 -C "997707754@qq.com"
+ssh-kgen -t ed25519 -C "your_email@xx.com"
 # add the content in ~/.ssh/id_ed25519.pub to github ssh key
+
 mkdir ~/stow
 cd stow
 git clone git@github.com:GentleTomZerg/.dotfiles.git ~/stow
 
-stow clash i3 ideavimrc kitty neovim picom polybar README.md rofi tools vscode Xmodmap Xresources yazi zshrc
+stow clash zshrc ... # Pick the config I need
 
 # Vscode Configurtion
 # Different types of vscode has different path to of user settings
@@ -62,7 +67,7 @@ ln -s $HOME/stow/vscode/keybindings.json ./keybindings.json
 ln -s $HOME/stow/vscode/settings.json ./settings.json
 ```
 
-### Migrate to ZSH
+## Migrate to ZSH (Linux Only)
 
 - type zsh in bash
 - enter chsh
@@ -70,14 +75,10 @@ ln -s $HOME/stow/vscode/settings.json ./settings.json
 - `sudo chsh -s /path/to/zsh` **Must use sudo**
 - now zsh shell is the default shell
 
-### Clash / Mihomo
+## Mihomo
 
 Now, we can use Mihomo on the new laptop!!!
 
-- ~~Add proxy subscribe url to /stow/clash/.config/clash/urls.txt~~
-- ~~Type `updateproxy` in terminal and follow instructions~~
-- ~~Type `startproxy` in terminal and follow instructions~~
-- ~~Clash-Dashboard~~
 - Enter subscribe url to '$HOME/stow/clash/.config/clash/mihomo.yaml'
 - Type `startproxy` in terminal and follow instructions
 - Mihomo Dashboard
@@ -91,11 +92,11 @@ Now, we can use Mihomo on the new laptop!!!
 
   ```
 
-### AstroNvim
+## AstroNvim
 
 Just Google it and follow instructions!
 
-### Chinese input
+## Chinese input (Linux Only)
 
 - install `fcitx5`
 - install `fcitx5-chinese-addons`
@@ -116,21 +117,21 @@ Just Google it and follow instructions!
 - Remember to **Enable Cloud Pinyin** in fcitx5-config
 - Dictionary: Follow the link [fcitx5-pinyin-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki) and [mw2fcitx](https://github.com/outloudvi/mw2fcitx)
 
-### Rofi
+## Rofi (Linux Only)
 
 There are some really nice themes and applets written for rofi, download from here:
 [rofi-collection](https://github.com/adi1090x/rofi)
 
 Follow the link and setup as instructed. The `i3wm` and `polybar` will use this preconfigured repository.
 
-### Bluetooth
+## Bluetooth
 
 ```bash
 sudo systemctl start bluetooth
 sudo systemctl enable bluetooth
 ```
 
-### Kde-Connect
+## Kde-Connect (Linux Only)
 
     To enable kdeconnect, the linux host machine needs to open specified ports and protocol for kdeconnect
 
@@ -142,7 +143,80 @@ sudo systemctl enable bluetooth
     7295 systemctl status firewalld
     ```
 
-## Grub
+## SDDM (Linux Only)
+
+Migrate from `lightdm` to `sddm`
+
+- sddm and theme
+
+```bash
+pacman -S sddm
+yay -S where-is-my-sddm-theme
+```
+
+- modify sddm configuration file
+
+```bash
+vim /etc/sddm.conf.d/kde_settings.conf
+[Theme]
+Current=where_is_my_sddm_theme
+```
+
+- enable and start sddm
+
+```bash
+systemctl stop lightdm.service
+systemctl enable sddm.service
+systemctl start sddm.service
+```
+
+## Timeshift (Linux Only)
+
+Backup arch system!!!
+
+```bash
+sudo pacman -S timeshift
+yay -S timeshit autosnap
+```
+
+# Hyprland (Linux Only)
+
+- enable wayland mode for electron app -> see: `$HOME/stow/electronflags`
+
+# MacOS
+
+- `Raycast` replace `rofi`
+- `Aerospace` as tiling window manager
+- `HomeRow` `HyperKey` for mouse less experience
+- zsh vi-mode -> copy and paste with system clipboard?
+- Remember to disable the <Ctrl-UP/DOWN/LEFT/RIGHT> keys in system settings, or vim can not resize
+- Time zone problem: use this `sudo rm /var/db/timed/com.apple.timed.plist`
+
+# New Challenges
+
+Docker Hub is not easy to reach now, we need to set proxy for our docker
+
+```bash
+# /etc/docker/daemon.json
+mkdir /etc/docker
+echo '{
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:7890",
+    "https-proxy": "https://127.0.0.1:7890"
+  }
+}' | sudo tee /etc/docker/daemon.json > /dev/null
+```
+
+```bash
+# ~/.ssh/config
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+    ProxyCommand nc -x 127.0.0.1:7890 -X 5 %h %p
+```
+
+## Grub (Linux Only)
 
 We can config grub under the path /etc/default/grub
 Below is a configuration example.
@@ -215,94 +289,4 @@ GRUB_DISABLE_SUBMENU="false"
 # functionality install os-prober and uncomment to detect and include other
 # operating systems.
 GRUB_DISABLE_OS_PROBER="false"
-```
-
-## SDDM
-
-Migrate from `lightdm` to `sddm`
-
-- sddm and theme
-
-```bash
-pacman -S sddm
-yay -S where-is-my-sddm-theme
-```
-
-- modify sddm configuration file
-
-```bash
-vim /etc/sddm.conf.d/kde_settings.conf
-[Theme]
-Current=where_is_my_sddm_theme
-```
-
-- enable and start sddm
-
-```bash
-systemctl stop lightdm.service
-systemctl enable sddm.service
-systemctl start sddm.service
-```
-
-## Timeshift
-
-Backup arch system!!!
-
-```bash
-sudo pacman -S timeshift
-yay -S timeshit autosnap
-```
-
-# Some useful tools:
-
-- cpufetch
-- lsd
-- bpytop
-- speedtest
-- auto-cpufreq
-
-# Hyprland
-
-```bash
-
-sudo pacman -S \
-wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock slurp grim
-```
-
-- enable wayland mode for electron app -> see: `$HOME/stow/electronflags`
-- glaze problem
-- practice lazygit
-- lsp format file, can it have a template? or only change the modified lines
-- learn tmux
-
-# MacOs
-
-- `Raycast` replace `rofi`
-- `Aerospace` as tiling window manager
-- zsh vi-mode -> copy and paste with system clipboard?
-- Remember to disable the <Ctrl-UP/DOWN/LEFT/RIGHT> keys in system settings, or vim can not resize
-- Time zone problem: use this `sudo rm /var/db/timed/com.apple.timed.plist`
-
-# New Challenges
-
-Docker Hub is not easy to reach now, we need to set proxy for our docker
-
-```bash
-# /etc/docker/daemon.json
-mkdir /etc/docker
-echo '{
-  "proxies": {
-    "http-proxy": "http://127.0.0.1:7890",
-    "https-proxy": "https://127.0.0.1:7890"
-  }
-}' | sudo tee /etc/docker/daemon.json > /dev/null
-```
-
-```bash
-# ~/.ssh/config
-Host github.com
-    Hostname ssh.github.com
-    Port 443
-    User git
-    ProxyCommand nc -x 127.0.0.1:7890 -X 5 %h %p
 ```
