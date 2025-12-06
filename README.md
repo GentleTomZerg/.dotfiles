@@ -96,7 +96,9 @@ Now, we can use Mihomo on the new laptop!!!
 
 Just Google it and follow instructions!
 
-## Chinese input (Linux Only)
+## Chinese Input
+
+### Linux
 
 - install `fcitx5`
 - install `fcitx5-chinese-addons`
@@ -116,6 +118,12 @@ Just Google it and follow instructions!
 
 - Remember to **Enable Cloud Pinyin** in fcitx5-config
 - Dictionary: Follow the link [fcitx5-pinyin-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki) and [mw2fcitx](https://github.com/outloudvi/mw2fcitx)
+
+### MacOS
+
+- install `squirrel-app`
+- git clone https://github.com/iDvel/rime-ice.git ~/Library/Rime --depth 1
+- customize the yaml
 
 ## Rofi (Linux Only)
 
