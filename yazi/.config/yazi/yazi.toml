@@ -6,11 +6,12 @@
 ratio          = [ 2, 4, 3 ]
 
 [[plugin.prepend_fetchers]]
-id   = "git"
-name = "*"
-run  = "git"
+id  = "git"
+url = "*"
+run = "git"
 
 [[plugin.prepend_fetchers]]
-id   = "git"
-name = "*/"
-run  = "git"
+id  = "git"
+url = "*/"
+run = "git"
+
