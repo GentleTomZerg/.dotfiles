@@ -41,9 +41,6 @@ ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
 # Env Variables
 export EDITOR='nvim'
-# export TERMINAL='kitty'
-# export TERM='xterm-kitty'
-export OPENAI_API_KEY='sk-3ab5a52ea62944faaa4485461f43a03d'
 
 # Alias
 alias c="clear"
@@ -71,10 +68,9 @@ source <(fzf --zsh)
 # y shell wrapper that provides the ability to change the current working directory when exiting Yazi.
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd <"$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
 
