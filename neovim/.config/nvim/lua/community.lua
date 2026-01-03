@@ -31,4 +31,6 @@ return {
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
   -- ui
   { import = "astrocommunity.color.transparent-nvim" },
+  -- ai
+  { import = "astrocommunity.ai.opencode-nvim" },
 }
