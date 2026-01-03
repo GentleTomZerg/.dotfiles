@@ -49,6 +49,11 @@ alias vim="nvim"
 alias lg="lazygit"
 alias ze="zellij"
 alias zes="pick_zellij_sessions"
+alias t="tmux"
+alias ta="tmux attach -t"
+alias tn="tmux new -s"
+alias tl="tmux ls"
+alias tk="tmux kill-session -t"
 
 unalias cp
 
