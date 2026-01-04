@@ -101,7 +101,8 @@ Just Google it and follow instructions!
 ### Linux
 
 - install `fcitx5`
-- install `fcitx5-chinese-addons`
+- install `fcitx5-chinese-addons` or `fcitx5-rime`
+- git clone https://github.com/iDvel/rime-ice.git ~/.local/share/rime --depth 1
 - open fcitx5 config, add pinyin
 - reboot
 - add the following code to /etc/environment and login again
