@@ -63,7 +63,7 @@ function startproxy() {
     fi
 
     # 5. Start mihomo in the background, redirecting all output (stdout and stderr) to /dev/null
-    nohup mihomo -f "$MIHOMO_CONFIG_RUNTIME" > /dev/null 2>&1 &
+    sudo nohup mihomo -f "$MIHOMO_CONFIG_RUNTIME" > /dev/null 2>&1 &
 
     echo "mihomo started successfully with config: $MIHOMO_CONFIG_RUNTIME"
     return 0
@@ -75,5 +75,5 @@ function stopproxy() {
     return 1
   fi
 
-  kill "$(pgrep -x mihomo)"
+  sudo kill "$(sudo pgrep -x mihomo)"
 }
