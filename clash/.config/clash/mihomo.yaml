@@ -55,7 +55,6 @@ dns:
   ipv6: true
   enhanced-mode: fake-ip
   fake-ip-filter:
-    - "*"
     - "+.lan"
     - "+.local"
     - "+.market.xiaomi.com"
