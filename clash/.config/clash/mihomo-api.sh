@@ -16,24 +16,6 @@ function unsetproxy() {
     unset {HTTP,HTTPS,FTP,ALL}_PROXY
 }
 
-# Set Git Proxy
-function gsetproxy() {
-  git config --global http.proxy $MIHOMO_SERVICE_URL
-  git config --global https.proxy $MIHOMO_SERVICE_URL
-}
-
-# Unset Git Proxy
-function gunsetproxy() {
-  git config --global --unset http.proxy
-  git config --global --unset https.proxy
-}
-
-# Check Git Proxy Status
-function ggetproxy() {
-  git config --global --get http.proxy
-  git config --global --get https.proxy
-}
-
 function startproxy() {
     # 1. Check if mihomo is already running (check must be first and robust)
     if pgrep -x mihomo > /dev/null; then
@@ -62,8 +44,8 @@ function startproxy() {
         return 1
     fi
 
-    # 5. Start mihomo in the background, redirecting all output (stdout and stderr) to /dev/null
-    sudo nohup mihomo -f "$MIHOMO_CONFIG_RUNTIME" > /dev/null 2>&1 &
+    # 5. Start mihomo in the background
+    sudo -b mihomo -f "$MIHOMO_CONFIG_RUNTIME" > /dev/null 2>&1 &
 
     echo "mihomo started successfully with config: $MIHOMO_CONFIG_RUNTIME"
     return 0
