@@ -45,6 +45,10 @@ function startproxy() {
     fi
 
     # 5. Start mihomo in the background
+    if ! sudo -v; then
+        echo "sudo authentication failed."
+        return 1
+    fi
     sudo -b mihomo -f "$MIHOMO_CONFIG_RUNTIME" > /dev/null 2>&1 &
 
     echo "mihomo started successfully with config: $MIHOMO_CONFIG_RUNTIME"
