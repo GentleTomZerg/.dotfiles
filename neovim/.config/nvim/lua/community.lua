@@ -16,8 +16,10 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.vue" },
-  { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.python.base" },
+  { import = "astrocommunity.pack.python.basedpyright" },
+  { import = "astrocommunity.pack.python.ruff" },
   -- markdown preview
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },

@@ -62,8 +62,6 @@ return {
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-        ["H"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["L"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bd"] = {
@@ -81,10 +79,6 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
-      },
-      i = {
-        -- smart insert semicolon
-        [";;"] = { "<C-o>A;" },
       },
     },
   },

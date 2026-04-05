@@ -21,16 +21,16 @@ const {
     unmap,
     unmapAllExcept,
     vmapkey,
-    vunmap
+    vunmap,
 } = api;
 
-// Map H and L to switch between tabs
-api.unmap('H');
-api.map('H', 'E');
-api.unmap('L');
-api.map('L', 'R');
-// Map J and K to move forward or backwards within a tab
-api.unmap('J');
-api.map('J', 'S');
-api.unmap('K');
-api.map('K', 'D');
+// Map J and K to switch between tabs
+api.unmap("K");
+api.map("K", "E");
+api.unmap("J");
+api.map("J", "R");
+// Map H and L to move forward or backwards within a tab
+api.unmap("H");
+api.map("H", "S");
+api.unmap("L");
+api.map("L", "D");
