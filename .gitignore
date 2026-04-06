@@ -5,6 +5,8 @@
 /yazi/.config/yazi/plugins/
 /yazi/.config/yazi/flavors/
 /yazi/.config/yazi/package.toml
+# ignore opencode skills
+/opencode/.config/opencode/skills/*
 # ignore mihomo related files
 /clash/.config/clash/cache.db
 /clash/.config/clash/external-ui/
