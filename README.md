@@ -295,7 +295,6 @@ Host github.com
     Hostname ssh.github.com
     Port 443
     User git
-    ProxyCommand nc -x 127.0.0.1:7890 -X 5 %h %p
 ```
 
 ## Grub (Linux Only)
