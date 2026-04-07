@@ -1,0 +1,9 @@
+[EMAIL]
+SMTP_SSL_DOMAIN = smtp.example.com
+SMTP_SSL_PORT = 465
+SEND_EMAIL = your-email@example.com
+RECV_EMAIL = recipient@example.com
+
+[TEMPLATES]
+SUBJECT = {filename}
+BODY = File: {filename}

@@ -1,0 +1,84 @@
+import unittest
+from unittest.mock import patch, MagicMock
+from pathlib import Path
+from datetime import date
+import sys
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from emailer import Emailer, SendResult
+
+
+class TestEmailer(unittest.TestCase):
+    @patch("smtplib.SMTP_SSL")
+    def test_send_email_success(self, mock_smtp):
+        """Should send email via SMTP_SSL and return success."""
+        mock_conn = MagicMock()
+        mock_smtp.return_value.__enter__.return_value = mock_conn
+
+        emailer = Emailer("smtp.example.com", 465, "sender@example.com", "pass123")
+        result = emailer.send(
+            to="recipient@example.com",
+            subject="Test",
+            body="Hello",
+            attachment=Path("/tmp/test.pdf"),
+        )
+
+        self.assertTrue(result.success)
+        self.assertEqual(result.error, None)
+        mock_conn.login.assert_called_once_with("sender@example.com", "pass123")
+        mock_conn.send_message.assert_called_once()
+
+    @patch("smtplib.SMTP_SSL")
+    def test_send_email_without_attachment(self, mock_smtp):
+        """Should send email without attachment."""
+        mock_conn = MagicMock()
+        mock_smtp.return_value.__enter__.return_value = mock_conn
+
+        emailer = Emailer("smtp.example.com", 465, "sender@example.com", "pass123")
+        result = emailer.send(to="recipient@example.com", subject="Test", body="Hello")
+
+        self.assertTrue(result.success)
+        mock_conn.send_message.assert_called_once()
+
+    @patch("smtplib.SMTP_SSL")
+    def test_send_email_failure(self, mock_smtp):
+        """Should return error result on SMTP failure."""
+        mock_smtp.return_value.__enter__.side_effect = Exception("Connection refused")
+
+        emailer = Emailer("smtp.example.com", 465, "sender@example.com", "pass123")
+        result = emailer.send(to="recipient@example.com", subject="Test", body="Hello")
+
+        self.assertFalse(result.success)
+        self.assertIn("Connection refused", result.error)
+
+    @patch("smtplib.SMTP_SSL")
+    def test_send_batch_collects_results(self, mock_smtp):
+        """Should return results for each file in batch."""
+        mock_conn = MagicMock()
+        mock_smtp.return_value.__enter__.return_value = mock_conn
+
+        emailer = Emailer("smtp.example.com", 465, "sender@example.com", "pass123")
+        files = [Path("/tmp/a.pdf"), Path("/tmp/b.pdf")]
+
+        mock_file = MagicMock()
+        mock_file.__enter__.return_value.read.return_value = b"fake pdf content"
+
+        with patch.object(
+            Path, "stat", create=True, return_value=MagicMock(st_size=1024)
+        ):
+            with patch.object(Path, "exists", return_value=True):
+                with patch("builtins.open", return_value=mock_file):
+                    results = emailer.send_batch(
+                        files,
+                        "recipient@example.com",
+                        "Build {filename}",
+                        "Sent {filename}",
+                    )
+
+        self.assertEqual(len(results), 2)
+        for r in results:
+            self.assertTrue(r.success)
+
+
+if __name__ == "__main__":
+    unittest.main()
