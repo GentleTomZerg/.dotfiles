@@ -2,7 +2,7 @@
 return {
   -- For Community Plugin
   {
-    "catppuccin",
+    "catppuccin/nvim",
     opts = {
       flavour = "mocha",
       transparent_background = true,
@@ -68,7 +68,7 @@ return {
     ---@type AstroUIOpts
     opts = {
       -- change colorscheme
-      colorscheme = "catppuccin",
+      colorscheme = "catppuccin-nvim",
     },
   },
 
