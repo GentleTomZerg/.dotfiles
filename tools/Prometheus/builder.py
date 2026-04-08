@@ -28,6 +28,8 @@ class SendBuilder:
         verbosity: int = 0,
         subject_template: Optional[str] = None,
         body_template: Optional[str] = None,
+        base64_encode: bool = True,
+        rename_to_txt: bool = False,
     ):
         self.files = files
         self.config = config
@@ -36,6 +38,8 @@ class SendBuilder:
         self.verbosity = verbosity
         self.subject_template = subject_template or config.subject_template
         self.body_template = body_template or config.body_template
+        self.base64_encode = base64_encode
+        self.rename_to_txt = rename_to_txt
         self._chunks: List[Path] = []
 
     def with_subject(self, template: str) -> "SendBuilder":
@@ -52,6 +56,14 @@ class SendBuilder:
 
     def dry_run(self) -> "SendBuilder":
         self._dry_run = True
+        return self
+
+    def with_base64_encode(self, value: bool) -> "SendBuilder":
+        self.base64_encode = value
+        return self
+
+    def with_rename_to_txt(self, value: bool) -> "SendBuilder":
+        self.rename_to_txt = value
         return self
 
     def execute(self) -> BatchResult:
@@ -92,6 +104,8 @@ class SendBuilder:
             to=self.config.recipient,
             subject_template=self.subject_template,
             body_template=self.body_template,
+            base64_encode=self.base64_encode,
+            rename_to_txt=self.rename_to_txt,
         )
 
         batch_result = BatchResult()

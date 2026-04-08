@@ -1,6 +1,14 @@
 import subprocess
 from pathlib import Path
 import re
+import shutil
+
+
+def get_7z_command() -> str:
+    for cmd in ["7z", "7za", "7zr"]:
+        if shutil.which(cmd):
+            return cmd
+    raise RuntimeError("No 7z command found (tried: 7z, 7za, 7zr)")
 
 
 def parse_size(size_str: str) -> int:
@@ -29,9 +37,11 @@ def split_file(file_path: Path, size: str, output_dir: Path) -> list[Path]:
     size_bytes = parse_size(size)
     size_mb = size_bytes // (1024 * 1024)
 
+    cmd = get_7z_command()
+
     result = subprocess.run(
         [
-            "7z",
+            cmd,
             "a",
             f"-v{size_mb}m",
             str(output_dir / file_path.name) + ".7z",
@@ -42,7 +52,7 @@ def split_file(file_path: Path, size: str, output_dir: Path) -> list[Path]:
     )
 
     if result.returncode != 0:
-        raise RuntimeError(f"7z failed: {result.stderr}")
+        raise RuntimeError(f"{cmd} failed: {result.stderr}")
 
     chunks = []
     base = output_dir / (file_path.name + ".7z")

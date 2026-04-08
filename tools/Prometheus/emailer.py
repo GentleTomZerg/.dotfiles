@@ -31,6 +31,8 @@ class Emailer:
         subject: str,
         body: str,
         attachment: Optional[Path] = None,
+        base64_encode: bool = True,
+        rename_to_txt: bool = False,
     ) -> SendResult:
         try:
             msg = MIMEMultipart()
@@ -43,10 +45,19 @@ class Emailer:
                 with open(attachment, "rb") as f:
                     part = MIMEBase("application", "octet-stream")
                     part.set_payload(f.read())
-                encoders.encode_base64(part)
+
+                filename = (
+                    f"{attachment.name}.txt" if rename_to_txt else attachment.name
+                )
+
+                if base64_encode:
+                    encoders.encode_base64(part)
+                else:
+                    part.add_header("Content-Transfer-Encoding", "binary")
+
                 part.add_header(
                     "Content-Disposition",
-                    f"attachment; filename= {attachment.name}",
+                    f"attachment; filename= {filename}",
                 )
                 msg.attach(part)
 
@@ -68,6 +79,8 @@ class Emailer:
         to: str,
         subject_template: str,
         body_template: str,
+        base64_encode: bool = True,
+        rename_to_txt: bool = False,
     ) -> list[SendResult]:
         results = []
         for file_path in files:
@@ -79,7 +92,14 @@ class Emailer:
             subject = self._render(subject_template, context)
             body = self._render(body_template, context)
 
-            result = self.send(to=to, subject=subject, body=body, attachment=file_path)
+            result = self.send(
+                to=to,
+                subject=subject,
+                body=body,
+                attachment=file_path,
+                base64_encode=base64_encode,
+                rename_to_txt=rename_to_txt,
+            )
             results.append(result)
         return results
 

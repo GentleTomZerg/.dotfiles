@@ -31,6 +31,16 @@ def main():
     send_parser.add_argument(
         "--dry-run", action="store_true", help="Preview without sending"
     )
+    send_parser.add_argument(
+        "--no-base64",
+        action="store_true",
+        help="Send file as binary instead of base64",
+    )
+    send_parser.add_argument(
+        "--rename-to-txt",
+        action="store_true",
+        help="Rename attachment to .txt to bypass server filters",
+    )
 
     split_parser = subparsers.add_parser(
         "split-and-send", help="Split file and send chunks"
@@ -42,6 +52,16 @@ def main():
     split_parser.add_argument("-v", "--verbose", action="count", default=0)
     split_parser.add_argument(
         "--dry-run", action="store_true", help="Preview without sending"
+    )
+    split_parser.add_argument(
+        "--no-base64",
+        action="store_true",
+        help="Send file as binary instead of base64",
+    )
+    split_parser.add_argument(
+        "--rename-to-txt",
+        action="store_true",
+        help="Rename attachment to .txt to bypass server filters",
     )
 
     args = parser.parse_args()
@@ -63,6 +83,10 @@ def main():
             builder = builder.with_body(args.body)
         if args.dry_run:
             builder = builder.dry_run()
+        if args.no_base64:
+            builder = builder.with_base64_encode(False)
+        if args.rename_to_txt:
+            builder = builder.with_rename_to_txt(True)
 
         result = builder.execute()
 
@@ -81,6 +105,10 @@ def main():
             builder = builder.with_body(args.body)
         if args.dry_run:
             builder = builder.dry_run()
+        if args.no_base64:
+            builder = builder.with_base64_encode(False)
+        if args.rename_to_txt:
+            builder = builder.with_rename_to_txt(True)
 
         result = builder.execute()
 
