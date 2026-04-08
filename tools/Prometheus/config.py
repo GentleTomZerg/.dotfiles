@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
 from configparser import ConfigParser
-import os
 
 
 @dataclass

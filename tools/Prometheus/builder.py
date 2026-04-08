@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional, List
-from datetime import date
 
 from config import Config
 from emailer import Emailer, SendResult
