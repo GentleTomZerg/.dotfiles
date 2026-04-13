@@ -9,13 +9,18 @@ if initialize_session "dotfiles"; then
   new_window "stow"
   run_cmd "y"
 
+  window_root "$HOME/stow"
+  new_window "opencode"
+  split_h 50
+  run_cmd "opencode --port" 2
+  select_pane 1
+
   window_root "$HOME/stow/clash/.config/clash"
   new_window "clash"
 
   window_root "$HOME/stow/tools/Prometheus"
   new_window "prometheus"
 
-  select_pane 1
   select_window "stow"
 fi
 
