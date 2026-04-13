@@ -12,8 +12,6 @@ if initialize_session "dotfiles"; then
   window_root "$HOME/stow"
   new_window "opencode"
   split_h 50
-  run_cmd "opencode --port" 2
-  select_pane 1
 
   window_root "$HOME/stow/clash/.config/clash"
   new_window "clash"
