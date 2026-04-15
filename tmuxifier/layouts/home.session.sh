@@ -8,6 +8,10 @@ if initialize_session "home"; then
   window_root "$HOME"
   new_window "package_manager"
 
+  window_root "$HOME/Downloads/"
+  new_window "downloads"
+  run_cmd "y"
+
   select_window "package_manager"
 fi
 
