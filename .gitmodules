@@ -1,0 +1,3 @@
+[submodule "opencode/.config/opencode/skills/mattpocock"]
+	path = opencode/.config/opencode/skills/mattpocock
+	url = git@github.com:mattpocock/skills.git
