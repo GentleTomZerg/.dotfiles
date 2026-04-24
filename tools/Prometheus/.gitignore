@@ -1,4 +1,5 @@
 .env
 config.ini
+temp/
 __pycache__/
 *.pyc

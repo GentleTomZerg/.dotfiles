@@ -1,10 +1,13 @@
+import base64
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional, List
 
 from config import Config
 from emailer import Emailer, SendResult
-from splitter import split_file
+from encoder import SplitStrategy, EncodeStrategy, NoOpStrategy
+
+TEMP_DIR = Path(__file__).parent / "temp"
 
 
 @dataclass
@@ -24,22 +27,27 @@ class SendBuilder:
         config: Config,
         split_size: Optional[str] = None,
         is_dry_run: bool = False,
-        verbosity: int = 0,
         subject_template: Optional[str] = None,
         body_template: Optional[str] = None,
         base64_encode: bool = True,
-        rename_to_txt: bool = False,
     ):
         self.files = files
         self.config = config
         self.split_size = split_size
         self._dry_run = is_dry_run
-        self.verbosity = verbosity
         self.subject_template = subject_template or config.subject_template
         self.body_template = body_template or config.body_template
         self.base64_encode = base64_encode
-        self.rename_to_txt = rename_to_txt
-        self._chunks: List[Path] = []
+        self._strategy: Optional[NoOpStrategy] = None
+        self._set_default_strategy()
+
+    def _set_default_strategy(self):
+        if self.split_size:
+            self._strategy = SplitStrategy(self.split_size, TEMP_DIR)
+        elif self.base64_encode:
+            self._strategy = EncodeStrategy(TEMP_DIR)
+        else:
+            self._strategy = NoOpStrategy()
 
     def with_subject(self, template: str) -> "SendBuilder":
         self.subject_template = template
@@ -49,47 +57,41 @@ class SendBuilder:
         self.body_template = template
         return self
 
-    def with_verbosity(self, level: int) -> "SendBuilder":
-        self.verbosity = level
-        return self
-
     def dry_run(self) -> "SendBuilder":
         self._dry_run = True
         return self
 
     def with_base64_encode(self, value: bool) -> "SendBuilder":
         self.base64_encode = value
+        if value:
+            self._strategy = EncodeStrategy(TEMP_DIR)
+        else:
+            self._strategy = NoOpStrategy()
         return self
 
-    def with_rename_to_txt(self, value: bool) -> "SendBuilder":
-        self.rename_to_txt = value
+    def with_split(self, size: str) -> "SendBuilder":
+        self.split_size = size
+        self._strategy = SplitStrategy(size, TEMP_DIR)
         return self
 
     def execute(self) -> BatchResult:
-        if self.split_size:
-            self._split_files()
+        TEMP_DIR.mkdir(parents=True, exist_ok=True)
+        intermediates = self._strategy.transform(self.files)
 
         if self._dry_run:
-            return self._dry_run_results()
+            return self._dry_run_results(intermediates)
 
-        return self._send_files()
+        return self._send_files(intermediates)
 
-    def _split_files(self):
-        for file_path in self.files:
-            if self.verbosity > 0:
-                print(f"Splitting {file_path.name} into {self.split_size} chunks...")
-            chunks = split_file(file_path, self.split_size, file_path.parent)
-            self._chunks.extend(chunks)
-
-    def _dry_run_results(self) -> BatchResult:
+    def _dry_run_results(self, intermediates: List[Path]) -> BatchResult:
         result = BatchResult()
-        for f in self._chunks or self.files:
-            if self.verbosity > 0:
-                print(f"[DRY RUN] Would send: {f}")
+        print("[DRY RUN] Would send:")
+        for f in intermediates:
+            print(f"  - {f}")
             result.succeeded.append(f)
         return result
 
-    def _send_files(self) -> BatchResult:
+    def _send_files(self, files: List[Path]) -> BatchResult:
         emailer = Emailer(
             host=self.config.smtp_host,
             port=self.config.smtp_port,
@@ -97,27 +99,23 @@ class SendBuilder:
             password=self.config.password,
         )
 
-        files_to_send = self._chunks if self._chunks else self.files
+        do_base64_encode = isinstance(self._strategy, EncodeStrategy)
         results = emailer.send_batch(
-            files=files_to_send,
+            files=files,
             to=self.config.recipient,
             subject_template=self.subject_template,
             body_template=self.body_template,
-            base64_encode=self.base64_encode,
-            rename_to_txt=self.rename_to_txt,
+            base64_encode=do_base64_encode,
         )
 
         batch_result = BatchResult()
         for r in results:
             if r.success:
                 batch_result.succeeded.append(r.path)
+                print(f"[SENT] {r.path}")
             else:
                 batch_result.failed.append((r.path, r.error or "Unknown error"))
-
-        if self.verbosity > 0:
-            print(f"Sent {len(batch_result.succeeded)}/{len(files_to_send)} files")
-            for path, error in batch_result.failed:
-                print(f"Failed: {path} - {error}")
+                print(f"[FAILED] {r.path} - {r.error}")
 
         return batch_result
 

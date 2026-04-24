@@ -91,6 +91,21 @@ class TestSplitter(unittest.TestCase):
 
         self.assertIn("7z failed", str(ctx.exception))
 
+    @patch("splitter.get_7z_command")
+    @patch("subprocess.run")
+    def test_split_file_uses_temp_dir_when_provided(self, mock_run, mock_get_cmd):
+        """Should write chunks to temp_dir instead of source directory."""
+        mock_get_cmd.return_value = "7z"
+        mock_run.return_value = MagicMock(returncode=0)
+
+        temp_dir = Path("/tmp/my_temp")
+        with patch.object(Path, "exists", return_value=True):
+            chunks = split_file(Path("/src/file.zip"), "10m", temp_dir)
+
+        mock_run.assert_called_once()
+        args = mock_run.call_args[0][0]
+        self.assertIn(str(temp_dir / "file.zip.7z"), args[-2])
+
 
 if __name__ == "__main__":
     unittest.main()

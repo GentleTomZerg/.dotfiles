@@ -27,19 +27,13 @@ def main():
     send_parser.add_argument("files", nargs="+", help="Files to send (globs supported)")
     send_parser.add_argument("--subject", help="Subject template")
     send_parser.add_argument("--body", help="Body template")
-    send_parser.add_argument("-v", "--verbose", action="count", default=0)
-    send_parser.add_argument(
-        "--dry-run", action="store_true", help="Preview without sending"
-    )
     send_parser.add_argument(
         "--no-base64",
         action="store_true",
         help="Send file as binary instead of base64",
     )
     send_parser.add_argument(
-        "--rename-to-txt",
-        action="store_true",
-        help="Rename attachment to .txt to bypass server filters",
+        "--dry-run", action="store_true", help="Preview without sending"
     )
 
     split_parser = subparsers.add_parser(
@@ -49,19 +43,8 @@ def main():
     split_parser.add_argument("size", help="Chunk size (e.g., 10m, 1g)")
     split_parser.add_argument("--subject", help="Subject template")
     split_parser.add_argument("--body", help="Body template")
-    split_parser.add_argument("-v", "--verbose", action="count", default=0)
     split_parser.add_argument(
         "--dry-run", action="store_true", help="Preview without sending"
-    )
-    split_parser.add_argument(
-        "--no-base64",
-        action="store_true",
-        help="Send file as binary instead of base64",
-    )
-    split_parser.add_argument(
-        "--rename-to-txt",
-        action="store_true",
-        help="Rename attachment to .txt to bypass server filters",
     )
 
     args = parser.parse_args()
@@ -75,8 +58,6 @@ def main():
             sys.exit(1)
 
         builder = prometheus.send(files)
-        if args.verbose:
-            builder = builder.with_verbosity(args.verbose)
         if args.subject:
             builder = builder.with_subject(args.subject)
         if args.body:
@@ -85,8 +66,6 @@ def main():
             builder = builder.dry_run()
         if args.no_base64:
             builder = builder.with_base64_encode(False)
-        if args.rename_to_txt:
-            builder = builder.with_rename_to_txt(True)
 
         result = builder.execute()
 
@@ -97,18 +76,12 @@ def main():
             sys.exit(1)
 
         builder = prometheus.split_and_send(file_path, args.size)
-        if args.verbose:
-            builder = builder.with_verbosity(args.verbose)
         if args.subject:
             builder = builder.with_subject(args.subject)
         if args.body:
             builder = builder.with_body(args.body)
         if args.dry_run:
             builder = builder.dry_run()
-        if args.no_base64:
-            builder = builder.with_base64_encode(False)
-        if args.rename_to_txt:
-            builder = builder.with_rename_to_txt(True)
 
         result = builder.execute()
 
