@@ -1,20 +1,65 @@
 # Prometheus
 
-Send files via email with optional splitting.
+Send files via email with optional 7z splitting and base64 encoding.
+
+## Features
+
+- Send files via email with SMTP/SSL
+- Base64 encoding for universal email compatibility
+- 7z splitting for large files (bypass email size limits)
+- Dry run mode to preview before sending
+- Template variables in subject/body
 
 ## Setup
 
-1. Copy and configure the config files:
-   ```bash
-   cp config.ini.example config.ini
-   cp .env.example .env
-   ```
+```bash
+# 1. Copy and configure config files
+cp config.ini.example config.ini
+cp .env.example .env
 
-2. Edit `config.ini` with your email settings and `.env` with your password.
+# 2. Edit config.ini with your email settings
+# 3. Edit .env with your SMTP password
+```
+
+### Configuration
+
+**config.ini**
+| Section | Option | Description | Default |
+|---------|--------|-------------|---------|
+| EMAIL | SMTP_SSL_DOMAIN | SMTP server hostname | - |
+| EMAIL | SMTP_SSL_PORT | SMTP port | 465 |
+| EMAIL | SEND_EMAIL | Sender email address | - |
+| EMAIL | RECV_EMAIL | Recipient email address | - |
+| TEMPLATES | SUBJECT | Email subject template | `{filename}` |
+| TEMPLATES | BODY | Email body template | `{filename}` |
+
+**.env**
+| Variable | Description |
+|----------|-------------|
+| SMTP_HOST | SMTP server (overrides config.ini) |
+| SMTP_PORT | SMTP port (overrides config.ini) |
+| SMTP_PASSWORD | SMTP password |
+
+---
 
 ## Usage
 
-### Send files
+### `send` Command
+
+Send files via email with base64 encoding.
+
+```
+python prometheus.py send <files> [options]
+```
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--subject` | Subject template | From config |
+| `--body` | Body template | From config |
+| `--no-base64` | Send as binary instead of base64 | `false` |
+| `--dry-run` | Preview without sending | `false` |
+
+**Examples**
 
 ```bash
 # Single file
@@ -26,65 +71,126 @@ python prometheus.py send file1.pdf file2.zip
 # Glob patterns
 python prometheus.py send *.zip
 
-# Custom subject/body templates
-python prometheus.py send file.pdf --subject "Build: {filename}"
+# Custom templates
+python prometheus.py send file.pdf --subject "Build: {filename}" --body "File: {filename}"
 
 # Dry run (preview)
 python prometheus.py send file.pdf --dry-run
 
-# Verbose output (use -v, -vv, or -vvv for more detail)
-python prometheus.py send file.pdf -v
-```
-
-### Attachment Encoding Options
-
-By default, attachments are base64 encoded which ensures compatibility with all email servers. However, some receiving servers may flag certain file types (.js, .sh, .exe) as potentially malicious even when base64 encoded.
-
-```bash
-# Send as raw binary instead of base64
+# Send as binary (no base64)
 python prometheus.py send script.sh --no-base64
-
-# Rename to .txt to bypass extension-based filters
-python prometheus.py send script.sh --rename-to-txt
-
-# Both options together (recommended for problematic file types)
-python prometheus.py send script.sh --no-base64 --rename-to-txt
-# Recipient will see: script.sh.txt
 ```
 
-### Split and send
+**Sample output**
+```
+[DRY RUN] Would send:
+  - temp/file.b64
+```
+```
+[SENT] temp/file.b64
+```
+
+---
+
+### `split-and-send` Command
+
+Split large file into 7z chunks, then send each chunk.
+
+```
+python prometheus.py split-and-send <file> <size> [options]
+```
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `size` | Chunk size (e.g., 10m, 1g, 500k) | Required |
+| `--subject` | Subject template | From config |
+| `--body` | Body template | From config |
+| `--dry-run` | Preview without sending | `false` |
+
+**Size format**: `N[kKmMgG]` where:
+- `k` / `K` = kilobytes (1024)
+- `m` / `M` = megabytes (1024²)
+- `g` / `G` = gigabytes (1024³)
+- No suffix = bytes
+
+**Examples**
 
 ```bash
-# Split large file into chunks, then send each
+# Split into 10MB chunks
 python prometheus.py split-and-send bigfile.zip 10m
+
+# Split into 1GB chunks
+python prometheus.py split-and-send large.bin 1g
+
+# Dry run
+python prometheus.py split-and-send bigfile.zip 10m --dry-run
 ```
+
+**Sample output**
+```
+[DRY RUN] Would send:
+  - temp/bigfile.7z.001
+  - temp/bigfile.7z.002
+  - temp/bigfile.7z.003
+```
+```
+[SENT] temp/bigfile.7z.001
+[SENT] temp/bigfile.7z.002
+[SENT] temp/bigfile.7z.003
+```
+
+---
 
 ## Template Variables
 
-- `{filename}` - basename of the file
-- `{size}` - file size in human-readable format
-- `{date}` - current date
+Use these placeholders in `--subject` and `--body`:
 
-## Verbose Output
+| Variable | Description | Example Output |
+|----------|-------------|----------------|
+| `{filename}` | Basename of file | `report.pdf` |
+| `{size}` | Human-readable size | `1.5MB` |
+| `{date}` | Current date | `2026-04-24` |
 
-The `-v` flag controls verbosity level. Repeat for more detail:
+**Example**
+```bash
+python prometheus.py send file.zip \
+  --subject "Sending: {filename} ({size})" \
+  --body "Date: {date}"
+```
 
-| Flag | Level | Description |
-|------|-------|-------------|
-| (none) | 0 | No output except errors |
-| `-v` | 1 | Show progress (files sent, splits) |
-| `-vv` | 2 | Show each file being processed |
-| `-vvv` | 3 | Debug-level detail |
+---
 
-## Configuration
+## Intermediate Files
 
-See `config.ini.example` for all options.
+Prometheus stores intermediate files in `./temp/`:
 
-### Default Attachment Settings
+| Command | Files |
+|---------|-------|
+| `send` | `*.b64` (base64 encoded) |
+| `split-and-send` | `*.7z.001`, `*.7z.002`, ... |
 
-| Option | Default | Description |
-|--------|---------|-------------|
-| base64_encode | true | Base64 encode attachments for universal email compatibility |
-| rename_to_txt | false | Append .txt to filename to bypass extension-based filters |
+These files are kept after sending for reference. Delete `./temp/` manually to clean up.
 
-These defaults ensure attachments work with all email servers. Use `--no-base64` and/or `--rename-to-txt` when sending files that trigger false positives on the receiving server.
+---
+
+## Requirements
+
+- Python 3.10+
+- SMTP access to an email server
+- `7z` command (for split-and-send only)
+
+Install 7z on macOS:
+```bash
+brew install p7zip
+```
+
+Install 7z on Ubuntu/Debian:
+```bash
+sudo apt install p7zip-full
+```
+
+---
+
+## License
+
+MIT
