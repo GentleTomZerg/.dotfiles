@@ -22,7 +22,6 @@ return {
   { import = "astrocommunity.pack.python.ruff" },
   -- markdown preview
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
-  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   -- color display
   { import = "astrocommunity.color.nvim-highlight-colors" },
   -- easy motion
