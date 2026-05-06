@@ -1,7 +1,7 @@
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "*", -- use latest release, remove to use latest commit
-  event = { "BufReadPre  */Obsidian Vault/*.md" },
+  event = { "BufReadPre  */Obsidian_Vault/*.md" },
   lazy = true,
   ---@module 'obsidian'
   ---@type obsidian.config
@@ -11,7 +11,7 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "~/Documents/Obsidian Vault",
+        path = "~/Projects/Obsidian_Vault",
       },
     },
   },
