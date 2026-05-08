@@ -20,8 +20,6 @@ return {
   { import = "astrocommunity.pack.python.base" },
   { import = "astrocommunity.pack.python.basedpyright" },
   { import = "astrocommunity.pack.python.ruff" },
-  -- markdown preview
-  { import = "astrocommunity.markdown-and-latex.peek-nvim" },
   -- color display
   { import = "astrocommunity.color.nvim-highlight-colors" },
   -- easy motion
