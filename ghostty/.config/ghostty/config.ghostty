@@ -3,9 +3,11 @@ font-thicken = true
 font-family = FiraCode Nerd Font
 font-family = LXGW WenKai
 
-window-decoration = none
+window-decoration = auto
+window-padding-x = 4
+
 background-opacity = 0.7
-background-blur = 20
+background-blur = true
 confirm-close-surface = false
 
 theme = Catppuccin Macchiato
@@ -14,3 +16,4 @@ font-feature = -calt, -liga, -dlig
 
 adjust-cursor-thickness = 2
 
+auto-update = off
