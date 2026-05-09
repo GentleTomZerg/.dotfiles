@@ -34,8 +34,14 @@ return {
       image = {
         doc = {
           enabled = true,
-          inline = true,
+          inline = false,
           float = true,
+          max_width = 80,
+          max_height = 40,
+          conceal = function(lang, type)
+            -- only conceal math expressions
+            return type == "math"
+          end,
         },
         math = {
           enabled = true,
