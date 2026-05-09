@@ -88,7 +88,8 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
     # alt-enter = 'exec-and-forget open -n -b "net.kovidgoyal.kitty"'
-    alt-enter = 'exec-and-forget open -n -b "com.github.wez.wezterm"'
+    # alt-enter = 'exec-and-forget open -n -b "com.github.wez.wezterm"'
+    alt-enter = 'exec-and-forget open -n -b "com.mitchellh.ghostty"'
     alt-g = 'exec-and-forget open -b "com.google.Chrome"'
     alt-down = 'volume down'
     alt-up = 'volume up'
