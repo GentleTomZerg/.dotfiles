@@ -41,7 +41,9 @@ ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
 # Env Variables
 export EDITOR='nvim'
-export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+if [[ "$(uname)" == "Darwin" ]]; then
+  export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+fi
 
 # Alias
 alias c="clear"
