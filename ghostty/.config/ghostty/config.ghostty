@@ -3,19 +3,19 @@ font-thicken = true
 font-thicken-strength = 1
 font-family = FiraCode Nerd Font
 font-family = LXGW WenKai
+font-feature = -calt, -liga, -dlig
 
 window-decoration = auto
 window-padding-x = 8
 window-padding-y = 8
 macos-titlebar-style = hidden
+mouse-hide-while-typing = true
 
 background-opacity = 0.7
 background-blur = macos-glass-clear
 confirm-close-surface = false
 
 theme = Catppuccin Macchiato
-
-font-feature = -calt, -liga, -dlig
 
 adjust-cursor-thickness = 2
 
