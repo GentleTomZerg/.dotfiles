@@ -1,11 +1,12 @@
 # Prometheus
 
-Send files via email with optional 7z splitting and base64 encoding.
+Send files via email with optional 7z splitting and optional `.b64` content generation.
 
 ## Features
 
 - Send files via email with SMTP/SSL
-- Base64 encoding for universal email compatibility
+- SMTP-safe MIME base64 transport encoding for attachments
+- Optional `.b64` content generation
 - 7z splitting for large files (bypass email size limits)
 - Dry run mode to preview before sending
 - Template variables in subject/body
@@ -46,7 +47,7 @@ cp .env.example .env
 
 ### `send` Command
 
-Send files via email with base64 encoding.
+Send files via email. By default, input files are first converted to `.b64` files in `./temp/`.
 
 ```
 python prometheus.py send <files> [options]
@@ -56,7 +57,7 @@ python prometheus.py send <files> [options]
 |--------|-------------|---------|
 | `--subject` | Subject template | From config |
 | `--body` | Body template | From config |
-| `--no-base64` | Send as binary instead of base64 | `false` |
+| `--no-base64` | Skip `.b64` content generation and send original files | `false` |
 | `--dry-run` | Preview without sending | `false` |
 
 **Examples**
@@ -77,7 +78,7 @@ python prometheus.py send file.pdf --subject "Build: {filename}" --body "File: {
 # Dry run (preview)
 python prometheus.py send file.pdf --dry-run
 
-# Send as binary (no base64)
+# Skip `.b64` content generation
 python prometheus.py send script.sh --no-base64
 ```
 
@@ -141,6 +142,21 @@ python prometheus.py split-and-send bigfile.zip 10m --dry-run
 
 ---
 
+## Encoding Model
+
+Prometheus has two separate encoding layers:
+
+1. Content encoding (`--no-base64` controls this for `send`)
+- Default `send`: create `*.b64` files in `./temp/` and attach those files.
+- With `--no-base64`: attach original files directly (no `.b64` intermediate files).
+- `split-and-send`: create and attach `*.7z.001`, `*.7z.002`, ... chunks.
+
+2. Transport encoding (always on)
+- All attachments are MIME base64 encoded before SMTP transfer.
+- This preserves attachment bytes across typical SMTP relays.
+
+---
+
 ## Template Variables
 
 Use these placeholders in `--subject` and `--body`:
@@ -166,7 +182,7 @@ Prometheus stores intermediate files in `./temp/`:
 
 | Command | Files |
 |---------|-------|
-| `send` | `*.b64` (base64 encoded) |
+| `send` | `*.b64` (default) or original files (`--no-base64`) |
 | `split-and-send` | `*.7z.001`, `*.7z.002`, ... |
 
 These files are kept after sending for reference. Delete `./temp/` manually to clean up.

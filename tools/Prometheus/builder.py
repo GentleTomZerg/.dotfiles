@@ -99,16 +99,11 @@ class SendBuilder:
             password=self.config.password,
         )
 
-        # Transport encoding is independent from file transform strategy.
-        # Split chunks are still raw 7z files, but should be MIME-base64 encoded
-        # for SMTP-safe transfer. Only explicit no-op sends skip base64 transport.
-        do_base64_encode = not isinstance(self._strategy, NoOpStrategy)
         results = emailer.send_batch(
             files=files,
             to=self.config.recipient,
             subject_template=self.subject_template,
             body_template=self.body_template,
-            base64_encode=do_base64_encode,
         )
 
         batch_result = BatchResult()

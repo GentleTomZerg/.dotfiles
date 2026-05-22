@@ -184,19 +184,20 @@ class TestSendBuilder(unittest.TestCase):
             self.assertIsNotNone(b._strategy)
             self.assertEqual(b._strategy.__class__.__name__, "SplitStrategy")
 
-    def test_split_strategy_uses_base64_transport(self):
-        """SplitStrategy should send attachments with base64 transport encoding."""
+    def test_split_strategy_sends_split_chunks(self):
+        """SplitStrategy should pass split chunk files to emailer.send_batch()."""
         with patch("builder.Config.load"):
             with patch("builder.Emailer") as mock_emailer:
                 with patch("builder.SplitStrategy.transform") as mock_transform:
                     mock_emailer.return_value.send_batch.return_value = []
-                    mock_transform.return_value = [Path("temp/large.bin.7z.001")]
+                    split_chunk = Path("temp/large.bin.7z.001")
+                    mock_transform.return_value = [split_chunk]
                     p = Prometheus()
 
                     p.send([Path("large.bin")]).with_split("10m").execute()
 
                     call_kwargs = mock_emailer.return_value.send_batch.call_args[1]
-                    self.assertTrue(call_kwargs["base64_encode"])
+                    self.assertEqual(call_kwargs["files"], [split_chunk])
 
     def test_with_base64_encode_true_sets_strategy(self):
         """SendBuilder.with_base64_encode(True) should use EncodeStrategy."""

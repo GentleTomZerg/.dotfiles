@@ -30,7 +30,6 @@ class Emailer:
         subject: str,
         body: str,
         attachment: Optional[Path] = None,
-        base64_encode: bool = True,
         rename_to_txt: bool = False,
     ) -> SendResult:
         try:
@@ -49,10 +48,8 @@ class Emailer:
                     f"{attachment.name}.txt" if rename_to_txt else attachment.name
                 )
 
-                if base64_encode:
-                    encoders.encode_base64(part)
-                else:
-                    part.add_header("Content-Transfer-Encoding", "binary")
+                # Always use MIME base64 transfer encoding for SMTP-safe transport.
+                encoders.encode_base64(part)
 
                 part.add_header(
                     "Content-Disposition",
@@ -78,7 +75,6 @@ class Emailer:
         to: str,
         subject_template: str,
         body_template: str,
-        base64_encode: bool = True,
         rename_to_txt: bool = False,
     ) -> list[SendResult]:
         results = []
@@ -96,7 +92,6 @@ class Emailer:
                 subject=subject,
                 body=body,
                 attachment=file_path,
-                base64_encode=base64_encode,
                 rename_to_txt=rename_to_txt,
             )
             results.append(result)

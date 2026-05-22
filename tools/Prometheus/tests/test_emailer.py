@@ -80,8 +80,8 @@ class TestEmailer(unittest.TestCase):
             self.assertTrue(r.success)
 
     @patch("smtplib.SMTP_SSL")
-    def test_send_without_base64(self, mock_smtp):
-        """Should send file as binary when base64_encode=False."""
+    def test_send_attachment_uses_base64_transport(self, mock_smtp):
+        """Should always use MIME base64 transport for attachments."""
         mock_conn = MagicMock()
         mock_smtp.return_value.__enter__.return_value = mock_conn
 
@@ -98,13 +98,12 @@ class TestEmailer(unittest.TestCase):
                         subject="Test",
                         body="Hello",
                         attachment=Path("/tmp/test.js"),
-                        base64_encode=False,
                     )
 
         self.assertTrue(result.success)
         call_args = mock_conn.send_message.call_args[0][0]
         payload_str = call_args.as_string()
-        self.assertIn("Content-Transfer-Encoding: binary", payload_str)
+        self.assertIn("Content-Transfer-Encoding: base64", payload_str)
         self.assertIn("test.js", payload_str)
 
     @patch("smtplib.SMTP_SSL")
@@ -135,8 +134,8 @@ class TestEmailer(unittest.TestCase):
         self.assertIn("script.sh.txt", payload_str)
 
     @patch("smtplib.SMTP_SSL")
-    def test_send_no_base64_and_rename_to_txt(self, mock_smtp):
-        """Should send as binary with .txt extension."""
+    def test_send_attachment_and_rename_to_txt(self, mock_smtp):
+        """Should use base64 transport and .txt extension when renamed."""
         mock_conn = MagicMock()
         mock_smtp.return_value.__enter__.return_value = mock_conn
 
@@ -153,19 +152,18 @@ class TestEmailer(unittest.TestCase):
                         subject="Test",
                         body="Hello",
                         attachment=Path("/tmp/malware.js"),
-                        base64_encode=False,
                         rename_to_txt=True,
                     )
 
         self.assertTrue(result.success)
         call_args = mock_conn.send_message.call_args[0][0]
         payload_str = call_args.as_string()
-        self.assertIn("Content-Transfer-Encoding: binary", payload_str)
+        self.assertIn("Content-Transfer-Encoding: base64", payload_str)
         self.assertIn("malware.js.txt", payload_str)
 
     @patch("smtplib.SMTP_SSL")
-    def test_send_batch_with_options(self, mock_smtp):
-        """Should pass base64 and rename options to send_batch."""
+    def test_send_batch_with_rename_option(self, mock_smtp):
+        """Should apply base64 transport and preserve rename option in batch."""
         mock_conn = MagicMock()
         mock_smtp.return_value.__enter__.return_value = mock_conn
 
@@ -185,14 +183,13 @@ class TestEmailer(unittest.TestCase):
                         "recipient@example.com",
                         "Subject",
                         "Body",
-                        base64_encode=False,
                         rename_to_txt=True,
                     )
 
         self.assertEqual(len(results), 1)
         self.assertTrue(results[0].success)
         payload_str = mock_conn.send_message.call_args[0][0].as_string()
-        self.assertIn("Content-Transfer-Encoding: binary", payload_str)
+        self.assertIn("Content-Transfer-Encoding: base64", payload_str)
         self.assertIn("test.sh.txt", payload_str)
 
 
