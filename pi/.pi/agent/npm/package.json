@@ -1,0 +1,8 @@
+{
+  "name": "pi-extensions",
+  "private": true,
+  "dependencies": {
+    "pi-btw": "^0.4.0",
+    "pi-web-access": "^0.10.7"
+  }
+}

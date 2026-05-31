@@ -10,3 +10,8 @@
 /clash/.config/clash/external-ui/
 /clash/.config/clash/mihomo_runtime.yaml
 /clash/.config/clash/subscribe_url.txt
+# pi - auto-generated files (not managed by stow)
+/pi/.pi/agent/npm/node_modules/
+/pi/.pi/agent/npm/package-lock.json
+/pi/.pi/agent/sessions/
+/pi/.pi/context-mode/

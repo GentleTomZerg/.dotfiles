@@ -1,0 +1,13 @@
+{
+  "lastChangelogVersion": "0.78.0",
+  "defaultProvider": "opencode",
+  "defaultModel": "deepseek-v4-flash-free",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-btw"
+  ],
+  "skills": [
+    "~/stow/opencode/.config/opencode/skills/mattpocock/skills"
+  ]
+}
