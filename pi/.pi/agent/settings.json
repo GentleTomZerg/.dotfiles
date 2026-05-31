@@ -1,4 +1,5 @@
 {
+  "theme": "catppuccin-macchiato",
   "lastChangelogVersion": "0.78.0",
   "defaultProvider": "opencode",
   "defaultModel": "deepseek-v4-flash-free",
