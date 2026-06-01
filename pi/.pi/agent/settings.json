@@ -6,7 +6,9 @@
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-btw"
+    "npm:pi-btw",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo"
   ],
   "skills": [
     "~/stow/opencode/.config/opencode/skills/mattpocock/skills"
