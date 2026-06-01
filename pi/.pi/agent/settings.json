@@ -11,6 +11,6 @@
     "npm:@juicesharp/rpiv-todo"
   ],
   "skills": [
-    "~/stow/opencode/.config/opencode/skills/mattpocock/skills"
+    "~/stow/opencode/.config/opencode/skills"
   ]
 }
