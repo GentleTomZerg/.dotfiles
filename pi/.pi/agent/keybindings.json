@@ -1,0 +1,9 @@
+{
+  "app.model.cycleForward": [],
+  "app.session.togglePath": [],
+  "app.session.toggleNamedFilter": [],
+  "tui.editor.cursorUp": ["up", "ctrl+p"],
+  "tui.editor.cursorDown": ["down", "ctrl+n"],
+  "tui.select.up": ["up", "ctrl+p"],
+  "tui.select.down": ["down", "ctrl+n"]
+}
