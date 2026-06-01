@@ -10,7 +10,7 @@ if initialize_session "dotfiles"; then
   run_cmd "y"
 
   window_root "$HOME/stow"
-  new_window "opencode"
+  new_window "ai-agent"
   split_h 50
 
   window_root "$HOME/stow/clash/.config/clash"
