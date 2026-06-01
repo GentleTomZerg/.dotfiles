@@ -8,7 +8,8 @@
     "npm:pi-web-access",
     "npm:pi-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
-    "npm:@juicesharp/rpiv-todo"
+    "npm:@juicesharp/rpiv-todo",
+    "npm:pi-lens"
   ],
   "skills": [
     "~/stow/opencode/.config/opencode/skills"
