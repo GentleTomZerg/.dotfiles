@@ -5,7 +5,7 @@ from typing import Optional, List
 
 from config import Config
 from emailer import Emailer, SendResult
-from encoder import SplitStrategy, EncodeStrategy, NoOpStrategy
+from encoder import SplitStrategy, EncodeStrategy, NoOpStrategy, TransformStrategy
 
 TEMP_DIR = Path(__file__).parent / "temp"
 
@@ -38,7 +38,7 @@ class SendBuilder:
         self.subject_template = subject_template or config.subject_template
         self.body_template = body_template or config.body_template
         self.base64_encode = base64_encode
-        self._strategy: Optional[NoOpStrategy] = None
+        self._strategy: Optional[TransformStrategy] = None
         self._set_default_strategy()
 
     def _set_default_strategy(self):
@@ -76,6 +76,7 @@ class SendBuilder:
 
     def execute(self) -> BatchResult:
         TEMP_DIR.mkdir(parents=True, exist_ok=True)
+        assert self._strategy is not None, "strategy not initialized"
         intermediates = self._strategy.transform(self.files)
 
         if self._dry_run:

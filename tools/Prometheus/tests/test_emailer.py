@@ -49,6 +49,7 @@ class TestEmailer(unittest.TestCase):
         result = emailer.send(to="recipient@example.com", subject="Test", body="Hello")
 
         self.assertFalse(result.success)
+        assert result.error is not None
         self.assertIn("Connection refused", result.error)
 
     @patch("smtplib.SMTP_SSL")
