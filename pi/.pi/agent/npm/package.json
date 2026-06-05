@@ -2,8 +2,8 @@
   "name": "pi-extensions",
   "private": true,
   "dependencies": {
-    "@juicesharp/rpiv-ask-user-question": "^1.17.1",
-    "@juicesharp/rpiv-todo": "^1.17.1",
+    "@juicesharp/rpiv-ask-user-question": "^1.18.2",
+    "@juicesharp/rpiv-todo": "^1.18.2",
     "pi-btw": "^0.4.0",
     "pi-lens": "^3.8.47",
     "pi-web-access": "^0.10.7"
