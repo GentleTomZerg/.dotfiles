@@ -5,7 +5,7 @@
     "@juicesharp/rpiv-ask-user-question": "^1.19.1",
     "@juicesharp/rpiv-todo": "^1.19.1",
     "pi-btw": "^0.4.1",
-    "pi-lens": "^3.8.50",
+    "pi-lens": "^3.8.52",
     "pi-web-access": "^0.10.7"
   }
 }
