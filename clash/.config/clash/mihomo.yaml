@@ -10,6 +10,9 @@ proxy-providers:
         url: "https://www.gstatic.com/generate_204",
         interval: 300,
       }
+    header:
+      User-Agent:
+        - "Clash-verge/v2.2.0"
     override:
       additional-prefix: ""
 proxies:
