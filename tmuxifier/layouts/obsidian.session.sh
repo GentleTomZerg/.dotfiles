@@ -1,11 +1,11 @@
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
-session_root "$HOME/Projects/Obsidian_Vault"
+session_root "$HOME/Projects/Obsidian-Vault"
 
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
 if initialize_session "obsidian"; then
-  window_root "$HOME/Projects/Obsidian_Vault"
+  window_root "$HOME/Projects/Obsidian-Vault"
   new_window "note"
 
   select_window "note"
