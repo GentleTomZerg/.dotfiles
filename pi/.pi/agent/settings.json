@@ -12,6 +12,6 @@
     "npm:pi-lens"
   ],
   "skills": [
-    "~/stow/opencode/.config/opencode/skills"
+    "~/stow/myskills/"
   ]
 }
