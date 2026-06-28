@@ -72,7 +72,7 @@ proxy-groups:
   - name: 默认
     type: select
     proxies:
-      [自动选择, 直连, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点]
+      [全部节点, 直连, 自动选择, 香港, 台湾, 日本, 新加坡, 美国, 其它地区]
   - name: Google
     type: select
     proxies:
@@ -88,11 +88,11 @@ proxy-groups:
   - name: 哔哩哔哩
     type: select
     proxies:
-      [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点, 自动选择, 直连]
+      [直连, 默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点, 自动选择]
   - name: Apple
     type: select
     proxies:
-      [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点, 自动选择, 直连]
+      [直连, 默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点, 自动选择]
   - name: 巴哈姆特
     type: select
     proxies:
