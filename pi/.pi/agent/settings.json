@@ -1,6 +1,6 @@
 {
   "theme": "catppuccin-macchiato",
-  "lastChangelogVersion": "0.79.10",
+  "lastChangelogVersion": "0.80.2",
   "defaultProvider": "opencode",
   "defaultModel": "deepseek-v4-flash-free",
   "defaultThinkingLevel": "high",
@@ -9,7 +9,7 @@
     "npm:pi-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@juicesharp/rpiv-todo",
-    "npm:pi-lens"
+    "npm:pi-subagents"
   ],
   "skills": [
     "~/stow/myskills/"
