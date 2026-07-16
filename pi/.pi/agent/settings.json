@@ -1,6 +1,6 @@
 {
   "theme": "catppuccin-macchiato",
-  "lastChangelogVersion": "0.80.2",
+  "lastChangelogVersion": "0.80.7",
   "defaultProvider": "opencode",
   "defaultModel": "deepseek-v4-flash-free",
   "defaultThinkingLevel": "high",
