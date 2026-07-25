@@ -53,7 +53,8 @@ class Emailer:
 
                 part.add_header(
                     "Content-Disposition",
-                    f"attachment; filename= {filename}",
+                    "attachment",
+                    filename=filename,
                 )
                 msg.attach(part)
 
