@@ -2,6 +2,7 @@
 MIHOMO_SERVICE_URL="http://127.0.0.1:7890"
 MIHOMO_CONFIG_PATH="$HOME/.config/mihomo"
 MIHOMO_DNS_VIRTUAL_IP="198.18.0.2"
+MIHOMO_CONTROLLER_URL="http://127.0.0.1:9090" # matches external-controller in mihomo.yaml
 NETWORK_SERVICE="Wi-Fi" # Consider making this dynamic in the future
 
 # Provider/template/runtime paths are derived from MIHOMO_CONFIG_PATH inside each
@@ -43,6 +44,83 @@ function unsetproxy() {
     unset {HTTP,HTTPS,FTP,ALL}_PROXY
 }
 
+# Smoke-test the running mihomo: API controller up, a blocked site reachable through
+# the mixed port, the dashboard served, and (macOS) system DNS pointed at mihomo's
+# virtual IP. Retries briefly so mihomo can settle and providers/health-checks warm up.
+# startproxy runs this after launching; the runbook's proxy-phase CHECKs call it directly.
+function smoke_test() {
+    local failures=0 tries=10 delay=2
+
+    # 1. Process + API controller (readiness).
+    if ! pgrep -x mihomo > /dev/null; then
+        echo "smoke: FAIL - mihomo is not running"
+        return 1
+    fi
+    if ! wait_for_controller "$tries" "$delay"; then
+        echo "smoke: FAIL - API controller not responding on $MIHOMO_CONTROLLER_URL"
+        return 1
+    fi
+    echo "smoke: ok - mihomo running, API controller up"
+
+    # 2. A blocked site must be reachable through the mixed port.
+    if ! smoke_retry "$tries" "$delay" \
+        "curl -fsS -x $MIHOMO_SERVICE_URL https://www.youtube.com > /dev/null 2>&1"; then
+        echo "smoke: FAIL - blocked site not reachable through $MIHOMO_SERVICE_URL"
+        failures=$((failures + 1))
+    else
+        echo "smoke: ok - proxy forwards to the open internet"
+    fi
+
+    # 3. Dashboard (external-ui, auto-downloaded via external-ui-url on first run).
+    if ! curl -fsS -o /dev/null "$MIHOMO_CONTROLLER_URL/ui/" 2>/dev/null; then
+        echo "smoke: FAIL - dashboard not served at $MIHOMO_CONTROLLER_URL/ui/"
+        failures=$((failures + 1))
+    else
+        echo "smoke: ok - dashboard served"
+    fi
+
+    # 4. macOS only: system DNS pointed at mihomo's virtual IP.
+    if is_macos; then
+        if scutil --dns 2>/dev/null | grep -q "$MIHOMO_DNS_VIRTUAL_IP"; then
+            echo "smoke: ok - system DNS routed to mihomo"
+        else
+            echo "smoke: FAIL - system DNS not pointed at $MIHOMO_DNS_VIRTUAL_IP"
+            failures=$((failures + 1))
+        fi
+    fi
+
+    if (( failures > 0 )); then
+        echo "smoke: $failures check(s) failed"
+        return 1
+    fi
+    echo "smoke: all checks passed"
+    return 0
+}
+
+# Retry a command string until it succeeds or the budget is exhausted.
+function smoke_retry() {
+    local tries="$1" delay="$2" cmd="$3" i
+    for (( i = 1; i <= tries; i++ )); do
+        if eval "$cmd"; then
+            return 0
+        fi
+        sleep "$delay"
+    done
+    return 1
+}
+
+# Wait for the external controller to answer (first readiness signal after launch).
+function wait_for_controller() {
+    local tries="$1" delay="$2" i
+    for (( i = 1; i <= tries; i++ )); do
+        if curl -fsS -o /dev/null "$MIHOMO_CONTROLLER_URL/version" 2>/dev/null; then
+            return 0
+        fi
+        sleep "$delay"
+    done
+    return 1
+}
+
 function startproxy() {
     # 1. Guard against duplicate mihomo instances.
     if pgrep -x mihomo > /dev/null; then
@@ -70,8 +148,13 @@ function startproxy() {
     # matches mihomo's default home dir, -d is technically redundant — kept for explicitness.
     sudo -b mihomo -d "$MIHOMO_CONFIG_PATH" -f "$runtime" > /dev/null 2>&1 &
 
-    echo "mihomo started successfully with config: $runtime"
-    return 0
+    echo "mihomo started with config: $runtime"
+    if smoke_test; then
+        echo "startproxy: mihomo up, smoke test passed"
+        return 0
+    fi
+    echo "startproxy: mihomo started but the smoke test FAILED (see smoke: lines above)" >&2
+    return 1
 }
 
 function stopproxy() {

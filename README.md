@@ -143,7 +143,7 @@ stow aerospace dunst electronflags ghostty hyprland i3 ideavimrc kitty \
   tmux tmuxifier waybar wezterm yazi zshrc
 ```
 
-> Cross-platform packages are inert on the other OS (e.g. `aerospace` on Arch, `hyprland` on macOS) — stow still succeeds; that is expected. If the SSH clone hangs, GitHub's port 22 may be blocked — apply the ssh-port-443 config in [7.3](#73-both--github-over-ssh-port-443) and retry the clone.
+> Cross-platform packages are inert on the other OS (e.g. `aerospace` on Arch, `hyprland` on macOS) — stow still succeeds; that is expected. If the SSH clone hangs, GitHub's port 22 may be blocked — apply the ssh-port-443 config in [7.2](#72-both--github-over-ssh-port-443) and retry the clone.
 
 **CHECK** —
 
@@ -256,15 +256,14 @@ pgrep -x mihomo >/dev/null || startproxy
 
 > `startproxy` will prompt for the sudo password (human types it), renders the runtime config, and on macOS points the system DNS at mihomo's virtual IP (198.18.0.2).
 
-**CHECK** — all of:
+**CHECK** — all of the above must succeed:
 
 ```bash
-pgrep -x mihomo && echo "process ok"
-curl -fsS -x http://127.0.0.1:7890 https://www.youtube.com >/dev/null && echo "proxy ok"
-curl -fsS -o /dev/null http://127.0.0.1:9090/ui/ && echo "dashboard ok"
-# macOS only:
-scutil --dns | grep -q 198.18.0.2 && echo "dns ok"
+pgrep -x mihomo >/dev/null || startproxy
+smoke_test
 ```
+
+`smoke_test` verifies the process + API controller, a blocked site through the proxy, the dashboard, and (macOS) the DNS pointer. `startproxy` already runs it after launching — `smoke_test` is idempotent and re-verifies when mihomo was already running.
 
 ### 4.3 Retire the bootstrap proxy
 
@@ -476,30 +475,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg 2>&1 | grep -q 'Found linux image' && 
 grep -c 'menuentry' /boot/grub/grub.cfg
 ```
 
-### 7.2 Linux — Docker proxy (if Docker is installed)
-
-> Docker is not installed by this runbook; this step applies only if the human uses Docker.
-
-```bash
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json >/dev/null <<'EOF'
-{
-  "proxies": {
-    "http-proxy": "http://127.0.0.1:7890",
-    "https-proxy": "http://127.0.0.1:7890"
-  }
-}
-EOF
-sudo systemctl restart docker
-```
-
-**CHECK** —
-
-```bash
-docker info 2>/dev/null | grep -A3 'HTTP Proxy'   # expect 127.0.0.1:7890
-```
-
-### 7.3 Both — GitHub over SSH port 443
+### 7.2 Both — GitHub over SSH port 443
 
 > Fix for blocked port 22 (also the fallback for a hanging Phase 2.2 clone).
 
@@ -521,7 +497,7 @@ fi
 ssh -T -o ConnectTimeout=10 git@github.com 2>&1 | grep -q "successfully authenticated" && echo "ssh 443 ok"
 ```
 
-### 7.4 macOS — timezone fix
+### 7.3 macOS — timezone fix
 
 > Only needed if the timezone does not persist across reboots.
 
@@ -531,7 +507,7 @@ sudo rm -f /var/db/timed/com.apple.timed.plist
 
 **CHECK** — `test ! -e /var/db/timed/com.apple.timed.plist && echo "removed"`.
 
-### 7.5 Arch — Timeshift backups
+### 7.4 Arch — Timeshift backups
 
 ```bash
 sudo pacman -S timeshift
@@ -562,12 +538,12 @@ ls /etc/pacman.d/hooks/ | grep -i timeshift
 ```bash
 echo "shell:  $SHELL"                                            # expect */zsh
 pgrep -x mihomo >/dev/null || startproxy                         # mihomo starts manually after boot
-curl -fsS -x http://127.0.0.1:7890 https://www.youtube.com >/dev/null && echo "proxy: ok"
+smoke_test                                                       # proxy, dashboard, (macOS) DNS
+test -L ~/.zshrc && test -L ~/.config/nvim && echo "dotfiles: ok"
 # Arch only:
 systemctl is-enabled bluetooth sddm cronie firewalld             # expect enabled ×4
 # macOS only:
-test -f /var/db/timed/com.apple.timed.plist 2>/dev/null || echo "timezone plist: removed"
-test -L ~/.zshrc && test -L ~/.config/nvim && echo "dotfiles: ok"
+test ! -e /var/db/timed/com.apple.timed.plist && echo "timezone plist: removed"
 ```
 
 **CHECK** — every line prints the expected value. The human additionally confirms: **Ctrl+Space** toggles pinyin; Wi-Fi/Bluetooth connect; the display manager shows the theme; apps open.
