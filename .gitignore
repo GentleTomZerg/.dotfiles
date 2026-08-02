@@ -20,3 +20,4 @@
 /pi/.pi/agent/sessions/
 /pi/.pi/agent/auth.json
 /pi/.pi/context-mode/
+/.pi-subagents/
