@@ -76,10 +76,10 @@
     "on-click": "blueman-manager",
     "format-no-controller": "",
   },
-  // Clash
-  "custom/clash": {
+  // Mihomo
+  "custom/mihomo": {
     "format": "{}",
-    "exec": "~/.config/waybar/check_clash.sh",
+    "exec": "~/.config/waybar/check_mihomo.sh",
     "interval": 5,
     "return-type": "json",
   },

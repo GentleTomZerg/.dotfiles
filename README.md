@@ -18,8 +18,8 @@ export {http,https,ftp,all}_proxy="http://192.168.1.6:1082"
 export {HTTP,HTTPS,FTP,ALL}_PROXY="http://192.168.1.6:1082"
 
 # Plugins configuration process needs git
-git config --global http.proxy $CLASH_URL
-git config --global https.proxy $CLASH_URL
+git config --global http.proxy $MIHOMO_URL
+git config --global https.proxy $MIHOMO_URL
 ```
 
 # Start Configuration
@@ -58,7 +58,7 @@ mkdir ~/stow
 cd stow
 git clone git@github.com:GentleTomZerg/.dotfiles.git ~/stow
 
-stow clash zshrc ... # Pick the config I need
+stow mihomo zshrc ... # Pick the config I need
 
 # Vscode Configurtion
 # Different types of vscode has different path to of user settings
@@ -79,7 +79,7 @@ ln -s $HOME/stow/vscode/settings.json ./settings.json
 
 Now, we can use Mihomo on the new laptop!!!
 
-- Enter subscribe url to '$HOME/stow/clash/.config/clash/mihomo.yaml'
+- Enter subscribe url to '$HOME/stow/mihomo/.config/mihomo/mihomo.yaml'
 - Type `startproxy` in terminal and follow instructions
 - Mihomo Dashboard
 

@@ -1,20 +1,7 @@
-# url 里填写自己的订阅,名称不能重复
-proxy-providers:
-  provider1:
-    url: "https://your.proxy.com"
-    type: http
-    interval: 86400
-    health-check:
-      {
-        enable: true,
-        url: "https://www.gstatic.com/generate_204",
-        interval: 300,
-      }
-    header:
-      User-Agent:
-        - "Clash-verge/v2.2.0"
-    override:
-      additional-prefix: ""
+# 订阅 provider 定义在 providers.yaml（含订阅 URL，不入库），启动时由 mihomo-api.sh 合并进运行时配置。
+# 模板保持为空，避免泄露订阅 token。
+# 新机器部署：cp providers.template.yaml providers.yaml，填入订阅地址即可（详见模板头部说明）。
+proxy-providers: {}
 proxies:
   - name: "直连"
     type: direct

@@ -1,7 +1,7 @@
 #!/bin/bash
 #================================
-# Check if clash has been started
+# Check if mihomo has been started
 #================================
 if pgrep -x mihomo >/dev/null; then
-  echo "{\"text\":\" \", \"tooltip\":\"clash is on\"}"
+  echo "{\"text\":\" \", \"tooltip\":\"mihomo is on\"}"
 fi

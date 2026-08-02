@@ -13,8 +13,8 @@ if initialize_session "dotfiles"; then
   new_window "ai-agent"
   split_h 50
 
-  window_root "$HOME/stow/clash/.config/clash"
-  new_window "clash"
+  window_root "$HOME/stow/mihomo/.config/mihomo"
+  new_window "mihomo"
 
   window_root "$HOME/stow/tools/Prometheus"
   new_window "prometheus"

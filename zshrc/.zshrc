@@ -42,7 +42,7 @@ ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 # Env Variables
 export EDITOR='nvim'
 if [[ "$(uname)" == "Darwin" ]]; then
-  export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+	export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 fi
 
 # Alias
@@ -61,8 +61,7 @@ alias tk="tmux kill-session -t"
 unalias cp
 
 # My Configurations
-source ~/.config/clash/mihomo-api.sh
-source ~/.config/zellij/util.sh
+source ~/.config/mihomo/mihomo-api.sh
 
 # Update pacman mirror list
 function update_pacmirror() {

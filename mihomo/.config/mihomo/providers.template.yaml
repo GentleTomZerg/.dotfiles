@@ -1,0 +1,78 @@
+# ============================================================================
+# providers.template.yaml —— 订阅 Provider 模板（无密钥，可安全入库）
+# ============================================================================
+#
+# 【新机器部署步骤】
+#   1. 复制本文件为 providers.yaml：
+#        cp providers.template.yaml providers.yaml
+#   2. 把示例块里的 <YOUR_SUBSCRIPTION_URL> 替换为真实订阅地址
+#   3. 运行 startproxy 启动：mihomo-api.sh 会自动把 mihomo.yaml 模板与
+#      providers.yaml 深度合并，生成 mihomo_runtime.yaml 后启动 mihomo
+#
+# 【设计约定】
+#   - mihomo.yaml（模板）中 proxy-providers 保持为空；真实订阅地址只写在
+#     providers.yaml，由 mihomo-api.sh 在启动时合并进运行时配置
+#   - providers.yaml 已在 .gitignore 中，含 token 的订阅地址不会入库；
+#     本模板不含任何密钥，可提交到 dotfiles 仓库
+#   - proxy-groups 全部使用 include-all: true，新订阅的节点会自动流入
+#     香港/日本/美国/自动选择/全部节点 等所有分组，无需修改 mihomo.yaml
+#   - 一个订阅 = 一个块。复制块、改 name（不能重复）与 url 即可添加订阅
+#   - 订阅 URL 通常含个人 token：不要提交仓库、不要截图分享
+#
+# 【常用字段速查】
+#   type         : http（远程订阅）| file（本地文件）
+#   url          : 订阅地址（含 token）
+#   path         : 本地缓存路径，mihomo 自动生成，断网时也能启动
+#   interval     : 订阅更新间隔（秒），86400 = 每天
+#   health-check : 节点可用性检测；enable 后按 interval（秒）探测全部节点
+#   header       : 部分机场需要自定义 User-Agent，照抄机场文档
+#   override     : 对订阅节点的后处理
+#     additional-prefix : 节点名前缀，多订阅时区分来源
+#     additional-suffix : 节点名后缀
+# ============================================================================
+
+proxy-providers:
+  # ---- 示例：单个订阅，节点加 [机场名] 前缀 ------------------------------
+  e-ix:
+    type: http
+    url: "<YOUR_SUBSCRIPTION_URL>"
+    # 本地节点缓存，断网时也能启动；文件由 mihomo 生成，无需手工创建
+    # 相对 Home Dir 解析；startproxy 用 -d 把 Home Dir 设为 ~/.config/mihomo，
+    # 故缓存在 ~/.config/mihomo/proxy_providers/
+    path: ./proxy_providers/e-ix.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: "https://www.gstatic.com/generate_204"
+      interval: 300
+    header:
+      User-Agent:
+        - "Clash-verge/v2.2.0"
+    override:
+      # 节点名前缀，多订阅时区分来源；单订阅可改成空字符串或删掉
+      additional-prefix: "[e-ix]"
+
+  # ---- 示例：第二个订阅（复制此块，改 name / url / path 即可）------------
+  # airport-2:
+  #   type: http
+  #   url: "<YOUR_SUBSCRIPTION_URL_2>"
+  #   path: ./proxy_providers/airport-2.yaml
+  #   interval: 86400
+  #   health-check:
+  #     enable: true
+  #     url: "https://www.gstatic.com/generate_204"
+  #     interval: 300
+  #   header:
+  #     User-Agent:
+  #       - "Clash-verge/v2.2.0"
+  #   override:
+  #     additional-prefix: "[airport-2]"   # 留空则不加前缀
+
+  # ---- 示例：本地文件订阅（离线/自维护节点列表）--------------------------
+  # custom:
+  #   type: file
+  #   path: ./proxy_providers/custom.yaml   # 手工维护的节点列表（clash yaml 格式）
+  #   health-check:
+  #     enable: true
+  #     url: "https://www.gstatic.com/generate_204"
+  #     interval: 300
