@@ -260,10 +260,10 @@ pgrep -x mihomo >/dev/null || startproxy
 
 ```bash
 pgrep -x mihomo >/dev/null || startproxy
-smoke_test
+statusproxy
 ```
 
-`smoke_test` verifies the process + API controller, a blocked site through the proxy, the dashboard, and (macOS) the DNS pointer. `startproxy` already runs it after launching — `smoke_test` is idempotent and re-verifies when mihomo was already running.
+`startproxy` waits for boot (process + controller) **and then runs the full checks** via `statusproxy`: a blocked site through the proxy, the dashboard, and (macOS) the DNS pointer — so `startproxy` returns 0 only when mihomo is fully working. `statusproxy` is idempotent and safe to re-run anytime; run it again to re-verify a connected proxy once providers/health-checks have settled (e.g. after a node switch).
 
 ### 4.3 Retire the bootstrap proxy
 
@@ -537,8 +537,8 @@ ls /etc/pacman.d/hooks/ | grep -i timeshift
 
 ```bash
 echo "shell:  $SHELL"                                            # expect */zsh
-pgrep -x mihomo >/dev/null || startproxy                         # mihomo starts manually after boot
-smoke_test                                                       # proxy, dashboard, (macOS) DNS
+pgrep -x mihomo >/dev/null || startproxy    # boots mihomo (runs full checks); skipped if already up
+statusproxy                                   # re-verify proxy/dashboard/DNS (idempotent)
 test -L ~/.zshrc && test -L ~/.config/nvim && echo "dotfiles: ok"
 # Arch only:
 systemctl is-enabled bluetooth sddm cronie firewalld             # expect enabled ×4

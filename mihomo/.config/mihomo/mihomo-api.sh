@@ -1,12 +1,21 @@
 #!/bin/bash
 MIHOMO_SERVICE_URL="http://127.0.0.1:7890"
-MIHOMO_CONFIG_PATH="$HOME/.config/mihomo"
+MIHOMO_CONFIG_PATH="${MIHOMO_CONFIG_PATH:-$HOME/.config/mihomo}"
 MIHOMO_DNS_VIRTUAL_IP="198.18.0.2"
 MIHOMO_CONTROLLER_URL="http://127.0.0.1:9090" # matches external-controller in mihomo.yaml
-NETWORK_SERVICE="Wi-Fi" # Consider making this dynamic in the future
+NETWORK_SERVICE="Wi-Fi"                       # Consider making this dynamic in the future
 
-# Provider/template/runtime paths are derived from MIHOMO_CONFIG_PATH inside each
-# function so an override of that variable takes effect everywhere (and is testable).
+# Derived config paths, all rooted at MIHOMO_CONFIG_PATH and fixed at load time.
+# To relocate the config tree, set MIHOMO_CONFIG_PATH (or any of these) before
+# sourcing this file. render_config and startproxy all read these globals.
+MIHOMO_TEMPLATE_PATH="$MIHOMO_CONFIG_PATH/mihomo.yaml"
+MIHOMO_PROVIDERS_PATH="$MIHOMO_CONFIG_PATH/providers.yaml"
+MIHOMO_RUNTIME_PATH="$MIHOMO_CONFIG_PATH/mihomo_runtime.yaml"
+
+# Single retry budget for every poll in the script (readiness, blocked site,
+# and connection checks). Change here to tune how long mihomo is allowed to settle.
+MIHOMO_RETRY_TRIES=10
+MIHOMO_RETRY_DELAY=1
 
 function is_macos() {
     [[ "$(uname -s)" == "Darwin" ]]
@@ -15,23 +24,19 @@ function is_macos() {
 # Render the runtime config: deep-merge the template with providers.yaml (providers win).
 # Template stays a shareable skeleton; real subscription URLs/specs live in providers.yaml.
 function render_config() {
-    local providers="$MIHOMO_CONFIG_PATH/providers.yaml"
-    local template="$MIHOMO_CONFIG_PATH/mihomo.yaml"
-    local runtime="$MIHOMO_CONFIG_PATH/mihomo_runtime.yaml"
-
-    if [[ ! -f "$providers" ]]; then
-        echo "Error: Providers file not found at $providers" >&2
+    if [[ ! -f "$MIHOMO_PROVIDERS_PATH" ]]; then
+        echo "Error: Providers file not found at $MIHOMO_PROVIDERS_PATH" >&2
         return 1
     fi
 
     if ! yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1)' \
-        "$template" "$providers" > "$runtime"; then
+        "$MIHOMO_TEMPLATE_PATH" "$MIHOMO_PROVIDERS_PATH" >"$MIHOMO_RUNTIME_PATH"; then
         echo "Error: Failed to render runtime config." >&2
-        rm -f "$runtime" # Clean up partial output.
+        rm -f "$MIHOMO_RUNTIME_PATH" # Clean up partial output.
         return 1
     fi
 
-    echo "Runtime config written to $runtime"
+    echo "Runtime config written to $MIHOMO_RUNTIME_PATH"
 }
 
 function setproxy() {
@@ -44,76 +49,68 @@ function unsetproxy() {
     unset {HTTP,HTTPS,FTP,ALL}_PROXY
 }
 
-# Smoke-test the running mihomo: API controller up, a blocked site reachable through
-# the mixed port, the dashboard served, and (macOS) system DNS pointed at mihomo's
-# virtual IP. Retries briefly so mihomo can settle and providers/health-checks warm up.
-# startproxy runs this after launching; the runbook's proxy-phase CHECKs call it directly.
-function smoke_test() {
-    local failures=0 tries=10 delay=2
+# Verify the running mihomo on demand: API controller up, a blocked site reachable
+# through the mixed port, the dashboard served, and (macOS) system DNS pointed at
+# mihomo's virtual IP. Retries briefly so mihomo can settle and providers/health-
+# checks warm up. The runbook's proxy-phase CHECKs call this directly.
+function statusproxy() {
+    local failures=0 tries="$MIHOMO_RETRY_TRIES" delay="$MIHOMO_RETRY_DELAY"
 
     # 1. Process + API controller (readiness).
-    if ! pgrep -x mihomo > /dev/null; then
-        echo "smoke: FAIL - mihomo is not running"
+    if ! wait_for "$tries" "$delay" pgrep -xq mihomo; then
+        echo "status: FAIL - mihomo is not running"
         return 1
     fi
-    if ! wait_for_controller "$tries" "$delay"; then
-        echo "smoke: FAIL - API controller not responding on $MIHOMO_CONTROLLER_URL"
+    if ! wait_for "$tries" "$delay" \
+        curl -fs -o /dev/null "$MIHOMO_CONTROLLER_URL/version"; then
+        echo "status: FAIL - API controller not responding on $MIHOMO_CONTROLLER_URL"
         return 1
     fi
-    echo "smoke: ok - mihomo running, API controller up"
+    echo "status: ok - mihomo running, API controller up"
 
     # 2. A blocked site must be reachable through the mixed port.
-    if ! smoke_retry "$tries" "$delay" \
-        "curl -fsS -x $MIHOMO_SERVICE_URL https://www.youtube.com > /dev/null 2>&1"; then
-        echo "smoke: FAIL - blocked site not reachable through $MIHOMO_SERVICE_URL"
+    if ! wait_for "$tries" "$delay" \
+        curl -fs -o /dev/null -x "$MIHOMO_SERVICE_URL" https://www.youtube.com; then
+        echo "status: FAIL - blocked site not reachable through $MIHOMO_SERVICE_URL"
         failures=$((failures + 1))
     else
-        echo "smoke: ok - proxy forwards to the open internet"
+        echo "status: ok - proxy forwards to the open internet"
     fi
 
-    # 3. Dashboard (external-ui, auto-downloaded via external-ui-url on first run).
+    # 3.  (external-ui, auto-downloaded via external-ui-url on first run).
     if ! curl -fsS -o /dev/null "$MIHOMO_CONTROLLER_URL/ui/" 2>/dev/null; then
-        echo "smoke: FAIL - dashboard not served at $MIHOMO_CONTROLLER_URL/ui/"
+        echo "status: FAIL - dashboard not served at $MIHOMO_CONTROLLER_URL/ui/"
         failures=$((failures + 1))
     else
-        echo "smoke: ok - dashboard served"
+        echo "status: ok - dashboard served"
     fi
 
     # 4. macOS only: system DNS pointed at mihomo's virtual IP.
     if is_macos; then
         if scutil --dns 2>/dev/null | grep -q "$MIHOMO_DNS_VIRTUAL_IP"; then
-            echo "smoke: ok - system DNS routed to mihomo"
+            echo "status: ok - system DNS routed to mihomo"
         else
-            echo "smoke: FAIL - system DNS not pointed at $MIHOMO_DNS_VIRTUAL_IP"
+            echo "status: FAIL - system DNS not pointed at $MIHOMO_DNS_VIRTUAL_IP"
             failures=$((failures + 1))
         fi
     fi
 
-    if (( failures > 0 )); then
-        echo "smoke: $failures check(s) failed"
+    if ((failures > 0)); then
+        echo "status: $failures check(s) failed"
         return 1
     fi
-    echo "smoke: all checks passed"
+    echo "status: all checks passed"
     return 0
 }
 
-# Retry a command string until it succeeds or the budget is exhausted.
-function smoke_retry() {
-    local tries="$1" delay="$2" cmd="$3" i
-    for (( i = 1; i <= tries; i++ )); do
-        if eval "$cmd"; then
-            return 0
-        fi
-        sleep "$delay"
-    done
-    return 1
-}
-
-# Wait for the external controller to answer (first readiness signal after launch).
-function wait_for_controller() {
+# Run a probe until it succeeds or the budget is exhausted. The probe is a command
+# (no eval): pass it as the remaining arguments, e.g. `wait_for 10 2 pgrep -x mihomo`.
+# One retry loop serves every wait in the script — process, controller, blocked site.
+function wait_for() {
     local tries="$1" delay="$2" i
-    for (( i = 1; i <= tries; i++ )); do
-        if curl -fsS -o /dev/null "$MIHOMO_CONTROLLER_URL/version" 2>/dev/null; then
+    shift 2
+    for ((i = 1; i <= tries; i++)); do
+        if "$@" 2>/dev/null; then
             return 0
         fi
         sleep "$delay"
@@ -123,49 +120,54 @@ function wait_for_controller() {
 
 function startproxy() {
     # 1. Guard against duplicate mihomo instances.
-    if pgrep -x mihomo > /dev/null; then
+    if pgrep -x mihomo >/dev/null; then
         echo "mihomo has already started."
         return 1
     fi
 
-    # 2. Render the runtime config from the template + providers.
+    # 2. Render the runtime config from the template + providers into the shared
+    # MIHOMO_RUNTIME_PATH (derived at load) that the launch step uses.
     if ! render_config; then
         return 1
     fi
-    local runtime="$MIHOMO_CONFIG_PATH/mihomo_runtime.yaml"
 
     # 3. Require sudo; on macOS, point DNS to mihomo virtual ip.
     if ! sudo -v; then
         echo "sudo authentication failed."
         return 1
     fi
-    
+
     if is_macos; then
         sudo networksetup -setdnsservers "$NETWORK_SERVICE" "$MIHOMO_DNS_VIRTUAL_IP"
     fi
     # -d sets Home Dir to the config dir: relative provider `path:` (./proxy_providers/...),
     # cache.db and external-ui all live under MIHOMO_CONFIG_PATH. Since the config dir
     # matches mihomo's default home dir, -d is technically redundant — kept for explicitness.
-    sudo -b mihomo -d "$MIHOMO_CONFIG_PATH" -f "$runtime" > /dev/null 2>&1 &
+    sudo -b mihomo -d "$MIHOMO_CONFIG_PATH" -f "$MIHOMO_RUNTIME_PATH" >/dev/null 2>&1 &
 
-    echo "mihomo started with config: $runtime"
-    if smoke_test; then
-        echo "startproxy: mihomo up, smoke test passed"
-        return 0
+    echo "mihomo started with config: $MIHOMO_RUNTIME_PATH"
+
+    # Run the full statusproxy checks (readiness, blocked site, dashboard, DNS) so
+    # startproxy only returns 0 when mihomo is fully working. statusproxy's first
+    # step waits for the process + controller, so no separate boot gate is needed.
+    if ! statusproxy; then
+        echo "startproxy: FAILED - verify the statusproxy lines above" >&2
+        return 1
     fi
-    echo "startproxy: mihomo started but the smoke test FAILED (see smoke: lines above)" >&2
-    return 1
+
+    echo "startproxy: mihomo fully working (all statusproxy checks passed)"
+    return 0
 }
 
 function stopproxy() {
-  if [[ -z $(pgrep -x mihomo) ]]; then
-    echo "mihomo is not running"
-    return 1
-  fi
+    if [[ -z $(pgrep -x mihomo) ]]; then
+        echo "mihomo is not running"
+        return 1
+    fi
 
-  # kill mihomo process. On macOs, reset system dns config to default
-  sudo kill "$(sudo pgrep -x mihomo)"
-  if is_macos; then
+    # kill mihomo process. On macOs, reset system dns config to default
+    sudo kill "$(sudo pgrep -x mihomo)"
+    if is_macos; then
         sudo networksetup -setdnsservers "$NETWORK_SERVICE" Empty
-  fi
+    fi
 }
