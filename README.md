@@ -1,373 +1,582 @@
-# How to use this configuration file?
+# Provisioning Runbook
 
-> Man was born free, and he is everywhere in chains
+> This runbook provisions a new **macOS** or **Arch-family Linux** machine from this repo — installs packages, stows dotfiles, and configures the system. It assumes a stable proxy service (e.g. an iPhone running Shadowrocket) reachable on the same LAN, which is used to bootstrap the network before the real proxy (mihomo) is up.
+>
+> **Agent, read this before starting:**
+> - Work top to bottom. Skip the platform branch you are not on (each step is tagged `macOS` or `Arch`).
+> - **GATE** — stop and ask the human for a value you cannot invent, verify it, then resume. Nothing secret is stored in this repo.
+> - **CHECK** — a command ending every step; it must pass before the next step. On failure: stop, report, ask.
+> - **⚠ NOT idempotent** — run exactly once. On resume, ask the human whether it already ran.
+> - **Resume protocol** — see the bottom of this file.
 
-I don't know if we were born free, but I do know we are in chains. To break the chains, we need network proxy to the free world.
+---
 
-This article assumes we have a stable proxy service already. In my scenario, I have an IPhone with shadowrocket installed. If I connect my IPhone and my new laptop into the same local network, then my new laptop could use my IPhone as the proxy. **No More Chains!!!**
+## Phase 0 — Preflight
 
-Type this to the new laptop terminal, and we are ready to go!
-
-<!-- more -->
+### 0.1 Detect the platform
 
 ```bash
-export {http,https,ftp,all}_proxy="http://IPhone_inner_ip:Proxy_port"
-export {HTTP,HTTPS,FTP,ALL}_PROXY="http://IPhone_inner_ip:Proxy_port"
-# Eg:
-export {http,https,ftp,all}_proxy="http://192.168.1.6:1082"
-export {HTTP,HTTPS,FTP,ALL}_PROXY="http://192.168.1.6:1082"
-
-# Plugins configuration process needs git
-git config --global http.proxy $MIHOMO_URL
-git config --global https.proxy $MIHOMO_URL
+# macOS:
+sw_vers
+# Arch:
+grep '^ID=' /etc/os-release
 ```
 
-# Start Configuration
+**CHECK** — you know which platform this is. Note it; you will skip the other platform's branches throughout.
 
-## Install necessary packages
+### 0.2 Bootstrap the network — GATE
+
+> **GATE — ask the human for the proxy URL** (the iPhone-as-proxy trick: `http://<iPhone_inner_ip>:<port>`). Verify it responds before continuing.
 
 ```bash
-# Macos
-brew install \
-mihomo yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
-starship stow lazygit tldr p7zip lsd \
-aerospace raycast wezterm google-chrome homerow hyerkey intellij-idea keycastr wechat \
-font-fira-code-nerd-font font-lxgw-wenkai
-
-# Archlinux hyprland
-sudo pacman -S \
-mihomo yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
-starship stow lazygit tldr p7zip lsd \
-
-sudo pacman -S ttf-firacode-nerd
-sudo pacman -S ttf-jetbrains-mono-nerd
-sudo pacman -S noto-fonts-cjk
-sudo pacman -S noto-fonts-emoji
-
-sudo pacman -S \
-wayland hyprland rofi-wayland cliphist waybar pywal hyprpaper hypridle hyprlock slurp grim
+export {http,https,ftp,all}_proxy="$PROXY_URL"
+export {HTTP,HTTPS,FTP,ALL}_PROXY="$PROXY_URL"
+curl -fsS https://github.com >/dev/null && echo "network ok"
 ```
 
-## Stow the configuration
+**CHECK** — the curl above succeeds. If not, the URL was wrong or the iPhone is not on this LAN: report, ask, resume at 0.2.
+
+---
+
+## Phase 1 — Packages
+
+### 1.1 macOS — Homebrew packages
+
+> Precondition: Homebrew + Xcode Command Line Tools installed (follow brew.sh if not).
 
 ```bash
-ssh-kgen -t ed25519 -C "your_email@xx.com"
-# add the content in ~/.ssh/id_ed25519.pub to github ssh key
+# Formulae (no --cask)
+brew install mihomo yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch \
+  btop starship stow lazygit tlrc p7zip lsd
 
-mkdir ~/stow
-cd stow
+# Casks (require --cask)
+brew install --cask raycast wezterm google-chrome homerow hyperkey \
+  intellij-idea keycastr wechat font-fira-code-nerd-font font-lxgw-wenkai
+
+# AeroSpace ships in a third-party tap (auto-tapped by the qualified name)
+brew install --cask nikitabobko/tap/aerospace
+
+# OPTIONAL — yazi preview/archive tooling (recommended by yazi docs)
+brew install ffmpeg-full sevenzip jq poppler fd ripgrep fzf zoxide resvg \
+  imagemagick-full font-symbols-only-nerd-font
+brew link ffmpeg-full imagemagick-full -f --overwrite   # both are keg-only
+```
+
+**CHECK** —
+
+```bash
+for f in mihomo yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch \
+         btop starship stow lazygit tlrc p7zip lsd; do
+  brew list --versions "$f" >/dev/null 2>&1 && echo "OK   $f" || echo "MISS $f"
+done
+for c in raycast wezterm google-chrome homerow hyperkey intellij-idea \
+         keycastr wechat font-fira-code-nerd-font font-lxgw-wenkai aerospace; do
+  brew list --cask --versions "$c" >/dev/null 2>&1 && echo "OK   $c" || echo "MISS $c"
+done
+```
+
+Every name must print `OK`. (If `tldr` was ever installed, `brew uninstall tldr` first — it blocks `tlrc`'s binary link.)
+
+### 1.2 Arch — pacman + AUR packages
+
+> Precondition: an AUR helper. EndeavourOS ships `yay` — use `yay` below; substitute your own helper if different.
+
+```bash
+# Official repos (extra)
+sudo pacman -S \
+  go-yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
+  starship stow lazygit tldr 7zip unzip lsd
+
+# go-yq is mikefarah's Go yq (installs the `yq` binary) — the repo's startproxy
+# renders config with mikefarah yq syntax, so the Python `yq` wrapper will not do.
+
+sudo pacman -S ttf-firacode-nerd ttf-jetbrains-mono-nerd noto-fonts-cjk noto-fonts-emoji
+
+sudo pacman -S \
+  wayland hyprland rofi cliphist waybar hyprpaper hypridle hyprlock slurp grim
+
+# AUR
+yay -S mihomo
+yay -S python-pywal16
+```
+
+**CHECK** —
+
+```bash
+pacman -Q go-yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
+  starship stow lazygit tldr 7zip unzip lsd \
+  ttf-firacode-nerd ttf-jetbrains-mono-nerd noto-fonts-cjk noto-fonts-emoji \
+  wayland hyprland rofi cliphist waybar hyprpaper hypridle hyprlock slurp grim
+# AUR-only installs must show as "local":
+pacman -Qm | grep -E '^(mihomo|python-pywal16) '
+```
+
+Every package must print without error.
+
+---
+
+## Phase 2 — Dotfiles
+
+### 2.1 SSH key — GATE
+
+> **GATE — ask the human for the SSH email address** (e.g. `name@example.com`). Generate the key, then ask the human to add the public key at <https://github.com/settings/ssh/new> and **wait until they confirm** before continuing.
+
+```bash
+ssh-keygen -t ed25519 -C "$SSH_EMAIL" -N ""   # ⚠ NOT idempotent — refuses to overwrite; on resume, reuse the existing key
+cat ~/.ssh/id_ed25519.pub                     # give this to the human for GitHub
+```
+
+**CHECK** — after the human confirms the key is on GitHub:
+
+```bash
+ssh -T -o StrictHostKeyChecking=accept-new git@github.com 2>&1 | grep -q "successfully authenticated" && echo "ssh ok"
+```
+
+### 2.2 Clone the repo and stow
+
+```bash
+mkdir -p ~/stow
 git clone git@github.com:GentleTomZerg/.dotfiles.git ~/stow
-
-stow mihomo zshrc ... # Pick the config I need
-
-# Vscode Configurtion
-# Different types of vscode has different path to of user settings
-cd /path/to/vscode/User/settings/directory
-ln -s $HOME/stow/vscode/keybindings.json ./keybindings.json
-ln -s $HOME/stow/vscode/settings.json ./settings.json
+cd ~/stow
+stow aerospace dunst electronflags ghostty hyprland i3 ideavimrc kitty \
+  mihomo neovim polybar raycast rofi sioyek stardict starship surfingkeys \
+  tmux tmuxifier waybar wezterm yazi zshrc
 ```
 
-## Migrate to ZSH (Linux Only)
+> Cross-platform packages are inert on the other OS (e.g. `aerospace` on Arch, `hyprland` on macOS) — stow still succeeds; that is expected. If the SSH clone hangs, GitHub's port 22 may be blocked — apply the ssh-port-443 config in [7.3](#73-both--github-over-ssh-port-443) and retry the clone.
 
-- type zsh in bash
-- enter chsh
-- zsh will prompt you to install packages which provides chsh
-- `sudo chsh -s /path/to/zsh` **Must use sudo**
-- now zsh shell is the default shell
-
-## Mihomo
-
-Now, we can use Mihomo on the new laptop!!!
-
-- Enter subscribe url to '$HOME/stow/mihomo/.config/mihomo/mihomo.yaml'
-- Type `startproxy` in terminal and follow instructions
-- Mihomo Dashboard
-
-  ```bash
-  # NOTE!!!
-  # when mihomo parse the configuration file, it will prefix /$HOME/.config/mihomo to external-ui
-  # so, make sure to place the ui gh-pages under directory /$HOME/.config/mihomo
-  git clone -b gh-pages git@github.com:MetaCubeX/metacubexd.git /$HOME/.config/mihomo/external-ui
-  external-ui: external-ui/Yacd-meta
-
-  ```
-
-## AstroNvim
-
-Just Google it and follow instructions!
-
-## Chinese Input
-
-### Linux
-
-- install `fcitx5`
-- install `fcitx5-chinese-addons` or `fcitx5-rime`
-- git clone https://github.com/iDvel/rime-ice.git ~/.local/share/rime --depth 1
-- open fcitx5 config, add pinyin
-- reboot
-- add the following code to /etc/environment and login again
-
-  ```bash
-  GTK_IM_MODULE=fcitx
-  QT_IM_MODULE=fcitx
-  XMODIFIERS=@im=fcitx
-  SDL_IM_MODULE=fcitx
-  GLFW_IM_MODULE=ibus
-  ```
-
-- Theme: follow this [link](https://github.com/hosxy/Fcitx5-Material-Color). Remember to restart the fcitx5 after changing the theme.
-
-- Remember to **Enable Cloud Pinyin** in fcitx5-config
-- Dictionary: Follow the link [fcitx5-pinyin-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki) and [mw2fcitx](https://github.com/outloudvi/mw2fcitx)
-
-### MacOS
-
-- install `squirrel-app`
-- git clone https://github.com/iDvel/rime-ice.git ~/Library/Rime --depth 1
-- customize the yaml
-
-```
-# squirrel.yaml
-# ascii_mode、inline、no_inline、vim_mode 等等设定
-# 可参考 /Library/Input Methods/Squirrel.app/Contents/SharedSupport/squirrel.yaml
-app_options:
-  com.github.wez.wezterm:
-    ascii_mode: true
-    vim_mode: true
-
-style:
-  # 选择皮肤，亮色与暗色主题
-  color_scheme: macos_light
-  color_scheme_dark: macos_dark
-
-preset_color_schemes:
-  macos_light:
-    name: Mac仿原生亮色/macos_light
-    author: 一方
-    back_color: 0xFFFFFF # 候选条背景色，24位色值，16进制，BGR顺序
-    border_color: 0xFFFFFF # 边框色
-    text_color: 0x424242 # 拼音行文字颜色
-    hilited_back_color: 0xD75A00 # 第一候选项背景背景色
-    hilited_candidate_text_color: 0xFFFFFF # 第一候选项文字颜色
-    hilited_candidate_label_color: 0xFFFFFF # 第一候选项编号颜色
-    hilited_comment_text_color: 0x999999 # 注解文字高亮
-    hilited_text_color: 0x999999 # 高亮拼音 (需要开启内嵌编码)
-    candidate_text_color: 0x3c3c3c # 预选项文字颜色
-    comment_text_color: 0x999999 # 拼音等提示文字颜色
-    horizontal: true # 水平排列
-    text_orientation: horizontal # horizontal | vertical
-    inline_preedit: true # 单行显示，false双行显示
-    label_color: 0x999999 # 预选栏编号颜色
-    candidate_format: "%c\u2005%@" # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
-    font_face: "PingFangSC" # 候选词编号字体
-    font_point: 17 # 候选文字大小
-    label_font_point: 13 # 候选编号大小
-    corner_radius: 5 # 候选条圆角
-    hilited_corner_radius: 5 # 高亮圆角
-    border_height: 4 # 窗口上下高度
-    border_width: 4 # 窗口左右宽度
-    border_color_width: 0 #输入条边框宽度
-    #label_font_face: "SFCompactText-Regular"  # 候选词编号字体
-
-  macos_dark:
-    name: Mac仿原生暗色/macos_dark
-    author: 一方
-    back_color: 0x252a2e # 候选条背景色，24位色值，16进制，BGR顺序
-    border_color: 0x050505 # 边框色
-    text_color: 0x424242 # 拼音行文字颜色
-    hilited_back_color: 0xD75A00 # 第一候选项背景背景色
-    hilited_candidate_text_color: 0xFFFFFF # 第一候选项文字颜色
-    hilited_candidate_label_color: 0xFFFFFF # 第一候选项编号颜色
-    hilited_comment_text_color: 0x999999 # 注解文字高亮
-    hilited_text_color: 0x999999 # 高亮拼音 (需要开启内嵌编码)
-    candidate_text_color: 0xe9e9ea # 预选项文字颜色
-    comment_text_color: 0x999999 # 拼音等提示文字颜色
-    horizontal: true # 水平排列
-    text_orientation: horizontal # horizontal | vertical
-    inline_preedit: true # 单行显示，false双行显示
-    label_color: 0x999999 # 预选栏编号颜色
-    candidate_format: "%c\u2005%@" # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
-    font_face: "PingFangSC" # 候选词编号字体
-    font_point: 17 # 候选文字大小
-    label_font_point: 13 # 候选编号大小
-    corner_radius: 5 # 候选条圆角
-    hilited_corner_radius: 5 # 高亮圆角
-    border_height: 4 # 窗口上下高度
-    border_width: 4 # 窗口左右宽度
-    border_color_width: 0 #输入条边框宽度
-    #label_font_face: "SFCompactText-Regular"  # 候选词编号字体
-
-```
-
-## Rofi (Linux Only)
-
-There are some really nice themes and applets written for rofi, download from here:
-[rofi-collection](https://github.com/adi1090x/rofi)
-
-Follow the link and setup as instructed. The `i3wm` and `polybar` will use this preconfigured repository.
-
-## Bluetooth
+**CHECK** —
 
 ```bash
-sudo systemctl start bluetooth
-sudo systemctl enable bluetooth
+for f in ~/.zshrc ~/.config/mihomo/mihomo.yaml ~/.config/nvim ~/.config/rofi \
+         ~/.config/starship.toml ~/.tmux.conf ~/.config/yazi ~/.wezterm.lua; do
+  test -e "$f" && echo "OK   $f" || echo "MISS $f"
+done
 ```
 
-## Kde-Connect (Linux Only)
+### 2.3 Vscode settings symlinks
 
-    To enable kdeconnect, the linux host machine needs to open specified ports and protocol for kdeconnect
-
-    ```bash
-    sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
-    7266 sudo firewall-cmd --reload
-    7278 sudo firewall-cmd --list-all
-    7282 sudo systemctl enable firewalld.service
-    7295 systemctl status firewalld
-    ```
-
-## SDDM (Linux Only)
-
-Migrate from `lightdm` to `sddm`
-
-- sddm and theme
+> VS Code's user settings live outside the stow layout, so they are symlinked per platform (VS Code only; variant editors like Cursor are out of scope).
 
 ```bash
-pacman -S sddm
-yay -S where-is-my-sddm-theme
+# macOS:
+VDIR="$HOME/Library/Application Support/Code/User"
+# Arch:
+VDIR="$HOME/.config/Code/User"
+
+mkdir -p "$VDIR"
+ln -sfn ~/stow/vscode/settings.json "$VDIR/settings.json"
+ln -sfn ~/stow/vscode/keybindings.json "$VDIR/keybindings.json"
 ```
 
-- modify sddm configuration file
+**CHECK** —
 
 ```bash
-vim /etc/sddm.conf.d/kde_settings.conf
+readlink "$VDIR/settings.json" && readlink "$VDIR/keybindings.json"
+```
+
+Both must resolve to `~/stow/vscode/…` symlinks.
+
+### 2.4 Neovim / AstroNvim bootstrap
+
+> The stowed `neovim` package **is** the whole AstroNvim v4+ user config (lazy.nvim-managed, pinned to AstroNvim ^6, needs Neovim 0.11+ — the Phase 1 installs satisfy this). One headless run installs lazy.nvim + AstroNvim + all plugins. Needs network (the bootstrap proxy covers it).
+
+```bash
+nvim --headless -c 'quitall'
+```
+
+**CHECK** —
+
+```bash
+test -f ~/.config/nvim/lazy-lock.json && echo "neovim bootstrapped"
+nvim --version | head -1
+```
+
+---
+
+## Phase 3 — Shell
+
+### 3.1 macOS — zsh is already the default
+
+**CHECK** — `echo $SHELL` ends in `zsh`. (If not, `chsh -s /bin/zsh`.)
+
+### 3.2 Arch — migrate the default shell to zsh
+
+```bash
+sudo pacman -S zsh   # if not already installed
+sudo chsh -s /usr/bin/zsh "$USER"
+```
+
+> Takes effect at the next login. The agent can keep working in the current shell — when the proxy phase needs the mihomo helper functions, source them directly: `source ~/.config/mihomo/mihomo-api.sh`.
+
+**CHECK** —
+
+```bash
+getent passwd "$USER" | cut -d: -f7   # expect /usr/bin/zsh
+```
+
+### 3.3 macOS — vi-mode clipboard note
+
+zsh vi-mode is configured in `zshrc/.zshrc`; in the macOS terminal, copy/paste use ⌘C / ⌘V (system clipboard). No action needed.
+
+---
+
+## Phase 4 — Proxy (mihomo)
+
+> The stowed `mihomo` package is the source of truth: `mihomo.yaml` is a shareable template (empty `proxy-providers`, `include-all` groups, TUN + DNS), and the real subscription lives in the **gitignored** `providers.yaml`. `startproxy` deep-merges the two via `yq` into `mihomo_runtime.yaml` and launches mihomo.
+
+### 4.1 Configure the subscription — GATE
+
+> **GATE — ask the human for the mihomo subscription URL** (the airport's subscribe link — it carries a personal token). It is written only to `providers.yaml`, which is gitignored: never commit it, never echo it into the runbook log beyond this step.
+
+```bash
+if [[ ! -f ~/.config/mihomo/providers.yaml ]]; then
+  cp ~/.config/mihomo/providers.template.yaml ~/.config/mihomo/providers.yaml
+fi
+# Replace <YOUR_SUBSCRIPTION_URL> in the e-ix block's url: line with the real URL:
+sed -i "s|<YOUR_SUBSCRIPTION_URL>|$SUB_URL|" ~/.config/mihomo/providers.yaml
+```
+
+**CHECK** —
+
+```bash
+yq '.proxy-providers | keys' ~/.config/mihomo/providers.yaml
+grep -q '<YOUR_SUBSCRIPTION_URL>' ~/.config/mihomo/providers.yaml \
+  && echo "placeholder still present!" || echo "providers.yaml ok"
+```
+
+The first command lists your provider(s); the second must print `providers.yaml ok`.
+
+### 4.2 Start the proxy
+
+```bash
+source ~/.config/mihomo/mihomo-api.sh   # already auto-sourced by .zshrc in zsh; harmless to repeat
+pgrep -x mihomo >/dev/null || startproxy
+```
+
+> `startproxy` will prompt for the sudo password (human types it), renders the runtime config, and on macOS points the system DNS at mihomo's virtual IP (198.18.0.2).
+
+**CHECK** — all of:
+
+```bash
+pgrep -x mihomo && echo "process ok"
+curl -fsS -x http://127.0.0.1:7890 https://www.youtube.com >/dev/null && echo "proxy ok"
+curl -fsS -o /dev/null http://127.0.0.1:9090/ui/ && echo "dashboard ok"
+# macOS only:
+scutil --dns | grep -q 198.18.0.2 && echo "dns ok"
+```
+
+### 4.3 Retire the bootstrap proxy
+
+> The iPhone proxy was a stopgap; mihomo now owns proxying (TUN + port 7890).
+
+```bash
+unsetproxy
+```
+
+**CHECK** —
+
+```bash
+env | grep -i proxy || echo "no proxy env vars set"
+```
+
+---
+
+## Phase 5 — Input
+
+### 5.1 macOS — Squirrel + rime-ice
+
+```bash
+brew install --cask squirrel-app
+```
+
+Then (human GUI): System Settings → Keyboard → Input Sources → **+** → 中文 → **鼠鬚管**, and switch to it from the input-menu (ㄓ) icon.
+
+Deploy rime-ice into the Squirrel user dir:
+
+```bash
+curl -fL -o /tmp/rime-ice.zip https://github.com/iDvel/rime-ice/releases/latest/download/full.zip
+[[ -d ~/Library/Rime ]] && mv ~/Library/Rime ~/Library/Rime.bak.$(date +%s)
+mkdir -p ~/Library/Rime
+unzip -o /tmp/rime-ice.zip -d ~/Library/Rime
+```
+
+Then (human GUI): Squirrel menu-bar icon → **重新部署 (Deploy)**.
+
+> Theme is personal config — rime-ice ships its own `squirrel.yaml`; further theming is out of this runbook's scope.
+
+**CHECK** —
+
+```bash
+brew list --cask squirrel-app >/dev/null && echo "squirrel installed"
+ls ~/Library/Rime | head
+test -n "$(ls -A ~/Library/Rime/build 2>/dev/null)" && echo "deployed" || echo "not deployed yet"
+```
+
+### 5.2 Arch — fcitx5 + rime-ice
+
+```bash
+sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-rime
+```
+
+Set the IM environment variables (X11 / Xwayland apps; native Wayland uses `text-input` automatically — the vars still help Xwayland apps like VS Code):
+
+```bash
+sudo tee /etc/environment >/dev/null <<'EOF'
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
+GLFW_IM_MODULE=ibus
+EOF
+```
+
+Deploy rime-ice into fcitx5-rime's user dir:
+
+```bash
+curl -fL -o /tmp/rime-ice.zip https://github.com/iDvel/rime-ice/releases/latest/download/full.zip
+[[ -d ~/.local/share/fcitx5/rime ]] && mv ~/.local/share/fcitx5/rime ~/.local/share/fcitx5/rime.bak.$(date +%s)
+mkdir -p ~/.local/share/fcitx5/rime
+unzip -o /tmp/rime-ice.zip -d ~/.local/share/fcitx5/rime
+fcitx5 -rd   # restart fcitx5
+```
+
+> Env vars take effect at the next login. Optional extras (human): enable **Cloud Pinyin** in `fcitx5-configtool`; add the zhwiki dictionary ([fcitx5-pinyin-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki)).
+
+**CHECK** —
+
+```bash
+fcitx5-diagnose | grep -iE 'GTK_IM_MODULE|QT_IM_MODULE|XMODIFIERS' | head
+ls ~/.local/share/fcitx5/rime | head
+```
+
+And the human confirms: **Ctrl+Space** toggles pinyin input in an app.
+
+---
+
+## Phase 6 — Desktop
+
+### 6.1 Arch — rofi-collection themes
+
+> The repo's stowed `rofi` config is a minimal base; the i3 config binds `$mod+d` to the collection's launcher (`launchers/type-6`, powermenu `type-5`), so install the adi1090x collection. Its `setup.sh` **moves any existing `~/.config/rofi` aside** to `~/.config/rofi.$USER` (the stowed config is preserved there, not deleted).
+
+```bash
+[[ -d /tmp/rofi ]] && rm -rf /tmp/rofi
+git clone --depth=1 https://github.com/adi1090x/rofi.git /tmp/rofi
+cd /tmp/rofi && chmod +x setup.sh && ./setup.sh
+```
+
+**CHECK** —
+
+```bash
+test -f ~/.config/rofi/config.rasi && echo "collection installed"
+ls -d ~/.config/rofi.* 2>/dev/null   # the stowed config's backup (if it was stowed)
+```
+
+### 6.2 Arch — Bluetooth
+
+```bash
+sudo pacman -S bluez bluez-utils
+sudo systemctl enable --now bluetooth
+```
+
+> Pairing devices is interactive — `bluetoothctl` (power on, scan, pair, trust, connect) or the desktop's Bluetooth UI, human-driven.
+
+**CHECK** —
+
+```bash
+systemctl is-enabled bluetooth
+rfkill list bluetooth   # expect: Soft blocked: no
+```
+
+### 6.3 Arch — KDE-Connect firewall
+
+```bash
+sudo pacman -S kdeconnect   # if not already installed
+sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
+sudo firewall-cmd --reload
+sudo systemctl enable --now firewalld.service
+```
+
+> The built-in `kdeconnect` firewalld service opens exactly the dynamic range TCP+UDP 1714–1764.
+
+**CHECK** —
+
+```bash
+sudo firewall-cmd --permanent --list-services | tr ' ' '\n' | grep -x kdeconnect
+systemctl is-enabled firewalld
+```
+
+### 6.4 Arch — SDDM display manager
+
+```bash
+sudo pacman -S sddm
+yay -S where-is-my-sddm-theme-git
+sudo tee /etc/sddm.conf.d/kde_settings.conf >/dev/null <<'EOF'
 [Theme]
 Current=where_is_my_sddm_theme
+EOF
+sudo systemctl stop lightdm.service   # only if migrating from lightdm
+sudo systemctl enable --now sddm.service
 ```
 
-- enable and start sddm
+**CHECK** —
 
 ```bash
-systemctl stop lightdm.service
-systemctl enable sddm.service
-systemctl start sddm.service
+systemctl is-enabled sddm
+ls /usr/share/sddm/themes/ | grep where_is_my_sddm
+grep -A1 '^\[Theme\]' /etc/sddm.conf.d/kde_settings.conf
 ```
 
-## Timeshift (Linux Only)
+### 6.5 Arch — Hyprland / Electron apps on Wayland
 
-Backup arch system!!!
+> The `electronflags` package (stowed in Phase 2) makes Electron apps run on Wayland: `chrome-flags.conf`, `code-flags.conf`, `spotify-launcher.conf` carry `--ozone-platform=wayland --enable-wayland-ime`. The `waybar` package shows mihomo status via `check_mihomo.sh`.
+
+**CHECK** —
 
 ```bash
-sudo pacman -S timeshift
-yay -S timeshit autosnap
+test -f ~/.config/chrome-flags.conf && echo "electron flags stowed"
+grep -h 'ozone-platform' ~/.config/*flags.conf 2>/dev/null
 ```
 
-# Hyprland (Linux Only)
+### 6.6 macOS — app notes
 
-- enable wayland mode for electron app -> see: `$HOME/stow/electronflags`
+- **Raycast** replaces Rofi; its stowed scripts (`raycast/.config/raycast/scripts/enable-proxy.sh` — "Go Abroad") toggle the system proxy to mihomo.
+- **AeroSpace** is the tiling window manager (`~/.aerospace.toml` stowed).
+- **HomeRow + HyperKey** for mouse-less operation.
+- Human GUI: disable the **Ctrl+Arrow** Mission-Control shortcuts in System Settings → Keyboard → Keyboard Shortcuts, so vim can resize panes.
 
-# MacOS
-
-- `Raycast` replace `rofi`
-- `Aerospace` as tiling window manager
-- `HomeRow` `HyperKey` for mouse less experience
-- zsh vi-mode -> copy and paste with system clipboard?
-- Remember to disable the <Ctrl-UP/DOWN/LEFT/RIGHT> keys in system settings, or vim can not resize
-- Time zone problem: use this `sudo rm /var/db/timed/com.apple.timed.plist`
-
-# New Challenges
-
-Docker Hub is not easy to reach now, we need to set proxy for our docker
+**CHECK** —
 
 ```bash
-# /etc/docker/daemon.json
-mkdir /etc/docker
-echo '{
+brew list --cask raycast aerospace homerow hyperkey >/dev/null && echo "desktop apps installed"
+test -f ~/.aerospace.toml && echo "aerospace config stowed"
+```
+
+---
+
+## Phase 7 — System-level
+
+### 7.1 Arch — GRUB
+
+> The main config must be **regenerated** after any `/etc/default/grub` edit — this is what makes kernel flags take effect.
+
+```bash
+# Kernel flags — adjust for your machine (i8042.dumbkbd is for Xiaoxin/Lenovo keyboards)
+sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="nowatchdog nvme_load=YES loglevel=3 i8042.dumbkbd"/' /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg   # REQUIRED after any /etc/default/grub edit
+```
+
+> Dual-booting? `sudo pacman -S os-prober`, mount the other OS, re-run `grub-mkconfig`. Optional with Timeshift on btrfs: `grub-btrfs` adds snapshot entries to the boot menu.
+
+**CHECK** —
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg 2>&1 | grep -q 'Found linux image' && echo "grub config regenerated"
+grep -c 'menuentry' /boot/grub/grub.cfg
+```
+
+### 7.2 Linux — Docker proxy (if Docker is installed)
+
+> Docker is not installed by this runbook; this step applies only if the human uses Docker.
+
+```bash
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json >/dev/null <<'EOF'
+{
   "proxies": {
     "http-proxy": "http://127.0.0.1:7890",
-    "https-proxy": "https://127.0.0.1:7890"
+    "https-proxy": "http://127.0.0.1:7890"
   }
-}' | sudo tee /etc/docker/daemon.json > /dev/null
+}
+EOF
+sudo systemctl restart docker
 ```
 
+**CHECK** —
+
 ```bash
-# ~/.ssh/config
+docker info 2>/dev/null | grep -A3 'HTTP Proxy'   # expect 127.0.0.1:7890
+```
+
+### 7.3 Both — GitHub over SSH port 443
+
+> Fix for blocked port 22 (also the fallback for a hanging Phase 2.2 clone).
+
+```bash
+mkdir -p ~/.ssh
+if ! grep -q 'Host github.com' ~/.ssh/config 2>/dev/null; then
+  cat >> ~/.ssh/config <<'EOF'
 Host github.com
     Hostname ssh.github.com
     Port 443
     User git
+EOF
+fi
 ```
 
-## Grub (Linux Only)
-
-We can config grub under the path /etc/default/grub
-Below is a configuration example.
-
-- Not shown boot log: add quiet in GRUB_CMDLINE_LINUX_DEFAULT
-- Keyboard Issue of Xiaoxin: add i8042.dumbkbd
+**CHECK** —
 
 ```bash
-
-# GRUB boot loader configuration
-
-GRUB_DEFAULT="0"
-GRUB_TIMEOUT="5"
-GRUB_DISTRIBUTOR="EndeavourOS"
-GRUB_CMDLINE_LINUX_DEFAULT="nowatchdog nvme_load=YES loglevel=3 i8042.dumbkbd"
-# GRUB_CMDLINE_LINUX="rhgb quiet i8042.dumbkbd"
-
-# Preload both GPT and MBR modules so that they are not missed
-GRUB_PRELOAD_MODULES="part_gpt part_msdos"
-
-# Uncomment to enable booting from LUKS encrypted devices
-#GRUB_ENABLE_CRYPTODISK="y"
-
-# Set to 'countdown' or 'hidden' to change timeout behavior,
-# press ESC key to display menu.
-GRUB_TIMEOUT_STYLE="menu"
-
-# Uncomment to use basic console
-GRUB_TERMINAL_INPUT="console"
-
-# Uncomment to disable graphical terminal
-#GRUB_TERMINAL_OUTPUT="console"
-
-# The resolution used on graphical terminal
-# note that you can use only modes which your graphic card supports via VBE
-# you can see them in real GRUB with the command `videoinfo'
-GRUB_GFXMODE="auto"
-
-# Uncomment to allow the kernel use the same resolution used by grub
-GRUB_GFXPAYLOAD_LINUX="keep"
-
-# Uncomment if you want GRUB to pass to the Linux kernel the old parameter
-# format "root=/dev/xxx" instead of "root=/dev/disk/by-uuid/xxx"
-#GRUB_DISABLE_LINUX_UUID="true"
-
-# Uncomment to disable generation of recovery mode menu entries
-GRUB_DISABLE_RECOVERY="true"
-
-# Uncomment and set to the desired menu colors.  Used by normal and wallpaper
-# modes only.  Entries specified as foreground/background.
-#GRUB_COLOR_NORMAL="light-blue/black"
-#GRUB_COLOR_HIGHLIGHT="light-cyan/blue"
-
-# Uncomment one of them for the gfx desired, a image background or a gfxtheme
-GRUB_BACKGROUND="/usr/share/endeavouros/splash.png"
-#GRUB_THEME="/path/to/gfxtheme"
-
-# Uncomment to get a beep at GRUB start
-#GRUB_INIT_TUNE="480 440 1"
-
-# Uncomment to make GRUB remember the last selection. This requires
-# setting 'GRUB_DEFAULT=saved' above.
-#GRUB_SAVEDEFAULT="true"
-
-# Uncomment to disable submenus in boot menu
-GRUB_DISABLE_SUBMENU="false"
-
-# Probing for other operating systems is disabled for security reasons. Read
-# documentation on GRUB_DISABLE_OS_PROBER, if still want to enable this
-# functionality install os-prober and uncomment to detect and include other
-# operating systems.
-GRUB_DISABLE_OS_PROBER="false"
+ssh -T -o ConnectTimeout=10 git@github.com 2>&1 | grep -q "successfully authenticated" && echo "ssh 443 ok"
 ```
+
+### 7.4 macOS — timezone fix
+
+> Only needed if the timezone does not persist across reboots.
+
+```bash
+sudo rm -f /var/db/timed/com.apple.timed.plist
+```
+
+**CHECK** — `test ! -e /var/db/timed/com.apple.timed.plist && echo "removed"`.
+
+### 7.5 Arch — Timeshift backups
+
+```bash
+sudo pacman -S timeshift
+sudo systemctl enable --now cronie.service   # hard dependency — scheduled snapshots need it
+yay -S timeshift-autosnap
+```
+
+> `timeshift-autosnap` adds a pacman hook that snapshots before/after every package transaction. First snapshot: `sudo timeshift --create` (human chooses the schedule in the GUI).
+
+**CHECK** —
+
+```bash
+pacman -Q timeshift timeshift-autosnap
+systemctl is-enabled cronie
+ls /etc/pacman.d/hooks/ | grep -i timeshift
+```
+
+---
+
+## Phase 8 — Verify
+
+### 8.1 Reboot — GATE
+
+> **GATE — ask the human to reboot the machine and confirm when it is back up.** System-level changes (GRUB flags, DNS, enabled services, IM env vars) only take effect after this.
+
+### 8.2 Smoke checks
+
+```bash
+echo "shell:  $SHELL"                                            # expect */zsh
+pgrep -x mihomo >/dev/null || startproxy                         # mihomo starts manually after boot
+curl -fsS -x http://127.0.0.1:7890 https://www.youtube.com >/dev/null && echo "proxy: ok"
+# Arch only:
+systemctl is-enabled bluetooth sddm cronie firewalld             # expect enabled ×4
+# macOS only:
+test -f /var/db/timed/com.apple.timed.plist 2>/dev/null || echo "timezone plist: removed"
+test -L ~/.zshrc && test -L ~/.config/nvim && echo "dotfiles: ok"
+```
+
+**CHECK** — every line prints the expected value. The human additionally confirms: **Ctrl+Space** toggles pinyin; Wi-Fi/Bluetooth connect; the display manager shows the theme; apps open.
+
+---
+
+## Resume protocol
+
+1. Re-run the **last failed CHECK** first.
+2. If it now passes, continue forward from there. If not, re-run the step that precedes it.
+3. Skip all already-passed CHECKs. Every step is idempotent except those marked **⚠ NOT idempotent** — for those, ask the human whether it already ran.
+4. GATEs are cheap to re-ask — the human would rather confirm a value than debug a wrong one.
