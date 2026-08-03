@@ -57,7 +57,7 @@ function statusproxy() {
     local failures=0 tries="$MIHOMO_RETRY_TRIES" delay="$MIHOMO_RETRY_DELAY"
 
     # 1. Process + API controller (readiness).
-    if ! wait_for "$tries" "$delay" pgrep -xq mihomo; then
+    if ! wait_for "$tries" "$delay" pgrep -x mihomo; then
         echo "status: FAIL - mihomo is not running"
         return 1
     fi
