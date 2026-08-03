@@ -110,7 +110,7 @@ function wait_for() {
     local tries="$1" delay="$2" i
     shift 2
     for ((i = 1; i <= tries; i++)); do
-        if "$@" 2>/dev/null; then
+        if "$@" >/dev/null 2>&1; then
             return 0
         fi
         sleep "$delay"
