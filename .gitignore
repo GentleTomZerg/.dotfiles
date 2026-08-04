@@ -18,6 +18,7 @@
 /pi/.pi/agent/npm/package-lock.json
 /pi/.pi/agent/npm/.gitignore
 /pi/.pi/agent/sessions/
+/pi/.pi/agent/models-store.json
 /pi/.pi/agent/auth.json
 /pi/.pi/context-mode/
 /.pi-subagents/
