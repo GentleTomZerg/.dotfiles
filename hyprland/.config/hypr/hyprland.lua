@@ -39,10 +39,10 @@
 -- See https://wiki.hyprland.org/Configuring/Monitors/
 
 hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
+	output = "",
+	mode = "preferred",
+	position = "auto",
+	scale = "auto",
 })
 
 -- monitor=eDP-1,prefered,auto,auto
@@ -75,7 +75,7 @@ local screenshot = 'grim -g "$(slurp)" - | wl-copy'
 
 local reload_waybar = "killall waybar && waybar"
 
-local starDict = 'sh -c "' .. os.getenv('HOME') .. '/stow/stardict/.stardict/launch_dic.sh"'
+local starDict = 'sh -c "' .. os.getenv("HOME") .. '/stow/stardict/.stardict/launch_dic.sh"'
 
 local lock = "hyprlock"
 
@@ -89,17 +89,9 @@ local lock = "hyprlock"
 
 -- Or execute your favorite apps at launch like this:
 
-
-
-
-
-
-
 -- Stores only text data
 
-
 -- Stores only image data
-
 
 --############################
 
@@ -124,79 +116,79 @@ hl.env("HYPRCURSOR_SIZE", 24)
 -- https://wiki.hyprland.org/Configuring/Variables/#general
 
 hl.config({
-    general = {
-        gaps_in = 5,
-        gaps_out = 10,
-        border_size = 6,
-        -- https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-        -- Set to true enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = false,
-        -- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-        allow_tearing = false,
-        layout = "dwindle",
-        col = {
-            active_border = { colors = { "rgba(e8dec8ee)", "rgba(576E8Cee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
-        },
-    },
+	general = {
+		gaps_in = 5,
+		gaps_out = 10,
+		border_size = 6,
+		-- https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
+		-- Set to true enable resizing windows by clicking and dragging on borders and gaps
+		resize_on_border = false,
+		-- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+		allow_tearing = false,
+		layout = "dwindle",
+		col = {
+			active_border = { colors = { "rgba(e8dec8ee)", "rgba(576E8Cee)" }, angle = 45 },
+			inactive_border = "rgba(595959aa)",
+		},
+	},
 })
 
 -- https://wiki.hyprland.org/Configuring/Variables/#decoration
 
 hl.config({
-    decoration = {
-        rounding = 10,
-        -- Change transparency of focused and unfocused windows
-        active_opacity = 1.0,
-        inactive_opacity = 1.0,
-        shadow = {
-            enabled = true,
-            range = 4,
-            render_power = 3,
-            color = "rgba(1a1a1aee)",
-        },
-        -- https://wiki.hyprland.org/Configuring/Variables/#blur
-        blur = {
-            enabled = true,
-            size = 3,
-            passes = 1,
-            vibrancy = 0.1696,
-        },
-    },
+	decoration = {
+		rounding = 10,
+		-- Change transparency of focused and unfocused windows
+		active_opacity = 1.0,
+		inactive_opacity = 1.0,
+		shadow = {
+			enabled = true,
+			range = 4,
+			render_power = 3,
+			color = "rgba(1a1a1aee)",
+		},
+		-- https://wiki.hyprland.org/Configuring/Variables/#blur
+		blur = {
+			enabled = true,
+			size = 3,
+			passes = 1,
+			vibrancy = 0.1696,
+		},
+	},
 })
 
 -- https://wiki.hyprland.org/Configuring/Variables/#animations
 
 hl.config({
-    animations = {
-        enabled = { true, "please:)" },
-        -- Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
-        bezier = {
-            easeOutQuint = { 0.23, 1, 0.32, 1 },
-            easeInOutCubic = { 0.65, 0.05, 0.36, 1 },
-            linear = { 0, 0, 1, 1 },
-            almostLinear = { 0.5, 0.5, 0.75, 1.0 },
-            quick = { 0.15, 0, 0.1, 1 },
-        },
-        animation = {
-            global = { 1, 10, "default" },
-            border = { 1, 5.39, "easeOutQuint" },
-            windows = { 1, 4.79, "easeOutQuint" },
-            windowsIn = { 1, 4.1, "easeOutQuint", "popin 87%" },
-            windowsOut = { 1, 1.49, "linear", "popin 87%" },
-            fadeIn = { 1, 1.73, "almostLinear" },
-            fadeOut = { 1, 1.46, "almostLinear" },
-            fade = { 1, 3.03, "quick" },
-            layers = { 1, 3.81, "easeOutQuint" },
-            layersIn = { 1, 4, "easeOutQuint", "fade" },
-            layersOut = { 1, 1.5, "linear", "fade" },
-            fadeLayersIn = { 1, 1.79, "almostLinear" },
-            fadeLayersOut = { 1, 1.39, "almostLinear" },
-            workspaces = { 1, 1.94, "almostLinear", "fade" },
-            workspacesIn = { 1, 1.21, "almostLinear", "fade" },
-            workspacesOut = { 1, 1.94, "almostLinear", "fade" },
-        },
-    },
+	animations = {
+		enabled = true,
+		-- Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+		bezier = {
+			easeOutQuint = { 0.23, 1, 0.32, 1 },
+			easeInOutCubic = { 0.65, 0.05, 0.36, 1 },
+			linear = { 0, 0, 1, 1 },
+			almostLinear = { 0.5, 0.5, 0.75, 1.0 },
+			quick = { 0.15, 0, 0.1, 1 },
+		},
+		animation = {
+			global = { 1, 10, "default" },
+			border = { 1, 5.39, "easeOutQuint" },
+			windows = { 1, 4.79, "easeOutQuint" },
+			windowsIn = { 1, 4.1, "easeOutQuint", "popin 87%" },
+			windowsOut = { 1, 1.49, "linear", "popin 87%" },
+			fadeIn = { 1, 1.73, "almostLinear" },
+			fadeOut = { 1, 1.46, "almostLinear" },
+			fade = { 1, 3.03, "quick" },
+			layers = { 1, 3.81, "easeOutQuint" },
+			layersIn = { 1, 4, "easeOutQuint", "fade" },
+			layersOut = { 1, 1.5, "linear", "fade" },
+			fadeLayersIn = { 1, 1.79, "almostLinear" },
+			fadeLayersOut = { 1, 1.39, "almostLinear" },
+			workspaces = { 1, 1.94, "almostLinear", "fade" },
+			workspacesIn = { 1, 1.21, "almostLinear", "fade" },
+			workspacesOut = { 1, 1.94, "almostLinear", "fade" },
+		},
+	},
 })
 
 -- Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
@@ -222,86 +214,86 @@ hl.config({
 -- if DP-2 is connected, workspace 2-9 belongs to DP-2
 
 hl.workspace_rule({
-    workspace = 1,
-    monitor = "eDP-1",
-    -- preferred (unrecognized workspace param)
+	workspace = 1,
+	monitor = "eDP-1",
+	-- preferred (unrecognized workspace param)
 })
 
 hl.workspace_rule({
-    workspace = 2,
-    monitor = "DP-2",
-    -- preferred (unrecognized workspace param)
+	workspace = 2,
+	monitor = "DP-2",
+	-- preferred (unrecognized workspace param)
 })
 
 hl.workspace_rule({
-    workspace = 3,
-    monitor = "DP-2",
-    -- preferred (unrecognized workspace param)
+	workspace = 3,
+	monitor = "DP-2",
+	-- preferred (unrecognized workspace param)
 })
 
 hl.workspace_rule({
-    workspace = 4,
-    monitor = "DP-2",
-    -- preferred (unrecognized workspace param)
+	workspace = 4,
+	monitor = "DP-2",
+	-- preferred (unrecognized workspace param)
 })
 
 hl.workspace_rule({
-    workspace = 5,
-    monitor = "DP-2",
-    -- preferred (unrecognized workspace param)
+	workspace = 5,
+	monitor = "DP-2",
+	-- preferred (unrecognized workspace param)
 })
 
 hl.workspace_rule({
-    workspace = 6,
-    monitor = "DP-2",
-    -- preferred (unrecognized workspace param)
+	workspace = 6,
+	monitor = "DP-2",
+	-- preferred (unrecognized workspace param)
 })
 
 hl.workspace_rule({
-    workspace = 7,
-    monitor = "DP-2",
-    -- preferred (unrecognized workspace param)
+	workspace = 7,
+	monitor = "DP-2",
+	-- preferred (unrecognized workspace param)
 })
 
 hl.workspace_rule({
-    workspace = 8,
-    monitor = "DP-2",
-    -- preferred (unrecognized workspace param)
+	workspace = 8,
+	monitor = "DP-2",
+	-- preferred (unrecognized workspace param)
 })
 
 hl.workspace_rule({
-    workspace = 9,
-    monitor = "DP-2",
-    -- preferred (unrecognized workspace param)
+	workspace = 9,
+	monitor = "DP-2",
+	-- preferred (unrecognized workspace param)
 })
 
 -- See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
 
 hl.config({
-    dwindle = {
-        -- pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-        preserve_split = true,
-        -- You probably want this
-    },
+	dwindle = {
+		-- pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+		preserve_split = true,
+		-- You probably want this
+	},
 })
 
 -- See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
 
 hl.config({
-    master = {
-        new_status = "master",
-    },
+	master = {
+		new_status = "master",
+	},
 })
 
 -- https://wiki.hyprland.org/Configuring/Variables/#misc
 
 hl.config({
-    misc = {
-        force_default_wallpaper = 0,
-        -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo = true,
-        -- If true disables the random hyprland logo / anime girl background. :(
-    },
+	misc = {
+		force_default_wallpaper = 0,
+		-- Set to 0 or 1 to disable the anime mascot wallpapers
+		disable_hyprland_logo = true,
+		-- If true disables the random hyprland logo / anime girl background. :(
+	},
 })
 
 --############
@@ -313,16 +305,16 @@ hl.config({
 -- https://wiki.hyprland.org/Configuring/Variables/#input
 
 hl.config({
-    input = {
-        kb_layout = "us",
-        kb_options = "caps:ctrl_modifier",
-        follow_mouse = 1,
-        sensitivity = 0,
-        -- -1.0 - 1.0, 0 means no modification.
-        touchpad = {
-            natural_scroll = true,
-        },
-    },
+	input = {
+		kb_layout = "us",
+		kb_options = "caps:ctrl_modifier",
+		follow_mouse = 1,
+		sensitivity = 0,
+		-- -1.0 - 1.0, 0 means no modification.
+		touchpad = {
+			natural_scroll = true,
+		},
+	},
 })
 
 -- https://wiki.hyprland.org/Configuring/Variables/#gestures
@@ -338,8 +330,8 @@ hl.config({
 -- See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
 
 hl.device({
-    name = "epic-mouse-v1",
-    sensitivity = -0.5,
+	name = "epic-mouse-v1",
+	sensitivity = -0.5,
 })
 
 --##################
@@ -364,7 +356,7 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "E", hl.dsp.exit())
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "B", hl.dsp.exec_cmd("killall waybar && waybar"))
 
-hl.bind("SUPER" .. " + " .. "V", hl.dsp.exec_cmd('cliphist list | rofi -dmenu | cliphist decode | wl-copy'))
+hl.bind("SUPER" .. " + " .. "V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "S", hl.dsp.exec_cmd(screenshot))
 
@@ -482,11 +474,19 @@ hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURC
 
 -- bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+
 
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(os.getenv("HOME") .. "/stow/dunst/.config/dunst/backlight.sh increase"), { locked = true })
+hl.bind(
+	"XF86MonBrightnessUp",
+	hl.dsp.exec_cmd(os.getenv("HOME") .. "/stow/dunst/.config/dunst/backlight.sh increase"),
+	{ locked = true }
+)
 
 -- bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
 
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(os.getenv("HOME") .. "/stow/dunst/.config/dunst/backlight.sh decrease"), { locked = true })
+hl.bind(
+	"XF86MonBrightnessDown",
+	hl.dsp.exec_cmd(os.getenv("HOME") .. "/stow/dunst/.config/dunst/backlight.sh decrease"),
+	{ locked = true }
+)
 
 -- Requires playerctl
 
@@ -515,65 +515,64 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 -- Example windowrule v2 (new syntax)
 
 hl.window_rule({
-    float = true,
-    match = {
-        class = "^(thunar)$",
-    },
+	float = true,
+	match = {
+		class = "^(thunar)$",
+	},
 })
 
 hl.window_rule({
-    float = true,
-    match = {
-        class = "Alacritty",
-    },
+	float = true,
+	match = {
+		class = "Alacritty",
+	},
 })
 
 hl.window_rule({
-    name  = "size_25__25_",
-    match = {
-        class = "Alacritty",
-        title = "Alacritty",
-    },
-    size = "25% 25%",
+	name = "size_25__25_",
+	match = {
+		class = "Alacritty",
+		title = "Alacritty",
+	},
+	size = "25% 25%",
 })
 
 hl.window_rule({
-    float = true,
-    match = {
-        class = "thunar",
-    },
+	float = true,
+	match = {
+		class = "thunar",
+	},
 })
 
 hl.window_rule({
-    name  = "size_60__60_",
-    match = {
-        class = "thunar",
-    },
-    size = "60% 60%",
+	name = "size_60__60_",
+	match = {
+		class = "thunar",
+	},
+	size = "60% 60%",
 })
 
 hl.window_rule({
-    float = true,
-    match = {
-        class = "org.pulseaudio.pavucontrol",
-    },
+	float = true,
+	match = {
+		class = "org.pulseaudio.pavucontrol",
+	},
 })
 
 hl.window_rule({
-    name  = "size_60__60_",
-    match = {
-        class = "org.pulseaudio.pavucontrol",
-    },
-    size = "60% 60%",
+	name = "size_60__60_",
+	match = {
+		class = "org.pulseaudio.pavucontrol",
+	},
+	size = "60% 60%",
 })
 
 -- Ignore maximize requests from apps. You'll probably like this.
 
 hl.window_rule({
-    suppress_maximize = true,
-    match = {
-        class = ".*",
-    },
+	match = {
+		class = ".*",
+	},
 })
 
 -- Fix some dragging issues with XWayland
@@ -582,16 +581,16 @@ hl.window_rule({
 
 -- Autostart
 hl.on("hyprland.start", function()
-    hl.exec_cmd("ghostty")
-    hl.exec_cmd("nm-applet &")
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("hypridle")
-    hl.exec_cmd("wl-paste --type text --watch cliphist store")
-    hl.exec_cmd("wl-paste --type image --watch cliphist store")
+	hl.exec_cmd("ghostty")
+	hl.exec_cmd("nm-applet &")
+	hl.exec_cmd("waybar")
+	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("wl-paste --type text --watch cliphist store")
+	hl.exec_cmd("wl-paste --type image --watch cliphist store")
 end)
 
 -- Exec (run every reload)
 hl.on("config.reloaded", function()
-    hl.exec_cmd("fcitx5 -d")
+	hl.exec_cmd("fcitx5 -d")
 end)
