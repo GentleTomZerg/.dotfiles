@@ -1,15 +1,16 @@
 {
   "theme": "catppuccin-macchiato",
-  "lastChangelogVersion": "0.84.0",
-  "defaultProvider": "opencode",
-  "defaultModel": "deepseek-v4-flash-free",
+  "lastChangelogVersion": "0.84.1",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:pi-web-access",
     "npm:pi-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@juicesharp/rpiv-todo",
-    "npm:pi-subagents"
+    "npm:pi-subagents",
+    "npm:@narumitw/pi-lsp"
   ],
   "skills": [
     "~/stow/myskills/"
