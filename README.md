@@ -388,25 +388,71 @@ systemctl is-enabled bluetooth
 rfkill list bluetooth   # expect: Soft blocked: no
 ```
 
-### 6.3 Arch — KDE-Connect firewall
+### 6.3 Arch — KDE Connect
 
 ```bash
-sudo pacman -S kdeconnect   # if not already installed
-sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
-sudo firewall-cmd --reload
+sudo pacman -S kdeconnect avahi          # avahi = mDNS responder (required for iOS discovery)
+sudo systemctl enable --now avahi-daemon.service
 sudo systemctl enable --now firewalld.service
+sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
+sudo firewall-cmd --permanent --zone=public --add-service=mdns
+sudo firewall-cmd --reload
 ```
 
-> The built-in `kdeconnect` firewalld service opens exactly the dynamic range TCP+UDP 1714–1764.
+> The built-in `kdeconnect` firewalld service opens exactly the dynamic range TCP+UDP 1714–1764 (the actual traffic). `mdns` opens UDP 5353 → 224.0.0.251 and matters only if you ever pair an **iPhone/iPad**: iOS cannot listen for broadcast packets, so it finds the desktop exclusively via mDNS/Bonjour — and firewalld filters that multicast unless the `mdns` service is enabled.
 
 **CHECK** —
 
 ```bash
-sudo firewall-cmd --permanent --list-services | tr ' ' '\n' | grep -x kdeconnect
-systemctl is-enabled firewalld
+sudo firewall-cmd --permanent --list-services | tr ' ' '\n' | grep -xE 'kdeconnect|mdns'
+systemctl is-enabled firewalld avahi-daemon
+pacman -Q kdeconnect avahi
 ```
 
-### 6.4 Arch — SDDM display manager
+### 6.4 Arch — KDE Connect: pairing & CLI usage
+
+Pair a phone — both devices must be on the **same Wi-Fi subnet** (no guest SSID / VLAN / client isolation):
+
+```bash
+kdeconnect-cli -a    # devices advertising on the LAN right now
+kdeconnect-cli -l    # paired devices (id + name + state)
+kdeconnect-cli --pair -n "<phone-name>"   # request pairing — confirm on the phone
+```
+
+- **Android** — open KDE Connect, tap the desktop, accept the request.
+- **iOS** — open the app and **keep it in the foreground**: iOS suspends KDE Connect's networking in the background, so nothing is advertised while the app isn't on screen. If the desktop never appears: enable **Settings → Privacy & Security → Local Network → KDE Connect** (iOS 14+ blocks LAN access until granted) and confirm the phone is on the same subnet as the desktop.
+- **Fallback when discovery fails** — pair by IP: on the phone, KDE Connect settings → "Add device by IP" → the desktop's IP; on the desktop, `kdeconnect-cli --pair -d <id>` after `kdeconnect-cli -a`.
+
+Everyday commands:
+
+```bash
+kdeconnect-cli --ping -n "<name>"              # ping the phone (shows a toast)
+kdeconnect-cli --share ~/file.pdf -n "<name>"  # send a file
+kdeconnect-cli --share-text "hi" -n "<name>"   # send text (shows as a notification)
+kdeconnect-cli --send-clipboard -n "<name>"    # push the desktop clipboard to the phone
+kdeconnect-cli --list-notifications -n "<name>"
+```
+
+> Plugin availability varies by OS — iOS covers file sharing, shared clipboard (text only), and notifications; touchpad, remote commands, and SMS are Android-only.
+
+Troubleshoot discovery:
+
+```bash
+kdeconnect-cli -a                                # 0 devices → discovery is broken
+timeout 8 avahi-browse -a -t | grep kdeconnect   # is the phone advertising _kdeconnect._udp?
+nc -zuv <phone-ip> 1716                          # can you reach the phone's KDE Connect port?
+sudo firewall-cmd --zone=public --list-all       # services must include kdeconnect + mdns
+```
+
+**CHECK** —
+
+```bash
+kdeconnect-cli -l >/dev/null && echo "kdeconnect-cli works"
+```
+
+And the human confirms the phone appears in `kdeconnect-cli -a` and accepts the pairing request (interactive, phone in hand — same as [6.2](#62-arch--bluetooth)).
+
+### 6.5 Arch — SDDM display manager
 
 ```bash
 sudo pacman -S sddm
@@ -427,7 +473,7 @@ ls /usr/share/sddm/themes/ | grep where_is_my_sddm
 grep -A1 '^\[Theme\]' /etc/sddm.conf.d/kde_settings.conf
 ```
 
-### 6.5 Arch — Hyprland / Electron apps on Wayland
+### 6.6 Arch — Hyprland / Electron apps on Wayland
 
 > The `electronflags` package (stowed in Phase 2) makes Electron apps run on Wayland: `chrome-flags.conf`, `code-flags.conf`, `spotify-launcher.conf` carry `--ozone-platform=wayland --enable-wayland-ime`. The `waybar` package shows mihomo status via `check_mihomo.sh`.
 
@@ -438,8 +484,9 @@ test -f ~/.config/chrome-flags.conf && echo "electron flags stowed"
 grep -h 'ozone-platform' ~/.config/*flags.conf 2>/dev/null
 ```
 
-### 6.6 macOS — app notes
+### 6.7 macOS — app notes
 
+- **KDE Connect** — `brew install --cask kde-connect`; on first launch allow incoming connections if macOS prompts (System Settings → Privacy & Security → Firewall). Pairing + iOS notes: see [6.4](#64-arch--kde-connect-pairing--cli-usage).
 - **Raycast** replaces Rofi; its stowed scripts (`raycast/.config/raycast/scripts/enable-proxy.sh` — "Go Abroad") toggle the system proxy to mihomo.
 - **AeroSpace** is the tiling window manager (`~/.aerospace.toml` stowed).
 - **HomeRow + HyperKey** for mouse-less operation.
@@ -541,7 +588,7 @@ pgrep -x mihomo >/dev/null || startproxy    # boots mihomo (runs full checks); s
 statusproxy                                   # re-verify proxy/dashboard/DNS (idempotent)
 test -L ~/.zshrc && test -L ~/.config/nvim && echo "dotfiles: ok"
 # Arch only:
-systemctl is-enabled bluetooth sddm cronie firewalld             # expect enabled ×4
+systemctl is-enabled bluetooth sddm cronie firewalld avahi-daemon  # expect enabled ×5
 # macOS only:
 test ! -e /var/db/timed/com.apple.timed.plist && echo "timezone plist: removed"
 ```
