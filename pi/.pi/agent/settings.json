@@ -2,17 +2,17 @@
   "theme": "catppuccin-macchiato",
   "lastChangelogVersion": "0.84.2",
   "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-flash",
+  "defaultModel": "muse-spark-1.2-contributor",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:pi-web-access",
     "npm:pi-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@juicesharp/rpiv-todo",
-    "npm:pi-subagents",
-    "npm:@narumitw/pi-lsp"
+    "npm:pi-subagents"
   ],
   "skills": [
     "~/stow/myskills/"
-  ]
+  ],
+  "hideThinkingBlock": false
 }
