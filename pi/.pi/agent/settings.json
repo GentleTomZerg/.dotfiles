@@ -4,6 +4,7 @@
   "defaultProvider": "opencode-go",
   "defaultModel": "muse-spark-1.2-contributor",
   "defaultThinkingLevel": "high",
+  "defaultTools": ["read", "bash", "edit", "write", "grep", "find", "ls"],
   "packages": [
     "npm:pi-web-access",
     "npm:pi-btw",
