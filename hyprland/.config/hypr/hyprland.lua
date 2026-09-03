@@ -119,7 +119,7 @@ hl.config({
 	general = {
 		gaps_in = 5,
 		gaps_out = 10,
-		border_size = 6,
+		border_size = 2,
 		-- https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
 		-- Set to true enable resizing windows by clicking and dragging on borders and gaps
 		resize_on_border = false,
