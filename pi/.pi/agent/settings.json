@@ -18,7 +18,8 @@
     "npm:pi-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@juicesharp/rpiv-todo",
-    "npm:pi-subagents"
+    "npm:pi-subagents",
+    "npm:pi-mcp-adapter"
   ],
   "skills": [
     "~/stow/myskills/"
