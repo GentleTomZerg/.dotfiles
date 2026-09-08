@@ -23,3 +23,6 @@
 /pi/.pi/agent/auth.json
 /pi/.pi/context-mode/
 /.pi-subagents/
+# mcp cache - adapter internal
+/pi/.pi/agent/mcp-cache.json
+/pi/.pi/agent/mcp-onboarding.json
