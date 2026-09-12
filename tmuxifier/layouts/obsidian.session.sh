@@ -8,6 +8,9 @@ if initialize_session "obsidian"; then
   window_root "$HOME/Projects/Obsidian-Vault"
   new_window "note"
 
+  window_root "$HOME/Projects/Obsidian-Blog"
+  new_window "blog"
+
   select_window "note"
 fi
 
