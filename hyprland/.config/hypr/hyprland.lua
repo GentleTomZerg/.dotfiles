@@ -65,7 +65,8 @@ local terminal = "ghostty"
 
 local fileManager = "thunar"
 
-local menu = "rofi -show drun"
+-- rofi fallback (parallel run): "rofi -show drun"
+local menu = "vicinae toggle"
 
 local emoji = "rofi -modi emoji -show emoji"
 
@@ -356,7 +357,8 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "E", hl.dsp.exit())
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "B", hl.dsp.exec_cmd("killall waybar && waybar"))
 
-hl.bind("SUPER" .. " + " .. "V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+-- rofi fallback: hl.bind("SUPER" .. " + " .. "V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+hl.bind("SUPER" .. " + " .. "V", hl.dsp.exec_cmd('cliphist list | vicinae dmenu --placeholder "Clipboard" | cliphist decode | wl-copy'))
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "S", hl.dsp.exec_cmd(screenshot))
 
@@ -370,7 +372,8 @@ hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen())
 
 hl.bind(mainMod .. " + " .. "O", hl.dsp.window.float())
 
-hl.bind(mainMod .. " + " .. "SPACE", hl.dsp.exec_cmd("rofi -show drun"))
+-- rofi fallback: hl.bind(mainMod .. " + " .. "SPACE", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + " .. "SPACE", hl.dsp.exec_cmd(menu))
 
 hl.bind(mainMod .. " + " .. "G", hl.dsp.exec_cmd("google-chrome-stable"))
 
@@ -581,6 +584,7 @@ hl.window_rule({
 
 -- Autostart
 hl.on("hyprland.start", function()
+	hl.exec_cmd("vicinae server")
 	hl.exec_cmd("ghostty")
 	hl.exec_cmd("nm-applet &")
 	hl.exec_cmd("waybar")
