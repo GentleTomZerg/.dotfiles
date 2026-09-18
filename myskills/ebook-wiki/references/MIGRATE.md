@@ -9,16 +9,16 @@ cd reading/<book>
 grep -rho "<chapter>#[^]|]*" wiki/ index.md --include="*.md" | sort -u
 ```
 
-Freeze that list. Those `### §n <节名>` headings must appear **byte-identical** in the new page. If a heading must change, the change is a separate decision: update every citation in the same commit and say so in the log entry.
+Freeze that list. Those `### §n <section title>` headings must appear **byte-identical** in the new page. If a heading must change, the change is a separate decision: update every citation in the same commit and say so in the log entry.
 
 ## 2. Decide the target shape
 
-- Which cores does the book declare now? Write them into `## 读法` in `AGENTS.md` first, so the new page is written against the new contract rather than the old one.
+- Which cores does the book declare now? Write them into the conventions block in `AGENTS.md` first, so the new page is written against the new contract rather than the old one.
 - What happens to material no core claims? It either moves into the spine's § record, moves to `wiki/concepts/` / `wiki/persons/`, or is dropped. Dropping is a legitimate outcome — say so in the log.
 
 ## 3. Rewrite, preserving the anchor contract
 
-Keep `### §n <节名>` identical even while everything under them changes. Re-verify quotes: an older page's quotes were never checked against the [quote protocol](../SPINE.md), so expect splice, framing, and transcription defects. Record results in `## 引文核对`.
+Keep `### §n <section title>` identical even while everything under them changes. Re-verify quotes: an older page's quotes were never checked against the [quote protocol](SPINE.md), so expect splice, framing, and transcription defects. Record results in `## 引文核对`.
 
 ## 4. Check the whole book, not just the page
 
@@ -29,7 +29,7 @@ Keep `### §n <节名>` identical even while everything under them changes. Re-v
 ## 5. Close the loop
 
 - Delete or fold the superseded draft — two files describing one chapter is the confusion migrations are meant to end.
-- Update `AGENTS.md` `## 读法` and its `本书约定`-style notes.
+- Update `AGENTS.md`'s conventions block (`## 读法` / `## How to read`) and its per-book notes.
 - Append `## [YYYY-MM-DD] migrate | <chapter> | <old shape> → <new shape>, N anchors verified` to `log.md`.
 - Run the structural lint pass from the skill's step 4.
 
