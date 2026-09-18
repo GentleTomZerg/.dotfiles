@@ -1,6 +1,6 @@
 ---
 name: ebook-wiki
-description: Compile EPUB/PDF readings into an Obsidian wiki via ebook-mcp: a shared spine plus per-book cores (argue / explain / trace / record). Use when setting up reading/<book>/, ingesting a chapter, asking across chapters, or linting the wiki.
+description: "Compile EPUB/PDF readings into an Obsidian wiki via ebook-mcp: a shared spine plus per-book cores (argue / explain / trace / record). Use when setting up reading/<book>/, ingesting a chapter, asking across chapters, or linting the wiki."
 ---
 
 # Ebook Wiki
