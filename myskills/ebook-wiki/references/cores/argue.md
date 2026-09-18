@@ -6,7 +6,7 @@ Toulmin gives **C**laim, **G**rounds, **W**arrant. This wiki adds three slots: *
 
 ```md
 ## Skeleton
-<the whole chain of conclusions on one screen: mermaid `flowchart TD`, or an arrow list when the chain is linear>
+<the chain of conclusions on one screen — an arrow list, because an argument chain is a list with a few dependency marks on it; mermaid `flowchart TD` only where it really branches>
 
 ## Argument n: <title>
 
@@ -23,7 +23,7 @@ Toulmin gives **C**laim, **G**rounds, **W**arrant. This wiki adds three slots: *
 - **R**: <what evidence would collapse the claim>
 ```
 
-Required: every slot — **Skeleton**, then **C**, **G**, **W**, **I**, **S**, **R** in each argument block.
+Required: every slot. **W** and **R** are the two most tempting to drop — write and tag them instead.
 
 ## Slot rules
 

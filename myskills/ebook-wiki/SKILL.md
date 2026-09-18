@@ -34,7 +34,7 @@ If `reading/<book>/AGENTS.md` is missing, scaffold it per [SCHEMA](references/SC
    - **What does evidence look like?** 证据长什么样
    - **What must be left behind?** 哪些东西必须留下
 3. Write the answers into the conventions block of `reading/<book>/AGENTS.md`, whose heading follows the book's language ([LANGUAGE](references/LANGUAGE.md)).
-4. On every later run, read that block first, then load [SPINE](references/SPINE.md) plus the cores it names. A chapter departs from the book's cores only through its own `cores:` frontmatter; `cores: []` is spine only.
+4. On every later run, read that block first, then load [SPINE](references/SPINE.md) plus the cores it names. A chapter's shape is its own `cores:` frontmatter, confirmed at write time (step 2); `cores: []` is spine only.
 
 **Completion**: `reading/<book>/` holds `AGENTS.md` with the conventions block filled, `index.md`, `log.md`, `raw/book-info.md` carrying the file identity and the chapter list, and `wiki/`.
 
@@ -44,11 +44,15 @@ One chapter per run; the human reads it first. Resolve the `chapter_id` from `ra
 
 Open by declaring the pace — `Pace: per-section` (the `pace:` default recorded in `AGENTS.md`), which the human overrides with one word (`chapter` to batch instead).
 
-Then walk the chapter, **writing no wiki files yet**. Per-section: for each section, what it argues, the key distinction, one question for the human — and wait for their reply before presenting the next. Per-chapter: the same walk, with the questions held back into one batch at the end. Either way, close with three takeaways: core claim, key distinction, tension with earlier chapters. Wait for explicit confirmation on what to emphasise.
+Then walk the chapter, **writing no wiki files yet**. Per-section: for each section, what it argues, the key distinction, one question for the human — and wait for their reply before presenting the next. Per-chapter: the same walk, with the questions held back into one batch at the end. Either way, close with three takeaways — core claim, key distinction, tension with earlier chapters — and with a proposed shape for **this** chapter, since you now know what the chapter is and have not yet written a file: which cores, and why, in one line.
+
+> This chapter is a proof chain → `argue`, plus `record` for the notation.
+
+Wait for explicit confirmation on what to emphasise *and* on the shape, and write the agreed cores into the chapter's `cores:` frontmatter. The book's declaration in `AGENTS.md` is the default; the chapter is where it is confirmed against what the chapter turned out to be.
 
 Then verify every quote against the raw text ([quote protocol](references/SPINE.md)), and only then write `wiki/sources/<chapter>.md`, refresh `00-overview.md`, and touch or create the `concepts/` and `persons/` pages it needs.
 
-**Completion**: human confirmed the takeaways for every section; `wiki/sources/<chapter>.md` carries the spine plus every declared core; every verbatim quote is `✓` in `## Quote check`; every new concept and person has a `[[link]]`; `index.md` updated; `log.md` appended; the structural pass of step 4 clean.
+**Completion**: human confirmed the takeaways for every section and the chapter's shape; `wiki/sources/<chapter>.md` carries the spine plus the chapter's cores; every verbatim quote is `✓` in `## Quote check`; every new concept and person has a `[[link]]`; `index.md` updated; `log.md` appended; the structural pass of step 4 clean.
 
 ### 3. Query the wiki
 

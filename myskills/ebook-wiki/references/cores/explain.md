@@ -26,9 +26,9 @@
 ```<lang>
 <verbatim excerpt>
 ```
-````
 
 <provenance: listing number or file:line as printed>
+````
 
 ## Trade-offs
 
