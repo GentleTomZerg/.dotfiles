@@ -17,9 +17,9 @@ reading/<book>/
     persons/         # people the book keeps citing
 ```
 
-## Per-book AGENTS.md template
+## The conventions block
 
-Copy this into `reading/<book>/AGENTS.md`; the conventions block is filled in by the setup interview, not by hand. Its heading follows the book's language — `## 读法` for a Chinese book, `## How to read` for an English one ([LANGUAGE](LANGUAGE.md)).
+`reading/<book>/AGENTS.md` holds the book's conventions and nothing else — the workflow lives in this skill. Its heading follows the book's language: `## 读法` for a Chinese book, `## How to read` for an English one ([LANGUAGE](LANGUAGE.md)). Fill it from the setup interview, not by hand:
 
 ```md
 # LLM Wiki - [<book title>]
@@ -34,29 +34,13 @@ Copy this into `reading/<book>/AGENTS.md`; the conventions block is filled in by
 - 读完要能干什么 / what must you be able to do afterwards: <one line from the setup interview>
 - 证据长什么样 / what evidence looks like: <逐字引文 / 代码 / 图表与数据 / 事件与人物>
 - 哪些东西必须留下 / what must be left behind: <结论链 / 机制与不变量 / 数字与定义 / 金句>
-
-## Ingest - one chapter per run
-1. Read the chapter via ebook-mcp (see INGEST reference in ebook-wiki skill).
-2. Discuss 3 takeaways with the human first: core claim / key distinction / tension with earlier chapters.
-3. Verify every quote against the raw text before writing it (see SPINE reference, quote protocol).
-4. Then write wiki/sources/<chapter>.md (spine + declared cores), update 00-overview.md, concepts/, persons/, index.md, log.md.
-5. One chapter may touch 10-15 wiki files. Keep every cross-reference a [[link]]; link into source pages by #§n anchor only.
-
-## Query
-Read index.md first, then the linked pages. Cite with [[links]]. File reusable answers back as new wiki pages.
-
-## Lint
-Structure pass: spine and core slots present, quotes all present in the Quote check table, inbound anchors resolving.
-Semantics pass: contradictions, stale claims, orphans, missing pages, missing links.
-Then suggest 2-5 new questions and 2-5 new sources to fetch.
-
-## Evolve this file
-When a workflow friction repeats twice (e.g. source page shape, link style, language gloss), update this file with the human before continuing. A change of shape for existing pages is a migration: see the MIGRATE reference.
 ```
+
+When a friction repeats twice — source page shape, link style, a language gloss — update this block with the human before continuing. Changing the shape of pages already written is a migration: see [MIGRATE](MIGRATE.md).
 
 ## index.md convention
 
-Catalog by category, one line per page with a link and one-line summary:
+Catalog by category, one line per page with a link and a one-line summary:
 
 ```md
 # Index - [<book>]

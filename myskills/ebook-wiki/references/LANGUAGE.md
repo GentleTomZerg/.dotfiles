@@ -1,11 +1,11 @@
 # Language — the book's language governs what the reader reads
 
-Write the wiki in the book's language. That applies to the prose **and to the fixed vocabulary**: the spine's block names, table headers and inline notation each have a Chinese form and an English form, and the page uses one pair throughout — the one matching the book.
+Write the wiki in the book's language: the prose **and** the fixed vocabulary. Block names, table headers and inline notation each have a Chinese form and an English form, and one page uses one pair throughout — the one matching the book.
 
 - Chinese book → Chinese prose. Gloss each key term once on first use: `一元论 (monism)`, `赫尔德 (Herder)`.
 - English book → English prose. Gloss terms that aid understanding: `negative liberty (消极自由)`.
 
-Keep each concept's definition, gloss, and `[[links]]` under one heading so reading one part brings its neighbours. Reuse the same gloss everywhere after the first use; never re-translate the same term two ways in one wiki.
+Reuse the same gloss everywhere after the first use; never re-translate a term two ways in one wiki.
 
 ## Fixed vocabulary
 
@@ -44,8 +44,8 @@ Keep each concept's definition, gloss, and `[[links]]` under one heading so read
 
 ## Never translated
 
-- **Core identifiers** — `argue` / `explain` / `trace` / `record`, in frontmatter `cores:` and in the book's conventions block.
-- **`### §n <title>`** — the anchor contract. Always the book's own numerals and title, quoted rather than translated: `### §8 多元论`, never `### §8 Pluralism`. Translating a heading breaks every link into it the moment a page's language changes.
+- **Core identifiers** — `argue` / `explain` / `trace` / `record`, in frontmatter `cores:` and in the conventions block.
+- **`### §n <title>`** — the book's own numerals and title, quoted: `### §8 多元论`, never `### §8 Pluralism`.
 - **The `- source:` line** and chapter ids — machine keys, not prose.
 
 Rule of thumb: the book's language governs everything a reader reads; English governs the keys the agent greps for.

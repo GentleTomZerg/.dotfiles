@@ -1,40 +1,26 @@
 # Migrate — moving a book (or one page) to a new shape
 
-Shape changes are the highest-risk edit in this wiki, because every page that cites a source page by `#§n` anchor breaks silently when a heading is renamed. Run this procedure instead of rewriting by hand.
+Shape changes are the highest-risk edit in this wiki, because every page citing a source page by `#§n` breaks silently when a heading is renamed. Run this procedure instead of rewriting by hand.
 
-## 1. Inventory the anchors that must survive
+1. **Inventory the anchors that must survive.**
 
-```sh
-cd reading/<book>
-grep -rho "<chapter>#[^]|]*" wiki/ index.md --include="*.md" | sort -u
-```
+   ```sh
+   cd reading/<book>
+   grep -rho "<chapter>#[^]|]*" wiki/ index.md --include="*.md" | sort -u
+   ```
 
-Freeze that list. Those `### §n <section title>` headings must appear **byte-identical** in the new page. If a heading must change, the change is a separate decision: update every citation in the same commit and say so in the log entry.
+   Freeze that list. Those `### §n <section title>` headings must appear **byte-identical** in the new page. If one must change, that is a separate decision: update every citation in the same commit and say so in the log entry.
 
-## 2. Decide the target shape
+2. **Decide the target shape.** Write the new cores into the conventions block in `AGENTS.md` first, so the page is written against the new contract rather than the old one. Material no core claims moves into the spine's § record, moves to `wiki/concepts/` or `wiki/persons/`, or is dropped — dropping is legitimate, and the log should say so.
 
-- Which cores does the book declare now? Write them into the conventions block in `AGENTS.md` first, so the new page is written against the new contract rather than the old one.
-- What happens to material no core claims? It either moves into the spine's § record, moves to `wiki/concepts/` / `wiki/persons/`, or is dropped. Dropping is a legitimate outcome — say so in the log.
+3. **Rewrite, preserving the anchor contract** — headings identical even while everything under them changes. Re-verify quotes: an older page's quotes were never checked against the [quote protocol](SPINE.md), so expect splice, framing, and transcription defects.
 
-## 3. Rewrite, preserving the anchor contract
+4. **Check the whole book, not just the page.** Every frozen anchor resolves in the new page; `concepts/`, `persons/`, `index.md`, `00-overview.md` still say what the page now says (a shape change often reveals that a concept page's gloss came from a paragraph that no longer exists); backlinks to the deleted file are gone.
 
-Keep `### §n <section title>` identical even while everything under them changes. Re-verify quotes: an older page's quotes were never checked against the [quote protocol](SPINE.md), so expect splice, framing, and transcription defects. Record results in `## 引文核对`.
-
-## 4. Check the whole book, not just the page
-
-- every frozen anchor resolves in the new page;
-- `concepts/`, `persons/`, `index.md`, `00-overview.md` still say what the page now says (a shape change often reveals that a concept page's gloss came from a paragraph that no longer exists);
-- backlinks to the old, now-deleted file (a `-v2` draft, a renamed chapter) are gone.
-
-## 5. Close the loop
-
-- Delete or fold the superseded draft — two files describing one chapter is the confusion migrations are meant to end.
-- Update `AGENTS.md`'s conventions block (`## 读法` / `## How to read`) and its per-book notes.
-- Append `## [YYYY-MM-DD] migrate | <chapter> | <old shape> → <new shape>, N anchors verified` to `log.md`.
-- Run the structural lint pass from the skill's step 4.
+5. **Close the loop.** Fold or delete the superseded draft — two files describing one chapter is the confusion migrations are meant to end. Update the conventions block, append a `migrate` entry to `log.md` naming the old and new shape and the anchor count, and run the structural lint pass from the skill's step 4.
 
 ## Notes
 
-- Migrate one chapter per run, same as ingest. A book-wide migration is a sequence of chapter migrations plus one `## 读法` change.
-- Do not migrate a page nobody cites first: start with the most-cited source page, since that is where the anchor contract is actually load-bearing.
-- Never migrate and change conventions in the same step. One shape change, one log entry.
+- Migrate one chapter per run, same as ingest. A book-wide migration is a sequence of chapter migrations plus one conventions-block change.
+- Start with the most-cited source page, not the first one: that is where the anchor contract is actually load-bearing.
+- One shape change, one log entry: never migrate and change conventions in the same step.

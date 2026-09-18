@@ -1,76 +1,74 @@
 ---
 name: ebook-wiki
-description: Compile EPUB/PDF readings into an Obsidian wiki via ebook-mcp. Source pages are a shared spine plus per-book cores (argue / explain / trace / record) declared once at setup. Use when setting up reading/<book>/, ingesting a chapter, asking across chapters, or linting the wiki.
+description: Compile EPUB/PDF readings into an Obsidian wiki via ebook-mcp: a shared spine plus per-book cores (argue / explain / trace / record). Use when setting up reading/<book>/, ingesting a chapter, asking across chapters, or linting the wiki.
 ---
 
 # Ebook Wiki
 
-Compile, don't retrieve. Read each source once, compile it into a persistent interlinked wiki, then answer from the wiki.
+Compile, don't retrieve: read each source once, compile it into a persistent interlinked wiki, then answer from the wiki.
 
-`raw/` is immutable and agent-never-writes. `wiki/` is agent-owned and human-read. The human curates sources and asks questions; the agent does the bookkeeping.
+`raw/` is immutable; the agent writes only under `wiki/`. The human curates sources and asks questions; the agent does the bookkeeping.
 
-Every source page has the same **spine**. What varies is the **core** — what the page owes you after reading. Cores are declared once per book from what the reading is *for*, not from the book's genre; a single book may declare several, and one chapter may override them. See [SPINE](references/SPINE.md) and [cores](references/cores/).
+Every source page has the same **spine**. What varies is the **core** — what the page owes you after reading. Cores are declared once per book from what the reading is *for*, not from the book's genre; a single book may declare several, and one chapter may override them ([SPINE](references/SPINE.md), [cores](references/cores/)).
 
 | Core | The page lets you… |
 |---|---|
-| [argue](references/cores/argue.md) · [example](references/examples/argue.md) | check whether each conclusion holds |
-| [explain](references/cores/explain.md) · [example](references/examples/explain.md) | re-derive how it works and when it breaks |
-| [trace](references/cores/trace.md) · [example](references/examples/trace.md) | follow who did what, in what order, and why |
-| [record](references/cores/record.md) · [example](references/examples/record.md) | look it up without re-reading |
+| [argue](references/cores/argue.md) | check whether each conclusion holds |
+| [explain](references/cores/explain.md) | re-derive how it works and when it breaks |
+| [trace](references/cores/trace.md) | follow who did what, in what order, and why |
+| [record](references/cores/record.md) | look it up without re-reading |
 
 ## Steps
 
 ### 1. Locate or set up the book wiki
 
-Find the vault root (directory containing `.obsidian/`). Work under `reading/<book>/`.
+Find the vault root (the directory holding `.obsidian/`). Work under `reading/<book>/`.
 
 If `reading/<book>/AGENTS.md` is missing, scaffold it per [SCHEMA](references/SCHEMA.md), then run the setup interview:
 
 1. Read `raw/book-info.md` and the book's TOC **first**.
 2. Ask these three questions, each **with your proposal pre-filled** from what you just read — the human edits, not authors:
-   - **What must you be able to do afterwards?** 读完要能干什么 — 判断它是否成立 / 重新推导它怎么工作 / 不用重读就能查 / 跟清谁在何时做了什么 → cores
-   - **What does evidence look like?** 证据长什么样 — 逐字引文 / 代码 / 图表与数据 / 事件与人物
-   - **What must be left behind?** 哪些东西必须留下 — 结论链 / 机制与不变量 / 数字与定义 / 金句
-3. Write the result as the conventions block in `reading/<book>/AGENTS.md` — `## 读法` for a Chinese book, `## How to read` for an English one ([LANGUAGE](references/LANGUAGE.md)). From then on load only [SPINE](references/SPINE.md) plus the cores that block names.
+   - **What must you be able to do afterwards?** 读完要能干什么
+   - **What does evidence look like?** 证据长什么样
+   - **What must be left behind?** 哪些东西必须留下
+3. Write the answers into the conventions block of `reading/<book>/AGENTS.md`, whose heading follows the book's language ([LANGUAGE](references/LANGUAGE.md)).
+4. On every later run, read that block first, then load [SPINE](references/SPINE.md) plus the cores it names. A chapter departs from the book's cores only through its own `cores:` frontmatter; `cores: []` is spine only.
 
-A chapter declares its own `cores:` in frontmatter only when it departs from the book default. `cores: []` means spine only — use it for a chapter read purely for orientation.
-
-**Completion**: `reading/<book>/` holds `AGENTS.md` (with the conventions block), `index.md`, `log.md`, `raw/book-info.md`, and `wiki/`. `raw/book-info.md` names the absolute EPUB/PDF path.
+**Completion**: `reading/<book>/` holds `AGENTS.md` with the conventions block filled, `index.md`, `log.md`, `raw/book-info.md` naming the absolute source path, and `wiki/`.
 
 ### 2. Ingest one chapter
 
-Ingest exactly one chapter per run. Never batch-ingest. Human reads first. See [INGEST](references/INGEST.md).
+One chapter per run; the human reads it first. Resolve the `chapter_id` from `raw/book-info.md` — list the TOC when unsure, never guess an id. Fetch the chapter with ebook-mcp: `ebook-mcp_get_epub_toc` + `ebook-mcp_get_epub_chapter_markdown`, or `ebook-mcp_get_pdf_toc` + `ebook-mcp_get_pdf_chapter_content` (`ebook-mcp_get_pdf_page_markdown` for page ranges).
 
-Flow: human pre-reads → agent reads via `ebook-mcp` → walk section-by-section with the human → verify every quote → write files → update index and log. Never write wiki files before the human confirms the takeaways.
+Walk the chapter section by section, **writing no wiki files yet**: for each section, what it argues, the key distinction, one question for the human — and wait for their reply before presenting the next. Close with three takeaways: core claim, key distinction, tension with earlier chapters. Wait for explicit confirmation on what to emphasise.
 
-**Completion**: human confirms takeaways for every section; `wiki/sources/<chapter>.md` carries the spine plus every declared core; every verbatim quote is `✓` in `## Quote check`; every new concept/person has a `[[link]]`; `index.md` updated; `log.md` appended with `## [YYYY-MM-DD] ingest | <chapter>`.
+Then verify every quote against the raw text ([quote protocol](references/SPINE.md)), and only then write `wiki/sources/<chapter>.md`, refresh `00-overview.md`, and touch or create the `concepts/` and `persons/` pages it needs.
+
+**Completion**: human confirmed the takeaways for every section; `wiki/sources/<chapter>.md` carries the spine plus every declared core; every verbatim quote is `✓` in `## Quote check`; every new concept and person has a `[[link]]`; `index.md` updated; `log.md` appended; the structural pass of step 4 clean.
 
 ### 3. Query the wiki
 
-Read `index.md` first, then drill into the linked pages only. Synthesize with `[[citations]]`, linking to source pages by **section anchor** (`[[wiki/sources/<chapter>#§8 多元论]]`) — never by core-block anchor. See [LANGUAGE](references/LANGUAGE.md) for wording rules.
+Read `index.md` first, then drill into the linked pages only. Link into a source page by **section anchor** — `[[wiki/sources/<chapter>#§8 多元论]]`, never a core-block anchor — and cite every page you use. See [LANGUAGE](references/LANGUAGE.md) for wording.
 
-File valuable answers back: save comparisons, analyses, and discovered connections as new pages under `wiki/` and update `index.md` + `log.md` with a `query` entry.
+File valuable answers back: a comparison, an analysis, a discovered connection becomes a new page under `wiki/`, with `index.md` and `log.md` updated.
 
-**Completion**: answer cites the wiki pages used; any reusable synthesis is filed as a page rather than left in chat history.
+**Completion**: the answer cites the wiki pages it draws on; reusable synthesis is filed as a page rather than left in chat.
 
 ### 4. Lint the wiki
 
-On request, or when the wiki passes ~10 ingests without a lint. Two passes:
+On request, or when the wiki passes ~10 ingests without one. Two passes:
 
 - **Structure** — spine blocks present and in order; one `### §n` heading per chapter section; every quote present in `## Quote check`; every declared core's required slots present; every anchor referenced from `concepts/`, `persons/`, `index.md`, `00-overview.md` still resolves.
 - **Semantics** — contradictions between pages, stale claims superseded by newer chapters, orphan pages with no inbound links, concepts mentioned but lacking a page, missing cross-references.
 
-Then suggest outward: 2-5 new questions to investigate and 2-5 new sources to fetch via web search.
+Then suggest outward: 2-5 new questions to investigate and 2-5 new sources to fetch.
 
-**Completion**: report lists each issue as `page → problem → fix` (structure issues first), plus `questions to investigate` and `sources to fetch`; applied fixes are reflected in `index.md` + a `log.md` `lint` entry.
+**Completion**: report lists each issue as `page → problem → fix` (structure issues first), plus `questions to investigate` and `sources to fetch`; applied fixes are reflected in `index.md` and a `log.md` `lint` entry.
 
 ## References
 
 - [SPINE](references/SPINE.md) — the fixed part of every source page: § record, anchor contract, quote protocol, honesty tags.
 - [cores](references/cores/) — `argue` / `explain` / `trace` / `record`, the varying part.
-- [INGEST](references/INGEST.md) — chapter ingest checklist and `ebook-mcp` tool mapping.
-- [SCHEMA](references/SCHEMA.md) — folder layout, per-book `AGENTS.md` template, `index.md` / `log.md` conventions.
-- [LANGUAGE](references/LANGUAGE.md) — primary-language rule with glosses.
-- [MIGRATE](references/MIGRATE.md) — moving an existing book onto a new spine/core shape.
-- [DISPLAY](references/DISPLAY.md) — Obsidian constructs for reading notes: which to use for which job, the official callout list, and four suggested upgrades.
-- [examples/](references/examples/) — one small file per core (`argue` / `explain` / `trace` / `record`): a filled slot sample, that core's tricks, and the real defects to avoid.
+- [SCHEMA](references/SCHEMA.md) — folder layout, the per-book `AGENTS.md` conventions block, `index.md` / `log.md`.
+- [LANGUAGE](references/LANGUAGE.md) — the book's language: glosses and the fixed vocabulary's two forms.
+- [MIGRATE](references/MIGRATE.md) — moving an existing book or page onto a new shape.
