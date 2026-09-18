@@ -24,6 +24,8 @@ Reuse the same gloss everywhere after the first use; never re-translate a term t
 | verification | `## 引文核对` | `## Quote check` |
 | book conventions | `## 读法` (in `AGENTS.md`) | `## How to read` |
 
+`## 金句` / `## Key quotes` is **optional** — required only while the chapter runs on `argue` or `trace`. `## 引文核对` / `## Quote check` appears only in in-page verification mode ([SPINE](SPINE.md) → Verification modes).
+
 **Table headers**
 
 | Table | Chinese book | English book |

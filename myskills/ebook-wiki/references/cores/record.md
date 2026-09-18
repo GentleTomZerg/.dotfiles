@@ -22,5 +22,5 @@ Required: **Entries**. **Terms** when the chapter introduces terms the wiki trac
 
 ## Notes
 
-- The `### §n` record is a narrative of the chapter; entries are the lookup layer of things that must not be paraphrased. They never restate each other.
+- The `### §n` record is a narrative of the chapter; entries are the lookup layer of things that must not be paraphrased. They never restate each other — and the record does not re-quote the chapter's `[verbatim]` grounds, which belong to the argument blocks. One to three lines per `### §n`: the record is a map, not a summary of the chapter's argument.
 - A chapter whose real output is prose insight with no exact facts has no entries: this core should not have been declared, and the fix is in the book's conventions block, not a gap to fill.

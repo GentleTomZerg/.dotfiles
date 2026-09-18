@@ -9,7 +9,7 @@ Compile, don't retrieve: read each source once, compile it into a persistent int
 
 `raw/` is immutable; the agent writes only under `wiki/`. The human curates sources and asks questions; the agent does the bookkeeping.
 
-A query reads the wiki and nothing else. That is the point, and it is also the bet: `raw/` is opened once, at ingest, so a misquote or a misread conclusion entering the wiki becomes authority and is never checked again. The quote check and the honesty tags are what buy the right to stop re-reading. When the wiki is silent or suspected wrong, a query may open **that one chapter** as a declared exception — and the run that opens it also closes the gap (step 3).
+A query reads the wiki and nothing else. That is the point, and it is also the bet: `raw/` is opened once, at ingest, so a misquote or a misread conclusion entering the wiki becomes authority and is never checked again. The quote check and the honesty tags are what buy the right to stop re-reading — a no-table book moves the check from the page into `log.md`, and pays for it with the audit trail ([Verification modes](references/SPINE.md)). When the wiki is silent or suspected wrong, a query may open **that one chapter** as a declared exception — and the run that opens it also closes the gap (step 3).
 
 Every source page has the same **spine**. What varies is the **core** — the **promise** the page owes you after reading. Cores are declared once per book from what the reading is *for*, not from the book's genre; a single book may declare several, and one chapter may override them ([SPINE](references/SPINE.md), [cores](references/cores/)).
 
@@ -52,7 +52,7 @@ Wait for explicit confirmation on what to emphasise *and* on the shape, and writ
 
 Then verify every quote against the raw text ([quote protocol](references/SPINE.md)), and only then write `wiki/sources/<chapter>.md`, refresh `00-overview.md`, and touch or create the `concepts/` and `persons/` pages it needs.
 
-**Completion**: human confirmed the takeaways for every section and the chapter's shape; `wiki/sources/<chapter>.md` carries the spine plus the chapter's cores; every verbatim quote is `✓` in `## Quote check`; every new concept and person has a `[[link]]`; `index.md` updated; `log.md` appended; the structural pass of step 4 clean.
+**Completion**: human confirmed the takeaways for every section and the chapter's shape; `wiki/sources/<chapter>.md` carries the spine plus the chapter's cores; every verbatim quote is `✓` in `## Quote check` — or, in a no-table book, machine-checked at write time and counted in `log.md`; every new concept and person has a `[[link]]`; `index.md` updated; `log.md` appended; the structural pass of step 4 clean.
 
 ### 3. Query the wiki
 
@@ -70,7 +70,7 @@ File valuable answers back: a comparison, an analysis, a discovered connection b
 
 On request, or when the wiki passes ~10 ingests without one. Two passes:
 
-- **Structure** — spine blocks present and in order; one `### §n` heading per chapter section; every quote present in `## Quote check`; every declared core's required slots present; every anchor referenced from `concepts/`, `persons/`, `index.md`, `00-overview.md` still resolves.
+- **Structure** — spine blocks present and in order; one `### §n` heading per chapter section, each one to three lines; every quote present in `## Quote check` (or, in a no-table book, the `log.md` `ingest` entry's check count present and matching the number of `>` blocks); every declared core's required slots present; every anchor referenced from `concepts/`, `persons/`, `index.md`, `00-overview.md` still resolves.
 - **Semantics** — contradictions between pages, stale claims superseded by newer chapters, orphan pages with no inbound links, concepts mentioned but lacking a page, missing cross-references.
 
 Then suggest outward: 2-5 new questions to investigate and 2-5 new sources to fetch.
@@ -83,4 +83,4 @@ Then suggest outward: 2-5 new questions to investigate and 2-5 new sources to fe
 - [cores](references/cores/) — `argue` / `explain` / `trace` / `record`, the varying part.
 - [SCHEMA](references/SCHEMA.md) — folder layout, the per-book `AGENTS.md` conventions block, `index.md` / `log.md`.
 - [LANGUAGE](references/LANGUAGE.md) — the book's language: glosses and the fixed vocabulary's two forms.
-- [MIGRATE](references/MIGRATE.md) — the procedure that keeps `#§n` anchors resolving. Open it before changing a core's shape, adding or reordering a spine block, or revising a book's conventions block once pages are written.
+- [MIGRATE](references/MIGRATE.md) — the procedure that keeps `#§n` anchors resolving. Open it before changing a core's shape, adding, reordering **or deleting** a spine block, or revising a book's conventions block once pages are written.

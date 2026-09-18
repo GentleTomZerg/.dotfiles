@@ -8,7 +8,7 @@ Every `wiki/sources/<chapter>.md` has these blocks, in this order, whatever core
 4. **Cores** — in the order the book declared them. See [cores](cores/).
 5. **Key quotes** — verbatim, each with a source line. Required for `argue` and `trace`; optional otherwise.
 6. **Open questions** — every `[mine]` in the page is claimed here.
-7. **Quote check** — the verification table for every verbatim quote.
+7. **Quote check** — the verification table for every verbatim quote. Omitted in the **no-table** verification mode; see [Verification modes](#verification-modes).
 
 Block names and table headers follow the book's language — see [LANGUAGE](LANGUAGE.md).
 
@@ -61,6 +61,18 @@ The first column is a retrieval index, not just an audit trail — no portable d
 
 A page with no verbatim quotes writes `(no verbatim quotes)` under the heading and keeps the heading.
 
+### Verification modes
+
+The book's conventions block picks one; a page does not pick for itself. The choice is about **where the evidence lives**, never about whether the check is run.
+
+- **in-page** (default) — every verbatim quote appears as a row in `## Quote check`. The key column doubles as a retrieval index: no portable deep link into an EPUB exists, so the key is how a human reaches the passage on any machine.
+- **no-table** — `## Quote check` is omitted and the page ends at `## Open questions`. The check still runs at write time; its result goes to the `log.md` `ingest` entry — the chapter, and how many verbatim grounds were machine-checked against raw.
+
+The no-table mode is licensed by exactly one thing: **every `[verbatim]` ground already carries its `§` location in its label**. The passage stays locatable by section; only the search key is given up. What is genuinely lost, and must be stated to the human before switching: the page no longer shows *that* the check was run, nor *which* spans were checked. Two rules keep the mode honest:
+
+- a `>` block still means verbatim and nothing else, so the page's own typography keeps paraphrase distinguishable from quote;
+- the `log.md` entry is the audit — write the count, and never write it from memory.
+
 ## Honesty tags
 
 Every warrant and inference step carries exactly one tag:
@@ -73,4 +85,4 @@ Every `[mine]` additionally appears as a `> [!warning] My own addition` block at
 
 ## Empty slots
 
-A core slot with no material is **omitted**, never padded with filler. Only two spine blocks are unconditional: `### §n` record and `## Quote check`.
+A core slot with no material is **omitted**, never padded with filler. Only one spine block is unconditional: `### §n` record. Verification is unconditional too, but where it is recorded is the book's choice — in the page (`## Quote check`) or in `log.md`, per the conventions block.

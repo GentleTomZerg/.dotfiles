@@ -34,7 +34,9 @@ reading/<book>/
 - pace: per-section | per-chapter   # step 2's default; the human overrides with one word per run
 - 读完要能干什么 / what must you be able to do afterwards: <one line from the setup interview>
 - 证据长什么样 / what evidence looks like: <逐字引文 / 代码 / 图表与数据 / 事件与人物>
-- 哪些东西必须留下 / what must be left behind: <结论链 / 机制与不变量 / 数字与定义 / 金句>
+- 核对 / verification mode: in-page | no-table   # in-page keeps `## Quote check`; see SPINE → Verification modes
+- 哪些东西必须留下 / what must be left behind: <结论链 / 机制与不变量 / 数字与定义>
+- § 记录: 每节 1–3 行，只给地图，不搬引文（与论证 G 槽、条目不许互相复述）
 ```
 
 When a friction repeats twice — source page shape, link style, a language gloss — update this block with the human before continuing. Changing the shape of pages already written is a migration: see [MIGRATE](MIGRATE.md).
