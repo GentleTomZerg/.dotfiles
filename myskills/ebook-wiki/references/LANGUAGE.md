@@ -28,7 +28,7 @@ Reuse the same gloss everywhere after the first use; never re-translate a term t
 
 | Table | Chinese book | English book |
 |---|---|---|
-| verification | `原句首 8 字 / 出处 / 省略 / 结果` | `first 8 chars / source / elisions / result` |
+| verification | `检索键 / 出处 / 省略 / 结果` | `key / source / elisions / result` |
 | trade-offs | `场景 / 好处 / 代价 / 何时别用` | `scenario / benefit / cost / when not to use` |
 | positions | `人物 / 主张 / 与谁对立 / 出处` | `person / position / opposed by / source` |
 

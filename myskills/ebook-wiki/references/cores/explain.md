@@ -4,29 +4,38 @@
 
 **Opening slot**: `## Skeleton` — one screen showing the flow (mermaid `flowchart` / `sequenceDiagram` / `stateDiagram`).
 
-```md
+````md
 ## Skeleton
+
 <mermaid flow>
 
 ## What it solves
+
 <1-3 sentences: the problem, and what the book's answer buys>
 
 ## Mechanism
+
 <prose, step by step. Name the key invariant, or the two things that must hold.>
 
 ## Diagram
+
 <mermaid, or prose + `see figure n-m in the book` per the rule below>
 
 ## Code
+
 ```<lang>
 <verbatim excerpt>
 ```
+````
+
 <provenance: listing number or file:line as printed>
 
 ## Trade-offs
+
 | scenario | benefit | cost | when not to use |
-|---|---|---|---|
-```
+| -------- | ------- | ---- | --------------- |
+
+Required: **Mechanism**, **Trade-offs**. **Code** and **Diagram** only when the chapter has them.
 
 ## Slot rules
 
@@ -37,6 +46,5 @@
 
 ## Notes
 
-- Required slots: Mechanism, Trade-offs. Code and Diagram are required when the chapter has them, omitted otherwise — never an empty heading.
 - If the book gives several mechanisms that interact, use one `## Mechanism` per mechanism and let `## Skeleton` carry the interaction.
 - Version-sensitive facts (API names, defaults, benchmarks) get the book's edition or date attached — this is the material most likely to rot.

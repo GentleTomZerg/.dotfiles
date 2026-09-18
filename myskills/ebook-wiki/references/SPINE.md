@@ -2,7 +2,7 @@
 
 Every `wiki/sources/<chapter>.md` has these blocks, in this order, whatever cores the book declares.
 
-1. **Identity** — frontmatter (`publish:`, `cores:` only when overriding the book) plus a `- source:` line naming `raw/book-info.md` and the chapter id.
+1. **Identity** — frontmatter (`publish:`, `cores:` only when overriding the book) plus a `- source:` line wikilinking the book record and naming the chapter id: `- source: [[raw/book-info|来源]] · <chapter_id>`. Never a file path — paths are per-machine, and the page outlives the machine.
 2. **How to read** — one line saying how to use this page ("Skeleton first, then descend into whichever argument you need").
 3. **§ Record** — `### §n <section title>` for every section of the chapter, one to three lines each. **This is the anchor contract.**
 4. **Cores** — in the order the book declared them. See [cores](cores/).
@@ -24,7 +24,7 @@ Block names and table headers follow the book's language — see [LANGUAGE](LANG
 
 The rule that makes the wiki trustworthy: **a quote is verbatim if and only if it appears as `✓` in `## Quote check`.** Everything else is a paraphrase, written as ordinary prose with no `>` block.
 
-**Location.** `〈Chapter〉§section` — never file paths, never sigils. The retrieval key is the first 8 characters of the quoted sentence: search that in any EPUB reader and you land on the passage.
+**Location.** `〈Chapter〉§section`, plus `p.N` when the source is a PDF — ebook-mcp returns PDF at page granularity, and a page number is stable within one file. Never file paths, never sigils. The retrieval key is the first 8 characters of the quoted sentence: search that in any reader and you land on the passage. **The key must be unique within its chapter** — at ingest you hold the whole chapter, so extend the key until the search is unambiguous. The chapter is the right scope, because the location already names it.
 
 **Before writing, verify each quote against the raw chapter text:**
 
@@ -48,8 +48,10 @@ A quote that fails verification is **rewritten**, not shipped: fix the elision a
 
 **Table format** (`## Quote check`):
 
+The first column is a retrieval index, not just an audit trail — no portable deep link into an EPUB exists, so this is how a human reaches the passage on any machine.
+
 ```md
-| first 8 chars | source | elisions | result |
+| key | source | elisions | result |
 |---|---|---|---|
 | The most popu | §verificationism | 0 | ✓ |
 | If I say “all | §verificationism | 1 | ✓ |

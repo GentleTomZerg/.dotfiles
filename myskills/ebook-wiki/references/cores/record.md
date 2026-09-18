@@ -11,6 +11,8 @@
 - **<local term>** (<gloss>): <what this chapter means by it>. See [[wiki/...|…]].
 ```
 
+Required: **Entries**. **Terms** when the chapter introduces terms the wiki tracks, or gives an established term a local sense.
+
 ## Slot rules
 
 - **Entries** holds what must be exact: definitions, numbers, dates, names, formulas, enumerations — each carrying the `§` it came from. Numbers keep the book's unit and precision; never round silently.
@@ -20,6 +22,5 @@
 
 ## Notes
 
-- Required slot: Entries. Terms when the chapter introduces terms the wiki tracks, or gives an established term a local sense.
 - The `### §n` record is a narrative of the chapter; entries are the lookup layer of things that must not be paraphrased. They never restate each other.
 - A chapter whose real output is prose insight with no exact facts has no entries: this core should not have been declared, and the fix is in the book's conventions block, not a gap to fill.
