@@ -2,7 +2,7 @@
 
 ## Quotes
 
-A span is verbatim if and only if it was checked against the source text in the same run that wrote it. `>` means verbatim and nothing else; paraphrase is plain prose.
+A span is verbatim if and only if it was checked against the source text in the same run that wrote it. `>` means verbatim and nothing else; paraphrase is plain prose. A quote lives where it does work — a knowledge page's slot — and the source record holds none: it is navigation between pages, and reads `quotes_check: 0`.
 
 **Location.** `〈Chapter〉§section`, plus `p.N` for PDFs. Never a file path — the page outlives the machine.
 
@@ -28,8 +28,10 @@ Every warrant and inference step carries exactly one:
 - `[reconstruction]` — the source implies it; the step is yours.
 - `[mine]` — the step is the human's, beyond any source.
 
-`[mine]` also gets `> [!warning] 我的发挥` at the point of use, and a `take` page to live on. Every claim carries a **falsifier** — the evidence that would collapse it. A claim with no falsifier is unfinished, not strong.
+A close in EXPLORE carries the same warrant as the resolution it produces. `[mine]` also gets `> [!warning] 我的发挥` at the point of use, and a `take` page to live on. Every claim carries a **falsifier** — the evidence that would collapse it. A claim with no falsifier is unfinished, not strong.
 
 ## Anchors
 
 `### §n <title>` inside a source record is the only anchor other pages link to, and it freezes once written: renaming it breaks inbound links. Numbers and titles quote the source, in the source's language. Block anchors (`## G`, `## 论证 3`) are for navigation inside a single page, where a rewrite moves both sides together.
+
+A `Questions` row is not an anchor: a `live` copy into `index.md` carries the `Q` id, and a page citing a doubt cites that id.

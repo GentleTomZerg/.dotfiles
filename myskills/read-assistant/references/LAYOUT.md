@@ -6,19 +6,20 @@ Folders carry **role**, never topic. Topics are `tags`; shapes are `type`; views
 <vault>/
   index.md                        front door: hero block + 我在追的 + links to the views
   raw/<book>/book-info.md         source identity: file, sha256, chapter ids
-  sources/<book>/<chapter>.md     the reading's record: map, chain, candidates, refusals
+  sources/<book>/<chapter>.md     the reading's record: map, chain, questions, candidates
   wiki/*.md                       knowledge pages, flat, typed by frontmatter
-  views/*.base                    one per type, plus the candidate view
+  views/*.base                    one per type, plus the candidate view and the questions view
   templates/*.md                  page shapes, human-owned, never published
 ```
 
-`index.md` opens with a frozen block — `<!-- hero:start --> … <!-- hero:end -->` holding the avatar and intro. Write outside it, and treat everything inside as untouchable.
+`index.md` opens with a frozen block — `<!-- hero:start --> … <!-- hero:end -->` holding the avatar and intro. Write outside it, and treat everything inside as untouchable. `我在追的` is where a `live` doubt is copied, under its `Q` id.
 
 ## Frontmatter is the index
 
 | property | | example |
 |---|---|---|
 | `type` | closed vocabulary, from the registry | `concept` |
+| `gist` | the page's claim in one breath | `多元论不是相对主义的退化形式` |
 | `tags` | open topics; reuse before inventing | `[naming, software-design]` |
 | `sources` | the source records the page draws on | `[sources/观念的力量/哲学的目的]` |
 | `updated` | date of the last real change | `2026-09-19` |
@@ -28,11 +29,16 @@ Folders carry **role**, never topic. Topics are `tags`; shapes are `type`; views
 
 Set each property's type once in Obsidian (Settings → Properties) — text, list, date, number — so Bases can sort and count them. Pages are found by matching these values and reading only the matches: there is no catalog file, so nothing can go stale.
 
-A candidate is not a property: the mark is a body tag, `#candidate/<proposed type>`, and the tag's meaning is *undecided*. The reading question is not a property either — it is a slot on the `book` hub, because the bar reads it as prose.
+A candidate is not a property: the mark is a body tag, `#candidate/<proposed type>`, and the tag's meaning is *undecided*. Neither is a doubt: it is a task row in the `Questions` slot, with its status spelled out in words. The reading question is not a property either — it is a slot on the `book` hub, because the bar reads it as prose.
 
 ## Views
 
-One `.base` per type, plus the candidate view — that one is a state, not a type: `file.hasTag("candidate")` over `sources/` is the sweep worklist, and a chapter leaves it once every line is decided. Build views in Obsidian's UI; for the syntax read the `obsidian-bases` skill. A view is a lens, never a source of truth — when a view and a page disagree, the page wins and the view gets rebuilt.
+One `.base` per type, plus two that are states rather than types:
+
+- **candidate** — `file.hasTag("candidate")` over `sources/`. The sweep worklist; a chapter leaves it once every line is decided.
+- **questions** — the `open` rows over `sources/`. The EXPLORE worklist, if Bases can filter task rows; when it cannot, the rows are still greppable, and the view is optional.
+
+Build views in Obsidian's UI; for the syntax read the `obsidian-bases` skill. A view is a lens, never a source of truth — when a view and a page disagree, the page wins and the view gets rebuilt.
 
 ## Publishing
 

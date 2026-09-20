@@ -1,5 +1,0 @@
-# Candidates are staged as tagged lines in the source record; promotion happens in a separate sweep
-
-Reading and deciding have opposite biases: reading wants recall, deciding wants precision. A reading run writes every item the chain test admits as a line in the source record's `Candidates` slot, tagged `#candidate/<proposed type>`; a later sweep decides each line — promote (`→ [[page]]`), refuse (rewrite with a one-line reason), or leave the tag on. The tag means undecided: any decision removes it and writes the outcome, so the candidate view is exactly the frontier and no internal states become public tags.
-
-Rejected: a `candidates/` folder holding one file per item, which buys per-item rows in a Base at the cost of ~5 files a chapter, a new folder, edits in the blog repo, and two write targets per reading run; a frontmatter `status` field, unnecessary because Obsidian's `file.hasTag` already reads body tags *and* matches nested ones, while `tags.contains` does neither; a `candidate` entry in the type registry, which would answer no question of its own; and promoting inline during the reading run, which is how 13 argument pages accumulated.

@@ -11,13 +11,15 @@ An entry carries four parts and no more:
 
 A type enters the registry when the human accepts it, and only when its failure test differs from every existing entry. Material that fits no entry is filed as the nearest type with the doubt written into a `take`: the writing keeps moving, and the gap stays visible.
 
+Propose a new type, never assume one. The proposal is one message carrying the name, the question it answers, its failure test and its required slots; the human accepts it, and the entry goes into the vault's `AGENTS.md`. The shape may then be written to `templates/<type>.md`.
+
 ## Seeded
 
 ### source — a record of what a text says
 - **question**: what does this text say, and where?
-- **failure test**: a quote is not verbatim; an anchor does not resolve; a candidate carries no role; a decision was written without removing the tag.
-- **slots**: `Gist` (the chapter's main claim in one breath) · `Chain` (the load-bearing steps, each naming the page it yields) · `Candidates` (tagged proposals, then their outcomes) · `Open` (`[mine]` questions this reading produced) · `§ map` (one to three lines per section — the map, anchors frozen) · `Entries` (dates, names, metaphors; lookups) · `Glossary` (terms the chapter defines and no page holds).
-- Holds no claims, no arguments, no `[mine]` outside `Open`. It speaks about the text, never about the world ([ADR 0003](../docs/adr/0003-source-records-speak-about-the-text.md)), which is what lets it be mutated on every sweep. A reading the chapter merely implies belongs on a promoted page.
+- **failure test**: a quote in the record; an anchor that does not resolve; a candidate carrying no role; a decided line still tagged; an `open` row left behind after EXPLORE; a claim about the world.
+- **slots**: `Gist` (the chapter's main claim in one breath) · `Chain` (the load-bearing steps, each naming the page it yields) · `Produced` (the Base listing the pages this chapter yielded) · `Candidates` (the export manifest, then the outcomes) · `Questions` (one row per doubt, with its status) · `§ map` (one to three lines per section — the map, anchors frozen) · `Entries` (dates, names, metaphors; lookups) · `Glossary` (terms the chapter defines and no page holds).
+- It speaks about the text, never about the world, and holds no quotes (`quotes_check: 0`) — which is what lets it be mutated on every sweep without ever touching evidence. What the chapter merely implies belongs on a promoted page, tagged `[reconstruction]`.
 
 ### book — the hub for one source
 - **question**: what is in this book, how far have I read, what did it produce, and what am I after?
@@ -39,6 +41,12 @@ A type enters the registry when the human accepts it, and only when its failure 
 - **W** and **R** are the two slots that go missing; write them and tag them.
 - Restraint is usually the finding: "monism has no warrant" is not the claim "monism is false", and the difference is the point.
 
+### synthesis — one answer out of several sources
+- **question**: what do these sources together say about this?
+- **failure test**: the synthesis drops a source it draws on; it presents as a source's view what is the page's own step; its per-source table is missing.
+- **slots**: the claim in one line · the per-source table — what each source contributes, and where they differ · the page's own step, tagged `[mine]` · what would overturn it · links to each source record.
+- A synthesis is a page, not a stage: it is born by promotion like any other page, and its table is what keeps every contribution attributable. A synthesis existing only as a chat answer is a query that was not filed.
+
 ### practice — what to do in a situation
 - **question**: in this situation, what should be done?
 - **failure test**: the situation does not hold, or the cost is unstated.
@@ -59,40 +67,14 @@ A type enters the registry when the human accepts it, and only when its failure 
 - **question**: what does the human make of this?
 - **failure test**: not truth-apt — a take is wrong when it is no longer what they think.
 - **slots**: the position in their words · what it reacts to (links) · whether it is open or settled.
-- A take may stay open forever, which is why it is not called a question.
+- A take may stay open forever, which is why it is not called a question. `[mine]` material from a resolution lands here.
 
-## Promotion — the bar, the candidates, the sweep
-
-Promotion is the only way a knowledge page is born, and it is always the human's decision. It happens in a sweep, never during the reading ([ADR 0002](../docs/adr/0002-candidates-are-staged-in-the-source-record.md)).
-
-**The bar has two halves** ([ADR 0001](../docs/adr/0001-a-page-exists-for-the-chain-and-the-reading-question.md)):
-
-- **The chain test** decides what may be proposed: remove the item from the chapter and its main claim breaks. It is the `Gist`, a `Chain` row, or a name the chain cannot be restated without. An item that merely illustrates a row is not a candidate; it stays in the `§ map` and `Entries`. The test is mechanical, so the agent applies it while reading.
-- **The reading question** decides what is actually promoted. Of the items that pass the chain test, the human promotes the ones answering why the book was opened — the `Reading question` slot of its `book` hub. An item can pass the chain test and still answer nothing of the human's; it is then refused without shame, and the refusal keeps its reason.
-
-**A candidate is a line** in the source record's `Candidates` slot: proposed type ｜ role ｜ item — why — `§`anchor `#candidate/<proposed type>`.
-
-```md
-- 概念｜核心主张｜多元论 — 全书骨，须与相对主义分开 — §8 #candidate/concept
-- 人物｜例证｜赫尔岑 — §7 只出场一次，但「创造即一切」是他自己的一条线 — §7 #candidate/person
-```
-
-**The tag means undecided.** A sweep decides every tagged line:
-
-- **promote** — write or update the page, then rewrite the line as `→ [[page]]` with the date. Every promoted page fills its type's required slots, and the book hub's inventory gains the page it produced.
-- **refuse** — rewrite the line as `未提升：<reason>` with the date. The reason is what stops the same item being re-proposed at the next reading.
-- **leave** — the tag stays. The item is genuinely undecided, and it is the only thing the candidate view shows.
-
-Either decision removes the tag. Sweeping a source is the last thing that happens to it in a session; the reading was already done.
-
-View the frontier with a Base: `file.hasTag("candidate")` over `sources/` lists the chapters still holding undecided candidates. Write the filter with `file.hasTag` and nothing else — it matches children (`#candidate/person`) and reads tags in the body, while `tags.contains` does neither.
-
-**Roles** are required on every candidate and are free text for now: the accepted vocabulary lives in the vault's `AGENTS.md`, and the gate over it — whether a `背景` or `例证` may be promoted at all — is deliberately deferred. A role marks what the material does in its source; it does not decide.
-
-Rules that keep the wiki honest as it grows:
+## Rules that keep the wiki honest as it grows
 
 - **Comparisons live in the table on the compared page.** Where sources differ, the per-source table is mandatory; prose about each source in turn is what a book report does, not a wiki.
 - **Lineage with dates and authors goes to `trace`.** The practice or concept page keeps the current decision and links to the lineage.
 - **A contradiction between sources is a row in the table, not a debate.** When it needs the human's judgement, it becomes a `take`.
 - **A page that outgrows one question splits.** Announce the split, write both halves, then let the links resolve.
-- **Per-book templates**: the book hub may name slot changes — a proof-heavy book leaning on `I` and `R`, say. The registry's required slots still apply.
+- **Per-book templates**: the book hub may name slot changes — a proof-heavy book leaning on `I` and `R`, say. The registry's required slots still apply, and none is dropped.
+
+The bar that decides which material may be staged is the chain test ([CURATE](CURATE.md)); the decision that turns a staged line into a page is the sweep ([COMPILE](COMPILE.md)). This file holds only the shapes.
