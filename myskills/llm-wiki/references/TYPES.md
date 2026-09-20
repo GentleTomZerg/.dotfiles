@@ -15,14 +15,14 @@ A type enters the registry when the human accepts it, and only when its failure 
 
 ### source — a record of what a text says
 - **question**: what does this text say, and where?
-- **failure test**: a quote is not verbatim, or an anchor does not resolve.
-- **slots**: `§ 记录` (one to three lines per section — the map, anchors frozen) · `条目 · 术语表` (dates, names, metaphors; lookups).
-- Holds no claims, no arguments, no `[mine]`. A reading the chapter merely implies belongs on a promoted page.
+- **failure test**: a quote is not verbatim; an anchor does not resolve; a candidate carries no role; a decision was written without removing the tag.
+- **slots**: `Gist` (the chapter's main claim in one breath) · `Chain` (the load-bearing steps, each naming the page it yields) · `Candidates` (tagged proposals, then their outcomes) · `Open` (`[mine]` questions this reading produced) · `§ map` (one to three lines per section — the map, anchors frozen) · `Entries` (dates, names, metaphors; lookups) · `Glossary` (terms the chapter defines and no page holds).
+- Holds no claims, no arguments, no `[mine]` outside `Open`. It speaks about the text, never about the world ([ADR 0003](../docs/adr/0003-source-records-speak-about-the-text.md)), which is what lets it be mutated on every sweep. A reading the chapter merely implies belongs on a promoted page.
 
 ### book — the hub for one source
-- **question**: what is in this book, how far have I read, and what did it produce?
-- **failure test**: a chapter, or a page a chapter produced, is missing from the inventory; a `§` citation no longer resolves.
-- **slots**: progress · the chapter list with one-line gists · the chapter → produced-page inventory · this book's shape notes (which slots matter here, and any template overrides it wants).
+- **question**: what is in this book, how far have I read, what did it produce, and what am I after?
+- **failure test**: a chapter, or a page a chapter produced, is missing from the inventory; a `§` citation no longer resolves; the reading question is missing.
+- **slots**: `Reading question` (why this book was opened — the bar's second half; `随手翻，没问题` is an honest answer) · progress · the chapter list with one-line gists · the chapter → produced-page inventory · this book's shape notes (which slots matter here, and any template overrides it wants).
 
 ### concept — a distinction
 - **question**: what does this term mean here, and how does it differ from its neighbours?
@@ -61,16 +61,33 @@ A type enters the registry when the human accepts it, and only when its failure 
 - **slots**: the position in their words · what it reacts to (links) · whether it is open or settled.
 - A take may stay open forever, which is why it is not called a question.
 
-## Promotion
+## Promotion — the bar, the candidates, the sweep
 
-The agent proposes, the human strikes. The candidate list is the gate:
+Promotion is the only way a knowledge page is born, and it is always the human's decision. It happens in a sweep, never during the reading ([ADR 0002](../docs/adr/0002-candidates-are-staged-in-the-source-record.md)).
+
+**The bar has two halves** ([ADR 0001](../docs/adr/0001-a-page-exists-for-the-chain-and-the-reading-question.md)):
+
+- **The chain test** decides what may be proposed: remove the item from the chapter and its main claim breaks. It is the `Gist`, a `Chain` row, or a name the chain cannot be restated without. An item that merely illustrates a row is not a candidate; it stays in the `§ map` and `Entries`. The test is mechanical, so the agent applies it while reading.
+- **The reading question** decides what is actually promoted. Of the items that pass the chain test, the human promotes the ones answering why the book was opened — the `Reading question` slot of its `book` hub. An item can pass the chain test and still answer nothing of the human's; it is then refused without shame, and the refusal keeps its reason.
+
+**A candidate is a line** in the source record's `Candidates` slot: proposed type ｜ role ｜ item — why — `§`anchor `#candidate/<proposed type>`.
 
 ```md
-## 候选
-1. 概念 多元论 — 全书骨，且需与相对主义分开 | 新页
-2. 论证 反证实主义 → 反一元论 | 已有一元论页，加论证 2
-3. 条目 赫尔岑 1848 — 只进 source record，不成页
+- 概念｜核心主张｜多元论 — 全书骨，须与相对主义分开 — §8 #candidate/concept
+- 人物｜例证｜赫尔岑 — §7 只出场一次，但「创造即一切」是他自己的一条线 — §7 #candidate/person
 ```
+
+**The tag means undecided.** A sweep decides every tagged line:
+
+- **promote** — write or update the page, then rewrite the line as `→ [[page]]` with the date. Every promoted page fills its type's required slots, and the book hub's inventory gains the page it produced.
+- **refuse** — rewrite the line as `未提升：<reason>` with the date. The reason is what stops the same item being re-proposed at the next reading.
+- **leave** — the tag stays. The item is genuinely undecided, and it is the only thing the candidate view shows.
+
+Either decision removes the tag. Sweeping a source is the last thing that happens to it in a session; the reading was already done.
+
+View the frontier with a Base: `file.hasTag("candidate")` over `sources/` lists the chapters still holding undecided candidates. Write the filter with `file.hasTag` and nothing else — it matches children (`#candidate/person`) and reads tags in the body, while `tags.contains` does neither.
+
+**Roles** are required on every candidate and are free text for now: the accepted vocabulary lives in the vault's `AGENTS.md`, and the gate over it — whether a `背景` or `例证` may be promoted at all — is deliberately deferred. A role marks what the material does in its source; it does not decide.
 
 Rules that keep the wiki honest as it grows:
 

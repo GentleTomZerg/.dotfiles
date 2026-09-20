@@ -1,0 +1,5 @@
+# A page exists only for what the chain admits and the reading question answers
+
+Three chapters of 观念的力量 produced 33 pages, 13 of them `argument`, including figures who played no part in the chapter's claim (Russell-and-Moore, Herzen). The bar has two halves. The **chain test** is the gate: an item may be proposed only if removing it breaks the chapter's main claim — it is the `Gist`, a `Chain` row, or a name the chain cannot be restated without; an item that merely illustrates a row stays in the `§ map`. The **reading question** is the human's tie-breaker at the sweep: of the items that pass, promote the ones that answer why the book was opened.
+
+Rejected: the chain alone, which makes the wiki a sum of books whose shape follows whatever was read; the reading question alone, which discards the reason for reading; and the five-test importance filter (centrality, reusability, independence, explanatory power, distinctiveness), because "central to the author's claim" and "central to my knowledge" are different questions and "importance" hid which one was being asked.

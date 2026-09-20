@@ -23,7 +23,7 @@ An article or any other source: one file under `sources/<slug>.md`, same shape, 
 
 ## Write the source record
 
-`<vault>/sources/<book>/<chapter>.md`, written in the source's language:
+`<vault>/sources/<book>/<chapter>.md`, prose in the source's language. Structural keys stay English, and the vault's `AGENTS.md`, `templates/` and `private/tools/wiki.py` are authoritative for which slots this vault requires; this is the shape the skill seeds:
 
 ```md
 ---
@@ -36,12 +36,50 @@ publish: true
 # 哲学的目的
 - source: 伯林文集·观念的力量 · OEBPS/…/sigil_toc_id_7
 
-## § 记录
+## Gist
+<the chapter's main claim in one breath>
+
+## Chain
+
+| step | problem | uses | yields | at | down |
+| ---- | ------- | ---- | ------ | -- | ---- |
+
+## Produced
+
+```base
+filters:
+  and:
+    - 'sources.contains("sources/<book>/<chapter>")'
+views:
+  - type: table
+    name: 本章产出
+    groupBy:
+      property: type
+      direction: ASC
+    order:
+      - file.name
+      - gist
+      - updated
+```
+
+## Candidates
+
+- 概念｜核心主张｜多元论 — 全书骨，须与相对主义分开 — §8 #candidate/concept
+
+## Open
+
+- [mine] <a question this reading produced, with an arrow to what carries it>
+
+## § map
+
 ### §1 哲学的两种名声
 <one to three lines: the map, not the argument>
 
-## 条目 · 术语表
+## Entries
 <dates, names, metaphors — lookups>
+
+## Glossary
+<terms this chapter defines and no page holds>
 ```
 
 `### §n` headings quote the source's own numbering and titles, and freeze once written: they are the anchors every other page cites. A section with nothing map-worthy still gets its heading and one line.
@@ -52,12 +90,21 @@ Quotes follow [EVIDENCE](../EVIDENCE.md), and the count of checked spans goes in
 
 Completion: the map covers every section of the chapter; anchors match the source's numbering; the count matches the page's `>` blocks.
 
-## Put the candidate list to the human
+## Write the candidates
 
-Two to five items. Each line names the page (new, or existing and to be updated), the type it would take, and why. Include the material that should *not* become a page — a date, an example, a restatement — so the human can see the bar being applied.
+The chain test decides what may be proposed, and it is the whole of this section: an item belongs in the slot only if removing it breaks the chapter's main claim — the `Gist`, a `Chain` row, or a name the chain cannot be restated without. An item that merely illustrates a row is not a candidate. That is what the `§ map` and `Entries` are for: the background figures, the one-line name-drops and the passing examples stay there, and they never reach the wiki.
 
-Use the harness's question tool when one is available, then stop and wait. Nothing gets promoted from a list the human has not answered.
+Each line carries, in this order: the proposed type, the role, the item, one line of why, the `§` anchor, and the tag.
+
+```md
+- 概念｜核心主张｜多元论 — 全书骨，须与相对主义分开 — §8 #candidate/concept
+- 人物｜例证｜赫尔岑 — §7 只出场一次，但「创造即一切」是他自己的一条线 — §7 #candidate/person
+```
+
+Two to five is a good sign, not a rule. A chapter that yields nothing is a real answer: write the slot's one line — `- 无候选 — 本章只是复述，没有可检索的东西`. Never pad the slot to look productive; a padded slot costs the human a sweep and costs the wiki its shape.
+
+Ingest takes no decisions. Do not promote, refuse, rank or reorder — the sweep is a separate run, and it is the human's ([TYPES](../TYPES.md)).
 
 ## Then, in the same session
 
-Write or update the pages the human approved ([TYPES](../TYPES.md)), and refresh the book hub's inventory so `books/<book>.md` stays the one list of what this book produced.
+Write the source record and stop. Tell the human what is staged: this chapter's candidates, tagged and waiting for a sweep. Do not refresh the book hub's inventory here — it lists pages, and pages are born in the sweep.

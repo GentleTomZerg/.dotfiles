@@ -5,10 +5,10 @@ Folders carry **role**, never topic. Topics are `tags`; shapes are `type`; views
 ```
 <vault>/
   index.md                        front door: hero block + 我在追的 + links to the views
-  raw/<book>/book-info.md         source identity: file, sha256, chapter ids      write once
-  sources/<book>/<chapter>.md     evidence: what the text says, and where          write once
+  raw/<book>/book-info.md         source identity: file, sha256, chapter ids
+  sources/<book>/<chapter>.md     the reading's record: map, chain, candidates, refusals
   wiki/*.md                       knowledge pages, flat, typed by frontmatter
-  views/*.base                    one per type, built in Obsidian's UI
+  views/*.base                    one per type, plus the candidate view
   templates/*.md                  page shapes, human-owned, never published
 ```
 
@@ -28,13 +28,15 @@ Folders carry **role**, never topic. Topics are `tags`; shapes are `type`; views
 
 Set each property's type once in Obsidian (Settings → Properties) — text, list, date, number — so Bases can sort and count them. Pages are found by matching these values and reading only the matches: there is no catalog file, so nothing can go stale.
 
+A candidate is not a property: the mark is a body tag, `#candidate/<proposed type>`, and the tag's meaning is *undecided*. The reading question is not a property either — it is a slot on the `book` hub, because the bar reads it as prose.
+
 ## Views
 
-One `.base` per type, plus `takes`. Build them in Obsidian's UI; for the syntax read the `obsidian-bases` skill. A view is a lens, never a source of truth — when a view and a page disagree, the page wins and the view gets rebuilt.
+One `.base` per type, plus the candidate view — that one is a state, not a type: `file.hasTag("candidate")` over `sources/` is the sweep worklist, and a chapter leaves it once every line is decided. Build views in Obsidian's UI; for the syntax read the `obsidian-bases` skill. A view is a lens, never a source of truth — when a view and a page disagree, the page wins and the view gets rebuilt.
 
 ## Publishing
 
-`publish: true` publishes. `templates/` and `private/` are already excluded by Quartz's `ignorePatterns`. Takes default to `publish: false` — half-formed thinking is worth keeping and not worth showing. Bases render on the published site as static tables.
+`publish: true` publishes. `templates/` and `private/` are already excluded by Quartz's `ignorePatterns`. Takes default to `publish: false` — half-formed thinking is worth keeping and not worth showing. Candidates are the exception: they live inside source records, so they publish with them, and a public `/tags/candidate` list is the frontier of the wiki shown in daylight. Bases render on the published site as static tables.
 
 ## Wording
 
@@ -42,4 +44,4 @@ The source's language governs the pages that report it, and each key term is glo
 
 ## New vault, first run
 
-Scaffold the folders above, write `AGENTS.md` with the seed registry from [TYPES](TYPES.md), fence the hero block in `index.md`, then build the first view. Nothing here needs a stored path: links resolve by name, and the vault directory is the one holding `.obsidian/`.
+Scaffold the folders above, write `AGENTS.md` with the seed registry from [TYPES](TYPES.md), fence the hero block in `index.md`, write the `我在追的` section, then build the views — including the candidate worklist. Nothing here needs a stored path: links resolve by name, and the vault directory is the one holding `.obsidian/`.
