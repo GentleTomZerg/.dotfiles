@@ -14,7 +14,7 @@ Locate the vault and read its schema. The schema is authoritative for the notes,
 
 ## Steps
 
-1. **Find.** Read `index.md` first — it is the catalog and it is cheap. Then the relevant notes, then the raw source when the question turns on wording. `obsidian search query="…"` or `grep` for anything the index doesn't surface. Load only what the question needs.
+1. **Find.** Read `wiki/index.md` first — it is the catalog and it is cheap. It is generated from `wiki/catalog.base`, so when the transclusion does not come through in a plain file read, list the folders (`wiki/concepts/`, `wiki/entities/`, `wiki/books/*/summaries/`) instead of trusting a stale list. Then the relevant notes, then the raw source when the question turns on wording. `obsidian search query="…"` or `grep` for anything the index doesn't surface. Load only what the question needs.
 
    **Completion:** you can name the notes and source passages you will answer from.
 

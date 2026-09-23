@@ -60,9 +60,9 @@ Locate the vault and read its schema (`AGENTS.md`). The schema is authoritative 
    - Accepted **tests**, on the notes they test.
    - Accepted **open questions**, on the note each hangs off.
    - The **map row** — `pass1`, `question`, locator.
-   - The catalog and the log, as the schema defines them.
+   - Nothing for the **catalog** — it is generated from frontmatter via `wiki/catalog.base`. Only if the unit introduced a genuinely new load-bearing field do you add it to a view there.
 
-   **Completion:** every accepted candidate is written, and the catalog, the log and the map row are updated.
+   **Completion:** every accepted candidate is written, and the map row is updated.
 
 7. **Report the diff and the next move.** What changed, which notes are new, whether a note now carries an unresolved collision, and whether the unit earned a recall session now or the human should read on.
 
@@ -71,4 +71,4 @@ Locate the vault and read its schema (`AGENTS.md`). The schema is authoritative 
 - **Integrate, don't append.** An ingest that adds a section to a note and leaves the rest contradictory has made the vault worse. Update the claims, flag the collision.
 - **The source's terms first.** Whatever the field calls the thing, the note uses that word — a compression in the agent's vocabulary is unsearchable later.
 - **Nothing is known yet.** What you write is a candidate: the compression, with the human's emphasis. Whether it is knowledge is settled when they say it back (`/skill:wiki-recall`), never here.
-- **A unit that yields nothing worth keeping is a finding.** Say so and log it; a vault that grows on every ingest regardless of value is a vault nobody rereads.
+- **A unit that yields nothing worth keeping is a finding.** Say so plainly — an open question, or a note recording that the unit carried nothing. A vault that grows on every ingest regardless of value is a vault nobody rereads.
