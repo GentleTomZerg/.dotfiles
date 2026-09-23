@@ -192,6 +192,27 @@ test -f ~/.config/nvim/lazy-lock.json && echo "neovim bootstrapped"
 nvim --version | head -1
 ```
 
+### 2.5 Agent skills (commonly used only)
+
+> Precondition: `node` + `npx` available with network (bootstrap proxy from 0.2 covers it).
+> Records only the commonly used sources with explicit skill names. Custom `myskills/` skills are a separate step.
+> Deliberately not recorded (installed once, dropped): `vercel-labs/skills` (find-skills), `Agents365-ai/365-skills` (drawio-skill), `dietrichgebert/ponytail` (ponytail-review).
+
+```bash
+npx --yes skills add mattpocock/skills -g -s ask-matt code-review codebase-design diagnosing-bugs domain-modeling grill-me grill-with-docs grilling handoff implement improve-codebase-architecture prototype research resolving-merge-conflicts setup-matt-pocock-skills tdd teach to-questionnaire to-spec to-tickets triage wait-what wayfinder wizard writing-for-agents -y
+npx --yes skills add kepano/obsidian-skills -g -s defuddle json-canvas knap obsidian-bases obsidian-cli obsidian-markdown -y
+npx --yes skills add humanlayer/skills -g -s show-me -y
+npx --yes skills add cursor/plugins -g -s unslop -y
+```
+
+**CHECK** —
+
+```bash
+npx --yes skills list -g
+```
+
+All 33 skills listed (25 mattpocock + 6 obsidian + show-me + unslop).
+
 ---
 
 ## Phase 3 — Shell
