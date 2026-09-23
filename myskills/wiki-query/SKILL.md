@@ -27,13 +27,14 @@ Locate the vault and read its schema. The schema is authoritative for the notes,
 
    **Completion:** the human has an answer with every claim attributed, and can see where the sources disagree.
 
-3. **File it back.** Karpathy's rule: *good answers can be filed back into the wiki as new pages* — a comparison, an analysis, a connection you discovered, and nothing should die in chat history.
+3. **Propose the filing, wait for yes.** Karpathy's rule: *good answers can be filed back into the wiki as new pages* — a comparison, an analysis, a connection you discovered, and nothing should die in chat history. Propose one filing as a short list — one line each, no prose selling — and wait for accept or defer before writing anything. A filing without their yes is filing without curation.
    - An answer that stands on its own becomes a note, or a section on the note it belongs to.
    - An answer the human will need repeatedly becomes a test (hand off to `/skill:wiki-recall` to write it).
    - An answer that explains *why* an idea exists, and needed material outside the vault, is a `/skill:research` job — dispatch it on primary sources and file the result when it lands.
    - An answer that cannot be settled with what the vault holds becomes an `## Open questions` bullet on the right note, saying what would answer it.
+   - A collision needing a decision becomes a `/skill:wiki-synthesize` proposal — propose it, wait for yes, never start it here.
 
-   **Completion:** the answer exists as a note, a section, a test, a research job, or a recorded open question — never only in the conversation.
+   **Completion:** every proposal is accepted or deferred, every accepted filing is written — never only in the conversation.
 
 4. **Log it** — `## [<date>] query | <the question>`.
 
