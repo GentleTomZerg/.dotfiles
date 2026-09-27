@@ -26,3 +26,7 @@
 # mcp cache - adapter internal
 /pi/.pi/agent/mcp-cache.json
 /pi/.pi/agent/mcp-onboarding.json
+# pi missions - runtime state (not managed by stow)
+/pi/.pi/agent/missions/
+# pi web-search cache - temp files
+/pi/.pi/agent/web-search-cache/
