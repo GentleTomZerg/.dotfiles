@@ -23,6 +23,8 @@
 /pi/.pi/agent/auth.json
 /pi/.pi/context-mode/
 /.pi-subagents/
+# mcp server logs - written by mcp servers started from this repo
+/logs/
 # mcp cache - adapter internal
 /pi/.pi/agent/mcp-cache.json
 /pi/.pi/agent/mcp-onboarding.json
