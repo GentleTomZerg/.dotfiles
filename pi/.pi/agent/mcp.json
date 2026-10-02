@@ -3,6 +3,7 @@
     "ebook-mcp": {
       "command": "uvx",
       "args": ["--with", "mcp<2", "--from", "ebook-mcp", "python", "-m", "ebook_mcp.main"],
+      "cwd": "~/Projects/Obsidian-Vault",
       "env": {}
     }
   }
