@@ -28,6 +28,8 @@
 # mcp cache - adapter internal
 /pi/.pi/agent/mcp-cache.json
 /pi/.pi/agent/mcp-onboarding.json
+# pi subagents - runtime state (last-seen-version.json), not managed by stow
+/pi/.pi/agent/pi-subagents/
 # pi missions - runtime state (not managed by stow)
 /pi/.pi/agent/missions/
 # pi web-search cache - temp files
