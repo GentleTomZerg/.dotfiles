@@ -138,12 +138,25 @@ ssh -T -o StrictHostKeyChecking=accept-new git@github.com 2>&1 | grep -q "succes
 mkdir -p ~/stow
 git clone git@github.com:GentleTomZerg/.dotfiles.git ~/stow
 cd ~/stow
+
+# Packages that write run-time state into their own tree.  Stow these with
+# --no-folding, so the target directory stays real and the generated files
+# (rule sets, plugins, caches) never land in the repository.
+stow --no-folding mihomo neovim stardict yazi
+
+# Pure configuration trees.  Folding is safe here, and it makes fewer symlinks.
 stow aerospace dunst electronflags ghostty hyprland i3 ideavimrc kitty \
-  mihomo neovim polybar raycast rofi sioyek stardict starship surfingkeys \
-  tmux tmuxifier waybar wezterm yazi zshrc
+  polybar raycast rofi sioyek starship surfingkeys tmux tmuxifier waybar \
+  wezterm zshrc
 ```
 
+> Tree folding makes one symlink for a whole directory (for example `~/.config/yazi` points at the package). That is small and convenient, but every file the program generates then lands inside the repository. `--no-folding` makes a real directory instead and links each file, so generated files stay in `$HOME`.
+>
+> With `--no-folding`, a new file in a package needs one more command: `stow -R --no-folding <package>`. The `.gitignore` entries stay as a second line of defense.
+
 > Cross-platform packages are inert on the other OS (e.g. `aerospace` on Arch, `hyprland` on macOS) — stow still succeeds; that is expected. If the SSH clone hangs, GitHub's port 22 may be blocked — apply the ssh-port-443 config in [7.2](#72-both--github-over-ssh-port-443) and retry the clone.
+
+> `mihomo` runs as root, so it writes root-owned files (`cache.db`, `rules/`, `ui/`, `proxy_providers/`) into `~/.config/mihomo`. `--no-folding` keeps them out of the repository, and that is all that is needed.
 
 **CHECK** —
 
