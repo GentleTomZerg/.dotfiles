@@ -76,8 +76,6 @@ local screenshot = 'grim -g "$(slurp)" - | wl-copy'
 
 local reload_waybar = "killall waybar && waybar"
 
-local starDict = 'sh -c "' .. os.getenv("HOME") .. '/stow/stardict/.stardict/launch_dic.sh"'
-
 local lock = "hyprlock"
 
 --################
@@ -363,8 +361,6 @@ hl.bind("SUPER" .. " + " .. "V", hl.dsp.exec_cmd('cliphist list | vicinae dmenu 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "S", hl.dsp.exec_cmd(screenshot))
 
 hl.bind(mainMod .. " + " .. "T", hl.dsp.exec_cmd("thunar"))
-
-hl.bind(mainMod .. " + " .. "S", hl.dsp.exec_cmd(starDict))
 
 hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 

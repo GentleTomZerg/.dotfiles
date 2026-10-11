@@ -142,11 +142,11 @@ cd ~/stow
 # Packages that write run-time state into their own tree.  Stow these with
 # --no-folding, so the target directory stays real and the generated files
 # (rule sets, plugins, caches) never land in the repository.
-stow --no-folding mihomo neovim stardict yazi
+stow --no-folding mihomo neovim yazi
 
 # Pure configuration trees.  Folding is safe here, and it makes fewer symlinks.
 stow aerospace dunst electronflags ghostty hyprland i3 ideavimrc kitty \
-  polybar raycast rofi sioyek starship surfingkeys tmux tmuxifier waybar \
+  polybar rofi sioyek starship surfingkeys tmux tmuxifier waybar \
   wezterm zshrc
 ```
 
@@ -521,7 +521,7 @@ grep -h 'ozone-platform' ~/.config/*flags.conf 2>/dev/null
 ### 6.7 macOS — app notes
 
 - **KDE Connect** — `brew install --cask kde-connect`; on first launch allow incoming connections if macOS prompts (System Settings → Privacy & Security → Firewall). Pairing + iOS notes: see [6.4](#64-arch--kde-connect-pairing--cli-usage).
-- **Raycast** replaces Rofi; its stowed scripts (`raycast/.config/raycast/scripts/enable-proxy.sh` — "Go Abroad") toggle the system proxy to mihomo.
+- **Raycast** replaces Rofi.
 - **AeroSpace** is the tiling window manager (`~/.aerospace.toml` stowed).
 - **HomeRow + HyperKey** for mouse-less operation.
 - Human GUI: disable the **Ctrl+Arrow** Mission-Control shortcuts in System Settings → Keyboard → Keyboard Shortcuts, so vim can resize panes.
