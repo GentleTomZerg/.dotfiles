@@ -4,7 +4,10 @@ return {
   {
     "catppuccin/nvim",
     opts = {
-      flavour = "mocha",
+      flavour = "macchiato",
+      -- NOTE: this makes StatusLine transparent (bg = NONE), and AstroNvim derives the
+      -- mode chip text colour from StatusLine.bg. That's why `status.colors.mode_fg`
+      -- is set explicitly in the AstroNvim/astroui spec further down.
       transparent_background = true,
     },
   },
@@ -69,6 +72,15 @@ return {
     opts = {
       -- change colorscheme
       colorscheme = "catppuccin-nvim",
+      -- The statusline is transparent, so AstroNvim's default `mode_fg = StatusLine.bg`
+      -- resolves to NONE and the mode chip text falls back to the default fg (near
+      -- white) -> ~1:1 contrast on the pastel chips. Set the ink explicitly instead.
+      status = {
+        colors = {
+          mode_fg = "#24273a", -- macchiato base: ink for the pastel mode chips
+          inactive = "#8087a2", -- macchiato overlay1: chip bg for PROMPT/CONFIRM/SHELL modes
+        },
+      },
     },
   },
 
