@@ -6,17 +6,19 @@ the config merge and the subcommands are plain functions, and every external com
 one injectable seam.
 
 Nothing here is wired into the shell yet; this project contains the lifting core, the merge
-primitive, the `render` and `status` subcommands and the shared foundations (settings, YAML helpers,
-command runner, reporter).
+primitive, the `render`, `status`, `start` and `stop` subcommands and the shared foundations
+(settings, YAML helpers, command runner, reporter).
 
 ## Layout
 
 - `main.ts` — the process entry point: `deno run` hands its arguments to `runCli`.
-- `src/cli.ts` — the subcommand table (`render`, `status`) and `runCli`, the only place the real
-  environment is read.
+- `src/cli.ts` — the subcommand table (`render`, `status`, `start`, `stop`) and `runCli`, the only
+  place the real environment is read.
 - `src/render.ts` — renders the runtime config from the template, providers.yaml and the lifted
   overlay, then gates it on `mihomo -t`.
 - `src/status.ts` — the running-proxy checks behind `status`.
+- `src/lifecycle.ts` — the `start`/`stop` lifecycle: render and validate, cache sudo, set and reset
+  macOS DNS, launch and gate success on the full status suite.
 - `src/shims/node_process.ts` — import-map shim that keeps `@eemeli/yaml` permission-free (it reads
   `node:process.env` on every parse).
 - `src/yaml.ts` — `@eemeli/yaml` helpers that preserve anchors and `!!merge`.

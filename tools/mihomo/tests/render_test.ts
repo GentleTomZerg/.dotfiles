@@ -408,13 +408,16 @@ Deno.test("runCli dispatches render with settings from the injected env and reje
   assertEquals(unknown, 1);
   assertEquals(unknownErr, [
     "Error: unknown subcommand 'frobnicate'.",
-    "Usage: mihomo <render|status>",
+    "Usage: mihomo <render|start|stop|status>",
   ]);
 
   const { report: noArgsReport, err: noArgsErr } = recordingReporter();
   const noArgs = await runCli([], { report: noArgsReport, env });
   assertEquals(noArgs, 1);
-  assertEquals(noArgsErr, ["Error: no subcommand given.", "Usage: mihomo <render|status>"]);
+  assertEquals(noArgsErr, [
+    "Error: no subcommand given.",
+    "Usage: mihomo <render|start|stop|status>",
+  ]);
 
   const { report: renderReport, err: renderErr } = recordingReporter();
   const rendered = await runCli(["render"], {
