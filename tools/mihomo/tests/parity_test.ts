@@ -14,6 +14,7 @@ import { parseDocument } from "@eemeli/yaml";
 import { RealCommandRunner } from "../src/command.ts";
 import { loadSettings } from "../src/config.ts";
 import { mergeIntoDocument } from "../src/merge.ts";
+import { isRecord } from "../src/record.ts";
 import { emitYaml, parseYamlPreservingAnchors, toPlain } from "../src/yaml.ts";
 
 /** The merge the shell helper runs: template * providers * lifted overlay. */
@@ -22,10 +23,6 @@ const YQ_MERGE = "select(fileIndex == 0) * select(fileIndex == 1) * select(fileI
 /** Resolve `!!merge` anchors into plain data, the way both engines are read. */
 function resolve(text: string): unknown {
   return parseDocument(text, { merge: true }).toJS({});
-}
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return value !== null && typeof value === "object" && !Array.isArray(value);
 }
 
 function formatPath(path: string, key: string): string {

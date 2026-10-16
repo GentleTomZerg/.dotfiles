@@ -1,3 +1,5 @@
+import { isRecord } from "./record.ts";
+
 export type TweaksState = "missing" | "found" | "multi";
 
 export interface ProviderRef {
@@ -17,11 +19,12 @@ export interface LocatedProviders {
  * reported by name so the caller can warn that their cache cannot be located.
  */
 export function locateProviders(providersConfig: unknown, configDir: string): LocatedProviders {
-  const entries = asMap(asMap(providersConfig)?.["proxy-providers"]) ?? {};
+  const providers = isRecord(providersConfig) ? providersConfig["proxy-providers"] : undefined;
+  const entries = isRecord(providers) ? providers : {};
   const refs: ProviderRef[] = [];
   const noPath: string[] = [];
   for (const [name, entry] of Object.entries(entries)) {
-    const path = asMap(entry)?.["path"];
+    const path = isRecord(entry) ? entry["path"] : undefined;
     if (typeof path !== "string" || path === "") {
       noPath.push(name);
       continue;
@@ -48,8 +51,9 @@ const RESOLVER_KEY = "proxy-server-nameserver";
  * committed template key instead of leaving it alone on merge.
  */
 export function liftProvider(doc: unknown): Lift {
-  const root = asMap(doc) ?? {};
-  const dns = asMap(root["dns"]) ?? {};
+  const root = isRecord(doc) ? doc : {};
+  const rawDns = root["dns"];
+  const dns = isRecord(rawDns) ? rawDns : {};
 
   const candidates = [
     ...asList(dns[RESOLVER_KEY]),
@@ -104,7 +108,7 @@ export interface Selection {
  */
 export function selectTweaks(providers: LoadedProvider[]): Selection {
   const lifts = providers.map((p) => ({ provider: p, lift: liftProvider(p.doc) }));
-  const contributors = lifts.filter((l) => liftedResolvers(l.lift).length > 0);
+  const contributors = lifts.filter((l) => liftedResolvers(l.lift.overlay).length > 0);
   if (contributors.length === 0) {
     return {
       overlay: {},
@@ -118,12 +122,12 @@ export function selectTweaks(providers: LoadedProvider[]): Selection {
   }
 
   const source = contributors[0];
-  const dnsCarriers = lifts.filter((l) => carriesDns(l.provider));
+  const dnsCarriers = lifts.filter((l) => carriesDns(l.provider.doc));
   return {
     overlay: source.lift.overlay,
     skipped: source.lift.skipped,
     state: contributors.length === 1 ? "found" : "multi",
-    applied: liftedResolvers(source.lift),
+    applied: liftedResolvers(source.lift.overlay),
     sourceName: source.provider.name,
     sourcePath: source.provider.path,
     ignoredNames: dnsCarriers
@@ -132,13 +136,19 @@ export function selectTweaks(providers: LoadedProvider[]): Selection {
   };
 }
 
-function liftedResolvers(lift: Lift): string[] {
-  const resolvers = asMap(lift.overlay["dns"])?.[RESOLVER_KEY];
+/**
+ * The `dns.proxy-server-nameserver` values in a lifted overlay or in a
+ * providers.yaml fallback — the same shape in both, so one reader serves both.
+ */
+export function liftedResolvers(overlay: unknown): string[] {
+  const dns = isRecord(overlay) ? overlay["dns"] : undefined;
+  const resolvers = isRecord(dns) ? dns[RESOLVER_KEY] : undefined;
   return Array.isArray(resolvers) ? resolvers.map(String) : [];
 }
 
-function carriesDns(provider: LoadedProvider): boolean {
-  return asMap(provider.doc)?.["dns"] != null;
+/** `has("dns")`: only a cache that ships a dns: block is worth lifting from. */
+export function carriesDns(doc: unknown): boolean {
+  return isRecord(doc) && doc["dns"] != null;
 }
 
 /** A `#`-suffix must contain `=` and must not be `RULES`; anything else is circular. */
@@ -172,13 +182,6 @@ function unique<T>(items: T[]): T[] {
     out.push(item);
   }
   return out;
-}
-
-function asMap(value: unknown): Record<string, unknown> | undefined {
-  if (value !== null && typeof value === "object" && !Array.isArray(value)) {
-    return value as Record<string, unknown>;
-  }
-  return undefined;
 }
 
 function asList(value: unknown): unknown[] {
