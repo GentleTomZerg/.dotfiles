@@ -33,3 +33,5 @@
 /pi/.pi/agent/missions/
 # pi web-search cache - temp files
 /pi/.pi/agent/web-search-cache/
+# runtime-config backups - e.g. mihomo_runtime.yaml.bak carries the subscription URL
+*.bak
