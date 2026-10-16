@@ -2,7 +2,14 @@ import type { CommandResult, CommandRunner } from "./command.ts";
 import type { Settings } from "./config.ts";
 import { mergeIntoDocument } from "./merge.ts";
 import type { Reporter } from "./report.ts";
-import { type LoadedProvider, locateProviders, type Selection, selectTweaks } from "./tweaks.ts";
+import {
+  carriesDns,
+  liftedResolvers,
+  type LoadedProvider,
+  locateProviders,
+  type Selection,
+  selectTweaks,
+} from "./tweaks.ts";
 import { emitYaml, parseYamlPreservingAnchors, toPlain } from "./yaml.ts";
 
 export interface RenderResult {
@@ -132,18 +139,12 @@ async function removeIfPresent(path: string): Promise<void> {
   }
 }
 
-/** `has("dns")`: only a cache that ships a dns: block is worth lifting from. */
-function carriesDns(doc: unknown): boolean {
-  if (doc === null || typeof doc !== "object" || Array.isArray(doc)) return false;
-  return (doc as Record<string, unknown>)["dns"] != null;
-}
-
 /**
  * Both warnings are only reported for a cache that contributed, so
  * `selection.sourceName` is set whenever they are reached.
  */
 function warnAboutSelection(selection: Selection, report: Reporter): void {
-  if (selection.state === "multi") {
+  if (selection.ignoredNames.length > 0) {
     report.err("Warning: more than one proxy-provider ships a dns: block, and the multi-provider");
     report.err(`         policy is not designed yet. Using ${selection.sourceName}, ignoring:`);
     for (const name of selection.ignoredNames) report.err(`           ${name}`);
@@ -163,16 +164,10 @@ function reportLiftedResolvers(selection: Selection, providers: unknown, report:
   if (selection.applied.length === 0) return;
   report.out(`render: node DNS from ${selection.sourceName}:`);
   for (const resolver of selection.applied) report.out(`          ${resolver}`);
-  if (!sameResolvers(selection.applied, fallbackResolvers(providers))) {
+  if (!sameResolvers(selection.applied, liftedResolvers(providers))) {
     report.err("render: NOTE - that differs from the dns: fallback in providers.yaml.");
     report.err("        Update it so a machine with no cache yet still works.");
   }
-}
-
-function fallbackResolvers(providers: unknown): string[] {
-  const dns = (providers as Record<string, unknown> | undefined)?.["dns"];
-  const resolvers = (dns as Record<string, unknown> | undefined)?.["proxy-server-nameserver"];
-  return Array.isArray(resolvers) ? resolvers.map(String) : [];
 }
 
 function sameResolvers(left: string[], right: string[]): boolean {
