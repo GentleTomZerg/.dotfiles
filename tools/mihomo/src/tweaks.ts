@@ -39,10 +39,10 @@ export interface Lift {
 const RESOLVER_KEY = "proxy-server-nameserver";
 
 /**
- * Port of `provider-tweaks.yq` for one provider document (already parsed to
- * plain JS). Renames `dns.nameserver` to `dns.proxy-server-nameserver`, passes
- * through `use-hosts`, `fake-ip-filter` and root `hosts`, drops the keys the
- * template owns, and reports circular candidate resolvers as `skipped`.
+ * Lifting rules for one provider document (already parsed to plain JS). Renames
+ * `dns.nameserver` to `dns.proxy-server-nameserver`, passes through `use-hosts`,
+ * `fake-ip-filter` and root `hosts`, drops the keys the template owns, and
+ * reports circular candidate resolvers as `skipped`.
  *
  * The overlay never contains a `null` or an empty array: either would replace a
  * committed template key instead of leaving it alone on merge.
@@ -162,7 +162,7 @@ function addUnlessEmpty(target: Record<string, unknown>, key: string, value: unk
   target[key] = value;
 }
 
-/** Dedupe preserving first-occurrence order, matching yq's `unique` here. */
+/** Dedupe preserving first-occurrence order. */
 function unique<T>(items: T[]): T[] {
   const seen = new Set<T>();
   const out: T[] = [];

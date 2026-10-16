@@ -46,8 +46,11 @@ curl -fsS https://github.com >/dev/null && echo "network ok"
 
 ```bash
 # Formulae (no --cask)
-brew install mihomo yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch \
+brew install mihomo deno yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch \
   btop starship stow lazygit tlrc p7zip lsd
+
+# deno runs the mihomo config tool (tools/mihomo). yq stays for the runbook's
+# manual config checks and the tool's parity test.
 
 # Casks (require --cask)
 brew install --cask raycast wezterm google-chrome homerow hyperkey \
@@ -65,7 +68,7 @@ brew link ffmpeg-full imagemagick-full -f --overwrite   # both are keg-only
 **CHECK** —
 
 ```bash
-for f in mihomo yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch \
+for f in mihomo deno yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch \
          btop starship stow lazygit tlrc p7zip lsd; do
   brew list --versions "$f" >/dev/null 2>&1 && echo "OK   $f" || echo "MISS $f"
 done
@@ -84,11 +87,12 @@ Every name must print `OK`. (If `tldr` was ever installed, `brew uninstall tldr`
 ```bash
 # Official repos (extra)
 sudo pacman -S \
-  go-yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
+  deno go-yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
   starship stow lazygit tldr 7zip unzip lsd
 
-# go-yq is mikefarah's Go yq (installs the `yq` binary) — the repo's startproxy
-# renders config with mikefarah yq syntax, so the Python `yq` wrapper will not do.
+# deno runs the mihomo config tool (tools/mihomo); go-yq is mikefarah's Go yq
+# (installs the `yq` binary). yq stays for the runbook's manual config checks and
+# the tool's parity test — mikefarah syntax, so the Python `yq` wrapper will not do.
 
 sudo pacman -S ttf-firacode-nerd ttf-jetbrains-mono-nerd noto-fonts-cjk noto-fonts-emoji
 
@@ -103,7 +107,7 @@ yay -S python-pywal16
 **CHECK** —
 
 ```bash
-pacman -Q go-yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
+pacman -Q deno go-yq yazi zellij fzf zoxide fd uv neovim direnv fastfetch btop \
   starship stow lazygit tldr 7zip unzip lsd \
   ttf-firacode-nerd ttf-jetbrains-mono-nerd noto-fonts-cjk noto-fonts-emoji \
   wayland hyprland rofi cliphist waybar hyprpaper hypridle hyprlock slurp grim
@@ -257,7 +261,7 @@ zsh vi-mode is configured in `zshrc/.zshrc`; in the macOS terminal, copy/paste u
 
 ## Phase 4 — Proxy (mihomo)
 
-> The stowed `mihomo` package is the source of truth: `mihomo.yaml` is a shareable template (empty `proxy-providers`, `include-all` groups, TUN + DNS), and the real subscription lives in the **gitignored** `providers.yaml`. `startproxy` deep-merges the two via `yq` into `mihomo_runtime.yaml` and launches mihomo.
+> The stowed `mihomo` package is the source of truth: `mihomo.yaml` is a shareable template (empty `proxy-providers`, `include-all` groups, TUN + DNS), and the real subscription lives in the **gitignored** `providers.yaml`. `startproxy` renders `mihomo_runtime.yaml` from the template, your subscription and the provider's liftable DNS rules — this is the Deno tool in `tools/mihomo` — validates the result with `mihomo -t`, and launches mihomo.
 
 ### 4.1 Configure the subscription — GATE
 

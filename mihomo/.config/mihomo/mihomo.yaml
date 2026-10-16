@@ -1,4 +1,4 @@
-# 订阅 provider 定义在 providers.yaml（含订阅 URL，不入库），启动时由 mihomo-api.sh 合并进运行时配置。
+# 订阅 provider 定义在 providers.yaml（含订阅 URL，不入库），启动时由 mihomo 工具（tools/mihomo）合并进运行时配置。
 # 模板保持为空，避免泄露订阅 token。
 # 新机器部署：cp providers.template.yaml providers.yaml，填入订阅地址即可（详见模板头部说明）。
 proxy-providers: {}
