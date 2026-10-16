@@ -199,19 +199,22 @@ if `respect-rules: true` and `proxy-server-nameserver` is empty
 The pipeline already is "template + untracked provider spec, deep-merged by `yq`":
 
 ```bash
-yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1)' \
-    mihomo.yaml providers.yaml > mihomo_runtime.yaml
+yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1) * select(fileIndex == 2)' \
+    mihomo.yaml providers.yaml provider-tweaks.yaml > mihomo_runtime.yaml
 ```
 
 `yq`'s `*` merges maps recursively and replaces arrays, so a key added in
 `providers.yaml` lands next to the template's keys (verified against
 `yq v4.54.1`).
 
-### Recommended: explicit, in `mihomo.yaml`
+### Shipped: the fallback in `providers.yaml`
+
+The minimal change that reproduces what Clash Verge gets from the provider's
+`dns.nameserver` — without routing general DNS to the provider — is a top-level
+`dns:` block in `providers.yaml` (the untracked, per-machine file):
 
 ```yaml
 dns:
-  # ... existing keys unchanged ...
   use-hosts: true            # already the default; keep it explicit
   # Only proxy-server hostnames (*.eixcloud.com) are resolved with these.
   proxy-server-nameserver:
@@ -219,8 +222,11 @@ dns:
     - https://radar.rlose.com/api-query
 ```
 
-This is the minimal change that reproduces what Clash Verge gets from the
-provider's `dns.nameserver`, without routing general DNS to the provider.
+It sits in `providers.yaml` rather than `mihomo.yaml` because the resolver
+hostnames are airport-specific and `mihomo.yaml` is the shareable template. Being
+fileIndex 1, it covers the window before the subscription has ever been fetched;
+`providers.template.yaml` ships it live so a fresh machine only has to fill in the
+URL.
 
 ### Optional: mirror more of the provider's `dns`
 
@@ -240,11 +246,11 @@ hosts:
 Works even with DNS broken (`LookupIP*WithResolver` checks hosts first), but goes
 stale if the provider rotates IPs.
 
-### Implemented: auto-extract at render time, committed list as fallback
+### Implemented: auto-extract at render time, providers.yaml as fallback
 
 `render_provider_tweaks()` in `mihomo-api.sh` lifts the provider's resolver list
-out of the cached provider file at render time, so the committed list in
-`mihomo.yaml` is only the fresh-machine fallback. See the Decision section below.
+out of the cached provider file at render time, so the `dns:` block in
+`providers.yaml` is only the fresh-machine fallback. See the Decision section below.
 
 ---
 
@@ -262,7 +268,7 @@ out of the cached provider file at render time, so the committed list in
 
 ## 6. Decision (implemented)
 
-Settled by design review; implemented in `mihomo-api.sh` + `mihomo.yaml`.
+Settled by design review; implemented in `mihomo-api.sh` + `provider-tweaks.yq`.
 
 **Source of truth — the cached provider document, read at render time.**
 `render_config` only runs while mihomo is stopped (`startproxy` bails on
@@ -296,13 +302,19 @@ its *configuration*.
 `#key=value` params (`skip-cert-verify`, `ecs`, …) are kept. Detection: take the
 first `#`-segment, split on `&`; skip if it is `RULES` or lacks `=`.
 
-**Fallback + hint.** `mihomo.yaml` keeps the committed `zone`/`radar` pair. On a
-machine with no cache yet, the generated tweaks file is `{}`, the committed pair
-stands, and `render_config`/`startproxy` print a warning — an action, not a FAIL.
+**Fallback + hint.** `providers.yaml` keeps the `zone`/`radar` pair under a
+top-level `dns:` key. On a machine with no cache yet, the generated tweaks file is
+`{}`, that fallback survives the merge, and `render_config`/`startproxy` print a
+warning — an action, not a FAIL. It lives there rather than in `mihomo.yaml`
+because `mihomo.yaml` is the *shareable* template (README §provisioning) while the
+resolver hostnames are airport-specific, exactly like the subscription URL — and
+because a top-level `dns:` key in `providers.yaml` is merged as fileIndex 1, which
+covers the pre-fetch window on its own. `providers.template.yaml` ships the block
+live so `cp` + fill-the-URL is still a complete fresh-machine config.
 
 **Drift is reported, not silent.** Because the generated file overrides the
-committed list, every render prints the resolver list it applied and warns when
-it differs from the committed fallback.
+fallback, every render prints the resolver list it applied and warns when it
+differs from `.dns."proxy-server-nameserver"` in `providers.yaml`.
 
 **Gate scope (`mihomo -t`).** Verified: it rejects invalid YAML, a
 `proxy-server-nameserver` that is a scalar rather than a list, and unsupported
@@ -322,9 +334,22 @@ earns a "success" and wins the race. The correct mechanism is
 derived by stripping labels off `proxies[].server` — naive eTLD+1 extraction can
 collapse `a.foo.com.cn` to `+.com.cn`.
 
-**Files.** `mihomo.yaml` (committed fallback + `use-hosts`), `mihomo-api.sh`
-(`render_provider_tweaks`, 3-file merge, `-t` gate, startproxy nudge),
-`.gitignore` (`provider-tweaks.yaml`), `providers.template.yaml` (header note).
+**Files.** `provider-tweaks.yq` (the hand-written spec of what may be lifted —
+read this one first), `mihomo-api.sh` (locating, `--from-file`, 3-file merge,
+`-t` gate, startproxy nudge), `providers.template.yaml` (the `dns:` fallback block
+plus the header note), `.gitignore` (`provider-tweaks.yaml`, the generated
+overlay). `mihomo.yaml` is deliberately **untouched** by this change.
+
+**Where the rules live.** The overlay's shape is a `.yq` program, not shell
+strings: `yq --from-file provider-tweaks.yq <provider cache>` emits the overlay
+plus a `_skipped` list, which the shell strips before merging (a non-config
+report channel). This keeps the mapping table — including the
+`dns.nameserver` → `dns.proxy-server-nameserver` rename — readable in one file
+instead of a 500-character single-quoted argument. Two constraints the spec must
+respect: this yq build has no `def`, so the circularity predicate is written out
+twice; and an empty **array** overwrites on merge while an empty **map** is a
+no-op, so `proxy-server-nameserver` is emitted as `null` (then dropped) rather
+than `[]` — otherwise a fresh machine's fallback would be clobbered.
 
 **Dual-shell constraint.** `mihomo-api.sh` is sourced from `~/.zshrc`, so its
 functions run under **zsh**, not bash, despite the shebang. Two bugs found here
