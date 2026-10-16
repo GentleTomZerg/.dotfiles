@@ -5,6 +5,7 @@ import { loadSettings, type Settings } from "../src/config.ts";
 import type { Reporter } from "../src/report.ts";
 import { renderConfig } from "../src/render.ts";
 import { FakeCommandRunner } from "./fake_command.ts";
+import { recordingReporter } from "./fake_report.ts";
 
 const CONFIG_DIR = "/cfg";
 const CACHE_PATH = `${CONFIG_DIR}/proxy_providers/airport.yaml`;
@@ -76,19 +77,6 @@ hosts:
   "+.example.test": 127.0.0.1
 `;
 
-class RecordingReporter implements Reporter {
-  readonly stdout: string[] = [];
-  readonly stderr: string[] = [];
-
-  out(line: string): void {
-    this.stdout.push(line);
-  }
-
-  err(line: string): void {
-    this.stderr.push(line);
-  }
-}
-
 /** In-memory stand-in for the filesystem: the suite never touches a real path. */
 class FakeFiles {
   readonly files = new Map<string, string>();
@@ -128,7 +116,7 @@ function acceptingValidator(): FakeCommandRunner {
 function render(
   files: FakeFiles,
   runner: FakeCommandRunner,
-  report: RecordingReporter,
+  report: Reporter,
   settings: Settings = defaultSettings(),
 ) {
   return renderConfig(settings, runner, report, files.read, files.write, files.remove);
@@ -155,7 +143,7 @@ Deno.test("render renders template, then providers, then the lifted overlay, wit
     [CACHE_PATH]: CACHE,
   });
 
-  const result = await render(files, acceptingValidator(), new RecordingReporter());
+  const result = await render(files, acceptingValidator(), recordingReporter().report);
 
   assertEquals(result.code, 0);
   const runtime = resolveYaml(files.files.get(settings.runtimePath) ?? "");
@@ -187,7 +175,7 @@ Deno.test("render keeps the template's anchors and merge tags with their meaning
     [CACHE_PATH]: CACHE,
   });
 
-  await render(files, acceptingValidator(), new RecordingReporter());
+  await render(files, acceptingValidator(), recordingReporter().report);
 
   const text = files.files.get(settings.runtimePath) ?? "";
   assertStringIncludes(text, "&ip");
@@ -211,7 +199,7 @@ Deno.test("render validates the rendered config with mihomo -t in the config dir
   });
   const runner = acceptingValidator();
 
-  await render(files, runner, new RecordingReporter());
+  await render(files, runner, recordingReporter().report);
 
   assertEquals(runner.calls.map((call) => [call.command, call.args]), [
     ["mihomo", ["-t", "-d", CONFIG_DIR, "-f", `${CONFIG_DIR}/mihomo_runtime.yaml`]],
@@ -226,14 +214,14 @@ Deno.test("render derives the config dir from the environment, not the tool's lo
     "/home/tester/.config/mihomo/proxy_providers/airport.yaml": CACHE,
   });
   const runner = acceptingValidator();
-  const report = new RecordingReporter();
+  const { report, out } = recordingReporter();
 
   const result = await render(files, runner, report, settings);
 
   assertEquals(settings.configDir, "/home/tester/.config/mihomo");
   assertEquals(result.runtimePath, "/home/tester/.config/mihomo/mihomo_runtime.yaml");
   assertEquals(runner.calls[0].args[2], "/home/tester/.config/mihomo");
-  assertStringIncludes(report.stdout[report.stdout.length - 1], "/home/tester/.config/mihomo");
+  assertStringIncludes(out[out.length - 1], "/home/tester/.config/mihomo");
 });
 
 Deno.test("render writes the overlay next to the runtime config and reports the lifted resolvers", async () => {
@@ -243,7 +231,7 @@ Deno.test("render writes the overlay next to the runtime config and reports the 
     [settings.providersPath]: PROVIDERS,
     [CACHE_PATH]: CACHE,
   });
-  const report = new RecordingReporter();
+  const { report, out, err } = recordingReporter();
 
   const result = await render(files, acceptingValidator(), report);
 
@@ -260,12 +248,12 @@ Deno.test("render writes the overlay next to the runtime config and reports the 
   );
   assertEquals(result.selection.state, "found");
   assertEquals(result.selection.sourceName, "airport");
-  assertEquals(report.stdout, [
+  assertEquals(out, [
     "render: node DNS from airport:",
     "          https://zone.example.test/api-query",
     `Runtime config written to ${settings.runtimePath}`,
   ]);
-  assertEquals(report.stderr, [
+  assertEquals(err, [
     "render: NOTE - that differs from the dns: fallback in providers.yaml.",
     "        Update it so a machine with no cache yet still works.",
   ]);
@@ -281,13 +269,13 @@ Deno.test("render notes no drift when the lifted resolvers match the providers.y
     ),
     [CACHE_PATH]: CACHE,
   });
-  const report = new RecordingReporter();
+  const { report, err } = recordingReporter();
 
   const result = await render(files, acceptingValidator(), report);
 
   assertEquals(result.code, 0);
   assertEquals(result.selection.state, "found");
-  assertEquals(report.stderr, []);
+  assertEquals(err, []);
 });
 
 Deno.test("render writes an empty overlay and lifts nothing when no cache carries a usable dns: block", async () => {
@@ -300,7 +288,7 @@ Deno.test("render writes an empty overlay and lifts nothing when no cache carrie
     ),
     [CACHE_PATH]: "proxies:\n  - name: node-1\n",
   });
-  const report = new RecordingReporter();
+  const { report, out, err } = recordingReporter();
 
   const result = await render(files, acceptingValidator(), report);
 
@@ -313,8 +301,8 @@ Deno.test("render writes an empty overlay and lifts nothing when no cache carrie
     nameserver: ["https://template.example.test/dns-query"],
     "fake-ip-filter": ["+.lan"],
   });
-  assertEquals(report.stdout, [`Runtime config written to ${settings.runtimePath}`]);
-  assertEquals(report.stderr, []);
+  assertEquals(out, [`Runtime config written to ${settings.runtimePath}`]);
+  assertEquals(err, []);
 });
 
 Deno.test("render warns about providers without a path and about several contributing caches", async () => {
@@ -328,14 +316,14 @@ Deno.test("render warns about providers without a path and about several contrib
       "https://second.example.test/api-query",
     ),
   });
-  const report = new RecordingReporter();
+  const { report, err } = recordingReporter();
 
   const result = await render(files, acceptingValidator(), report);
 
   assertEquals(result.code, 0);
   assertEquals(result.selection.state, "multi");
   assertEquals(result.selection.ignoredNames, ["second"]);
-  assertEquals(report.stderr, [
+  assertEquals(err, [
     "Warning: proxy-provider 'nopath' sets no path:, so its cache cannot be located",
     "         and its dns: is not lifted.",
     "Warning: more than one proxy-provider ships a dns: block, and the multi-provider",
@@ -356,30 +344,30 @@ Deno.test("render warns about circular resolvers it had to skip", async () => {
       "    - 1.1.1.1#RULES\n    - https://zone.example.test/api-query\n",
     ),
   });
-  const report = new RecordingReporter();
+  const { report, err } = recordingReporter();
 
   const result = await render(files, acceptingValidator(), report);
 
   assertEquals(result.code, 0);
   assertEquals(result.selection.skipped, ["1.1.1.1#RULES"]);
   assertStringIncludes(
-    report.stderr.join("\n"),
+    err.join("\n"),
     "Warning: skipping circular DNS resolver(s) from airport,",
   );
-  assertStringIncludes(report.stderr.join("\n"), "           1.1.1.1#RULES");
+  assertStringIncludes(err.join("\n"), "           1.1.1.1#RULES");
 });
 
 Deno.test("render fails without touching anything when providers.yaml is missing", async () => {
   const settings = defaultSettings();
   const files = new FakeFiles({ [settings.templatePath]: TEMPLATE });
   const runner = acceptingValidator();
-  const report = new RecordingReporter();
+  const { report, out, err } = recordingReporter();
 
   const result = await render(files, runner, report);
 
   assertEquals(result.code, 1);
-  assertEquals(report.stderr, [`Error: Providers file not found at ${settings.providersPath}`]);
-  assertEquals(report.stdout, []);
+  assertEquals(err, [`Error: Providers file not found at ${settings.providersPath}`]);
+  assertEquals(out, []);
   assertEquals(runner.calls, []);
   assertEquals(files.files.has(settings.runtimePath), false);
   assertEquals(files.files.has(settings.tweaksPath), false);
@@ -397,17 +385,17 @@ Deno.test("render prints the validator's own output and deletes the partial conf
     stdout: "",
     stderr: 'level=error msg="Parse config error" error="line 6: did not find expected key"\n',
   }));
-  const report = new RecordingReporter();
+  const { report, err } = recordingReporter();
 
   const result = await render(files, runner, report);
 
   assertEquals(result.code, 1);
   assertEquals(result.runtimePath, settings.runtimePath);
   assertStringIncludes(
-    report.stderr.join("\n"),
+    err.join("\n"),
     "Error: rendered config failed 'mihomo -t'; not starting.",
   );
-  assertStringIncludes(report.stderr.join("\n"), "line 6: did not find expected key");
+  assertStringIncludes(err.join("\n"), "line 6: did not find expected key");
   assertEquals(files.removed, [settings.runtimePath]);
   assertEquals(files.files.has(settings.runtimePath), false);
 });
@@ -415,27 +403,27 @@ Deno.test("render prints the validator's own output and deletes the partial conf
 Deno.test("runCli dispatches render with settings from the injected env and rejects unknown subcommands", async () => {
   const env = { MIHOMO_CONFIG_PATH: "/nowhere" };
 
-  const unknownReport = new RecordingReporter();
+  const { report: unknownReport, err: unknownErr } = recordingReporter();
   const unknown = await runCli(["frobnicate"], { report: unknownReport, env });
   assertEquals(unknown, 1);
-  assertEquals(unknownReport.stderr, [
+  assertEquals(unknownErr, [
     "Error: unknown subcommand 'frobnicate'.",
-    "Usage: mihomo <render>",
+    "Usage: mihomo <render|status>",
   ]);
 
-  const noArgsReport = new RecordingReporter();
+  const { report: noArgsReport, err: noArgsErr } = recordingReporter();
   const noArgs = await runCli([], { report: noArgsReport, env });
   assertEquals(noArgs, 1);
-  assertEquals(noArgsReport.stderr, ["Error: no subcommand given.", "Usage: mihomo <render>"]);
+  assertEquals(noArgsErr, ["Error: no subcommand given.", "Usage: mihomo <render|status>"]);
 
-  const renderReport = new RecordingReporter();
+  const { report: renderReport, err: renderErr } = recordingReporter();
   const rendered = await runCli(["render"], {
     runner: acceptingValidator(),
     report: renderReport,
     env,
   });
   assertEquals(rendered, 1);
-  assertEquals(renderReport.stderr, [
+  assertEquals(renderErr, [
     "Error: Providers file not found at /nowhere/providers.yaml",
   ]);
 });
