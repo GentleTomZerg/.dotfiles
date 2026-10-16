@@ -1,5 +1,6 @@
 import type { CommandRunner } from "./command.ts";
 import type { Settings } from "./config.ts";
+import { isMacOS } from "./platform.ts";
 import { type ReadFile, type RemoveFile, renderConfig, type WriteFile } from "./render.ts";
 import type { Reporter } from "./report.ts";
 import { runStatus } from "./status.ts";
@@ -66,13 +67,14 @@ export async function startProxy(
     ]);
   }
 
-  // 5. Launch detached. `capture: false` is required: a captured stdout/stderr
-  // pipe would stay open for as long as the backgrounded mihomo holds it, and
-  // `child.output()` would never resolve.
+  // 5. Launch detached, silencing both streams. A captured pipe would stay
+  // open for as long as the backgrounded mihomo holds it and the wait would
+  // never resolve; inheriting them would leak daemon logs onto the caller's
+  // stdout.
   await runner.run(
     "sudo",
     ["-b", "mihomo", "-d", settings.configDir, "-f", settings.runtimePath],
-    { capture: false },
+    { stdout: "null", stderr: "null" },
   );
   report.out(`mihomo started with config: ${settings.runtimePath}`);
 
@@ -126,10 +128,4 @@ export async function stopProxy(
     ]);
   }
   return 0;
-}
-
-/** Platform probe through the command seam, so tests inject "Darwin" or "Linux". */
-async function isMacOS(runner: CommandRunner): Promise<boolean> {
-  const uname = await runner.run("uname", ["-s"]);
-  return uname.code === 0 && uname.stdout.trim() === "Darwin";
 }
