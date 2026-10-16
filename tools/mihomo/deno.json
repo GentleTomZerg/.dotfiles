@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "@eemeli/yaml": "jsr:@eemeli/yaml@2.9.1",
+    "@std/assert": "jsr:@std/assert@1",
+    "node:process": "./src/shims/node_process.ts"
+  },
+  "tasks": {
+    "check": "deno fmt --check && deno lint && deno check && deno test"
+  },
+  "fmt": {
+    "lineWidth": 100
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"]
+    }
+  }
+}
