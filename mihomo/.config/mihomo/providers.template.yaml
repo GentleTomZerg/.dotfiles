@@ -16,6 +16,11 @@
 #     本模板不含任何密钥，可提交到 dotfiles 仓库
 #   - proxy-groups 全部使用 include-all: true，新订阅的节点会自动流入
 #     香港/日本/美国/自动选择/全部节点 等所有分组，无需修改 mihomo.yaml
+#   - 订阅里的 dns: 不会自动生效（mihomo 的 proxy-providers 只读取 proxies:）。
+#     mihomo-api.sh 的 render_provider_tweaks 会把订阅的 dns.nameserver /
+#     use-hosts / fake-ip-filter 提取到 provider-tweaks.yaml，渲染时最后合并，
+#     于是「节点域名用机场自己的 DNS 解析」。详见
+#     docs/research/mihomo-provider-dns-tweaks.md
 #   - 一个订阅 = 一个块。复制块、改 name（不能重复）与 url 即可添加订阅
 #   - 订阅 URL 通常含个人 token：不要提交仓库、不要截图分享
 #

@@ -55,6 +55,17 @@ dns:
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+  # --- 机场自带 DNS ----------------------------------------------------------
+  # 订阅里的 dns: 不会自动生效：mihomo 的 proxy-providers 只解析 proxies:
+  # （adapter/provider/provider.go）。而机场节点域名属于私有 zone，公共 DNS 查不到，
+  # 所以解析 proxy-server 主机名必须用机场自己的解析器。render_provider_tweaks
+  # 会把订阅的 dns.nameserver / use-hosts / fake-ip-filter 提取进
+  # provider-tweaks.yaml，render_config 最后合并它，因此它覆盖这里的值。
+  # 下面只是「尚未抓到订阅」时的兜底值；提取结果与它不一致时 render_config 会告警。
+  use-hosts: true
+  proxy-server-nameserver:
+    - https://zone.rlose.com:39933/api-query
+    - https://radar.rlose.com/api-query
 proxy-groups:
   - name: 默认
     type: select
