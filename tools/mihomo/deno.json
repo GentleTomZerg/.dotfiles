@@ -6,8 +6,9 @@
   },
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check && deno task test",
-    "test": "deno test --ignore=tests/parity_test.ts",
-    "parity": "deno test --allow-read --allow-run --allow-env tests/parity_test.ts"
+    "test": "deno test --ignore=tests/parity_test.ts,tests/gate_test.ts",
+    "parity": "deno test --allow-read --allow-run --allow-env tests/parity_test.ts",
+    "gate": "deno test --allow-read --allow-write --allow-run tests/gate_test.ts"
   },
   "fmt": {
     "lineWidth": 100

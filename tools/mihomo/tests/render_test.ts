@@ -334,6 +334,35 @@ Deno.test("render warns about providers without a path and about several contrib
   ]);
 });
 
+Deno.test("render warns when a second dns-carrying provider lifts nothing", async () => {
+  const settings = defaultSettings();
+  const files = new FakeFiles({
+    [settings.templatePath]: TEMPLATE,
+    [settings.providersPath]: PROVIDERS_MULTI,
+    [CACHE_PATH]: CACHE,
+    [`${CONFIG_DIR}/proxy_providers/second.yaml`]:
+      "proxies:\n  - name: node-2\n    type: ss\ndns:\n  use-hosts: true\n",
+  });
+  const { report, err } = recordingReporter();
+
+  const result = await render(files, acceptingValidator(), report);
+
+  assertEquals(result.code, 0);
+  // Only one provider contributes, so the selection is `found` — but the other
+  // cache still ships a dns: block, which the old shell warned about too.
+  assertEquals(result.selection.state, "found");
+  assertEquals(result.selection.ignoredNames, ["second"]);
+  assertEquals(err, [
+    "Warning: proxy-provider 'nopath' sets no path:, so its cache cannot be located",
+    "         and its dns: is not lifted.",
+    "Warning: more than one proxy-provider ships a dns: block, and the multi-provider",
+    "         policy is not designed yet. Using airport, ignoring:",
+    "           second",
+    "render: NOTE - that differs from the dns: fallback in providers.yaml.",
+    "        Update it so a machine with no cache yet still works.",
+  ]);
+});
+
 Deno.test("render warns about circular resolvers it had to skip", async () => {
   const settings = defaultSettings();
   const files = new FakeFiles({

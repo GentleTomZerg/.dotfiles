@@ -1,11 +1,12 @@
 import { type Document, isMap as isYamlMap, type YAMLMap } from "@eemeli/yaml";
+import { isRecord } from "./record.ts";
 
 /**
  * Merge two plain-JS values. Maps merge recursively; arrays and scalars replace
  * wholesale, so an overlay array never appends to the base array.
  */
 export function deepMerge(base: unknown, overlay: unknown): unknown {
-  if (isMap(base) && isMap(overlay)) {
+  if (isRecord(base) && isRecord(overlay)) {
     const out: Record<string, unknown> = { ...base };
     for (const [key, value] of Object.entries(overlay)) {
       out[key] = key in base ? deepMerge(base[key], value) : value;
@@ -13,10 +14,6 @@ export function deepMerge(base: unknown, overlay: unknown): unknown {
     return out;
   }
   return overlay;
-}
-
-function isMap(value: unknown): value is Record<string, unknown> {
-  return value !== null && typeof value === "object" && !Array.isArray(value);
 }
 
 /**
@@ -32,14 +29,14 @@ export function mergeIntoDocument(doc: Document, source: unknown): void {
 }
 
 function mergeIntoNode(target: YAMLMap<unknown, unknown>, source: unknown): void {
-  if (!isMap(source)) return;
+  if (!isRecord(source)) return;
   // The template ships `proxy-providers: {}`, a flow-style empty map. Filling it
   // while leaving `flow` set emits every merged entry on one line, which Go's
   // YAML parser rejects — so `mihomo -t` fails on an otherwise sound config.
   target.flow = false;
   for (const [key, value] of Object.entries(source)) {
     const existing: unknown = target.get(key, true);
-    if (isYamlMap(existing) && isMap(value)) {
+    if (isYamlMap(existing) && isRecord(value)) {
       mergeIntoNode(existing, value);
     } else {
       target.set(key, value);

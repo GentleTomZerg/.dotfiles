@@ -346,7 +346,8 @@ first), `tools/mihomo/src/merge.ts` (the 3-document merge),
 startproxy nudge), and the thin `mihomo-api.sh` facade that forwards the
 subcommands. `providers.template.yaml` carries the `dns:` fallback block plus the
 header note; `.gitignore` covers `provider-tweaks.yaml`, the generated overlay.
-`mihomo.yaml` is deliberately **untouched** by this change.
+`mihomo.yaml` is structurally **untouched** by this change: only a header
+comment names the tool.
 
 **Where the rules live.** The overlay's shape is a pure function, not a merge
 tool argument: `liftProvider` in `tools/mihomo/src/tweaks.ts` returns the overlay

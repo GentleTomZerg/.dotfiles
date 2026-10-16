@@ -1,5 +1,6 @@
 import type { CommandRunner } from "./command.ts";
 import type { Settings } from "./config.ts";
+import { isMacOS } from "./platform.ts";
 import type { Reporter } from "./report.ts";
 
 export interface StatusCheck {
@@ -100,11 +101,6 @@ export async function runStatus(
   }
   report.out("status: all checks passed");
   return { ok: true, failures, checks };
-}
-
-async function isMacOS(runner: CommandRunner): Promise<boolean> {
-  const uname = await runner.run("uname", ["-s"]);
-  return uname.code === 0 && uname.stdout.trim() === "Darwin";
 }
 
 /** Run a probe until it succeeds or the budget is exhausted, sleeping between attempts. */

@@ -192,6 +192,10 @@ Deno.test("start points macOS DNS at the virtual IP, launches mihomo and succeed
     ),
     true,
   );
+  // The detached launch must not hold or inherit a stream: neither a pipe that
+  // would keep the wait open nor daemon logs on the caller's stdout.
+  const launch = runner.calls.find((call) => call.command === "sudo" && call.args[0] === "-b");
+  assertEquals(launch?.options, { stdout: "null", stderr: "null" });
 });
 
 Deno.test("start leaves DNS alone on non-macOS", async () => {

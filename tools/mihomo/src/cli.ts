@@ -13,9 +13,8 @@ export type Subcommand = (
 ) => Promise<number>;
 
 /**
- * Subcommand table, and the extension point for the remaining commands: `start`
- * and `stop` join as further single entries here. The usage line below is
- * derived from this table, so nothing else changes when they arrive.
+ * Subcommand table: one entry per subcommand. The usage line below is derived
+ * from these keys, so a new subcommand needs no other wiring.
  */
 export const subcommands: Record<string, Subcommand> = {
   render: async (settings, runner, report) => (await renderConfig(settings, runner, report)).code,
