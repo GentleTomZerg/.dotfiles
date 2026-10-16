@@ -27,6 +27,8 @@ command runner, reporter).
 - `src/merge.ts` — pure plain-JS deep merge plus the document-aware merge into a parsed template.
 - `tests/` — the permission-free suite; `fake_command.ts` and `fake_report.ts` are the shared
   scripted `CommandRunner` and recording `Reporter`.
+- `tests/parity_test.ts` — differential merge parity against the shell helper's `yq` pipeline; reads
+  the live config, so it is excluded from the permission-free suite (see below).
 
 ## Quality gate
 
@@ -38,3 +40,16 @@ deno task check
 
 The suite needs no permissions, no network and no sudo; fixtures are synthetic and no test reads the
 live config directory. `@eemeli/yaml` is pinned in `deno.json` and the lockfile is committed.
+
+`tests/parity_test.ts` is the exception: it is excluded from `deno task test` because it reads the
+real `~/.config/mihomo` and shells out to `yq`. It proves the TypeScript merge still produces the
+same resolved config as the shell helper's `yq eval-all '... * ...'` merge, over the real template,
+`providers.yaml` and lifted `provider-tweaks.yaml`, and reports any divergence as differing paths
+(never values — the subscription token must not leak). Run it explicitly:
+
+```sh
+# needs the external yq and read access; reports 0 differences on a matching config
+deno task parity
+```
+
+Once this task is green the old `yq` merge can be deleted.

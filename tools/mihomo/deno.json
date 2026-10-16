@@ -5,7 +5,9 @@
     "node:process": "./src/shims/node_process.ts"
   },
   "tasks": {
-    "check": "deno fmt --check && deno lint && deno check && deno test"
+    "check": "deno fmt --check && deno lint && deno check && deno task test",
+    "test": "deno test --ignore=tests/parity_test.ts",
+    "parity": "deno test --allow-read --allow-run --allow-env tests/parity_test.ts"
   },
   "fmt": {
     "lineWidth": 100
