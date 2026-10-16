@@ -1,5 +1,6 @@
 import { type CommandRunner, RealCommandRunner } from "./command.ts";
 import { loadSettings, type Settings } from "./config.ts";
+import { startProxy, stopProxy } from "./lifecycle.ts";
 import { renderConfig } from "./render.ts";
 import { consoleReporter, type Reporter } from "./report.ts";
 import { runStatus } from "./status.ts";
@@ -18,6 +19,8 @@ export type Subcommand = (
  */
 export const subcommands: Record<string, Subcommand> = {
   render: async (settings, runner, report) => (await renderConfig(settings, runner, report)).code,
+  start: startProxy,
+  stop: stopProxy,
   status: async (settings, runner, report) =>
     (await runStatus(settings, runner, report)).ok ? 0 : 1,
 };
