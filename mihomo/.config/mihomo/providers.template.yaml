@@ -6,20 +6,20 @@
 #   1. 复制本文件为 providers.yaml：
 #        cp providers.template.yaml providers.yaml
 #   2. 把示例块里的 <YOUR_SUBSCRIPTION_URL> 替换为真实订阅地址
-#   3. 运行 startproxy 启动：mihomo-api.sh 会自动把 mihomo.yaml 模板与
-#      providers.yaml 深度合并，生成 mihomo_runtime.yaml 后启动 mihomo
+#   3. 运行 startproxy 启动：mihomo 工具（tools/mihomo）会自动把 mihomo.yaml
+#      模板与 providers.yaml 深度合并，生成 mihomo_runtime.yaml 后启动 mihomo
 #
 # 【设计约定】
 #   - mihomo.yaml（模板）中 proxy-providers 保持为空；真实订阅地址只写在
-#     providers.yaml，由 mihomo-api.sh 在启动时合并进运行时配置
+#     providers.yaml，由 mihomo 工具在启动时合并进运行时配置
 #   - providers.yaml 已在 .gitignore 中，含 token 的订阅地址不会入库；
 #     本模板不含任何密钥，可提交到 dotfiles 仓库
 #   - proxy-groups 全部使用 include-all: true，新订阅的节点会自动流入
 #     香港/日本/美国/自动选择/全部节点 等所有分组，无需修改 mihomo.yaml
 #   - 订阅里的 dns: 不会自动生效（mihomo 的 proxy-providers 只读取 proxies:）。
-#     mihomo-api.sh 的 render_provider_tweaks 会把订阅的 dns.nameserver /
-#     use-hosts / fake-ip-filter 提取到 provider-tweaks.yaml，渲染时最后合并，
-#     于是「节点域名用机场自己的 DNS 解析」。映射规则见 provider-tweaks.yq，
+#     mihomo 工具会把订阅的 dns.nameserver / use-hosts / fake-ip-filter 提取到
+#     provider-tweaks.yaml，渲染时最后合并，于是「节点域名用机场自己的 DNS
+#     解析」。映射规则见 tools/mihomo/src/tweaks.ts，
 #     详见 docs/research/mihomo-provider-dns-tweaks.md
 #   - 本文件底部的 dns: 块是「抓订阅之前」的兜底解析器，同样属于机场专属配置，
 #     所以放在这里而不是可分享的 mihomo.yaml。每次 render 都会把它与提取结果
@@ -91,7 +91,7 @@ proxy-providers:
 #
 # 【为什么需要这个块】
 #   机场节点域名（如 8e3f7b290d64.eixcloud.com）在私有 zone 里，公共 DNS 查不到。
-#   正常情况下 render_provider_tweaks 会从订阅里提取解析器，不需要这里。
+#   正常情况下 render 会从订阅里提取解析器，不需要这里。
 #   但新机器第一次启动时订阅还没下载过，此时只能靠这份兜底值解析节点域名；
 #   否则 startproxy 会提示「重启后再生效」。render 时若发现它与提取结果不同会告警。
 #

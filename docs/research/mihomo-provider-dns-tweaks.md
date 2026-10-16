@@ -2,7 +2,7 @@
 
 **Question.** Clash Verge picks up provider-specific tweaks from the subscription
 (`hosts:`, `dns: use-hosts: true`, `dns.nameserver`, `proxy-server-nameserver:`).
-The local mihomo setup (`~/.config/mihomo`, rendered by `mihomo-api.sh`) does not,
+The local mihomo setup (`~/.config/mihomo`, rendered by the `mihomo` tool) does not,
 and some networks cannot reach the nodes. Why, and how do we get them back?
 
 **Verdict.** mihomo's `proxy-providers` deliberately reads **only the `proxies:`
@@ -11,8 +11,8 @@ array** out of the fetched document. Everything else in that document — `dns`,
 Clash Verge behaves differently because a Remote profile *is* the whole subscription
 document; its Merge/Script layers are applied on top of that document. mihomo has
 no equivalent layer: `-f` takes exactly one config file, so any merge must happen
-outside the core (which is exactly what `render_config` in `mihomo-api.sh` already
-does with `yq`).
+outside the core (which is exactly what the `render` subcommand of the `mihomo`
+tool does).
 
 Sources: mihomo `Meta` @ `88dcbf7` (2026-09-30); local binary `Mihomo Meta v1.19.30`.
 
@@ -196,16 +196,20 @@ if `respect-rules: true` and `proxy-server-nameserver` is empty
 
 ## 4. Getting the tweaks into this repo's config
 
-The pipeline already is "template + untracked provider spec, deep-merged by `yq`":
+The pipeline is "template + untracked provider spec + lifted overlay, deep-merged
+into `mihomo_runtime.yaml`". The `mihomo` tool
+(`tools/mihomo/src/merge.ts`) performs the merge in-process; it reproduces the
+semantics the old `yq` pipeline had, so a key added in `providers.yaml` lands next
+to the template's keys:
 
 ```bash
+# the old pipeline, kept as the differential oracle in tests/parity_test.ts
 yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1) * select(fileIndex == 2)' \
     mihomo.yaml providers.yaml provider-tweaks.yaml > mihomo_runtime.yaml
 ```
 
-`yq`'s `*` merges maps recursively and replaces arrays, so a key added in
-`providers.yaml` lands next to the template's keys (verified against
-`yq v4.54.1`).
+`yq`'s `*` merges maps recursively and replaces arrays (verified against
+`yq v4.54.1`), and the TypeScript merge matches it key for key on the real config.
 
 ### Shipped: the fallback in `providers.yaml`
 
@@ -248,8 +252,8 @@ stale if the provider rotates IPs.
 
 ### Implemented: auto-extract at render time, providers.yaml as fallback
 
-`render_provider_tweaks()` in `mihomo-api.sh` lifts the provider's resolver list
-out of the cached provider file at render time, so the `dns:` block in
+The `mihomo` tool lifts the provider's resolver list out of the cached provider
+file at render time (`tools/mihomo/src/tweaks.ts`), so the `dns:` block in
 `providers.yaml` is only the fresh-machine fallback. See the Decision section below.
 
 ---
@@ -268,7 +272,9 @@ out of the cached provider file at render time, so the `dns:` block in
 
 ## 6. Decision (implemented)
 
-Settled by design review; implemented in `mihomo-api.sh` + `provider-tweaks.yq`.
+Settled by design review; implemented in the `mihomo` tool (`tools/mihomo`):
+`src/tweaks.ts` holds the lifting rules, `src/merge.ts` the merge and
+`src/render.ts` the pipeline.
 
 **Source of truth — the cached provider document, read at render time.**
 `render_config` only runs while mihomo is stopped (`startproxy` bails on
@@ -334,30 +340,33 @@ earns a "success" and wins the race. The correct mechanism is
 derived by stripping labels off `proxies[].server` — naive eTLD+1 extraction can
 collapse `a.foo.com.cn` to `+.com.cn`.
 
-**Files.** `provider-tweaks.yq` (the hand-written spec of what may be lifted —
-read this one first), `mihomo-api.sh` (locating, `--from-file`, 3-file merge,
-`-t` gate, startproxy nudge), `providers.template.yaml` (the `dns:` fallback block
-plus the header note), `.gitignore` (`provider-tweaks.yaml`, the generated
-overlay). `mihomo.yaml` is deliberately **untouched** by this change.
+**Files.** `tools/mihomo/src/tweaks.ts` (the lifting rules — read this one
+first), `tools/mihomo/src/merge.ts` (the 3-document merge),
+`tools/mihomo/src/render.ts` (locating the provider caches, the `-t` gate, the
+startproxy nudge), and the thin `mihomo-api.sh` facade that forwards the
+subcommands. `providers.template.yaml` carries the `dns:` fallback block plus the
+header note; `.gitignore` covers `provider-tweaks.yaml`, the generated overlay.
+`mihomo.yaml` is deliberately **untouched** by this change.
 
-**Where the rules live.** The overlay's shape is a `.yq` program, not shell
-strings: `yq --from-file provider-tweaks.yq <provider cache>` emits the overlay
-plus a `_skipped` list, which the shell strips before merging (a non-config
-report channel). This keeps the mapping table — including the
-`dns.nameserver` → `dns.proxy-server-nameserver` rename — readable in one file
-instead of a 500-character single-quoted argument. Two constraints the spec must
-respect: this yq build has no `def`, so the circularity predicate is written out
-twice; and an empty **array** overwrites on merge while an empty **map** is a
-no-op, so `proxy-server-nameserver` is emitted as `null` (then dropped) rather
-than `[]` — otherwise a fresh machine's fallback would be clobbered.
+**Where the rules live.** The overlay's shape is a pure function, not a merge
+tool argument: `liftProvider` in `tools/mihomo/src/tweaks.ts` returns the overlay
+plus a `skipped` list, which the renderer reports separately (a non-config report
+channel). This keeps the mapping table — including the
+`dns.nameserver` → `dns.proxy-server-nameserver` rename — readable in one typed
+file instead of a 500-character single-quoted argument. One merge constraint the
+rules respect: an empty **array** overwrites on merge while an empty **map** is a
+no-op, so `proxy-server-nameserver` is left out (never emitted as `null` or `[]`)
+— otherwise a fresh machine's fallback would be clobbered. `tests/tweaks_test.ts`
+covers each rule.
 
 **Dual-shell constraint.** `mihomo-api.sh` is sourced from `~/.zshrc`, so its
-functions run under **zsh**, not bash, despite the shebang. Two bugs found here
-the hard way: `path` is a zsh special parameter tied to `$PATH`, so
-`read -r path` replaces `$PATH` with the file path and every later `yq` in the
-function becomes "command not found" (silently dropping the tweaks); and zsh
-arrays are 1-indexed, so `${a[0]}` is empty where bash's is the first element.
-The function therefore uses plain scalars, and the script header warns about both.
+functions run under **zsh**, not bash, despite the shebang. Two bugs were found
+here the hard way while the lifting still lived in that file: `path` is a zsh
+special parameter tied to `$PATH`, so `read -r path` replaced `$PATH` with the
+file path and every later command lookup failed (silently dropping the tweaks);
+and zsh arrays are 1-indexed, so `${a[0]}` is empty where bash's is the first
+element. The tool now owns the logic in TypeScript, so neither trap applies; the
+facade's header still warns about both.
 
 ## Sources
 

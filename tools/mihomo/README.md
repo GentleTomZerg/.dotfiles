@@ -5,9 +5,9 @@ helper's `yq`-based config rendering with pure, tested TypeScript: the provider-
 the config merge and the subcommands are plain functions, and every external command goes through
 one injectable seam.
 
-Nothing here is wired into the shell yet; this project contains the lifting core, the merge
-primitive, the `render`, `status`, `start` and `stop` subcommands and the shared foundations
-(settings, YAML helpers, command runner, reporter).
+The stowed `mihomo-api.sh` facade forwards `render_config`, `startproxy`, `stopproxy` and
+`statusproxy` to this CLI; only `setproxy`/`unsetproxy` stay literal shell. The old `yq` overlay
+program has been deleted — `yq` survives only as the oracle for `tests/parity_test.ts`.
 
 ## Layout
 
@@ -29,8 +29,8 @@ primitive, the `render`, `status`, `start` and `stop` subcommands and the shared
 - `src/merge.ts` — pure plain-JS deep merge plus the document-aware merge into a parsed template.
 - `tests/` — the permission-free suite; `fake_command.ts` and `fake_report.ts` are the shared
   scripted `CommandRunner` and recording `Reporter`.
-- `tests/parity_test.ts` — differential merge parity against the shell helper's `yq` pipeline; reads
-  the live config, so it is excluded from the permission-free suite (see below).
+- `tests/parity_test.ts` — differential merge parity against `yq`; reads the live config, so it is
+  excluded from the permission-free suite (see below).
 
 ## Quality gate
 
@@ -44,14 +44,12 @@ The suite needs no permissions, no network and no sudo; fixtures are synthetic a
 live config directory. `@eemeli/yaml` is pinned in `deno.json` and the lockfile is committed.
 
 `tests/parity_test.ts` is the exception: it is excluded from `deno task test` because it reads the
-real `~/.config/mihomo` and shells out to `yq`. It proves the TypeScript merge still produces the
-same resolved config as the shell helper's `yq eval-all '... * ...'` merge, over the real template,
-`providers.yaml` and lifted `provider-tweaks.yaml`, and reports any divergence as differing paths
-(never values — the subscription token must not leak). Run it explicitly:
+real `~/.config/mihomo` and shells out to `yq`. It proves the TypeScript merge produces the same
+resolved config as `yq eval-all '... * ...'` over the real template, `providers.yaml` and lifted
+`provider-tweaks.yaml`, and reports any divergence as differing paths (never values — the
+subscription token must not leak). Run it explicitly:
 
 ```sh
 # needs the external yq and read access; reports 0 differences on a matching config
 deno task parity
 ```
-
-Once this task is green the old `yq` merge can be deleted.
