@@ -1,0 +1,91 @@
+# ============================================================================
+# providers.example.yaml — subscription provider example (no secrets; safe to publish)
+# ============================================================================
+#
+# [Fresh machine]
+#   1. Copy this file and the lift rule into the gitignored user/ dir:
+#        cp templates/providers.example.yaml user/providers.yaml
+#        cp templates/provider-lift.example.yq  user/provider-lift.yq
+#   2. Replace <YOUR_SUBSCRIPTION_URL> in the example block below.
+#   3. Run startproxy: mihomo-api.sh deep-merges templates/base.yaml and
+#      user/providers.yaml into generated/mihomo-runtime.yaml, then starts mihomo.
+#
+# [Conventions]
+#   - proxy-providers stays empty in templates/base.yaml; the real subscription
+#     URL is written only to user/providers.yaml, which mihomo-api.sh merges in
+#     at start.
+#   - user/ is gitignored, so a URL carrying a token never enters the repo. This
+#     example itself has no secrets and is safe to commit.
+#   - Every group in templates/base.yaml uses include-all: true, so the nodes of
+#     a new subscription flow into 香港/日本/美国/自动选择/全部节点 with no edit
+#     to base.yaml.
+#   - A subscription's own dns: does not take effect by itself: mihomo's
+#     proxy-providers read only proxies: out of a provider document.
+#     user/provider-lift.yq decides which of its keys are lifted into
+#     generated/provider-overlay.yaml, which merges last; the seed is
+#     templates/provider-lift.example.yq.
+#   - One subscription = one block. Copy a block, change name (must be unique)
+#     and url.
+#   - A subscription URL usually carries a personal token: never commit it,
+#     screenshot it or paste it into an issue.
+#
+# [Field reference]
+#   type         : http (remote subscription) | file (local file)
+#   url          : subscription URL (carries the token)
+#   path         : local cache path, written by mihomo, so a start works offline
+#   interval     : refresh interval in seconds; 86400 = daily
+#   health-check : node liveness probe; interval is in seconds
+#   header       : some airports need a custom User-Agent, copied from their
+#                  docs. Not optional here: the subscription is User-Agent
+#                  dependent, and only Clash-family UAs return the full config.
+#   override     : post-processing per node
+#     additional-prefix : node-name prefix, to tell sources apart
+#     additional-suffix : node-name suffix
+# ============================================================================
+
+proxy-providers:
+  # ---- Example: one subscription, nodes prefixed [airport-1] --------------
+  airport-1:
+    type: http
+    url: "<YOUR_SUBSCRIPTION_URL>"
+    # Local node cache so a start works offline; mihomo writes the file, no need
+    # to create it. Resolved relative to Home Dir, which startproxy sets to
+    # ~/.config/mihomo with -d, so it lands in ~/.config/mihomo/proxy_providers/.
+    path: ./proxy_providers/airport-1.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: "https://www.gstatic.com/generate_204"
+      interval: 300
+    header:
+      User-Agent:
+        - "Clash-verge/v2.2.0"
+    override:
+      # Node-name prefix, to tell sources apart; with a single subscription it
+      # can be an empty string, or be dropped.
+      additional-prefix: "[airport-1]"
+
+  # ---- Example: a second subscription (copy this block, change name / url / path) ----
+  # airport-2:
+  #   type: http
+  #   url: "<YOUR_SUBSCRIPTION_URL_2>"
+  #   path: ./proxy_providers/airport-2.yaml
+  #   interval: 86400
+  #   health-check:
+  #     enable: true
+  #     url: "https://www.gstatic.com/generate_204"
+  #     interval: 300
+  #   header:
+  #     User-Agent:
+  #       - "Clash-verge/v2.2.0"
+  #   override:
+  #     additional-prefix: "[airport-2]"   # empty means no prefix
+
+  # ---- Example: a local-file subscription (offline / self-maintained list) ----
+  # custom:
+  #   type: file
+  #   path: ./proxy_providers/custom.yaml   # hand-maintained node list (Clash yaml)
+  #   health-check:
+  #     enable: true
+  #     url: "https://www.gstatic.com/generate_204"
+  #     interval: 300

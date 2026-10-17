@@ -1,6 +1,9 @@
-# 订阅 provider 定义在 providers.yaml（含订阅 URL，不入库），启动时由 mihomo-api.sh 合并进运行时配置。
-# 模板保持为空，避免泄露订阅 token。
-# 新机器部署：cp providers.template.yaml providers.yaml，填入订阅地址即可（详见模板头部说明）。
+# Subscriptions live in user/providers.yaml, which is gitignored because it
+# carries your token; mihomo-api.sh merges it into the runtime config at start.
+# This base keeps proxy-providers empty so the file stays safe to publish.
+# Fresh machine: cp templates/providers.example.yaml user/providers.yaml and
+# cp templates/provider-lift.example.yq user/provider-lift.yq, then fill in the
+# subscription URL (each example's header has the steps).
 proxy-providers: {}
 proxies:
   - name: "直连"
@@ -108,7 +111,7 @@ proxy-groups:
     type: select
     proxies:
       [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点, 自动选择, 直连]
-  #分隔,下面是地区分组
+  # --- region groups below ---
   - name: 香港
     type: select
     include-all: true

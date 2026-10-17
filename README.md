@@ -161,7 +161,7 @@ stow aerospace dunst electronflags ghostty hyprland i3 ideavimrc kitty \
 **CHECK** —
 
 ```bash
-for f in ~/.zshrc ~/.config/mihomo/templates/mihomo.yaml ~/.config/nvim ~/.config/rofi \
+for f in ~/.zshrc ~/.config/mihomo/templates/base.yaml ~/.config/nvim ~/.config/rofi \
          ~/.config/starship.toml ~/.tmux.conf ~/.config/yazi ~/.wezterm.lua; do
   test -e "$f" && echo "OK   $f" || echo "MISS $f"
 done
@@ -257,7 +257,7 @@ zsh vi-mode is configured in `zshrc/.zshrc`; in the macOS terminal, copy/paste u
 
 ## Phase 4 — Proxy (mihomo)
 
-> The stowed `mihomo` package is the source of truth, and [`mihomo/.config/mihomo/README.md`](mihomo/.config/mihomo/README.md) is the map. `templates/mihomo.yaml` is a shareable skeleton (empty `proxy-providers`, `include-all` groups, TUN + DNS); the real subscription lives in the **gitignored** `user/providers.yaml`; `startproxy` deep-merges the layers via `yq` into `generated/mihomo-runtime.yaml` and launches mihomo.
+> The stowed `mihomo` package is the source of truth, and [`mihomo/.config/mihomo/README.md`](mihomo/.config/mihomo/README.md) is the map. `templates/base.yaml` is a publishable skeleton (empty `proxy-providers`, `include-all` groups, TUN + DNS); the real subscription lives in the **gitignored** `user/providers.yaml`, and which of its keys get lifted in the **gitignored** `user/provider-lift.yq`; `startproxy` deep-merges the layers via `yq` into `generated/mihomo-runtime.yaml` and launches mihomo.
 
 ### 4.1 Configure the subscription — GATE
 
@@ -265,9 +265,13 @@ zsh vi-mode is configured in `zshrc/.zshrc`; in the macOS terminal, copy/paste u
 
 ```bash
 if [[ ! -f ~/.config/mihomo/user/providers.yaml ]]; then
-  cp ~/.config/mihomo/templates/providers.yaml ~/.config/mihomo/user/providers.yaml
+  cp ~/.config/mihomo/templates/providers.example.yaml ~/.config/mihomo/user/providers.yaml
 fi
-# Replace <YOUR_SUBSCRIPTION_URL> in the e-ix block's url: line with the real URL:
+# The lift rule is yours too; seed it once. render_config refuses to run without it:
+if [[ ! -f ~/.config/mihomo/user/provider-lift.yq ]]; then
+  cp ~/.config/mihomo/templates/provider-lift.example.yq ~/.config/mihomo/user/provider-lift.yq
+fi
+# Replace <YOUR_SUBSCRIPTION_URL> in the airport-1 block's url: line with the real URL:
 sed -i "s|<YOUR_SUBSCRIPTION_URL>|$SUB_URL|" ~/.config/mihomo/user/providers.yaml
 ```
 

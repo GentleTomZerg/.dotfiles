@@ -6,7 +6,7 @@
 MIHOMO_PROXY_URL="http://127.0.0.1:7890"
 MIHOMO_HOME="${MIHOMO_HOME:-$HOME/.config/mihomo}"
 MIHOMO_DNS_VIRTUAL_IP="198.18.0.2"
-MIHOMO_CONTROLLER_URL="http://127.0.0.1:9090" # matches external-controller in templates/mihomo.yaml
+MIHOMO_CONTROLLER_URL="http://127.0.0.1:9090" # matches external-controller in templates/base.yaml
 MIHOMO_NETWORK_SERVICE="Wi-Fi"                       # Consider making this dynamic in the future
 
 # Derived config paths, all rooted at MIHOMO_HOME and fixed at load time.
@@ -16,15 +16,13 @@ MIHOMO_NETWORK_SERVICE="Wi-Fi"                       # Consider making this dyna
 #   templates/  tracked, shareable, no secrets
 #   user/       untracked, your real config
 #   generated/  untracked, derived — safe to delete and rebuild
-MIHOMO_BASE_PATH="$MIHOMO_HOME/templates/mihomo.yaml"
+MIHOMO_BASE_PATH="$MIHOMO_HOME/templates/base.yaml"
 MIHOMO_PROVIDERS_PATH="$MIHOMO_HOME/user/providers.yaml"
-MIHOMO_OVERRIDE_RULE="$MIHOMO_HOME/templates/template-override.yq"
-MIHOMO_OVERRIDE_PATH="$MIHOMO_HOME/generated/template-override.yaml"
+MIHOMO_PROVIDERS_SEED="$MIHOMO_HOME/templates/providers.example.yaml"
+MIHOMO_LIFT_RULE="$MIHOMO_HOME/user/provider-lift.yq"
+MIHOMO_LIFT_SEED="$MIHOMO_HOME/templates/provider-lift.example.yq"
+MIHOMO_OVERLAY_PATH="$MIHOMO_HOME/generated/provider-overlay.yaml"
 MIHOMO_RUNTIME_PATH="$MIHOMO_HOME/generated/mihomo-runtime.yaml"
-# Where the runtime's DNS resolver came from: "provider" (lifted from the provider
-# cache) or "fallback" (user/providers.yaml — e.g. before the first subscription
-# fetch). startproxy nudges a restart while it is "fallback".
-MIHOMO_DNS_SOURCE="fallback"
 
 # Single retry budget for every poll in the script (readiness, blocked site,
 # and connection checks). Change here to tune how long mihomo is allowed to settle.
@@ -36,33 +34,29 @@ function is_macos() {
 }
 
 # ---------------------------------------------------------------------------
-# Template override
+# Provider lift
 #
 # A subscription is a full Clash config, but mihomo reads only `proxies:` out of
-# a proxy-provider document (adapter/provider/provider.go: ProxySchema). The
-# provider's `dns:` block — notably its own resolver — is discarded.
-# render_override() lifts the few keys that matter into
-# MIHOMO_OVERRIDE_PATH, which render_config merges last so it wins.
+# a proxy-provider document (adapter/provider/provider.go: ProxySchema), so the
+# provider's own `dns:` — notably its resolver — is discarded. render_override()
+# applies MIHOMO_LIFT_RULE to a provider cache and writes the keys it lifts into
+# MIHOMO_OVERLAY_PATH, which render_config merges last so they win.
 #
-#   lifted : dns.nameserver -> dns.nameserver (the airport's resolver becomes ours)
-#            dns.use-hosts, dns.fake-ip-filter
-#            root `hosts`, if a provider ships one
-#   dropped: listen, enable, enhanced-mode, fake-ip-range, default-nameserver
-#
-# The keys and their mapping live in templates/template-override.yq; this function
-# only finds the provider cache and applies the spec. The fresh-machine fallback
-# (the airport's resolvers, used before the subscription has ever been fetched)
-# lives in user/providers.yaml like the rest of the provider-specific spec —
-# templates/mihomo.yaml stays a shareable template.
-#
-# Rationale and sources: docs/research/mihomo-provider-dns.md
+# The rule is the user's: user/provider-lift.yq, seeded from
+# templates/provider-lift.example.yq. It names what may be lifted; this function
+# only finds the cache, applies the rule and reports what came out.
 # ---------------------------------------------------------------------------
 function render_override() {
     # NOT `path`: this file is sourced from .zshrc, and in zsh `path` is a special
     # parameter tied to $PATH — `read -r path` would replace $PATH with the file
     # path and every later `yq` in this function would be "command not found".
-    local f
-    MIHOMO_DNS_SOURCE="fallback"
+    local f keys
+
+    if [[ ! -f "$MIHOMO_LIFT_RULE" ]]; then
+        echo "Error: lift rule not found at $MIHOMO_LIFT_RULE" >&2
+        echo "       cp $MIHOMO_LIFT_SEED $MIHOMO_LIFT_RULE" >&2
+        return 1
+    fi
 
     # Cache paths come from user/providers.yaml rather than a glob, so a cache file
     # left behind by a removed subscription cannot leak into the runtime config. The
@@ -74,34 +68,52 @@ function render_override() {
             [[ -f "$p" ]] && { printf '%s\n' "$p"; break; }
         done)
 
-    # No cache, no dns:, a bad spec or a yq failure all fall through to an empty
-    # overlay, which merges as a no-op and leaves the user/providers.yaml fallback
-    # in charge. Only a non-empty overlay means the airport's resolver is now in use.
-    if [[ -n "$f" ]] && yq --from-file "$MIHOMO_OVERRIDE_RULE" "$f" >"$MIHOMO_OVERRIDE_PATH" 2>/dev/null; then
-        [[ "$(cat "$MIHOMO_OVERRIDE_PATH")" == "{}" ]] || MIHOMO_DNS_SOURCE="provider"
+    # No cache yet: the subscription has never been fetched, so there is nothing to
+    # lift. An empty overlay merges as a no-op and base.yaml's dns: answers.
+    if [[ -z "$f" ]]; then
+        printf '{}\n' >"$MIHOMO_OVERLAY_PATH"
+        echo "lift: nothing - no provider cache yet. Restart (stopproxy; startproxy)"
+        echo "      once the subscription has been fetched, to lift the airport's own."
+        return 0
+    fi
+
+    # The rule is hand-edited, so a yq failure is a real error rather than a silent
+    # fall back: otherwise a broken rule would look like "nothing to lift".
+    if ! yq --from-file "$MIHOMO_LIFT_RULE" "$f" >"$MIHOMO_OVERLAY_PATH" 2>/dev/null; then
+        echo "Error: lift rule $MIHOMO_LIFT_RULE failed on $f" >&2
+        echo "       run: yq --from-file $MIHOMO_LIFT_RULE $f" >&2
+        return 1
+    fi
+
+    # Report what the overlay overrides, so a render's effect is visible without
+    # opening the file. Keys only; the values are in MIHOMO_OVERLAY_PATH.
+    keys=$(yq -r '[.dns // {} | to_entries[] | "dns." + .key] + (if has("hosts") then ["hosts"] else [] end) | join(", ")' "$MIHOMO_OVERLAY_PATH")
+    if [[ -n "$keys" ]]; then
+        echo "lift: $keys -> $MIHOMO_OVERLAY_PATH"
     else
-        printf '{}\n' >"$MIHOMO_OVERRIDE_PATH"
+        echo "lift: nothing - $f had nothing to lift."
     fi
 }
 
-# Render the runtime config: deep-merge templates/mihomo.yaml, user/providers.yaml
-# (providers win), then generated/template-override.yaml (wins over both; arrays
-# replace, not append). The base stays a shareable skeleton; the real subscription
-# URL and the fallback live in user/providers.yaml. The rendered file is rejected
-# unless `mihomo -t` accepts it, so a bad merge never reaches the routing path.
+# Render the runtime config: deep-merge templates/base.yaml, user/providers.yaml
+# (providers win), then generated/provider-overlay.yaml (wins over both; arrays
+# replace, not append). The base stays a publishable skeleton; the subscription
+# URL lives in user/providers.yaml and the lifted keys in user/provider-lift.yq.
+# The rendered file is rejected unless `mihomo -t` accepts it, so a bad merge
+# never reaches the routing path.
 function render_config() {
     if [[ ! -f "$MIHOMO_PROVIDERS_PATH" ]]; then
         echo "Error: providers file not found at $MIHOMO_PROVIDERS_PATH" >&2
-        echo "       cp $MIHOMO_HOME/templates/providers.yaml $MIHOMO_PROVIDERS_PATH" >&2
+        echo "       cp $MIHOMO_PROVIDERS_SEED $MIHOMO_PROVIDERS_PATH" >&2
         echo "       then fill in the subscription URL." >&2
         return 1
     fi
 
     mkdir -p "$MIHOMO_HOME/generated"
-    render_override
+    render_override || return 1
 
     if ! yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1) * select(fileIndex == 2)' \
-        "$MIHOMO_BASE_PATH" "$MIHOMO_PROVIDERS_PATH" "$MIHOMO_OVERRIDE_PATH" >"$MIHOMO_RUNTIME_PATH"; then
+        "$MIHOMO_BASE_PATH" "$MIHOMO_PROVIDERS_PATH" "$MIHOMO_OVERLAY_PATH" >"$MIHOMO_RUNTIME_PATH"; then
         echo "Error: Failed to render runtime config." >&2
         rm -f "$MIHOMO_RUNTIME_PATH" # Clean up partial output.
         return 1
@@ -236,16 +248,6 @@ function startproxy() {
     if ! statusproxy; then
         echo "startproxy: FAILED - verify the statusproxy lines above" >&2
         return 1
-    fi
-
-    # Fresh machine: render_config ran before mihomo had ever fetched the
-    # subscription, so no provider dns: existed to lift. Startup is still good
-    # (the user/providers.yaml fallback handles node DNS) — an action, not a failure.
-    if [[ "$MIHOMO_DNS_SOURCE" == "fallback" ]]; then
-        echo "startproxy: note - no provider dns: was available to lift, so the fallback"
-        echo "            in user/providers.yaml is in use. Restart the proxy"
-        echo "            (stopproxy; startproxy) once the subscription has been fetched,"
-        echo "            to pick up the airport's own."
     fi
 
     echo "startproxy: mihomo fully working (all statusproxy checks passed)"
