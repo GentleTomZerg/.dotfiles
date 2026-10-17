@@ -1,132 +1,100 @@
 # mihomo
 
-`~/.config/mihomo` is mihomo's home directory. mihomo reads one config file, built
-at every start from two files you edit:
+`~/.config/mihomo` is mihomo's home directory. Three files carry configuration,
+by role: one shareable, one yours alone, one rebuilt at every start.
 
-| file | |
+## Files
+
+| path | owner | |
+| --- | --- | --- |
+| `templates/mihomo.yaml` | committed | shareable defaults — ports, TUN, `dns:`, `proxy-groups`, `rules:`. No secrets. |
+| `user/providers.yaml` | **yours, gitignored** | your airports and your personal settings. Every secret lives here. |
+| `generated/mihomo-runtime.yaml` | derived | what mihomo is launched with. Rebuilt every start — **edits here are lost.** |
+| `generated/template-override.yaml` | derived | the keys lifted out of a subscription; merged last. |
+
+`proxy_providers/` (fetched nodes), `rules/` (fetched rule providers), `ui/` (the
+dashboard, downloaded on first start) and `cache.db` (selection and fake-ip state)
+belong to mihomo. Leave them alone.
+
+**`user/providers.yaml` holds your subscription URL, which carries a personal token.
+Never commit it, screenshot it or paste it into an issue** — it is gitignored for
+exactly that reason.
+
+## Commands
+
+`~/.zshrc` sources the helper, so a new zsh has these. In any other shell:
+`source ~/.config/mihomo/mihomo-api.sh`.
+
+| command | |
 | --- | --- |
-| `templates/mihomo.yaml` | shared defaults — ports, TUN, `dns:`, `proxy-groups`, `rules:`. Committed. |
-| `user/providers.yaml` | **yours**, gitignored — your airports and your personal settings. |
-| `generated/` | built at every start; edits here are lost. |
+| `startproxy` | Render, then start. Asks for sudo. Refuses to start a second mihomo. Returns 0 only when every check has passed. |
+| `stopproxy` | Stop mihomo; on macOS, reset system DNS. |
+| `statusproxy` | Re-check a live proxy: process, controller, a blocked site through `:7890`, the dashboard, and (macOS) the DNS pointer. Idempotent; non-zero on any failure. |
+| `render_config` | Rebuild and validate the runtime config without starting anything. |
+| `setproxy` / `unsetproxy` | Export / unset the proxy environment variables **in this shell only**. |
 
-`proxy_providers/`, `rules/`, `ui/`, `cache.db` belong to mihomo. Leave them alone.
+Set these in `mihomo-api.sh` (committed). Only `MIHOMO_HOME` is read from your
+environment — export it before sourcing to move the whole config tree.
 
-## How it works
-
-```
-templates/mihomo.yaml       shared defaults
-user/providers.yaml         your airports + your settings
-  ── lifted keys ──         a few keys out of your airport's own config
-generated/mihomo-runtime.yaml     ← what mihomo reads
-```
-
-Later wins. Maps merge key by key; **lists replace wholesale**, so a `rules:` or
-`nameserver:` of your own does not extend the template's, it replaces it.
-
-A subscription is a whole Clash config, but mihomo takes only the node list from it.
-The lift list takes back `dns.nameserver`, `dns.fake-ip-filter`, `dns.use-hosts` and
-`hosts` on purpose — and those beat your copy of the same key, so to own one, remove
-it from the list. Everything else in the subscription (`listen`, `enhanced-mode`,
-`fake-ip-range`, `default-nameserver`) is ignored; the template has already decided.
-The list is `templates/template-override.yq`. With several airports, only the first
-whose cache exists contributes.
-
-## Start, stop, check
-
-```bash
-startproxy     # build the config, start mihomo, verify it
-stopproxy      # stop
-statusproxy    # re-check a running proxy
-setproxy       # point this shell at :7890   (unsetproxy to clear)
-```
+| variable | default | |
+| --- | --- | --- |
+| `MIHOMO_HOME` | `~/.config/mihomo` | where every path is rooted |
+| `MIHOMO_RETRY_TRIES`, `MIHOMO_RETRY_DELAY` | `10`, `1` | one retry budget, shared by every wait |
+| `MIHOMO_PROXY_URL` | `http://127.0.0.1:7890` | what `setproxy` exports |
+| `MIHOMO_NETWORK_SERVICE` | `Wi-Fi` | macOS only, and hardcoded — wrong wherever the active service is named otherwise |
+| `MIHOMO_DNS_SOURCE` | set at render | `provider` or `fallback` — see DNS |
 
 Dashboard: <http://127.0.0.1:9090/ui/>
 
-After editing any config file: `stopproxy` then `startproxy`.
+## Where a setting goes
 
-## Add or change an airport
+Render merges three documents, in order: `templates/mihomo.yaml`, then
+`user/providers.yaml`, then the lifted overlay. Later wins.
 
-Airports are the `proxy-providers:` blocks in `user/providers.yaml`. On a new
-machine, create that file first:
+> **Maps merge key by key. Lists replace wholesale.** Your own `rules:` or
+> `nameserver:` does not extend the template's — it replaces it.
 
-```bash
-cp ~/.config/mihomo/templates/providers.yaml ~/.config/mihomo/user/providers.yaml
-```
+| I want to | edit | restart? | |
+| --- | --- | --- | --- |
+| set or override anything | `user/providers.yaml` | yes | it wins over the template |
+| change something shared — port, TUN, `rules:`, groups | `templates/mihomo.yaml` | yes | committed, so it applies on every machine |
+| add or change an airport | `user/providers.yaml`, `proxy-providers:` | yes | one block per airport; field guide in the header of `templates/providers.yaml` |
+| change which keys are lifted out of a subscription | `templates/template-override.yq` | yes | the rule file; committed |
+| change DNS | see below | yes | |
+| discard derived state | `rm -rf generated/` | yes | rebuilt on the next start |
 
-One block per airport:
+## DNS
 
-```yaml
-proxy-providers:
-  e-ix:
-    type: http
-    url: "https://your-airport.example/subscribe?token=..."   # your secret
-    path: ./proxy_providers/e-ix.yaml    # cache; unique per block
-    interval: 86400                      # refresh daily
-    header:
-      User-Agent: ["Clash-verge/v2.2.0"] # decides the format
-    override:                            # per-node rewrites
-      additional-prefix: "[e-ix]"
-```
+All DNS goes to the airport's resolver, lifted out of the subscription at render
+time — it is the only thing that can answer for its node domains, such as
+`8e3f7b290d64.eixcloud.com`. The cost: the airport sees every domain you resolve,
+and its resolver going down takes your general DNS down with it.
 
-- **Second airport** — copy the block, change `name`, `url`, `path`. Its nodes join
-  every group by themselves.
-- **Rotate a token** — edit `url` in place.
-- The `User-Agent` is load-bearing: airports serve a different format per client,
-  and only a Clash-family agent returns the full config the lift list reads.
-- The `url` carries your personal token. Never commit it or screenshot it.
+- **Send some domains elsewhere**: `dns.nameserver-policy` in `user/providers.yaml`. Nothing is lifted over that key.
+- **Replace the general resolver**: drop `dns.nameserver` from the lift list in `templates/template-override.yq`, then set it in `user/providers.yaml`.
+- **Nothing has been lifted yet**: before the subscription has ever been fetched there is nothing to lift, so the fallback `dns:` block at the end of `user/providers.yaml` answers instead. `startproxy` says so.
 
-All fields: header of `templates/providers.yaml`. Then restart.
+## Troubleshooting
 
-## Set your own setting
+| you see | run | then |
+| --- | --- | --- |
+| `mihomo has already started.` / `mihomo is not running` | `pgrep -x mihomo` | you are out of step with reality: `stopproxy; startproxy`. After a crash macOS DNS may still point at mihomo, which just looks like no DNS: `sudo networksetup -setdnsservers Wi-Fi Empty` |
+| `Error: providers file not found at …` | — | `cp templates/providers.yaml user/providers.yaml`, then fill in the URL |
+| `Error: rendered config failed 'mihomo -t'; not starting.` | the validator output printed under it | fix the file you just edited; `render_config` re-checks |
+| `status: FAIL - API controller not responding` | `curl -fsS 127.0.0.1:9090/version` | `stopproxy; startproxy`; still failing, `render_config` |
+| `status: FAIL - blocked site not reachable through …:7890` | `render_config`, then the dashboard at `:9090/ui/` | the nodes are usually at fault, not the proxy — check health and the selected group |
+| `status: FAIL - dashboard not served` | `ls ui/` | the `external-ui-url` download failed; delete `ui/` and restart |
+| `status: FAIL - system DNS not pointed at 198.18.0.2` | `scutil --dns \| grep 198.18` | wrong `MIHOMO_NETWORK_SERVICE` (hardcoded `Wi-Fi`); fix it and restart |
+| `startproxy: note - no provider dns: was available to lift` | — | not a failure; `stopproxy; startproxy` once the subscription has been fetched |
+| `startproxy` fails and gives no reason | `lsof -nP -iTCP:7890 -sTCP:LISTEN` | mihomo's launch output is discarded, so a port already in use is silent; free `7890`, or move `mixed-port` and `MIHOMO_PROXY_URL` |
+| a tool ignores the proxy | `env \| grep -i proxy` | `setproxy` only affects the shell it ran in — run it there, or rely on TUN |
 
-Put any top-level key in `user/providers.yaml`:
-
-```yaml
-mixed-port: 7897
-sniffer:
-  enable: false
-```
-
-It overrides the template. Then restart.
-
-## Change the DNS resolver
-
-By default you use the airport's resolver — the only thing that can answer for its
-node domains like `8e3f7b290d64.eixcloud.com`, which public resolvers know nothing
-about.
-
-**Send some domains elsewhere, keep the rest.** Add a policy to
-`user/providers.yaml`. Nothing is lifted over this key, so it just works:
-
-```yaml
-dns:
-  nameserver-policy:
-    "+.corp.example.com": https://10.0.0.1/dns-query
-```
-
-**Replace the general resolver.** Two steps, both needed:
-
-1. Remove `dns.nameserver` from the lift list in `templates/template-override.yq`.
-   That file is committed, so this decides it for every machine.
-2. Set `dns.nameserver` in `user/providers.yaml`. The value stays per-machine.
-
-Then restart.
-
-The airport sees every domain you resolve, and its resolver going down takes your
-DNS with it. That is the default's trade.
-
-**On a machine that has never fetched the subscription** there is nothing to lift
-yet, so the `dns:` block at the bottom of `user/providers.yaml` is used. `startproxy`
-says when that happened:
-
-```
-startproxy: note - no provider dns: was available to lift ...
-```
-
-Restart once the subscription has been fetched and the airport's resolver takes over.
+Never debug by editing `generated/`: `stopproxy; startproxy` rebuilds it from the
+two files you own.
 
 ## Further reading
 
-- [`README.md`](../../../README.md) §Phase 4 — provisioning a new machine, with checks.
-- [`docs/research/mihomo-provider-dns.md`](../../../docs/research/mihomo-provider-dns.md)
-  — why the DNS arrangement is this way, and what was tried instead.
+- [`README.md`](../../../README.md) §Phase 4 — provisioning a new machine from nothing, with checks.
+- `templates/providers.yaml` header — every provider field, and the fallback `dns:` block.
+- `templates/template-override.yq` header — which subscription keys are lifted, and which never will be.
+- [`docs/research/mihomo-provider-dns.md`](../../../docs/research/mihomo-provider-dns.md) — why the DNS arrangement is this way, and what was tried instead.
