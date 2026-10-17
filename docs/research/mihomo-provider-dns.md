@@ -57,7 +57,7 @@ their Merge only has to override what they want.
 
 ## 2. What the `e-ix` subscription actually contains
 
-Fetched with `User-Agent: Clash-verge/v2.2.0` (what `providers.yaml` sets), the
+Fetched with `User-Agent: Clash-verge/v2.2.0` (what `user/providers.yaml` sets), the
 subscription is a complete Clash config whose top-level keys are:
 
 ```
@@ -88,7 +88,7 @@ Facts worth keeping:
 * The subscription is **UA-dependent**. `mihomo/1.19.30` gets a ~12 KB plain
   (base64-ish) list; `sing-box/*` gets sing-box JSON; `Shadowrocket` /
   `Quantumult X` get ~11–13 KB. Only the Clash-family UAs get the full config.
-  This is why `header.User-Agent` in `providers.yaml` is load-bearing.
+  This is why `header.User-Agent` in `user/providers.yaml` is load-bearing.
 * Node `server:` values are **domains** under the provider's private zone, e.g.
   `8e3f7b290d64.eixcloud.com`. They are not in the public DNS:
 
@@ -194,38 +194,39 @@ if `respect-rules: true` and `proxy-server-nameserver` is empty
 
 ---
 
-## 4. Getting the tweaks into this repo's config
+## 4. Getting the provider's settings into this repo's config
 
 The pipeline already is "template + untracked provider spec, deep-merged by `yq`":
 
 ```bash
 yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1) * select(fileIndex == 2)' \
-    mihomo.yaml providers.yaml provider-tweaks.yaml > mihomo_runtime.yaml
+    templates/mihomo.yaml user/providers.yaml generated/template-override.yaml > generated/mihomo-runtime.yaml
 ```
 
 `yq`'s `*` merges maps recursively and replaces arrays, so a key added in
-`providers.yaml` lands next to the template's keys (verified against
+`user/providers.yaml` lands next to the template's keys (verified against
 `yq v4.54.1`).
 
-### Shipped: the fallback in `providers.yaml`
+### Shipped: the fallback in `user/providers.yaml`
 
-The minimal change that reproduces what Clash Verge gets from the provider's
-`dns.nameserver` — without routing general DNS to the provider — is a top-level
-`dns:` block in `providers.yaml` (the untracked, per-machine file):
+The fallback that reproduces what Clash Verge gets from the provider's
+`dns.nameserver` is a top-level `dns:` block in `user/providers.yaml` (the untracked,
+per-machine file). It uses the same mapping as the extractor, `dns.nameserver`,
+so all DNS goes to the airport:
 
 ```yaml
 dns:
   use-hosts: true            # already the default; keep it explicit
-  # Only proxy-server hostnames (*.eixcloud.com) are resolved with these.
-  proxy-server-nameserver:
+  # General resolver, including the node domains (*.eixcloud.com).
+  nameserver:
     - https://zone.rlose.com:39933/api-query
     - https://radar.rlose.com/api-query
 ```
 
-It sits in `providers.yaml` rather than `mihomo.yaml` because the resolver
-hostnames are airport-specific and `mihomo.yaml` is the shareable template. Being
+It sits in `user/providers.yaml` rather than `templates/mihomo.yaml` because the resolver
+hostnames are airport-specific and `templates/mihomo.yaml` is the shareable template. Being
 fileIndex 1, it covers the window before the subscription has ever been fetched;
-`providers.template.yaml` ships it live so a fresh machine only has to fill in the
+`templates/providers.yaml` ships it live so a fresh machine only has to fill in the
 URL.
 
 ### Optional: mirror more of the provider's `dns`
@@ -246,11 +247,11 @@ hosts:
 Works even with DNS broken (`LookupIP*WithResolver` checks hosts first), but goes
 stale if the provider rotates IPs.
 
-### Implemented: auto-extract at render time, providers.yaml as fallback
+### Implemented: auto-extract at render time, user/providers.yaml as fallback
 
-`render_provider_tweaks()` in `mihomo-api.sh` lifts the provider's resolver list
+`render_override()` in `mihomo-api.sh` lifts the provider's resolver list
 out of the cached provider file at render time, so the `dns:` block in
-`providers.yaml` is only the fresh-machine fallback. See the Decision section below.
+`user/providers.yaml` is only the fresh-machine fallback. See the Decision section below.
 
 ---
 
@@ -268,12 +269,12 @@ out of the cached provider file at render time, so the `dns:` block in
 
 ## 6. Decision (implemented)
 
-Settled by design review; implemented in `mihomo-api.sh` + `provider-tweaks.yq`.
+Settled by design review; implemented in `mihomo-api.sh` + `templates/template-override.yq`.
 
 **Source of truth — the cached provider document, read at render time.**
 `render_config` only runs while mihomo is stopped (`startproxy` bails on
 `pgrep -x mihomo`), so a provider refresh cannot race the read, and mihomo's
-non-atomic `safeWrite` does not matter. Cache paths come from `providers.yaml`
+non-atomic `safeWrite` does not matter. Cache paths come from `user/providers.yaml`
 (`.proxy-providers[].path`), not a glob, so a cache file left behind by a removed
 subscription cannot leak in.
 
@@ -281,10 +282,9 @@ subscription cannot leak in.
 
 | provider key | becomes |
 | --- | --- |
-| `dns.nameserver` | `dns.proxy-server-nameserver` (node lookups only) |
+| `dns.nameserver` | `dns.nameserver` (copied as-is) |
 | `dns.use-hosts` | `dns.use-hosts` |
 | `dns.fake-ip-filter` | `dns.fake-ip-filter` |
-| `dns.proxy-server-nameserver` | itself, if a provider ships one |
 | root `hosts` | root `hosts`, if a provider ships one |
 
 **Deny-list** — `listen`, `enable`, `enhanced-mode`, `fake-ip-range` (lifting
@@ -292,70 +292,77 @@ subscription cannot leak in.
 and `default-nameserver` (ours is `tls://`, the provider's is plaintext, and the
 key only bootstraps resolving the resolver's own hostname).
 
-Crucially the provider's `nameserver` is mapped to `proxy-server-nameserver` and
-**not** to `dns.nameserver`: `doh.pub`/`alidns` stay as the general resolver, so
-only node domains go to the provider. That is Clash Verge's *behaviour* without
-its *configuration*.
+**Reversal (2026-10-17): the rename is gone.** The provider's `nameserver` is
+copied to `dns.nameserver`, so *all* DNS goes to the airport, not just node
+lookups. The earlier decision mapped it to `proxy-server-nameserver` to keep
+`doh.pub`/`alidns` as the general resolver; that was reversed deliberately for
+simplicity — the airport's own config treats `nameserver` as the general
+resolver, and copying it as such is one line with no rename. The accepted cost:
+if the airport's resolver is down, blocked or slow, all DNS is, and the airport
+sees every domain resolved. To revert, rename the target key in
+`templates/template-override.yq` back to `proxy-server-nameserver` and the fallback key in
+`user/providers.yaml` / `templates/providers.yaml`.
 
-**Circular resolvers are skipped, not copied.** A `#RULES` or `#<proxy>` /
-`#<interface>` suffix would make the resolver need the proxy it resolves for.
-`#key=value` params (`skip-cert-verify`, `ecs`, …) are kept. Detection: take the
-first `#`-segment, split on `&`; skip if it is `RULES` or lacks `=`.
+**Simplified (2026-10-17): the safety net is the merge itself.** The extractor is
+now one `yq --from-file` call plus a "does a cache exist" lookup. The circular
+resolver filter, the `_skipped` report channel, the applied-list echo, the drift
+warning and the multi-provider warning were all removed; they answered questions
+about a provider that ships `#RULES`/`#proxy` resolvers, which this one does not.
+What remains is only what prevents corruption: an empty overlay is `{}` (a no-op
+on merge), and `nameserver` is emitted as `null` then dropped when absent, so the
+`user/providers.yaml` fallback is never clobbered. If a provider ever ships a
+`#RULES`/`#proxy` resolver it will be copied verbatim — revisit this decision
+then.
 
-**Fallback + hint.** `providers.yaml` keeps the `zone`/`radar` pair under a
-top-level `dns:` key. On a machine with no cache yet, the generated tweaks file is
-`{}`, that fallback survives the merge, and `render_config`/`startproxy` print a
-warning — an action, not a FAIL. It lives there rather than in `mihomo.yaml`
-because `mihomo.yaml` is the *shareable* template (README §provisioning) while the
-resolver hostnames are airport-specific, exactly like the subscription URL — and
-because a top-level `dns:` key in `providers.yaml` is merged as fileIndex 1, which
-covers the pre-fetch window on its own. `providers.template.yaml` ships the block
-live so `cp` + fill-the-URL is still a complete fresh-machine config.
-
-**Drift is reported, not silent.** Because the generated file overrides the
-fallback, every render prints the resolver list it applied and warns when it
-differs from `.dns."proxy-server-nameserver"` in `providers.yaml`.
+**Fallback + hint.** `user/providers.yaml` keeps the `zone`/`radar` pair under a
+top-level `dns:` key. On a machine with no cache yet, the generated override file is
+`{}`, that fallback survives the merge, and `startproxy` notes that a restart is
+needed once the subscription has been fetched — an action, not a FAIL. It lives
+there rather than in `templates/mihomo.yaml` because `templates/mihomo.yaml` is the *shareable*
+template (README §provisioning) while the resolver hostnames are airport-specific,
+exactly like the subscription URL — and because a top-level `dns:` key in
+`user/providers.yaml` is merged as fileIndex 1, which covers the pre-fetch window on
+its own. `templates/providers.yaml` ships the block live so `cp` + fill-the-URL is
+still a complete fresh-machine config.
 
 **Gate scope (`mihomo -t`).** Verified: it rejects invalid YAML, a
-`proxy-server-nameserver` that is a scalar rather than a list, and unsupported
+`nameserver` that is a scalar rather than a list, and unsupported
 proxy types. It does **not** reject an unresolvable resolver hostname — that
 still prints `test is successful` and only fails at dial time. The gate is a
 structural check, not a reachability check.
 
-**Deferred: multi-provider.** Until designed, more than one provider carrying a
-`dns:` block triggers a warning and the first in `providers.yaml` order wins. The
+**Deferred: multi-provider.** Until designed, the first provider in
+`user/providers.yaml` order whose cache exists wins; a second provider's `dns:` is
+ignored silently. The
 reason the obvious answer (concatenate every provider's resolvers into one
-`proxy-server-nameserver`) is wrong: `dns/util.go:batchExchange` fires all
+`nameserver`) is wrong: `dns/util.go:batchExchange` fires all
 nameservers concurrently and takes the first response that is not an error, and
 only `SERVFAIL`/`REFUSED` count as errors — an NXDOMAIN from the wrong provider
 earns a "success" and wins the race. The correct mechanism is
-`dns.proxy-server-nameserver-policy`, matched before `main`
+`dns.nameserver-policy`, matched before `main`
 (`dns/resolver.go` `matchPolicy`), keyed by node zone. The zone must not be
 derived by stripping labels off `proxies[].server` — naive eTLD+1 extraction can
 collapse `a.foo.com.cn` to `+.com.cn`.
 
-**Files.** `provider-tweaks.yq` (the hand-written spec of what may be lifted —
+**Files.** `templates/template-override.yq` (the hand-written spec of what may be lifted —
 read this one first), `mihomo-api.sh` (locating, `--from-file`, 3-file merge,
-`-t` gate, startproxy nudge), `providers.template.yaml` (the `dns:` fallback block
-plus the header note), `.gitignore` (`provider-tweaks.yaml`, the generated
-overlay). `mihomo.yaml` is deliberately **untouched** by this change.
+`-t` gate, startproxy nudge), `templates/providers.yaml` (the `dns:` fallback block
+plus the header note), `.gitignore` (`generated/template-override.yaml`, the generated
+overlay). `templates/mihomo.yaml` is deliberately **untouched** by this change.
 
 **Where the rules live.** The overlay's shape is a `.yq` program, not shell
-strings: `yq --from-file provider-tweaks.yq <provider cache>` emits the overlay
-plus a `_skipped` list, which the shell strips before merging (a non-config
-report channel). This keeps the mapping table — including the
-`dns.nameserver` → `dns.proxy-server-nameserver` rename — readable in one file
-instead of a 500-character single-quoted argument. Two constraints the spec must
-respect: this yq build has no `def`, so the circularity predicate is written out
-twice; and an empty **array** overwrites on merge while an empty **map** is a
-no-op, so `proxy-server-nameserver` is emitted as `null` (then dropped) rather
-than `[]` — otherwise a fresh machine's fallback would be clobbered.
+strings: `yq --from-file templates/template-override.yq <provider cache>` emits the overlay
+directly, so the mapping table stays readable in one file instead of a
+500-character single-quoted argument. The one non-obvious rule it encodes: an
+empty **array** overwrites on merge while an empty **map** is a no-op, so
+`nameserver` is emitted as `null` (then dropped) rather than `[]` — otherwise a
+fresh machine's fallback would be clobbered.
 
 **Dual-shell constraint.** `mihomo-api.sh` is sourced from `~/.zshrc`, so its
 functions run under **zsh**, not bash, despite the shebang. Two bugs found here
 the hard way: `path` is a zsh special parameter tied to `$PATH`, so
 `read -r path` replaces `$PATH` with the file path and every later `yq` in the
-function becomes "command not found" (silently dropping the tweaks); and zsh
+function becomes "command not found" (silently dropping the override); and zsh
 arrays are 1-indexed, so `${a[0]}` is empty where bash's is the first element.
 The function therefore uses plain scalars, and the script header warns about both.
 
@@ -374,5 +381,5 @@ The function therefore uses plain scalars, and the script header warns about bot
   `docs/handbook/syntax.md` (wildcards).
 * Clash Verge Rev docs: Merge Configuration, Subscription Import
   (Remote profile + Merge/Script ordering).
-* Local evidence: `~/.config/mihomo/providers.yaml`,
-  `proxy_providers/e-ix.yaml`, `mihomo_runtime.yaml`, `mihomo-api.sh`.
+* Local evidence: `~/.config/mihomo/user/providers.yaml`,
+  `proxy_providers/e-ix.yaml`, `generated/mihomo-runtime.yaml`, `mihomo-api.sh`.

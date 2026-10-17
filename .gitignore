@@ -6,9 +6,8 @@
 # ignore mihomo related files
 /mihomo/.config/mihomo/cache.db
 /mihomo/.config/mihomo/external-ui/
-/mihomo/.config/mihomo/mihomo_runtime.yaml
-/mihomo/.config/mihomo/provider-tweaks.yaml
-/mihomo/.config/mihomo/providers.yaml
+/mihomo/.config/mihomo/user/
+/mihomo/.config/mihomo/generated/
 /mihomo/.config/mihomo/proxy_providers/
 /mihomo/.config/mihomo/ui/
 /mihomo/.config/mihomo/rules/
