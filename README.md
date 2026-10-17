@@ -161,7 +161,7 @@ stow aerospace dunst electronflags ghostty hyprland i3 ideavimrc kitty \
 **CHECK** —
 
 ```bash
-for f in ~/.zshrc ~/.config/mihomo/mihomo.yaml ~/.config/nvim ~/.config/rofi \
+for f in ~/.zshrc ~/.config/mihomo/templates/mihomo.yaml ~/.config/nvim ~/.config/rofi \
          ~/.config/starship.toml ~/.tmux.conf ~/.config/yazi ~/.wezterm.lua; do
   test -e "$f" && echo "OK   $f" || echo "MISS $f"
 done
@@ -257,25 +257,25 @@ zsh vi-mode is configured in `zshrc/.zshrc`; in the macOS terminal, copy/paste u
 
 ## Phase 4 — Proxy (mihomo)
 
-> The stowed `mihomo` package is the source of truth: `mihomo.yaml` is a shareable template (empty `proxy-providers`, `include-all` groups, TUN + DNS), and the real subscription lives in the **gitignored** `providers.yaml`. `startproxy` deep-merges the two via `yq` into `mihomo_runtime.yaml` and launches mihomo.
+> The stowed `mihomo` package is the source of truth, and [`mihomo/.config/mihomo/README.md`](mihomo/.config/mihomo/README.md) is the map. `templates/mihomo.yaml` is a shareable skeleton (empty `proxy-providers`, `include-all` groups, TUN + DNS); the real subscription lives in the **gitignored** `user/providers.yaml`; `startproxy` deep-merges the layers via `yq` into `generated/mihomo-runtime.yaml` and launches mihomo.
 
 ### 4.1 Configure the subscription — GATE
 
-> **GATE — ask the human for the mihomo subscription URL** (the airport's subscribe link — it carries a personal token). It is written only to `providers.yaml`, which is gitignored: never commit it, never echo it into the runbook log beyond this step.
+> **GATE — ask the human for the mihomo subscription URL** (the airport's subscribe link — it carries a personal token). It is written only to `user/providers.yaml`, which is gitignored: never commit it, never echo it into the runbook log beyond this step.
 
 ```bash
-if [[ ! -f ~/.config/mihomo/providers.yaml ]]; then
-  cp ~/.config/mihomo/providers.template.yaml ~/.config/mihomo/providers.yaml
+if [[ ! -f ~/.config/mihomo/user/providers.yaml ]]; then
+  cp ~/.config/mihomo/templates/providers.yaml ~/.config/mihomo/user/providers.yaml
 fi
 # Replace <YOUR_SUBSCRIPTION_URL> in the e-ix block's url: line with the real URL:
-sed -i "s|<YOUR_SUBSCRIPTION_URL>|$SUB_URL|" ~/.config/mihomo/providers.yaml
+sed -i "s|<YOUR_SUBSCRIPTION_URL>|$SUB_URL|" ~/.config/mihomo/user/providers.yaml
 ```
 
 **CHECK** —
 
 ```bash
-yq '.proxy-providers | keys' ~/.config/mihomo/providers.yaml
-grep -q '<YOUR_SUBSCRIPTION_URL>' ~/.config/mihomo/providers.yaml \
+yq '.proxy-providers | keys' ~/.config/mihomo/user/providers.yaml
+grep -q '<YOUR_SUBSCRIPTION_URL>' ~/.config/mihomo/user/providers.yaml \
   && echo "placeholder still present!" || echo "providers.yaml ok"
 ```
 
