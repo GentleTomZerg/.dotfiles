@@ -4,6 +4,35 @@
 role: a publishable base, two files that are yours alone, and two rebuilt at
 every start.
 
+## How the config is built
+
+```mermaid
+flowchart LR
+  classDef committed fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+  classDef yours fill:#fff8e1,stroke:#f9a825,color:#6d4c00
+  classDef derived fill:#eceff1,stroke:#607d8b,color:#37474f,stroke-dasharray:4 3
+  classDef run fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+
+  base["templates/base.yaml"]:::committed
+  providers["user/providers.yaml<br/>yours, gitignored"]:::yours
+  overlay["generated/provider-overlay.yaml<br/>derived"]:::derived
+  merge(["render_config merge<br/>later wins"])
+  runtime["generated/mihomo-runtime.yaml<br/>derived"]:::derived
+  run(["mihomo -t, then launch"]):::run
+  cache["proxy_providers/&lt;name&gt;.yaml<br/>fetched cache"]:::derived
+  rule["user/provider-lift.yq<br/>your lift rule"]:::yours
+
+  base -->|1| merge
+  providers -->|2| merge
+  overlay -->|3| merge
+  merge --> runtime --> run
+  providers -.->|"mihomo fetches"| cache --> rule --> overlay
+```
+
+`render_config` merges the three inputs in that order (later wins), writes the
+runtime config, then hands it to `mihomo -t` before anything is launched. Green is
+committed, amber is yours, dashed grey is rebuilt on every start.
+
 ## Files
 
 | path | owner | |
@@ -59,7 +88,7 @@ Render merges three documents, in order: `templates/base.yaml`, then
 | I want to | edit | restart? | |
 | --- | --- | --- | --- |
 | change something shared — port, TUN, `rules:`, groups | `templates/base.yaml` | yes | committed, so it applies on every machine |
-| add or change a subscription | `user/providers.yaml`, `proxy-providers:` | yes | one block per subscription; field guide in the header of `templates/providers.example.yaml` |
+| add or change a subscription | `user/providers.yaml`, `proxy-providers:` | yes | one block per subscription; the block is annotated in `templates/providers.example.yaml` |
 | change which keys are lifted out of a subscription | `user/provider-lift.yq` | yes | yours; the example is `templates/provider-lift.example.yq` |
 | change DNS | see below | yes | |
 | discard derived state | `rm -rf generated/` | yes | rebuilt on the next start |
@@ -100,5 +129,5 @@ files you own.
 ## Further reading
 
 - [`README.md`](../../../README.md) §Phase 4 — provisioning a new machine from nothing, with checks.
-- `templates/providers.example.yaml` header — every provider field.
-- `templates/provider-lift.example.yq` header — which subscription keys the example lifts, and which it never reads.
+- `templates/providers.example.yaml` — a copy-paste subscription block, annotated field by field.
+- `templates/provider-lift.example.yq` header — the in/out contract: which keys the example lifts, and which it never reads.

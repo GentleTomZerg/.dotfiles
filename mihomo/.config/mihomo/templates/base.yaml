@@ -1,9 +1,6 @@
-# Subscriptions live in user/providers.yaml, which is gitignored because it
-# carries your token; mihomo-api.sh merges it into the runtime config at start.
-# This base keeps proxy-providers empty so the file stays safe to publish.
-# Fresh machine: cp templates/providers.example.yaml user/providers.yaml and
-# cp templates/provider-lift.example.yq user/provider-lift.yq, then fill in the
-# subscription URL (each example's header has the steps).
+# Publishable base: ports, TUN, dns:, groups, rules. proxy-providers stays empty
+# so the file is safe to commit — subscriptions live in user/providers.yaml
+# (gitignored, holds your token). Fresh machine: see README.md §Troubleshooting.
 proxy-providers: {}
 proxies:
   - name: "直连"

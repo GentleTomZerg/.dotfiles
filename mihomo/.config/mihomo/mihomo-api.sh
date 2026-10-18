@@ -9,13 +9,9 @@ MIHOMO_DNS_VIRTUAL_IP="198.18.0.2"
 MIHOMO_CONTROLLER_URL="http://127.0.0.1:9090" # matches external-controller in templates/base.yaml
 MIHOMO_NETWORK_SERVICE="Wi-Fi"                       # Consider making this dynamic in the future
 
-# Derived config paths, all rooted at MIHOMO_HOME and fixed at load time.
-# To relocate the config tree, set MIHOMO_HOME (or any of these) before sourcing
-# this file. render_config and startproxy all read these globals.
-#
-#   templates/  tracked, shareable, no secrets
-#   user/       untracked, your real config
-#   generated/  untracked, derived — safe to delete and rebuild
+# All rooted at MIHOMO_HOME and fixed at load time; export it before sourcing to
+# relocate the tree. templates/ committed, user/ yours, generated/ derived —
+# see README.md for what lives where.
 MIHOMO_BASE_PATH="$MIHOMO_HOME/templates/base.yaml"
 MIHOMO_PROVIDERS_PATH="$MIHOMO_HOME/user/providers.yaml"
 MIHOMO_PROVIDERS_SEED="$MIHOMO_HOME/templates/providers.example.yaml"
@@ -34,22 +30,14 @@ function is_macos() {
 }
 
 # ---------------------------------------------------------------------------
-# Provider lift
-#
-# A subscription is a full Clash config, but mihomo reads only `proxies:` out of
-# a proxy-provider document (adapter/provider/provider.go: ProxySchema), so the
-# provider's own `dns:` — notably its resolver — is discarded. render_override()
-# applies MIHOMO_LIFT_RULE to a provider cache and writes the keys it lifts into
-# MIHOMO_OVERLAY_PATH, which render_config merges last so they win.
-#
-# The rule is the user's: user/provider-lift.yq, seeded from
-# templates/provider-lift.example.yq. It names what may be lifted; this function
-# only finds the cache, applies the rule and reports what came out.
+# Provider lift: apply MIHOMO_LIFT_RULE (user/provider-lift.yq) to a provider
+# cache and write what it returns to MIHOMO_OVERLAY_PATH, which render_config
+# merges last. The rule names what may be lifted; this function only finds the
+# cache, applies the rule and reports the keys.
 # ---------------------------------------------------------------------------
 function render_override() {
-    # NOT `path`: this file is sourced from .zshrc, and in zsh `path` is a special
-    # parameter tied to $PATH — `read -r path` would replace $PATH with the file
-    # path and every later `yq` in this function would be "command not found".
+    # NOT `path`: in zsh `path` is tied to $PATH, so assigning it would break
+    # every later `yq` in this function.
     local f keys
 
     if [[ ! -f "$MIHOMO_LIFT_RULE" ]]; then
@@ -58,9 +46,8 @@ function render_override() {
         return 1
     fi
 
-    # Cache paths come from user/providers.yaml rather than a glob, so a cache file
-    # left behind by a removed subscription cannot leak into the runtime config. The
-    # first provider whose cache exists wins.
+    # Paths come from user/providers.yaml, not a glob: a cache left by a removed
+    # subscription cannot leak in. The first existing cache wins.
     f=$(yq -r '.proxy-providers[].path // ""' "$MIHOMO_PROVIDERS_PATH" 2>/dev/null |
         while IFS= read -r p; do
             [[ -n "$p" ]] || continue
@@ -68,8 +55,7 @@ function render_override() {
             [[ -f "$p" ]] && { printf '%s\n' "$p"; break; }
         done)
 
-    # No cache yet: the subscription has never been fetched, so there is nothing to
-    # lift. An empty overlay merges as a no-op and base.yaml's dns: answers.
+    # No cache yet: nothing to lift. `{}` merges as a no-op, so base's dns: answers.
     if [[ -z "$f" ]]; then
         printf '{}\n' >"$MIHOMO_OVERLAY_PATH"
         echo "lift: nothing - no provider cache yet. Restart (stopproxy; startproxy)"
@@ -77,16 +63,14 @@ function render_override() {
         return 0
     fi
 
-    # The rule is hand-edited, so a yq failure is a real error rather than a silent
-    # fall back: otherwise a broken rule would look like "nothing to lift".
+    # The rule is hand-edited, so a yq failure is a real error, not a silent no-op.
     if ! yq --from-file "$MIHOMO_LIFT_RULE" "$f" >"$MIHOMO_OVERLAY_PATH" 2>/dev/null; then
         echo "Error: lift rule $MIHOMO_LIFT_RULE failed on $f" >&2
         echo "       run: yq --from-file $MIHOMO_LIFT_RULE $f" >&2
         return 1
     fi
 
-    # Report what the overlay overrides, so a render's effect is visible without
-    # opening the file. Keys only; the values are in MIHOMO_OVERLAY_PATH.
+    # Report the overridden keys only; the values are in MIHOMO_OVERLAY_PATH.
     keys=$(yq -r '[.dns // {} | to_entries[] | "dns." + .key] + (if has("hosts") then ["hosts"] else [] end) | join(", ")' "$MIHOMO_OVERLAY_PATH")
     if [[ -n "$keys" ]]; then
         echo "lift: $keys -> $MIHOMO_OVERLAY_PATH"
@@ -95,12 +79,8 @@ function render_override() {
     fi
 }
 
-# Render the runtime config: deep-merge templates/base.yaml, user/providers.yaml
-# (providers win), then generated/provider-overlay.yaml (wins over both; arrays
-# replace, not append). The base stays a publishable skeleton; the subscription
-# URL lives in user/providers.yaml and the lifted keys in user/provider-lift.yq.
-# The rendered file is rejected unless `mihomo -t` accepts it, so a bad merge
-# never reaches the routing path.
+# Merge templates/base.yaml, user/providers.yaml, then generated/provider-overlay.yaml
+# (later wins; lists replace, not append). Rejected unless `mihomo -t` accepts it.
 function render_config() {
     if [[ ! -f "$MIHOMO_PROVIDERS_PATH" ]]; then
         echo "Error: providers file not found at $MIHOMO_PROVIDERS_PATH" >&2
@@ -119,10 +99,8 @@ function render_config() {
         return 1
     fi
 
-    # `mihomo -t` parses the whole config, so a malformed lifted dns: (invalid YAML,
-    # a wrong type, a field the core rejects) is caught here rather than at start.
-    # It does NOT check that the resolvers answer: an unresolvable
-    # nameserver host still passes `-t` and only fails at dial time.
+    # `mihomo -t` parses the whole config, so a malformed lifted dns: is caught
+    # here. It does not check resolvers: an unresolvable nameserver passes.
     local test_output
     if ! test_output=$(mihomo -t -d "$MIHOMO_HOME" -f "$MIHOMO_RUNTIME_PATH" 2>&1); then
         echo "Error: rendered config failed 'mihomo -t'; not starting." >&2
@@ -144,10 +122,9 @@ function unsetproxy() {
     unset {HTTP,HTTPS,FTP,ALL}_PROXY
 }
 
-# Verify the running mihomo on demand: API controller up, a blocked site reachable
-# through the mixed port, the dashboard served, and (macOS) system DNS pointed at
-# mihomo's virtual IP. Retries briefly so mihomo can settle and providers/health-
-# checks warm up. The runbook's proxy-phase CHECKs call this directly.
+# Verify the running mihomo: controller up, a blocked site reachable through the
+# mixed port, the dashboard served, and (macOS) system DNS pointed at the virtual
+# IP. Retries briefly so mihomo settles. The runbook's proxy-phase CHECKs call this.
 function statusproxy() {
     local failures=0 tries="$MIHOMO_RETRY_TRIES" delay="$MIHOMO_RETRY_DELAY"
 
@@ -172,7 +149,7 @@ function statusproxy() {
         echo "status: ok - proxy forwards to the open internet"
     fi
 
-    # 3.  (external-ui, auto-downloaded via external-ui-url on first run).
+    # 3. Dashboard (external-ui, downloaded on first start via external-ui-url).
     if ! curl -fsS -o /dev/null "$MIHOMO_CONTROLLER_URL/ui/" 2>/dev/null; then
         echo "status: FAIL - dashboard not served at $MIHOMO_CONTROLLER_URL/ui/"
         failures=$((failures + 1))
@@ -198,9 +175,8 @@ function statusproxy() {
     return 0
 }
 
-# Run a probe until it succeeds or the budget is exhausted. The probe is a command
-# (no eval): pass it as the remaining arguments, e.g. `wait_for 10 2 pgrep -x mihomo`.
-# One retry loop serves every wait in the script — process, controller, blocked site.
+# Run a probe (a command, no eval) until it succeeds or the budget is exhausted:
+# `wait_for 10 2 pgrep -x mihomo`. One retry loop serves every wait in the script.
 function wait_for() {
     local tries="$1" delay="$2" i
     shift 2
@@ -214,19 +190,17 @@ function wait_for() {
 }
 
 function startproxy() {
-    # 1. Guard against duplicate mihomo instances.
     if pgrep -x mihomo >/dev/null; then
         echo "mihomo has already started."
         return 1
     fi
 
-    # 2. Render the runtime config from the template + providers into the shared
-    # MIHOMO_RUNTIME_PATH (derived at load) that the launch step uses.
+    # 2. Render the runtime config the launch step below reads.
     if ! render_config; then
         return 1
     fi
 
-    # 3. Require sudo; on macOS, point DNS to mihomo virtual ip.
+    # 3. Require sudo; on macOS, point DNS at mihomo.
     if ! sudo -v; then
         echo "sudo authentication failed."
         return 1
@@ -235,16 +209,14 @@ function startproxy() {
     if is_macos; then
         sudo networksetup -setdnsservers "$MIHOMO_NETWORK_SERVICE" "$MIHOMO_DNS_VIRTUAL_IP"
     fi
-    # -d sets Home Dir to the config dir: relative provider `path:` (./proxy_providers/...),
-    # cache.db and external-ui all live under MIHOMO_HOME. Since the config dir
-    # matches mihomo's default home dir, -d is technically redundant — kept for explicitness.
+    # -d sets Home Dir to MIHOMO_HOME: relative provider `path:`, cache.db and
+    # external-ui all live under it.
     sudo -b mihomo -d "$MIHOMO_HOME" -f "$MIHOMO_RUNTIME_PATH" >/dev/null 2>&1 &
 
     echo "mihomo started with config: $MIHOMO_RUNTIME_PATH"
 
-    # Run the full statusproxy checks (readiness, blocked site, dashboard, DNS) so
-    # startproxy only returns 0 when mihomo is fully working. statusproxy's first
-    # step waits for the process + controller, so no separate boot gate is needed.
+    # Full checks, so startproxy returns 0 only when mihomo is fully working;
+    # statusproxy's first step already gates on the process and controller.
     if ! statusproxy; then
         echo "startproxy: FAILED - verify the statusproxy lines above" >&2
         return 1
@@ -260,7 +232,6 @@ function stopproxy() {
         return 1
     fi
 
-    # kill mihomo process. On macOs, reset system dns config to default
     sudo kill "$(sudo pgrep -x mihomo)"
     if is_macos; then
         sudo networksetup -setdnsservers "$MIHOMO_NETWORK_SERVICE" Empty
