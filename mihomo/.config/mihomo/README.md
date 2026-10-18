@@ -61,7 +61,7 @@ exactly that reason.
 | --- | --- |
 | `startproxy` | Build, then start. Asks for sudo. Refuses to start a second mihomo. Returns 0 only when every check has passed. |
 | `stopproxy` | Stop mihomo; on macOS, reset system DNS. |
-| `statusproxy` | Re-check a live proxy: process, controller, a blocked site through `:7890`, the dashboard, and (macOS) the DNS pointer. Idempotent; non-zero on any failure. |
+| `statusproxy` | Re-check a live proxy: process, controller, a blocked site through `:7890`, the dashboard, and (macOS) the DNS pointer. Each probe lets curl retry while mihomo settles. Idempotent; non-zero on any failure. |
 | `setproxy` / `unsetproxy` | Export / unset the proxy environment variables **in this shell only**. |
 
 Set these in `mihomo-api.sh` (committed). Only `MIHOMO_HOME` is read from your
@@ -70,7 +70,6 @@ environment — export it before sourcing to move the whole config tree.
 | variable | default | |
 | --- | --- | --- |
 | `MIHOMO_HOME` | `~/.config/mihomo` | where every path is rooted |
-| `MIHOMO_RETRY_TRIES`, `MIHOMO_RETRY_DELAY` | `10`, `1` | one retry budget, shared by every wait |
 | `MIHOMO_PROXY_URL` | `http://127.0.0.1:7890` | what `setproxy` exports |
 | `MIHOMO_NETWORK_SERVICE` | `Wi-Fi` | macOS only, and hardcoded — wrong wherever the active service is named otherwise |
 

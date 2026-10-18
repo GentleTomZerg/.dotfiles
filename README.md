@@ -301,7 +301,7 @@ pgrep -x mihomo >/dev/null || startproxy
 statusproxy
 ```
 
-`startproxy` waits for boot (process + controller) **and then runs the full checks** via `statusproxy`: a blocked site through the proxy, the dashboard, and (macOS) the DNS pointer — so `startproxy` returns 0 only when mihomo is fully working. `statusproxy` is idempotent and safe to re-run anytime; run it again to re-verify a connected proxy once providers/health-checks have settled (e.g. after a node switch).
+`startproxy` lets curl retry until the controller answers **and then runs the full checks** via `statusproxy`: a blocked site through the proxy, the dashboard, and (macOS) the DNS pointer — so `startproxy` returns 0 only when mihomo is fully working. `statusproxy` is idempotent and safe to re-run anytime; run it again to re-verify a connected proxy once providers/health-checks have settled (e.g. after a node switch).
 
 ### 4.3 Retire the bootstrap proxy
 

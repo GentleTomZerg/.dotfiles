@@ -20,11 +20,6 @@ MIHOMO_LIFT_SEED="$MIHOMO_HOME/templates/provider-lift.example.yq"
 MIHOMO_OVERLAY_PATH="$MIHOMO_HOME/generated/provider-overlay.yaml"
 MIHOMO_RUNTIME_PATH="$MIHOMO_HOME/generated/mihomo-runtime.yaml"
 
-# Single retry budget for every poll in the script (readiness, blocked site,
-# and connection checks). Change here to tune how long mihomo is allowed to settle.
-MIHOMO_RETRY_TRIES=10
-MIHOMO_RETRY_DELAY=1
-
 function _is_macos() {
     [[ "$(uname -s)" == "Darwin" ]]
 }
@@ -124,25 +119,28 @@ function unsetproxy() {
 
 # Verify the running mihomo: controller up, a blocked site reachable through the
 # mixed port, the dashboard served, and (macOS) system DNS pointed at the virtual
-# IP. Retries briefly so mihomo settles. The runbook's proxy-phase CHECKs call this.
+# IP. The probes retry inside curl, so mihomo may still be settling here.
 function statusproxy() {
-    local failures=0 tries="$MIHOMO_RETRY_TRIES" delay="$MIHOMO_RETRY_DELAY"
+    local failures=0
 
-    # 1. Process + API controller (readiness).
-    if ! _wait_for "$tries" "$delay" pgrep -x mihomo; then
-        echo "status: FAIL - mihomo is not running"
-        return 1
-    fi
-    if ! _wait_for "$tries" "$delay" \
-        curl -fs -o /dev/null "$MIHOMO_CONTROLLER_URL/version"; then
-        echo "status: FAIL - API controller not responding on $MIHOMO_CONTROLLER_URL"
+    # 1. Controller (readiness). curl waits out a port that is not open yet: 10
+    # retries, one second apart, on a refused connection. pgrep only names the
+    # failure once curl gives up - asked first, it races startproxy's launch.
+    if ! curl -fs --retry 10 --retry-delay 1 --retry-connrefused \
+        -o /dev/null "$MIHOMO_CONTROLLER_URL/version" 2>/dev/null; then
+        if pgrep -x mihomo >/dev/null; then
+            echo "status: FAIL - API controller not responding on $MIHOMO_CONTROLLER_URL"
+        else
+            echo "status: FAIL - mihomo is not running"
+        fi
         return 1
     fi
     echo "status: ok - mihomo running, API controller up"
 
-    # 2. A blocked site must be reachable through the mixed port.
-    if ! _wait_for "$tries" "$delay" \
-        curl -fs -o /dev/null -x "$MIHOMO_PROXY_URL" https://www.youtube.com; then
+    # 2. A blocked site must be reachable through the mixed port. --retry-all-errors
+    # also covers a :7890 that accepts and then fails the request.
+    if ! curl -fs --retry 10 --retry-delay 1 --retry-all-errors \
+        -o /dev/null -x "$MIHOMO_PROXY_URL" https://www.youtube.com 2>/dev/null; then
         echo "status: FAIL - blocked site not reachable through $MIHOMO_PROXY_URL"
         failures=$((failures + 1))
     else
@@ -173,20 +171,6 @@ function statusproxy() {
     fi
     echo "status: all checks passed"
     return 0
-}
-
-# Run a probe (a command, no eval) until it succeeds or the budget is exhausted:
-# `_wait_for 10 2 pgrep -x mihomo`. One retry loop serves every wait in the script.
-function _wait_for() {
-    local tries="$1" delay="$2" i
-    shift 2
-    for ((i = 1; i <= tries; i++)); do
-        if "$@" >/dev/null 2>&1; then
-            return 0
-        fi
-        sleep "$delay"
-    done
-    return 1
 }
 
 function startproxy() {
