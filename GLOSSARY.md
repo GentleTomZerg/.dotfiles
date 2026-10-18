@@ -15,9 +15,9 @@ rules. Lives at `templates/base.yaml`.
 _Avoid_: template, main config
 
 **cache**:
-The fetched provider document mihomo keeps at `proxy_providers/<name>.yaml`. The
-lift rule's input.
-_Avoid_: provider file
+The document mihomo fetches for a provider and keeps at
+`proxy_providers/<name>.yaml` — the airport's own config. The lift rule's input.
+_Avoid_: provider, provider file
 
 **example**:
 A `templates/*.example.*` file — copied into `user/`, after which the copy is
@@ -45,7 +45,7 @@ _Avoid_: override, patch
 
 **provider**:
 One `proxy-providers` entry: an airport subscription, defined in
-`user/providers.yaml`. Also the document mihomo fetches for it.
+`user/providers.yaml`.
 _Avoid_: airport, subscription
 
 **runtime**:

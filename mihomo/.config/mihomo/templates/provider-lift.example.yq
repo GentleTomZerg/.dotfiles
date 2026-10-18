@@ -2,7 +2,7 @@
 # provider-lift.example.yq — which keys of a provider document become the overlay
 # ---------------------------------------------------------------------------
 #
-# Seeded to user/provider-lift.yq; render_config refuses to run without that copy.
+# Seeded to user/provider-lift.yq; startproxy refuses to run without that copy.
 #
 #   in : one provider cache document, e.g. proxy_providers/airport-1.yaml
 #   out: the overlay, or `{}` when there is nothing to lift

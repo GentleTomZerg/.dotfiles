@@ -25,17 +25,17 @@ MIHOMO_RUNTIME_PATH="$MIHOMO_HOME/generated/mihomo-runtime.yaml"
 MIHOMO_RETRY_TRIES=10
 MIHOMO_RETRY_DELAY=1
 
-function is_macos() {
+function _is_macos() {
     [[ "$(uname -s)" == "Darwin" ]]
 }
 
 # ---------------------------------------------------------------------------
 # Provider lift: apply MIHOMO_LIFT_RULE (user/provider-lift.yq) to a provider
-# cache and write what it returns to MIHOMO_OVERLAY_PATH, which render_config
+# cache and write what it returns to MIHOMO_OVERLAY_PATH, which _build_runtime
 # merges last. The rule names what may be lifted; this function only finds the
 # cache, applies the rule and reports the keys.
 # ---------------------------------------------------------------------------
-function render_override() {
+function _build_overlay() {
     # NOT `path`: in zsh `path` is tied to $PATH, so assigning it would break
     # every later `yq` in this function.
     local f keys
@@ -81,7 +81,7 @@ function render_override() {
 
 # Merge templates/base.yaml, user/providers.yaml, then generated/provider-overlay.yaml
 # (later wins; lists replace, not append). Rejected unless `mihomo -t` accepts it.
-function render_config() {
+function _build_runtime() {
     if [[ ! -f "$MIHOMO_PROVIDERS_PATH" ]]; then
         echo "Error: providers file not found at $MIHOMO_PROVIDERS_PATH" >&2
         echo "       cp $MIHOMO_PROVIDERS_SEED $MIHOMO_PROVIDERS_PATH" >&2
@@ -90,11 +90,11 @@ function render_config() {
     fi
 
     mkdir -p "$MIHOMO_HOME/generated"
-    render_override || return 1
+    _build_overlay || return 1
 
     if ! yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1) * select(fileIndex == 2)' \
         "$MIHOMO_BASE_PATH" "$MIHOMO_PROVIDERS_PATH" "$MIHOMO_OVERLAY_PATH" >"$MIHOMO_RUNTIME_PATH"; then
-        echo "Error: Failed to render runtime config." >&2
+        echo "Error: failed to build runtime config." >&2
         rm -f "$MIHOMO_RUNTIME_PATH" # Clean up partial output.
         return 1
     fi
@@ -103,7 +103,7 @@ function render_config() {
     # here. It does not check resolvers: an unresolvable nameserver passes.
     local test_output
     if ! test_output=$(mihomo -t -d "$MIHOMO_HOME" -f "$MIHOMO_RUNTIME_PATH" 2>&1); then
-        echo "Error: rendered config failed 'mihomo -t'; not starting." >&2
+        echo "Error: runtime config failed 'mihomo -t'; not starting." >&2
         printf '%s\n' "$test_output" >&2
         rm -f "$MIHOMO_RUNTIME_PATH"
         return 1
@@ -129,11 +129,11 @@ function statusproxy() {
     local failures=0 tries="$MIHOMO_RETRY_TRIES" delay="$MIHOMO_RETRY_DELAY"
 
     # 1. Process + API controller (readiness).
-    if ! wait_for "$tries" "$delay" pgrep -x mihomo; then
+    if ! _wait_for "$tries" "$delay" pgrep -x mihomo; then
         echo "status: FAIL - mihomo is not running"
         return 1
     fi
-    if ! wait_for "$tries" "$delay" \
+    if ! _wait_for "$tries" "$delay" \
         curl -fs -o /dev/null "$MIHOMO_CONTROLLER_URL/version"; then
         echo "status: FAIL - API controller not responding on $MIHOMO_CONTROLLER_URL"
         return 1
@@ -141,7 +141,7 @@ function statusproxy() {
     echo "status: ok - mihomo running, API controller up"
 
     # 2. A blocked site must be reachable through the mixed port.
-    if ! wait_for "$tries" "$delay" \
+    if ! _wait_for "$tries" "$delay" \
         curl -fs -o /dev/null -x "$MIHOMO_PROXY_URL" https://www.youtube.com; then
         echo "status: FAIL - blocked site not reachable through $MIHOMO_PROXY_URL"
         failures=$((failures + 1))
@@ -158,7 +158,7 @@ function statusproxy() {
     fi
 
     # 4. macOS only: system DNS pointed at mihomo's virtual IP.
-    if is_macos; then
+    if _is_macos; then
         if scutil --dns 2>/dev/null | grep -q "$MIHOMO_DNS_VIRTUAL_IP"; then
             echo "status: ok - system DNS routed to mihomo"
         else
@@ -176,8 +176,8 @@ function statusproxy() {
 }
 
 # Run a probe (a command, no eval) until it succeeds or the budget is exhausted:
-# `wait_for 10 2 pgrep -x mihomo`. One retry loop serves every wait in the script.
-function wait_for() {
+# `_wait_for 10 2 pgrep -x mihomo`. One retry loop serves every wait in the script.
+function _wait_for() {
     local tries="$1" delay="$2" i
     shift 2
     for ((i = 1; i <= tries; i++)); do
@@ -195,8 +195,8 @@ function startproxy() {
         return 1
     fi
 
-    # 2. Render the runtime config the launch step below reads.
-    if ! render_config; then
+    # 2. Build the runtime config the launch step below reads.
+    if ! _build_runtime; then
         return 1
     fi
 
@@ -206,7 +206,7 @@ function startproxy() {
         return 1
     fi
 
-    if is_macos; then
+    if _is_macos; then
         sudo networksetup -setdnsservers "$MIHOMO_NETWORK_SERVICE" "$MIHOMO_DNS_VIRTUAL_IP"
     fi
     # -d sets Home Dir to MIHOMO_HOME: relative provider `path:`, cache.db and
@@ -233,7 +233,7 @@ function stopproxy() {
     fi
 
     sudo kill "$(sudo pgrep -x mihomo)"
-    if is_macos; then
+    if _is_macos; then
         sudo networksetup -setdnsservers "$MIHOMO_NETWORK_SERVICE" Empty
     fi
 }

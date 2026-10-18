@@ -16,7 +16,7 @@ flowchart LR
   base["templates/base.yaml"]:::committed
   providers["user/providers.yaml<br/>yours, gitignored"]:::yours
   overlay["generated/provider-overlay.yaml<br/>derived"]:::derived
-  merge(["render_config merge<br/>later wins"])
+  merge(["_build_runtime merge<br/>later wins"])
   runtime["generated/mihomo-runtime.yaml<br/>derived"]:::derived
   run(["mihomo -t, then launch"]):::run
   cache["proxy_providers/&lt;name&gt;.yaml<br/>fetched cache"]:::derived
@@ -29,9 +29,10 @@ flowchart LR
   providers -.->|"mihomo fetches"| cache --> rule --> overlay
 ```
 
-`render_config` merges the three inputs in that order (later wins), writes the
-runtime config, then hands it to `mihomo -t` before anything is launched. Green is
-committed, amber is yours, dashed grey is rebuilt on every start.
+`startproxy` calls `_build_runtime`, which merges the three inputs in that order
+(later wins), writes the runtime config, then hands it to `mihomo -t` before
+anything is launched. Green is committed, amber is yours, dashed grey is rebuilt
+on every start.
 
 ## Files
 
@@ -58,10 +59,9 @@ exactly that reason.
 
 | command | |
 | --- | --- |
-| `startproxy` | Render, then start. Asks for sudo. Refuses to start a second mihomo. Returns 0 only when every check has passed. |
+| `startproxy` | Build, then start. Asks for sudo. Refuses to start a second mihomo. Returns 0 only when every check has passed. |
 | `stopproxy` | Stop mihomo; on macOS, reset system DNS. |
 | `statusproxy` | Re-check a live proxy: process, controller, a blocked site through `:7890`, the dashboard, and (macOS) the DNS pointer. Idempotent; non-zero on any failure. |
-| `render_config` | Rebuild and validate the runtime config without starting anything. Prints what was lifted. |
 | `setproxy` / `unsetproxy` | Export / unset the proxy environment variables **in this shell only**. |
 
 Set these in `mihomo-api.sh` (committed). Only `MIHOMO_HOME` is read from your
@@ -78,7 +78,7 @@ Dashboard: <http://127.0.0.1:9090/ui/>
 
 ## Where a setting goes
 
-Render merges three documents, in order: `templates/base.yaml`, then
+`startproxy` merges three documents, in order: `templates/base.yaml`, then
 `user/providers.yaml`, then `generated/provider-overlay.yaml` (produced by
 `user/provider-lift.yq`). Later wins.
 
@@ -103,7 +103,7 @@ DNS down with it. Drop `dns.nameserver` from `user/provider-lift.yq` if you woul
 rather keep the base's resolvers.
 
 Before the subscription has ever been fetched there is nothing to lift, so the
-base `dns:` answers and `render_config` prints `lift: nothing - no provider cache
+base `dns:` answers and `startproxy` prints `lift: nothing - no provider cache
 yet`.
 
 ## Troubleshooting
@@ -114,9 +114,9 @@ yet`.
 | `Error: providers file not found at …` | — | `cp templates/providers.example.yaml user/providers.yaml`, then fill in the URL |
 | `Error: lift rule not found at …` | — | `cp templates/provider-lift.example.yq user/provider-lift.yq` |
 | `Error: lift rule … failed on …` | `yq --from-file user/provider-lift.yq <cache>` | the yq error it hid; fix the rule you just edited |
-| `Error: rendered config failed 'mihomo -t'; not starting.` | the validator output printed under it | fix the file you just edited; `render_config` re-checks |
-| `status: FAIL - API controller not responding` | `curl -fsS 127.0.0.1:9090/version` | `stopproxy; startproxy`; still failing, `render_config` |
-| `status: FAIL - blocked site not reachable through …:7890` | `render_config`, then the dashboard at `:9090/ui/` | the nodes are usually at fault, not the proxy — check health and the selected group |
+| `Error: runtime config failed 'mihomo -t'; not starting.` | the validator output printed under it | fix the file you just edited; `startproxy` re-checks |
+| `status: FAIL - API controller not responding` | `curl -fsS 127.0.0.1:9090/version` | `stopproxy; startproxy`; still failing, read the validator output it prints |
+| `status: FAIL - blocked site not reachable through …:7890` | `stopproxy; startproxy`, then the dashboard at `:9090/ui/` | the nodes are usually at fault, not the proxy — check health and the selected group |
 | `status: FAIL - dashboard not served` | `ls ui/` | the `external-ui-url` download failed; delete `ui/` and restart |
 | `status: FAIL - system DNS not pointed at 198.18.0.2` | `scutil --dns \| grep 198.18` | wrong `MIHOMO_NETWORK_SERVICE` (hardcoded `Wi-Fi`); fix it and restart |
 | `lift: nothing - no provider cache yet` | — | not a failure; `stopproxy; startproxy` once the subscription has been fetched |

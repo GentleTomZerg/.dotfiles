@@ -267,7 +267,7 @@ zsh vi-mode is configured in `zshrc/.zshrc`; in the macOS terminal, copy/paste u
 if [[ ! -f ~/.config/mihomo/user/providers.yaml ]]; then
   cp ~/.config/mihomo/templates/providers.example.yaml ~/.config/mihomo/user/providers.yaml
 fi
-# The lift rule is yours too; seed it once. render_config refuses to run without it:
+# The lift rule is yours too; seed it once. startproxy refuses to run without it:
 if [[ ! -f ~/.config/mihomo/user/provider-lift.yq ]]; then
   cp ~/.config/mihomo/templates/provider-lift.example.yq ~/.config/mihomo/user/provider-lift.yq
 fi
