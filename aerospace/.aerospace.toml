@@ -1,61 +1,43 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
+# Stowed to ~/.aerospace.toml. Edit this file, not the symlink.
 
-# You can use it to add commands that run after login to macOS user session.
-# 'start-at-login' needs to be 'true' for 'after-login-command' to work
-# Available commands: https://nikitabobko.github.io/AeroSpace/commands
-after-login-command = []
+# Highest config version. Required for persistent-workspaces.
+config-version = 2
 
-# You can use it to add commands that run after AeroSpace startup.
-# 'after-startup-command' is run after 'after-login-command'
-# Available commands : https://nikitabobko.github.io/AeroSpace/commands
+# Reload when this file is saved.
+auto-reload-config = true
+
+# Runs after AeroSpace starts. Empty for now.
 after-startup-command = []
 
-# Start AeroSpace at login
 start-at-login = true
 
-# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+# Merge nested containers when possible.
 enable-normalization-flatten-containers = true
+# Nested containers get the orientation opposite to their parent.
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
-# The 'accordion-padding' specifies the size of accordion padding
-# You can set 0 to disable the padding feature
+# Padding around the active window in the accordion layout. 0 turns it off.
 accordion-padding = 30
 
-# Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
 
-# Possible values: horizontal|vertical|auto
-# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
-#               tall monitor (anything higher than wide) gets vertical orientation
+# 'auto' gives wide monitors a horizontal layout and tall monitors a vertical one.
 default-root-container-orientation = 'auto'
 
-# Mouse follows focus when focused monitor changes
-# Drop it from your config, if you don't like this behavior
-# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
-# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-# Fallback value (if you omit the key): on-focused-monitor-changed = []
+# Move the mouse onto the monitor that just got focus.
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
-# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
-# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
-# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+# Keep macOS "Hide application" (cmd-h) working.
 automatically-unhide-macos-hidden-apps = false
 
-# Possible values: (qwerty|dvorak)
-# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
+# Keep empty workspaces alive. The fallback under config-version 2 is an empty
+# list, so without this an empty alt-3 would disappear.
+persistent-workspaces = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
 [key-mapping]
     preset = 'qwerty'
 
-# Gaps between windows (inner-*) and between monitor edges (outer-*).
-# Possible values:
-# - Constant:     gaps.outer.top = 8
-# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
-#                 In this example, 24 is a default value when there is no match.
-#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
-#                 See:
-#                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+# Gaps in pixels, between windows and between windows and the monitor edge.
 [gaps]
     inner.horizontal = 10
     inner.vertical =   10
@@ -64,59 +46,42 @@ automatically-unhide-macos-hidden-apps = false
     outer.top =        10
     outer.right =      10
 
-# 'main' binding mode declaration
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-# 'main' binding mode must be always presented
-# Fallback value (if you omit the key): mode.main.binding = {}
+# AeroSpace does not merge binding tables with the defaults, so every key you
+# want must be listed here.
 [mode.main.binding]
 
-    # All possible keys:
-    # - Letters.        a, b, c, ..., z
-    # - Numbers.        0, 1, 2, ..., 9
-    # - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
-    # - F-keys.         f1, f2, ..., f20
-    # - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon,
-    #                   backtick, leftSquareBracket, rightSquareBracket, space, enter, esc,
-    #                   backspace, tab
-    # - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
-    #                   keypadMinus, keypadMultiply, keypadPlus
-    # - Arrows.         left, down, up, right
-
-    # All possible modifiers: cmd, alt, ctrl, shift
-
-    # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-    # alt-enter = 'exec-and-forget open -n -b "net.kovidgoyal.kitty"'
-    # alt-enter = 'exec-and-forget open -n -b "com.github.wez.wezterm"'
+    # Launch and capture.
     alt-enter = 'exec-and-forget open -n -b "com.mitchellh.ghostty"'
     alt-g = 'exec-and-forget open -b "com.google.Chrome"'
-    alt-down = 'volume down'
-    alt-up = 'volume up'
     alt-shift-s = 'exec-and-forget screencapture -i -c'
-    # See: https://nikitabobko.github.io/AeroSpace/commands#layout
+    alt-up = 'volume up'
+    alt-down = 'volume down'
+
+    # Layout.
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+    # Focus.
     alt-h = 'focus left'
     alt-j = 'focus down'
     alt-k = 'focus up'
     alt-l = 'focus right'
+
+    # These two reuse keys the default config gives to workspace F and Q.
     alt-f = 'macos-native-fullscreen'
     alt-q = 'close --quit-if-last-window'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move
+    # Move the focused window.
     alt-shift-h = 'move left'
     alt-shift-j = 'move down'
     alt-shift-k = 'move up'
     alt-shift-l = 'move right'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#resize
+    # Resize.
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+    # Switch workspace.
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
@@ -128,7 +93,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-9 = 'workspace 9'
     alt-0 = 'workspace 0'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+    # Send the focused window to a workspace.
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
     alt-shift-3 = 'move-node-to-workspace 3'
@@ -140,24 +105,16 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-9 = 'move-node-to-workspace 9'
     alt-shift-0 = 'move-node-to-workspace 0'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
 
-# 'service' binding mode declaration.
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# Service mode. Not merged with the defaults either.
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
-    r = ['flatten-workspace-tree', 'mode main'] # reset layout
-    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+    r = ['flatten-workspace-tree', 'mode main']
+    f = ['layout floating tiling', 'mode main']
     backspace = ['close-all-windows-but-current', 'mode main']
-
-    # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-    #s = ['layout sticky tiling', 'mode main']
 
     alt-shift-h = ['join-with left', 'mode main']
     alt-shift-j = ['join-with down', 'mode main']
@@ -168,14 +125,19 @@ automatically-unhide-macos-hidden-apps = false
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
 
+# Workspaces to monitors. Patterns are tried in order and the first one that
+# resolves wins. 'main' is the display macOS marks "Use as: Main display", and
+# the laptop panel can take that role when the lid opens, so it is only a
+# fallback. The regex below matches any monitor whose name lacks "built-in",
+# which is Apple's name for the panel. Unlisted workspaces are not pinned.
 [workspace-to-monitor-force-assignment]
-    0 = 'built-in'
-    1 = 'main'
-    2 = 'main'
-    3 = 'main'
-    4 = 'main'
-    5 = 'main'
-    6 = 'main'
-    7 = 'main'
-    8 = 'main'
-    9 = 'main'
+    0 = 'built-in'                          # laptop panel, one workspace
+    1 = ['^(?!.*built-in)', 'main']
+    2 = ['^(?!.*built-in)', 'main']
+    3 = ['^(?!.*built-in)', 'main']
+    4 = ['^(?!.*built-in)', 'main']
+    5 = ['^(?!.*built-in)', 'main']
+    6 = ['^(?!.*built-in)', 'main']
+    7 = ['^(?!.*built-in)', 'main']
+    8 = ['^(?!.*built-in)', 'main']
+    9 = ['^(?!.*built-in)', 'main']
