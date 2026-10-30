@@ -580,6 +580,10 @@ hl.window_rule({
 
 -- Autostart
 hl.on("hyprland.start", function()
+	-- input method: start here (once, with the compositor's env) — never on
+	-- config.reloaded, or a reload can replace a healthy instance with one
+	-- that inherited an empty WAYLAND_DISPLAY and break text-input in Chrome.
+	hl.exec_cmd("fcitx5 -d")
 	hl.exec_cmd("vicinae server")
 	hl.exec_cmd("ghostty")
 	hl.exec_cmd("nm-applet &")
@@ -588,9 +592,4 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
-end)
-
--- Exec (run every reload)
-hl.on("config.reloaded", function()
-	hl.exec_cmd("fcitx5 -d")
 end)
