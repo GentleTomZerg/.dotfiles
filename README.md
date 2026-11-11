@@ -360,13 +360,25 @@ Set the IM environment variables (X11 / Xwayland apps; native Wayland uses `text
 
 ```bash
 sudo tee /etc/environment >/dev/null <<'EOF'
-GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=ibus
 EOF
 ```
+
+Deliberately **no `GTK_IM_MODULE`**: GTK 3/4 speak `text-input-v3` on Wayland, and fcitx5 pops a "Detect GTK_IM_MODULE being set … recommended to unset GTK_IM_MODULE" notification when it sees the var. `QT_IM_MODULE` stays because Qt 6 outside KWin still prefers the fcitx module (Hyprland's `text-input-v3` has known glitches). X11/Xwayland GTK apps get the IM module from the toolkit config instead, which Wayland ignores:
+
+```bash
+for v in 3.0 4.0; do
+  f=~/.config/gtk-$v/settings.ini
+  mkdir -p "$(dirname "$f")"
+  grep -qx '\[Settings\]' "$f" 2>/dev/null || echo '[Settings]' >> "$f"
+  grep -q '^gtk-im-module=' "$f" || echo 'gtk-im-module=fcitx' >> "$f"
+done
+```
+
+(GTK 2 would be `gtk-im-module="fcitx"` in `~/.gtkrc-2.0`.)
 
 Deploy rime-ice into fcitx5-rime's user dir:
 
@@ -383,7 +395,7 @@ fcitx5 -rd   # restart fcitx5
 **CHECK** —
 
 ```bash
-fcitx5-diagnose | grep -iE 'GTK_IM_MODULE|QT_IM_MODULE|XMODIFIERS' | head
+fcitx5-diagnose | grep -iE 'GTK_IM_MODULE|QT_IM_MODULE|XMODIFIERS' | head   # no "GTK_IM_MODULE being set" notice
 ls ~/.local/share/fcitx5/rime | head
 ```
 
