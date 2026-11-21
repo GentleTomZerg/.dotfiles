@@ -146,7 +146,7 @@ stow --no-folding mihomo neovim yazi
 
 # Pure configuration trees.  Folding is safe here, and it makes fewer symlinks.
 stow aerospace dunst electronflags ghostty hyprland i3 ideavimrc kitty \
-  polybar rofi sioyek starship surfingkeys tmux tmuxifier waybar \
+  polybar rex rofi sioyek starship surfingkeys tmux tmuxifier waybar \
   wezterm zshrc
 ```
 
@@ -162,7 +162,8 @@ stow aerospace dunst electronflags ghostty hyprland i3 ideavimrc kitty \
 
 ```bash
 for f in ~/.zshrc ~/.config/mihomo/templates/base.yaml ~/.config/nvim ~/.config/rofi \
-         ~/.config/starship.toml ~/.tmux.conf ~/.config/yazi ~/.wezterm.lua; do
+         ~/.config/starship.toml ~/.tmux.conf ~/.config/yazi ~/.wezterm.lua \
+         ~/.config/rex/init.lua; do
   test -e "$f" && echo "OK   $f" || echo "MISS $f"
 done
 ```
