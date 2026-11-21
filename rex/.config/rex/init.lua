@@ -1,8 +1,6 @@
 -- Migrated from tmux (prefix ctrl+space).
-rex.bind("ctrl+space>shift+\\", "pane.split", { direction = "right" })
-rex.bind("ctrl+space>\\", "pane.split", { direction = "down" })
+rex.bind("ctrl+space>enter", "pane.split.auto")  -- best-fit split
 rex.bind("ctrl+space>r", "client.config.reload")
-rex.bind("ctrl+space>v", "pane.split", { direction = "right" })
 
 -- tmux-style pane focus: arrows and vim keys.
 rex.bind("ctrl+space>left", "pane.focus", { direction = "left" })
