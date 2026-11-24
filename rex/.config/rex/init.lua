@@ -25,5 +25,8 @@ rex.bind("ctrl+space>s", "session.switch")
 rex.bind("ctrl+space>shift+;", "client.palette.toggle")  -- tmux command prompt (:)
 rex.bind("ctrl+space>w", "pane.go_to")
 
+-- tmux-style copy mode: prefix + [ enters copy mode.
+rex.bind("ctrl+space>[", "pane.copy_mode.enter")
+
 -- Let the prefix reach programs that use ctrl+space themselves.
 rex.bind("ctrl+space>ctrl+space", "pane.send_key", { key = "ctrl+space" })
