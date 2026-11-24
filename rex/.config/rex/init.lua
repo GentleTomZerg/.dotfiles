@@ -1,5 +1,5 @@
 -- Migrated from tmux (prefix ctrl+space).
-rex.bind("ctrl+space>enter", "pane.split.auto")  -- best-fit split
+rex.bind("ctrl+space>enter", "pane.split.auto") -- best-fit split
 rex.bind("ctrl+space>r", "client.config.reload")
 
 -- tmux-style pane focus: arrows and vim keys.
@@ -22,7 +22,7 @@ rex.bind("ctrl+space>n", "client.tab.next")
 rex.bind("ctrl+space>p", "client.tab.previous")
 rex.bind("ctrl+space>shift+7", "client.tab.close")
 rex.bind("ctrl+space>s", "session.switch")
-rex.bind("ctrl+space>shift+;", "client.palette.toggle")  -- tmux command prompt (:)
+rex.bind("ctrl+space>shift+;", "client.palette.toggle") -- tmux command prompt (:)
 rex.bind("ctrl+space>w", "pane.go_to")
 
 -- tmux-style copy mode: prefix + [ enters copy mode.
