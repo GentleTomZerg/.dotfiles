@@ -14,8 +14,6 @@ rex.bind("ctrl+space>k", "pane.focus", { direction = "up", wrap = false })
 rex.bind("ctrl+space>l", "pane.focus", { direction = "right", wrap = false })
 
 -- tmux-style pane and tab navigation.
-rex.bind("ctrl+space>o", "pane.focus_next")
-rex.bind("ctrl+space>;", "pane.focus_recent")
 rex.bind("ctrl+space>z", "pane.zoom")
 rex.bind("ctrl+space>x", "pane.close")
 rex.bind("ctrl+space>c", "client.tab.new")
